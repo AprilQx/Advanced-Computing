@@ -1,0 +1,50 @@
+COMPREHENSIVE PROFILING SUMMARY
+===============================
+
+Top functions from gprof:
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00      100     0.00     0.00  HeatDiffusion::update()
+  0.00      0.00     0.00       14     0.00     0.00  frame_dummy
+  0.00      0.00     0.00       10     0.00     0.00  HeatDiffusion::saveFrame(int)
+  0.00      0.00     0.00        2     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        2     0.00     0.00  std::vector<std::vector<double, std::allocator<double> >, std::allocator<std::vector<double, std::allocator<double> > > >::~vector()
+  0.00      0.00     0.00        1     0.00     0.00  HeatDiffusion::HeatDiffusion(int, int, double, bool)
+  0.00      0.00     0.00        1     0.00     0.00  HeatDiffusion::getChecksum() const
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+Cache statistics (cachegrind):
+
+Memory usage (massif):
+
+Performance by grid size:
+Grid size 100x100:
+Average Iteration Time: 0.457556 ms
+Performance: 2.18553e+07 cell updates per second
+Memory Usage: 43664 KB (+0 KB from start)
+
+Grid size 200x200:
+Average Iteration Time: 1.54172 ms
+Performance: 2.59451e+07 cell updates per second
+Memory Usage: 43660 KB (+0 KB from start)
+
+Grid size 500x500:
+Average Iteration Time: 9.32108 ms
+Performance: 2.68209e+07 cell updates per second
+Memory Usage: 43540 KB (+0 KB from start)
+
+Grid size 1000x1000:
+Average Iteration Time: 37.9545 ms
+Performance: 2.63473e+07 cell updates per second
+Memory Usage: 53324 KB (+9660 KB from start)
+

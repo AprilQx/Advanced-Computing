@@ -1,0 +1,30 @@
+Running benchmark with grid size 100x100 for 100 iterations (no output)
+Iteration 0 completed in 0.789459 ms
+Iteration 10 completed in 0.1035 ms
+Iteration 20 completed in 0.100833 ms
+Iteration 30 completed in 0.104375 ms
+Iteration 40 completed in 0.108542 ms
+Iteration 50 completed in 0.106791 ms
+Iteration 60 completed in 0.100917 ms
+Iteration 70 completed in 0.100583 ms
+Iteration 80 completed in 0.101208 ms
+Iteration 90 completed in 0.100709 ms
+
+=== BENCHMARK RESULTS ===
+Grid Size: 100x100 (10000 cells)
+Iterations: 100
+
+Timing Statistics:
+  Setup Time: 1.10508 ms
+  Total Simulation Time: 17.3337 ms
+  Average Iteration Time: 0.173337 ms
+  Min/Max Iteration Time: 0.100542/0.789459 ms
+
+Performance Statistics:
+  Performance: 5.76909e+07 cell updates per second
+
+Memory Usage:
+  Memory Increase: 0 KB
+
+Numerical Stability:
+  Checksum: 203920

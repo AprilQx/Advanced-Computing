@@ -1,0 +1,302 @@
+--------------------------------------------------------------------------------
+Command:            ./heat_diffusion_benchmark --size 500 --iterations 100
+Massif arguments:   (none)
+ms_print arguments: massif.out.1105 massif.out.428 massif.out.584 massif.out.740
+--------------------------------------------------------------------------------
+
+
+    MB
+3.948^                                                                       #
+     | ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
+     | @                                                                     #
+     | @                                                                     #
+     | @                                                                     #
+     |:@                                                                     #
+     |:@                                                                     #
+     |:@                                                                     #
+     |:@                                                                     #
+     |:@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+     |@@                                                                     #
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   170.7
+
+Number of snapshots: 77
+ Detailed snapshots: [4, 8, 13, 26, 31, 32, 53, 63, 71 (peak)]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      1,821,597           29,720           29,712             8            0
+  2      1,828,266          102,432          102,416            16            0
+  3      1,929,788          106,536          106,512            24            0
+  4      1,950,447          178,664          178,512           152            0
+99.91% (178,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->40.69% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->40.69% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->40.69% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->40.69% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->40.69% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->31.34% (56,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->31.34% (56,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->16.63% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->16.63% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->16.63% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->06.72% (12,000B) 0x10B2D7: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->06.72% (12,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->02.29% (4,096B) 0x4B488F3: _IO_file_doallocate (filedoalloc.c:101)
+| ->02.29% (4,096B) 0x4B571EF: _IO_doallocbuf (genops.c:347)
+|   ->02.29% (4,096B) 0x4B571EF: _IO_doallocbuf (genops.c:342)
+|     ->02.29% (4,096B) 0x4B565B7: _IO_file_overflow@@GLIBC_2.17 (fileops.c:744)
+|       ->02.29% (4,096B) 0x4B55707: _IO_new_file_xsputn (fileops.c:1243)
+|         ->02.29% (4,096B) 0x4B55707: _IO_file_xsputn@@GLIBC_2.17 (fileops.c:1196)
+|           ->02.29% (4,096B) 0x4B49E6F: fwrite (iofwrite.c:39)
+|             ->02.29% (4,096B) 0x49B47B7: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+|               ->02.29% (4,096B) 0x10A00F: main (in /app/build/heat_diffusion_benchmark)
+|                 
+->02.24% (4,000B) 0x10B263: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+  ->02.24% (4,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+    
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  5      1,972,783          306,920          306,512           408            0
+  6      1,983,951          371,048          370,512           536            0
+  7      1,995,119          435,176          434,512           664            0
+  8      2,006,287          499,304          498,512           792            0
+99.84% (498,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->75.30% (376,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->75.30% (376,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->14.56% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->14.56% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->14.56% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->14.56% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->14.56% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->05.95% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->05.95% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->05.95% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->02.40% (12,000B) 0x10B2D7: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->02.40% (12,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->01.62% (8,096B) in 2 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  9      2,017,455          563,432          562,512           920            0
+ 10      2,028,623          627,560          626,512         1,048            0
+ 11      2,039,791          691,688          690,512         1,176            0
+ 12      2,050,959          755,816          754,512         1,304            0
+ 13      2,062,127          819,944          818,512         1,432            0
+99.83% (818,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->84.88% (696,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->84.88% (696,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->08.87% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->08.87% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->08.87% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->08.87% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->08.87% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->03.62% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->03.62% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->03.62% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->01.46% (12,000B) 0x10B2D7: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->01.46% (12,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->00.99% (8,096B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 14      2,073,295          884,072          882,512         1,560            0
+ 15      2,084,463          948,200          946,512         1,688            0
+ 16      2,095,631        1,012,328        1,010,512         1,816            0
+ 17      2,106,799        1,076,456        1,074,512         1,944            0
+ 18      2,117,967        1,140,584        1,138,512         2,072            0
+ 19      2,129,135        1,204,712        1,202,512         2,200            0
+ 20      2,140,303        1,268,840        1,266,512         2,328            0
+ 21      2,151,471        1,332,968        1,330,512         2,456            0
+ 22      2,162,639        1,397,096        1,394,512         2,584            0
+ 23      2,173,807        1,461,224        1,458,512         2,712            0
+ 24      2,184,975        1,525,352        1,522,512         2,840            0
+ 25      2,196,143        1,589,480        1,586,512         2,968            0
+ 26      2,215,687        1,701,704        1,698,512         3,192            0
+99.81% (1,698,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->92.61% (1,576,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->92.61% (1,576,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->04.27% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->04.27% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->04.27% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->04.27% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->04.27% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.75% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->01.75% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->01.75% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->01.18% (20,096B) in 3 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 27      2,226,855        1,765,832        1,762,512         3,320            0
+ 28      2,238,023        1,829,960        1,826,512         3,448            0
+ 29      2,249,191        1,894,088        1,890,512         3,576            0
+ 30      2,260,359        1,958,216        1,954,512         3,704            0
+ 31      2,271,527        2,022,344        2,018,512         3,832            0
+99.81% (2,018,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->93.75% (1,896,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->93.75% (1,896,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->03.60% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->03.60% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->03.60% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->03.60% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->03.60% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.47% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->01.47% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->01.47% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->00.99% (20,096B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 32      2,290,380        2,126,552        2,122,512         4,040            0
+99.81% (2,122,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->94.05% (2,000,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->94.05% (2,000,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->03.42% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->03.42% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->03.42% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->03.42% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->03.42% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.40% (29,712B) 0x4BC9387: monstartup (gmon.c:153)
+| ->01.40% (29,712B) 0x10AC33: __gmon_start__ (in /app/build/heat_diffusion_benchmark)
+|   ->01.40% (29,712B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->00.95% (20,096B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 33      2,307,593        2,234,752        2,230,512         4,240            0
+ 34      2,319,001        2,298,880        2,294,512         4,368            0
+ 35      2,330,409        2,363,008        2,358,512         4,496            0
+ 36      2,341,817        2,427,136        2,422,512         4,624            0
+ 37      2,353,225        2,491,264        2,486,512         4,752            0
+ 38      2,364,633        2,555,392        2,550,512         4,880            0
+ 39      2,376,041        2,619,520        2,614,512         5,008            0
+ 40      2,387,449        2,683,648        2,678,512         5,136            0
+ 41      2,398,857        2,747,776        2,742,512         5,264            0
+ 42      2,410,265        2,811,904        2,806,512         5,392            0
+ 43      2,421,673        2,876,032        2,870,512         5,520            0
+ 44      2,433,081        2,940,160        2,934,512         5,648            0
+ 45      2,444,489        3,004,288        2,998,512         5,776            0
+ 46      2,455,897        3,068,416        3,062,512         5,904            0
+ 47      2,467,305        3,132,544        3,126,512         6,032            0
+ 48      2,478,713        3,196,672        3,190,512         6,160            0
+ 49      2,495,825        3,292,864        3,286,512         6,352            0
+ 50      2,502,955        3,332,944        3,326,512         6,432            0
+ 51      2,510,085        3,373,024        3,366,512         6,512            0
+ 52      2,517,215        3,413,104        3,406,512         6,592            0
+ 53      2,524,345        3,453,184        3,446,512         6,672            0
+99.81% (3,446,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->57.92% (2,000,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->57.92% (2,000,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->38.11% (1,316,000B) 0x10B84B: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->38.11% (1,316,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->02.11% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->02.11% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->02.11% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->02.11% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->02.11% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.67% (57,808B) in 5 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 54      2,531,475        3,493,264        3,486,512         6,752            0
+ 55      2,538,605        3,533,344        3,526,512         6,832            0
+ 56      2,545,735        3,573,424        3,566,512         6,912            0
+ 57      2,552,865        3,613,504        3,606,512         6,992            0
+ 58      2,559,995        3,653,584        3,646,512         7,072            0
+ 59      2,567,125        3,693,664        3,686,512         7,152            0
+ 60      2,574,255        3,733,744        3,726,512         7,232            0
+ 61      2,581,385        3,773,824        3,766,512         7,312            0
+ 62      2,588,515        3,813,904        3,806,512         7,392            0
+ 63      2,595,645        3,853,984        3,846,512         7,472            0
+99.81% (3,846,512B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->51.89% (2,000,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->51.89% (2,000,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->44.53% (1,716,000B) 0x10B84B: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->44.53% (1,716,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->01.89% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.89% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.89% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.89% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.89% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.50% (57,808B) in 5 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 64      2,602,775        3,894,064        3,886,512         7,552            0
+ 65      2,609,905        3,934,144        3,926,512         7,632            0
+ 66      2,617,035        3,974,224        3,966,512         7,712            0
+ 67      2,624,165        4,014,304        4,006,512         7,792            0
+ 68      2,631,295        4,054,384        4,046,512         7,872            0
+ 69      2,638,425        4,094,464        4,086,512         7,952            0
+ 70      2,645,555        4,134,544        4,126,512         8,032            0
+ 71    178,952,750        4,139,360        4,131,312         8,048            0
+99.81% (4,131,312B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.32% (2,000,000B) 0x10B307: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->48.32% (2,000,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->48.32% (2,000,000B) 0x10B84B: HeatDiffusion::HeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_benchmark)
+| ->48.32% (2,000,000B) 0x10A117: main (in /app/build/heat_diffusion_benchmark)
+|   
+->01.76% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.76% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.76% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.76% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.76% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->01.42% (58,608B) in 6 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 72    178,959,453        3,457,192        3,450,512         6,680            0
+ 73    178,966,122        2,771,824        2,766,512         5,312            0
+ 74    178,972,828        2,082,464        2,078,512         3,952            0
+ 75    178,979,497        1,397,096        1,394,512         2,584            0
+ 76    178,986,166          711,728          710,512         1,216            0

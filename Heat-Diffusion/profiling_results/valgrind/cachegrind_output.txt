@@ -1,0 +1,25 @@
+Running benchmark with grid size 100x100 for 100 iterations (no output)
+Initial memory usage: 42652 KB
+Memory after setup: 42652 KB (+0 KB)
+Iteration 0 completed in 1.32171 ms
+Iteration 10 completed in 0.363375 ms
+Iteration 20 completed in 0.357167 ms
+Iteration 30 completed in 0.362375 ms
+Iteration 40 completed in 0.363 ms
+Iteration 50 completed in 0.368209 ms
+Iteration 60 completed in 0.35725 ms
+Iteration 70 completed in 0.357042 ms
+Iteration 80 completed in 0.362792 ms
+Iteration 90 completed in 0.357083 ms
+
+=== BENCHMARK RESULTS ===
+Grid Size: 100x100 (10000 cells)
+Iterations: 100
+Setup Time: 3.56296 ms
+Total Simulation Time: 46.1767 ms
+Average Iteration Time: 0.461767 ms
+Min Iteration Time: 0.356042 ms
+Max Iteration Time: 1.32171 ms
+Performance: 2.1656e+07 cell updates per second
+Memory Usage: 42652 KB (+0 KB from start)
+Checksum: 203920

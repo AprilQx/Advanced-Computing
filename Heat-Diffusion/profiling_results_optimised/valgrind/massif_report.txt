@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------
+Command:            ./heat_diffusion_optimized_benchmark --size 500 --iterations 100
+Massif arguments:   (none)
+ms_print arguments: massif.out.1294
+--------------------------------------------------------------------------------
+
+
+    MB
+3.915^ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+     |::                                                                     #
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   170.1
+
+Number of snapshots: 14
+ Detailed snapshots: [7 (peak)]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      1,821,780           27,720           27,704            16            0
+  2      1,828,445          100,432          100,408            24            0
+  3      1,929,978          104,536          104,504            32            0
+  4      1,939,302        2,104,544        2,104,504            40            0
+  5      1,939,348        4,104,552        4,104,504            48            0
+  6      2,564,871        4,105,360        4,105,304            56            0
+  7    178,291,263        4,105,360        4,105,304            56            0
+100.00% (4,105,304B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.72% (2,000,000B) 0x10B03F: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark)
+| ->48.72% (2,000,000B) 0x10A0E3: main (in /app/build/heat_diffusion_optimized_benchmark)
+|   
+->48.72% (2,000,000B) 0x10B05F: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark)
+| ->48.72% (2,000,000B) 0x10A0E3: main (in /app/build/heat_diffusion_optimized_benchmark)
+|   
+->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->00.79% (32,600B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  8    178,291,263        4,104,552        4,104,504            48            0
+  9    178,291,369        2,104,544        2,104,504            40            0
+ 10    178,291,407          104,536          104,504            32            0
+ 11    178,306,081           76,816           76,800            16            0
+ 12    178,314,863            4,104            4,096             8            0
+ 13    178,316,768                0                0             0            0
