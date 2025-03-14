@@ -4,7 +4,7 @@
  */
 
 
- #include "../src/optimized_v2/optimized_heat_diffusion.h"
+ #include "../src/optimized_v3/optimized_heat_diffusion.h"
  #include <iostream>
  #include <chrono>
  #include <iomanip>

@@ -176,9 +176,9 @@ set(OPTIMIZED_SOURCES_v1
 )
 
 # Source files for optimized program
-set(OPTIMIZED_SOURCES_v2
-    src/optimized_v2/optimized_heat_diffusion.cpp
-    src/optimized_v2/main_optimized.cpp
+set(OPTIMIZED_SOURCES_v3
+    src/optimized_v3/optimized_heat_diffusion.cpp
+    src/optimized_v3/main_optimized.cpp
 )
 
 # Benchmark sources
@@ -203,9 +203,9 @@ set(OPTIMIZED_BENCHMARK_SOURCES_v1
 
 
 # Optimized benchmark sources
-set(OPTIMIZED_BENCHMARK_SOURCES_v2
-    benchmark/heat_diffusion_benchmark_optimised_timing_v2.cpp
-    src/optimized_v2/optimized_heat_diffusion.cpp
+set(OPTIMIZED_BENCHMARK_SOURCES_v3
+    benchmark/heat_diffusion_benchmark_optimised_timing_v3.cpp
+    src/optimized_v3/optimized_heat_diffusion.cpp
 )
 
 # Validation tool sources
@@ -252,11 +252,11 @@ if(FILESYSTEM_LIBRARIES)
 endif()
 
 
-#v2
-add_executable(heat_diffusion_optimized_v2 ${OPTIMIZED_SOURCES_v2})
-target_compile_options(heat_diffusion_optimized_v2 PRIVATE ${BASE_FLAGS_LIST} ${DEV_FLAGS_LIST})
+#v3
+add_executable(heat_diffusion_optimized_v3 ${OPTIMIZED_SOURCES_v3})
+target_compile_options(heat_diffusion_optimized_v3 PRIVATE ${BASE_FLAGS_LIST} ${DEV_FLAGS_LIST})
 if(FILESYSTEM_LIBRARIES)
-    target_link_libraries(heat_diffusion_optimized_v2 PRIVATE ${FILESYSTEM_LIBRARIES})
+    target_link_libraries(heat_diffusion_optimized_v3 PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
 
@@ -282,10 +282,10 @@ if(FILESYSTEM_LIBRARIES)
 endif()
 
 
-add_executable(heat_diffusion_optimized_benchmark_v2 ${OPTIMIZED_BENCHMARK_SOURCES_v2})
-target_compile_options(heat_diffusion_optimized_benchmark_v2 PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
+add_executable(heat_diffusion_optimized_benchmark_v3 ${OPTIMIZED_BENCHMARK_SOURCES_v3})
+target_compile_options(heat_diffusion_optimized_benchmark_v3 PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
 if(FILESYSTEM_LIBRARIES)
-    target_link_libraries(heat_diffusion_optimized_benchmark_v2 PRIVATE ${FILESYSTEM_LIBRARIES})
+    target_link_libraries(heat_diffusion_optimized_benchmark_v3 PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
 
@@ -307,7 +307,7 @@ option(ENABLE_VALIDATION "Enable validation mode for simulations" on)
 if(ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion PRIVATE ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion_optimized_v1 PRIVATE ENABLE_VALIDATION)
-    target_compile_definitions(heat_diffusion_optimized_v2 PRIVATE ENABLE_VALIDATION)
+    target_compile_definitions(heat_diffusion_optimized_v3 PRIVATE ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion_mpi PRIVATE ENABLE_VALIDATION)
     message(STATUS "Validation mode enabled for heat_diffusion")
 endif()
@@ -330,13 +330,13 @@ endif()
 install(TARGETS 
         heat_diffusion 
         heat_diffusion_optimized_v1 
-        heat_diffusion_optimized_v2 
+        heat_diffusion_optimized_v3
         heat_diffusion_mpi 
         validate 
         test_validation 
         heat_diffusion_benchmark 
         heat_diffusion_optimized_benchmark_v1 
-        heat_diffusion_optimized_benchmark_v2
+        heat_diffusion_optimized_benchmark_v3
         RUNTIME DESTINATION bin)
 
 
