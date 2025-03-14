@@ -175,6 +175,12 @@ set(OPTIMIZED_SOURCES_v1
     src/optimized_v1/main_optimized.cpp
 )
 
+set(OPTIMIZED_SOURCES_v2
+    src/optimized_v2/optimized_heat_diffusion.cpp
+    src/optimized_v2/main_optimized.cpp
+)
+
+
 # Source files for optimized program
 set(OPTIMIZED_SOURCES_v3
     src/optimized_v3/optimized_heat_diffusion.cpp
@@ -201,6 +207,11 @@ set(OPTIMIZED_BENCHMARK_SOURCES_v1
     src/optimized_v1/optimized_heat_diffusion.cpp
 )
 
+# Optimized benchmark sources
+set(OPTIMIZED_BENCHMARK_SOURCES_v2
+    benchmark/heat_diffusion_benchmark_optimised_timing_v2.cpp
+    src/optimized_v2/optimized_heat_diffusion.cpp
+)
 
 # Optimized benchmark sources
 set(OPTIMIZED_BENCHMARK_SOURCES_v3
@@ -251,6 +262,12 @@ if(FILESYSTEM_LIBRARIES)
     target_link_libraries(heat_diffusion_optimized_v1 PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
+#v2
+add_executable(heat_diffusion_optimized_v2 ${OPTIMIZED_SOURCES_v2})
+target_compile_options(heat_diffusion_optimized_v2 PRIVATE ${BASE_FLAGS_LIST} ${DEV_FLAGS_LIST})
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(heat_diffusion_optimized_v2 PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
 
 #v3
 add_executable(heat_diffusion_optimized_v3 ${OPTIMIZED_SOURCES_v3})
@@ -279,6 +296,12 @@ add_executable(heat_diffusion_optimized_benchmark_v1 ${OPTIMIZED_BENCHMARK_SOURC
 target_compile_options(heat_diffusion_optimized_benchmark_v1 PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
 if(FILESYSTEM_LIBRARIES)
     target_link_libraries(heat_diffusion_optimized_benchmark_v1 PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
+
+add_executable(heat_diffusion_optimized_benchmark_v2 ${OPTIMIZED_BENCHMARK_SOURCES_v1})
+target_compile_options(heat_diffusion_optimized_benchmark_v2 PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(heat_diffusion_optimized_benchmark_v2 PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
 

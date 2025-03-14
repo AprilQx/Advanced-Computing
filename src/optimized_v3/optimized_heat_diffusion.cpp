@@ -1,7 +1,16 @@
 /**
  * @file optimized_heat_diffusion_2d.cpp
  * @brief Implementation of heat diffusion using 2D arrays with cache blocking
+ * 
+ *  *
+ * Optimizations:
+ * - Cached row access
+ * - Const references and pre-computed constants
+ * - Optimized memory access patterns
+ * - Optional output to reduce benchmark overhead
+ * - Performance statistics reporting
  */
+
 
  #include "optimized_heat_diffusion.h"
  #include <iostream>
@@ -9,6 +18,8 @@
  #include <cstdlib>
  #include <algorithm>
  #include <cmath>
+ #include <chrono>
+ #include "../../include/Array_2D/Array_2D.h"
  
  OptimizedHeatDiffusion2D::OptimizedHeatDiffusion2D(int w, int h, double rate, bool save)
      : width(w), height(h), diffusionRate(rate), saveOutput(save), frameCount(0) {
@@ -53,7 +64,7 @@
  void OptimizedHeatDiffusion2D::update() {
      // Try smaller block sizes for this problem size
      // These can be tuned for your specific hardware
-     const int blockSizeY = 144;
+     const int blockSizeY = 144; //BUGS!!!!!!!!!!!
      const int blockSizeX = 144;
      
      // Pre-compute constants outside all loops

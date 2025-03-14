@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Test program for the 2D array with cache blocking implementation
+ * @brief Test program for the 2D array 
  */
 
  #include "optimized_heat_diffusion.h"
@@ -10,7 +10,7 @@
  #include <numeric>
  #include <cmath>
  #include <algorithm>
-    #include "../../include/Array_2D/Array_2D.h"
+ #include "../../include/Array_2D/Array_2D.h"
  
  int main(int argc, char* argv[]) {
      // Default settings
