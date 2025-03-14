@@ -53,8 +53,8 @@
  void OptimizedHeatDiffusion2D::update() {
      // Try smaller block sizes for this problem size
      // These can be tuned for your specific hardware
-     const int blockSizeY = 16;
-     const int blockSizeX = 16;
+     const int blockSizeY = 144;
+     const int blockSizeX = 144;
      
      // Pre-compute constants outside all loops
      const double diffusionFactor = diffusionRate;

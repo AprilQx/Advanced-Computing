@@ -77,7 +77,6 @@
  
  void OptimizedHeatDiffusionMPI::initMPI() {
      // Create a 2D Cartesian process grid
-     // Try to find a good decomposition (as square as possible)
      dims[0] = dims[1] = 0;  // Let MPI decide the dimensions
      MPI_Dims_create(worldSize, 2, dims);
      
@@ -113,8 +112,7 @@
      // Get neighbor ranks (MPI_PROC_NULL is automatically assigned for boundary processes)
      MPI_Cart_shift(cartComm, 0, 1, &neighbors[0], &neighbors[2]);  // North and South
      MPI_Cart_shift(cartComm, 1, 1, &neighbors[3], &neighbors[1]);  // West and East
-     
-     // Create derived datatypes for halo exchange
+
      // For row exchange (horizontal halos)
      MPI_Type_contiguous(localWidth, MPI_DOUBLE, &haloRowType);
      MPI_Type_commit(&haloRowType);

@@ -9,6 +9,7 @@
  #include <chrono>
  #include <numeric>
  #include <cmath>
+ #include <algorithm>
  
  int main(int argc, char* argv[]) {
      // Default settings

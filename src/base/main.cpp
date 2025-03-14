@@ -47,13 +47,13 @@
   */
  int main(int argc, char* argv[]) {
      // Default settings
-     int width = 1000;
-     int height = 1000;
+     int width = 100;
+     int height = 100;
      double diffusionRate = 0.1;
-     int totalFrames = 1000;
+     int totalFrames = 100;
      bool saveOutput = false;
      std::string outputDir = "output/base";
-     int numRuns = 1;
+     int numRuns = 10;
      std::vector<double> runTimes;
      
      // Parse command line arguments
