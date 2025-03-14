@@ -22,22 +22,12 @@
  #include "../../include/Array_2D/Array_2D.h"
  
  OptimizedHeatDiffusion2D::OptimizedHeatDiffusion2D(int w, int h, double rate, bool save)
-     : width(w), height(h), diffusionRate(rate), saveOutput(save), frameCount(0) {
+     : width(w), height(h), diffusionRate(rate),temperature(h,w),nextTemperature(h,w), saveOutput(save), frameCount(0) {
      
-     // Allocate 2D arrays for temperature grids
-     temperature = new double*[height];
-     nextTemperature = new double*[height];
+     // Initialize with ambient temperature (20°C)
+     temperature.fill(20.0);
+     nextTemperature.fill(20.0);
      
-     for (int i = 0; i < height; ++i) {
-         temperature[i] = new double[width];
-         nextTemperature[i] = new double[width];
-         
-         // Initialize with ambient temperature (20°C)
-         for (int j = 0; j < width; ++j) {
-             temperature[i][j] = 20.0;
-             nextTemperature[i][j] = 20.0;
-         }
-     }
      
      // Set up initial conditions - hot spot in the middle (100°C)
      int centerX = width / 2;
@@ -45,32 +35,28 @@
      for (int y = centerY - 3; y <= centerY + 3; y++) {
          for (int x = centerX - 3; x <= centerX + 3; x++) {
              if (y >= 0 && y < height && x >= 0 && x < width) {
-                 temperature[y][x] = 100.0;
+                 temperature(y, x) = 100.0;
              }
          }
      }
  }
  
- OptimizedHeatDiffusion2D::~OptimizedHeatDiffusion2D() {
-     // Free memory
-     for (int i = 0; i < height; ++i) {
-         delete[] temperature[i];
-         delete[] nextTemperature[i];
-     }
-     delete[] temperature;
-     delete[] nextTemperature;
- }
+
  
  void OptimizedHeatDiffusion2D::update() {
      // Try smaller block sizes for this problem size
      // These can be tuned for your specific hardware
-     const int blockSizeY = 144; //BUGS!!!!!!!!!!!
-     const int blockSizeX = 144;
+     const int blockSizeY = 1024; //BUGS!!!!!!!!!!!
+     const int blockSizeX = 1024;
      
      // Pre-compute constants outside all loops
      const double diffusionFactor = diffusionRate;
      const int maxRow = height - 1;
      const int maxCol = width - 1;
+
+     // Get direct pointers to the underlying arrays for faster access
+     double* temp_data = temperature.getData();
+     double* next_data = nextTemperature.getData();
      
      // Cache blocking implementation
      for (int yBlock = 1; yBlock < maxRow; yBlock += blockSizeY) {
@@ -81,26 +67,30 @@
              
              // Process each cell within the block
              for (int y = yBlock; y < yEnd; y++) {
+                const int row_idx = y * width;
+                const int row_above_idx = (y-1) * width;
+                const int row_below_idx = (y+1) * width;
                  for (int x = xBlock; x < xEnd; x++) {
+                    // Center element
+                    const double center = temp_data[row_idx + x];
                      // Discrete Laplacian operator
                      const double laplacian = 
-                         temperature[y+1][x] + 
-                         temperature[y-1][x] + 
-                         temperature[y][x+1] + 
-                         temperature[y][x-1] - 
-                         4.0 * temperature[y][x];
-                     
+                        temp_data[row_below_idx + x] +  // below
+                        temp_data[row_above_idx + x] +  // above
+                        temp_data[row_idx + (x+1)] +    // right
+                        temp_data[row_idx + (x-1)] -    // left
+                        4.0 * center;                   // center
+                    
+                            
                      // Update the cell in the next timestep buffer
-                     nextTemperature[y][x] = temperature[y][x] + diffusionFactor * laplacian;
+                     next_data[row_idx + x] = center + diffusionFactor * laplacian;
                  }
              }
          }
      }
      
      // Swap buffers using a temporary pointer (very fast)
-     double** temp = temperature;
-     temperature = nextTemperature;
-     nextTemperature = temp;
+     temperature.swap(nextTemperature);
      
      saveFrame(frameCount);
      frameCount++;
@@ -112,7 +102,7 @@
      // Use cache-aware traversal for checksum calculation
      for (int y = 0; y < height; ++y) {
          for (int x = 0; x < width; ++x) {
-             sum += temperature[y][x];
+             sum += temperature(y,x);
          }
      }
      
@@ -134,7 +124,7 @@
      if (outFile.is_open()) {
          for (int y = 0; y < height; ++y) {
              for (int x = 0; x < width; ++x) {
-                 outFile << temperature[y][x] << " ";
+                 outFile <<  temperature(y,x) << " ";
              }
              outFile << "\n";
          }

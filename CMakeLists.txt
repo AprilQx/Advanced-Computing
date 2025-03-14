@@ -78,91 +78,6 @@ set(BASE_FLAGS_LIST "-O3")
 set(DEV_FLAGS_LIST "-g")
 set(BENCHMARK_FLAGS_LIST "")
 
-# Option to customize benchmark compilation
-# option(DISABLE_DENORMALS "Disable denormal floating point numbers in benchmarks" ON)
-# option(ENABLE_LOOP_UNROLLING "Enable aggressive loop unrolling in benchmarks" ON)
-# option(ENABLE_AUTO_VECTORIZATION "Enable auto-vectorization in benchmarks" ON)
-# option(DISABLE_MATH_ERRNO "Disable setting errno for math functions in benchmarks" ON)
-
-# # Compiler-specific optimization flags for macOS
-# if(APPLE)
-#     # Detect Apple Clang version
-#     execute_process(COMMAND ${CMAKE_CXX_COMPILER} --version OUTPUT_VARIABLE clang_full_version_string)
-#     string(REGEX REPLACE ".*clang version ([0-9]+\\.[0-9]+).*" "\\1" CLANG_VERSION_STRING ${clang_full_version_string})
-    
-#     # Use appropriate architecture flags for Apple Silicon / Intel
-#     execute_process(COMMAND uname -m OUTPUT_VARIABLE ARCH OUTPUT_STRIP_TRAILING_WHITESPACE)
-#     if(${ARCH} STREQUAL "arm64")
-#         # Apple Silicon optimizations
-#         list(APPEND BASE_FLAGS_LIST "-mcpu=apple-m1")
-#         message(STATUS "Detected Apple Silicon (ARM64)")
-#     else()
-#         # Intel Mac optimizations
-#         list(APPEND BASE_FLAGS_LIST "-march=native")
-#         message(STATUS "Detected Intel Mac (${ARCH})")
-#     endif()
-    
-#     # Add fast math option
-#     # option(USE_FAST_MATH "Enable fast math optimizations" ON)
-#     # if(USE_FAST_MATH)
-#     #     list(APPEND BASE_FLAGS_LIST "-ffast-math")
-#     # endif()
-# # CSD3-specific flags
-# elseif(CSD3_PLATFORM)
-#     # Determine specific CPU architecture on CSD3
-#     if(HOSTNAME MATCHES ".*icelake.*" OR HOSTNAME MATCHES ".*login-q.*")
-#         list(APPEND BASE_FLAGS_LIST "-march=icelake-server")
-#         message(STATUS "Using CSD3 Icelake optimizations")
-#     elseif(HOSTNAME MATCHES ".*cclake.*")
-#         list(APPEND BASE_FLAGS_LIST "-march=cascadelake")
-#         message(STATUS "Using CSD3 Cascade Lake optimizations")
-#     elseif(HOSTNAME MATCHES ".*ampere.*")
-#         list(APPEND BASE_FLAGS_LIST "-march=znver3")
-#         message(STATUS "Using CSD3 Ampere optimizations")
-#     else()
-#         list(APPEND BASE_FLAGS_LIST "-march=native")
-#         message(STATUS "Using generic optimizations for CSD3")
-#     endif()
-    
-#     option(USE_FAST_MATH "Enable fast math optimizations" ON)
-#     if(USE_FAST_MATH)
-#         list(APPEND BASE_FLAGS_LIST "-ffast-math")
-#     endif()
-# else()
-#     # Non-Apple compiler flags
-#     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-#         list(APPEND BASE_FLAGS_LIST "-march=native")
-#         option(USE_FAST_MATH "Enable fast math optimizations" ON)
-#         if(USE_FAST_MATH)
-#             list(APPEND BASE_FLAGS_LIST "-ffast-math")
-#         endif()
-#     elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
-#         list(APPEND BASE_FLAGS_LIST "-xHost")
-#     elseif(MSVC)
-#         set(BASE_FLAGS_LIST "/O3" "/Ot" "/GL")
-#         set(DEV_FLAGS_LIST "/Zi" "/DEBUG")
-#         set(BENCHMARK_FLAGS_LIST "")
-#     endif()
-# endif()
-
-# Add additional benchmark-specific optimizations
-# if(NOT MSVC)
-    
-#     # Add useful reporting flags for debugging benchmark performance
-#     option(ENABLE_OPTIMIZATION_REPORTS "Enable optimization reports for benchmarks" OFF)
-#     if(ENABLE_OPTIMIZATION_REPORTS)
-#         if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-#             list(APPEND BENCHMARK_FLAGS_LIST "-fopt-info-vec-all")
-#         elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-#             list(APPEND BENCHMARK_FLAGS_LIST "-Rpass=loop-vectorize")
-#             list(APPEND BENCHMARK_FLAGS_LIST "-Rpass-missed=loop-vectorize")
-#         elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
-#             list(APPEND BENCHMARK_FLAGS_LIST "-qopt-report=5")
-#             list(APPEND BENCHMARK_FLAGS_LIST "-qopt-report-phase=vec")
-#         endif()
-#     endif()
-# endif()
-
 # Source files for main program
 set(BASE_SOURCES
     src/base/heat_diffusion.cpp
@@ -193,6 +108,7 @@ set(BENCHMARK_SOURCES
     src/base/heat_diffusion.cpp
 )
 
+
 # MPI implementation sources
 set(MPI_SOURCES
     src/mpi/main_mpi.cpp  # Using proper main file instead of header
@@ -221,12 +137,17 @@ set(OPTIMIZED_BENCHMARK_SOURCES_v3
 
 # Validation tool sources
 set(VALIDATION_SOURCES
-    tools/validate.cpp
+    tools/validation/validate.cpp
 )
 
 # Test validation sources
 set(TEST_VALIDATION_SOURCES
-    tools/test_validation.cpp
+    tools/validation/test_validation.cpp
+)
+
+set(BLOCK_SIZE_OPTIMIZATION_SOURCES
+tools/block_size_optimizer.cpp
+src/optimized_v3/optimized_heat_diffusion.cpp
 )
 
 # Add filesystem library linking for GCC 8.5
@@ -325,6 +246,14 @@ if(FILESYSTEM_LIBRARIES)
     target_link_libraries(test_validation PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
+
+add_executable(block_size_optimizer ${BLOCK_SIZE_OPTIMIZATION_SOURCES})
+target_compile_options(block_size_optimizer PRIVATE ${BASE_FLAGS_LIST} ${DEV_FLAGS_LIST})
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(block_size_optimizer PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
+
+
 # Option to enable validation (default on )
 option(ENABLE_VALIDATION "Enable validation mode for simulations" on)
 if(ENABLE_VALIDATION)
@@ -360,6 +289,7 @@ install(TARGETS
         heat_diffusion_benchmark 
         heat_diffusion_optimized_benchmark_v1 
         heat_diffusion_optimized_benchmark_v3
+        block_size_optimizer
         RUNTIME DESTINATION bin)
 
 
