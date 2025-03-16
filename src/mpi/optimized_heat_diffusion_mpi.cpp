@@ -1,6 +1,6 @@
 /**
  * @file optimized_heat_diffusion_mpi.cpp
- * @brief Implementation of the MPI-parallelized heat diffusion simulation
+ * @brief Implementation of the MPI-parallelized heat diffusion simulation using Flat2D
  */
 
  #include "optimized_heat_diffusion_mpi.h"
@@ -13,7 +13,8 @@
  #include <limits>
  
  OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int w, int h, double rate, bool save) 
-     : globalWidth(w), globalHeight(h), diffusionRate(rate), saveOutput(save), frameCount(0) {
+     : globalWidth(w), globalHeight(h), diffusionRate(rate), saveOutput(save), frameCount(0), 
+       temperature(1, 1), nextTemperature(1, 1) { // Temporary initialization, will be properly sized in initMPI
      
      // Initialize MPI
      MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -22,13 +23,13 @@
      // Setup domain decomposition
      initMPI();
      
-     // Allocate flat arrays for temperature grids (including ghost cells)
-     temperature = new double[(localWidth+2) * (localHeight+2)];
-     nextTemperature = new double[(localWidth+2) * (localHeight+2)];
+     // Re-instantiate the arrays with correct size (including ghost cells)
+     temperature = Array_2D<double>(localHeight+2, localWidth+2);
+     nextTemperature = Array_2D<double>(localHeight+2, localWidth+2);
      
      // Initialize all cells with ambient temperature (20°C)
-    std::fill_n(temperature, (localWidth+2) * (localHeight+2), 20.0);
-    std::fill_n(nextTemperature, (localWidth+2) * (localHeight+2), 20.0);
+     temperature.fill(20.0);
+     nextTemperature.fill(20.0);
      
      // Set up initial conditions - hot spot in the middle of the global domain
      int centerX = globalWidth / 2;
@@ -42,38 +43,34 @@
              
              // Check if this cell is part of the hot spot (radius of 3)
              if (std::abs(globalY - centerY) <= 3 && std::abs(globalX - centerX) <= 3) {
-                 temperature[idx(localY, localX)] = 100.0;
+                 temperature(localY+1, localX+1) = 100.0;
              }
          }
      }
-
+ 
      if (saveOutput) {
-        saveFrame(0);
-    }
-     
+         saveFrame(0);
+     }
+      
      // Initial halo exchange to ensure all processes have consistent boundary data
      exchangeHalos();
  }
  
  OptimizedHeatDiffusionMPI::~OptimizedHeatDiffusionMPI() {
-    // Free allocated memory
-    delete[] temperature;
-    delete[] nextTemperature;
-    
-    // Check if MPI is still initialized before freeing MPI resources
-    int finalized;
-    MPI_Finalized(&finalized);
-    if (!finalized) {
-        // Only free MPI resources if MPI hasn't been finalized yet
-        MPI_Type_free(&haloRowType);
-        MPI_Type_free(&haloColType);
-        
-        // Free the Cartesian communicator if it's not MPI_COMM_WORLD
-        if (cartComm != MPI_COMM_WORLD) {
-            MPI_Comm_free(&cartComm);
-        }
-    }
-}
+     // Check if MPI is still initialized before freeing MPI resources
+     int finalized;
+     MPI_Finalized(&finalized);
+     if (!finalized) {
+         // Only free MPI resources if MPI hasn't been finalized yet
+         MPI_Type_free(&haloRowType);
+         MPI_Type_free(&haloColType);
+         
+         // Free the Cartesian communicator if it's not MPI_COMM_WORLD
+         if (cartComm != MPI_COMM_WORLD) {
+             MPI_Comm_free(&cartComm);
+         }
+     }
+ }
  
  void OptimizedHeatDiffusionMPI::initMPI() {
      // Create a 2D Cartesian process grid
@@ -82,7 +79,7 @@
      
      if (rank == 0) {
          std::cout << "Creating a " << dims[0] << "x" << dims[1] 
-                   << " process grid for " << worldSize << " processes" << std::endl;
+                 << " process grid for " << worldSize << " processes" << std::endl;
      }
      
      // Create the Cartesian communicator
@@ -112,7 +109,7 @@
      // Get neighbor ranks (MPI_PROC_NULL is automatically assigned for boundary processes)
      MPI_Cart_shift(cartComm, 0, 1, &neighbors[0], &neighbors[2]);  // North and South
      MPI_Cart_shift(cartComm, 1, 1, &neighbors[3], &neighbors[1]);  // West and East
-
+ 
      // For row exchange (horizontal halos)
      MPI_Type_contiguous(localWidth, MPI_DOUBLE, &haloRowType);
      MPI_Type_commit(&haloRowType);
@@ -123,14 +120,14 @@
      
      if (rank == 0) {
          std::cout << "Domain decomposition: Global size = " << globalWidth << "x" << globalHeight 
-                   << ", Process grid = " << dims[0] << "x" << dims[1] << std::endl;
+                 << ", Process grid = " << dims[0] << "x" << dims[1] << std::endl;
      }
      
      MPI_Barrier(cartComm);
      std::cout << "Rank " << rank << " has local domain size " << localWidth << "x" << localHeight 
-               << " starting at global position (" << startCol << "," << startRow << ")" << std::endl;
+             << " starting at global position (" << startCol << "," << startRow << ")" << std::endl;
      std::cout << "Rank " << rank << " neighbors: N=" << neighbors[0] << ", E=" << neighbors[1]
-               << ", S=" << neighbors[2] << ", W=" << neighbors[3] << std::endl;
+             << ", S=" << neighbors[2] << ", W=" << neighbors[3] << std::endl;
  }
  
  void OptimizedHeatDiffusionMPI::exchangeHalos() {
@@ -139,27 +136,27 @@
      
      // Send to north, receive from south
      // MPI_PROC_NULL will be automatically ignored for boundary processes
-     MPI_Isend(&temperature[idx(0, 0)], 1, haloRowType, 
+     MPI_Isend(&temperature(1, 1), 1, haloRowType, 
               neighbors[0], 0, cartComm, &requests[reqCount++]);
-     MPI_Irecv(&temperature[idx(localHeight, 0)], 1, haloRowType, 
+     MPI_Irecv(&temperature(localHeight+1, 1), 1, haloRowType, 
               neighbors[2], 0, cartComm, &requests[reqCount++]);
      
      // Send to south, receive from north
-     MPI_Isend(&temperature[idx(localHeight-1, 0)], 1, haloRowType, 
+     MPI_Isend(&temperature(localHeight, 1), 1, haloRowType, 
               neighbors[2], 1, cartComm, &requests[reqCount++]);
-     MPI_Irecv(&temperature[idx(-1, 0)], 1, haloRowType, 
+     MPI_Irecv(&temperature(0, 1), 1, haloRowType, 
               neighbors[0], 1, cartComm, &requests[reqCount++]);
      
      // Send to east, receive from west
-     MPI_Isend(&temperature[idx(0, localWidth-1)], 1, haloColType, 
+     MPI_Isend(&temperature(1, localWidth), 1, haloColType, 
               neighbors[1], 2, cartComm, &requests[reqCount++]);
-     MPI_Irecv(&temperature[idx(0, -1)], 1, haloColType, 
+     MPI_Irecv(&temperature(1, 0), 1, haloColType, 
               neighbors[3], 2, cartComm, &requests[reqCount++]);
      
      // Send to west, receive from east
-     MPI_Isend(&temperature[idx(0, 0)], 1, haloColType, 
+     MPI_Isend(&temperature(1, 1), 1, haloColType, 
               neighbors[3], 3, cartComm, &requests[reqCount++]);
-     MPI_Irecv(&temperature[idx(0, localWidth)], 1, haloColType, 
+     MPI_Irecv(&temperature(1, localWidth+1), 1, haloColType, 
               neighbors[1], 3, cartComm, &requests[reqCount++]);
      
      // Wait for all communications to complete
@@ -174,48 +171,46 @@
      // Skip the ghost cells in the calculation (but use them)
      for (int y = 0; y < localHeight; y++) {
          for (int x = 0; x < localWidth; x++) {
-             // Discrete Laplacian operator with flattened array indexing including ghost cells
+             // Discrete Laplacian operator with Flat2D array indexing including ghost cells
              const double laplacian = 
-                 temperature[idx(y-1, x)] +      // Top
-                 temperature[idx(y+1, x)] +      // Bottom
-                 temperature[idx(y, x+1)] +      // Right
-                 temperature[idx(y, x-1)] -      // Left
-                 4.0 * temperature[idx(y, x)];   // Center (4x)
+                 temperature(y, x+1) +         // Top (y-1+1, x+1)
+                 temperature(y+2, x+1) +       // Bottom (y+1+1, x+1)
+                 temperature(y+1, x+2) +       // Right (y+1, x+1+1)
+                 temperature(y+1, x) -         // Left (y+1, x-1+1)
+                 4.0 * temperature(y+1, x+1);  // Center (y+1, x+1) (4x)
              
              // Update the cell in the next timestep buffer
-             nextTemperature[idx(y, x)] = temperature[idx(y, x)] + diffusionRate * laplacian;
+             nextTemperature(y+1, x+1) = temperature(y+1, x+1) + diffusionRate * laplacian;
          }
      }
  
-     // Swap buffers using pointer swap (very fast)
-     std::swap(temperature, nextTemperature);
+     // Swap buffers
+     temperature.swap(nextTemperature);
      
      if (saveOutput) {
-        saveFrame(frameCount);
-    }
+         saveFrame(frameCount);
+     }
      frameCount++;
  }
  
- 
-
  double OptimizedHeatDiffusionMPI::getChecksum() {
-    // Calculate local sum first
-    double localSum = 0.0;
-    
-    for (int y = 0; y < localHeight; y++) {
-        for (int x = 0; x < localWidth; x++) {
-            localSum += temperature[idx(y, x)];
-        }
-    }
-    
-    // Reduce to get global sum
-    double globalSum = 0.0;
-    MPI_Allreduce(&localSum, &globalSum, 1, MPI_DOUBLE, MPI_SUM, cartComm);
-    
-    return globalSum;
-}
+     // Calculate local sum first
+     double localSum = 0.0;
+     
+     for (int y = 0; y < localHeight; y++) {
+         for (int x = 0; x < localWidth; x++) {
+             localSum += temperature(y+1, x+1);
+         }
+     }
+     
+     // Reduce to get global sum
+     double globalSum = 0.0;
+     MPI_Allreduce(&localSum, &globalSum, 1, MPI_DOUBLE, MPI_SUM, cartComm);
+     
+     return globalSum;
+ }
  
- void OptimizedHeatDiffusionMPI::gatherGrid(double* localData, double* gatheredData) {
+ void OptimizedHeatDiffusionMPI::gatherGrid(double* gatheredData) {
      // Create an array to receive counts from each process (only needed on rank 0)
      int* recvcounts = nullptr;
      int* displs = nullptr;
@@ -242,7 +237,7 @@
      int idx = 0;
      for (int y = 0; y < localHeight; y++) {
          for (int x = 0; x < localWidth; x++) {
-             sendBuffer[idx++] = localData[this->idx(y, x)];
+             sendBuffer[idx++] = temperature(y+1, x+1);
          }
      }
      
@@ -268,7 +263,7 @@
      }
      
      // Gather the local grids to rank 0
-     gatherGrid(temperature, fullGrid);
+     gatherGrid(fullGrid);
      
      // Only rank 0 writes to file
      if (rank == 0) {

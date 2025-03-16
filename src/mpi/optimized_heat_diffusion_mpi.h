@@ -8,6 +8,7 @@
  
  #include <string>
  #include <mpi.h>
+ #include "../../include/Array_2D/Array_2D.h"
  
  /**
   * @class OptimizedHeatDiffusionMPI
@@ -19,8 +20,8 @@
      int localWidth, localHeight;     ///< Dimensions of local subdomain for this MPI rank
      int startRow, startCol;          ///< Starting indices for local subdomain
      double diffusionRate;            ///< Thermal diffusivity coefficient
-     double* temperature;             ///< Current temperature grid (flat array with ghost cells)
-     double* nextTemperature;         ///< Buffer for next timestep (flat array with ghost cells)
+     Array_2D<double> temperature;    ///< Current temperature grid (with ghost cells)
+     Array_2D<double> nextTemperature; ///< Buffer for next timestep (with ghost cells)
      bool saveOutput;                 ///< Flag to control whether to save output files
      int frameCount;                  ///< Counter for tracking frames
      
@@ -35,16 +36,6 @@
      MPI_Datatype haloColType;        ///< Datatype for a column of the halo
  
      /**
-      * @brief Get array index from 2D coordinates (including ghost cells)
-      * @param y Row index (local coordinates)
-      * @param x Column index (local coordinates)
-      * @return Linear index in the flat array
-      */
-     inline int idx(int y, int x) const {
-         return (y+1) * (localWidth+2) + (x+1);
-     }
-     
-     /**
       * @brief Initialize MPI communication patterns and subdomain decomposition
       */
      void initMPI();
@@ -56,10 +47,9 @@
      
      /**
       * @brief Gather all subdomain data to rank 0 for checksum or output
-      * @param localData Local temperature data
       * @param gatheredData Full temperature grid (only valid on rank 0)
       */
-     void gatherGrid(double* localData, double* gatheredData);
+     void gatherGrid(double* gatheredData);
  
  public:
      /**

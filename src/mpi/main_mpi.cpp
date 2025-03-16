@@ -14,6 +14,7 @@
  #include <cmath>
  #include <algorithm>
  #include <mpi.h>
+  #include "../../include/Array_2D/Array_2D.h"
  
  // Forward declarations
  void printUsage(const char* programName);
