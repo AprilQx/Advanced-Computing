@@ -36,7 +36,7 @@
  }
  
   OptimizedHeatDiffusion::~OptimizedHeatDiffusion() {
-          delete[] temperature;
+        delete[] temperature;
       delete[] nextTemperature;
   }
  
