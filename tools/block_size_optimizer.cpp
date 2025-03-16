@@ -86,10 +86,10 @@
  
  int main() {
      // Simulation parameters
-     int width = 10000;               // Larger grid to better observe cache effects
-     int height = 10000;
+     int width = 1000;               // Larger grid to better observe cache effects
+     int height = 1000;
      double diffusionRate = 0.1;
-     int totalFrames = 10000;           // Reduced frame count for faster benchmarking
+     int totalFrames = 1000;           // Reduced frame count for faster benchmarking
      
      std::cout << "Running block size optimization for heat diffusion simulation" << std::endl;
      std::cout << "Grid size: " << width << "x" << height << std::endl;
