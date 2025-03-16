@@ -135,7 +135,7 @@
      MPI_Comm_rank(MPI_COMM_WORLD, &rank);
      MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
      
-     const int numRuns = 1; // Run multiple times to get performance statistics
+     const int numRuns = 10; // Run multiple times to get performance statistics
      std::vector<double> runTimes;
      
      for (int run = 0; run < numRuns; run++) {

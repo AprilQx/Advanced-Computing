@@ -86,10 +86,10 @@
  
  int main() {
      // Simulation parameters
-     int width = 1000;               // Larger grid to better observe cache effects
-     int height = 1000;
+     int width = 10000;               // Larger grid to better observe cache effects
+     int height = 10000;
      double diffusionRate = 0.1;
-     int totalFrames = 20;           // Reduced frame count for faster benchmarking
+     int totalFrames = 10000;           // Reduced frame count for faster benchmarking
      
      std::cout << "Running block size optimization for heat diffusion simulation" << std::endl;
      std::cout << "Grid size: " << width << "x" << height << std::endl;
@@ -104,9 +104,9 @@
      
      // Generate block sizes to test
      // Adding powers of 2 and some values in between
-     for (int i = 1; i <= 2048; i *= 2) {
+     for (int i = 1; i <= 512; i *= 2) {
          blockSizes.push_back(i);
-         if (i < 1024) blockSizes.push_back(i + i/2); // Add 1.5x the power of 2 (e.g., 3, 6, 12, 24...)
+         if (i < 256) blockSizes.push_back(i + i/2); // Add 1.5x the power of 2 (e.g., 3, 6, 12, 24...)
      }
      
      // Add some specific values known to be good for cache optimization
