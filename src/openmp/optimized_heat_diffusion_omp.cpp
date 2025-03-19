@@ -22,22 +22,27 @@
        frameCount(0),
        numThreads(threads) {
      
-      // Set number of threads if specified
-    if (numThreads > 0) {
-        omp_set_num_threads(numThreads);
-        
-        // Verify thread count is set properly
-        int actual_threads = 0;
-        #pragma omp parallel
-        {
-            #pragma omp master
-            {
-                actual_threads = omp_get_num_threads();
-                numThreads = actual_threads; // Update member variable
-            }
-        }
-        std::cout << "OpenMP initialized with " << actual_threads << " threads" << std::endl;
+    // Set number of threads if specified
+    if (threads > 0) {
+        // Set thread count only if explicitly provided
+        omp_set_num_threads(threads);
+        numThreads = threads;
+    } else {
+        // Use system default or environment variable setting
+        numThreads = omp_get_max_threads();
     }
+    
+    // Verify thread count
+    int actual_threads = 0;
+    #pragma omp parallel
+    {
+        #pragma omp master
+        {
+            actual_threads = omp_get_num_threads();
+        }
+    }
+    numThreads = actual_threads; // Store the actual number of threads being used
+    std::cout << "OpenMP initialized with " << numThreads << " threads" << std::endl;
      
      
      // Initialize with ambient temperature (20°C)
@@ -69,7 +74,6 @@
      double* next_data = nextTemperature.getData();
      
      // Parallelize the main computation loop with OpenMP
-     omp_set_num_threads(numThreads);
      #pragma omp parallel for 
      for (int y = 1; y < maxRow; y++) {
          // Pre-compute row offsets once per row for efficiency
@@ -140,26 +144,29 @@
  }
  
  void OpenMPHeatDiffusion2D::setNumThreads(int threads) {
-     if (threads > 0) {
-         numThreads = threads;
-         omp_set_num_threads(numThreads);
-     } else {
-         // Reset to system default
-         numThreads = omp_get_max_threads();
-         omp_set_num_threads(numThreads);
-     }
- }
- 
- int OpenMPHeatDiffusion2D::getNumThreads() const {
-    int actual_threads = 0;
-    omp_set_num_threads(numThreads);
-    #pragma omp parallel
-    {
-        #pragma omp master
+    if (threads > 0) {
+        numThreads = threads;
+        omp_set_num_threads(numThreads);
+        
+        // Verify the thread count was set correctly
+        int actual_threads = 0;
+        #pragma omp parallel
         {
-            actual_threads = omp_get_num_threads();
+            #pragma omp master
+            {
+                actual_threads = omp_get_num_threads();
+            }
         }
+        numThreads = actual_threads; // Update with actual count
+    } else {
+        // Reset to system default
+        numThreads = omp_get_max_threads();
+        omp_set_num_threads(numThreads);
     }
-    
-    return actual_threads;
+}
+
+int OpenMPHeatDiffusion2D::getNumThreads() const {
+    // Simply return the stored thread count
+    // This is more efficient than creating a parallel region just to check
+    return numThreads;
 }

@@ -15,13 +15,13 @@
  
  int main(int argc, char* argv[]) {
      // Default settings
-     int width = 100;                // Grid width
-     int height = 100;               // Grid height
+     int width = 1000;                // Grid width
+     int height = 1000;               // Grid height
      double diffusionRate = 0.1;     // Diffusion rate
-     int totalFrames = 100;          // Number of frames to simulate
+     int totalFrames = 1000;          // Number of frames to simulate
      bool saveOutput = false;        // Disable output files for benchmark
      int runs = 10;                  // Number of runs for statistics
-     int numThreads = 8;             // Number of threads (0 = use system default)
+     int numThreads = 9;             // Number of threads (0 = use system default)
 
     char* omp_num_threads = getenv("OMP_NUM_THREADS");
     if (omp_num_threads) {
