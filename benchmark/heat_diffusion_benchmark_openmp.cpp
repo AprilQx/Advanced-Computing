@@ -54,29 +54,48 @@
  
  int main(int argc, char* argv[]) {
      // Default values
-     int gridSize = 1000;
-     int iterations = 1000;
+     int width = 1000;
+     int height = 1000;
+     int totalFrames = 1000;
+     int runs = 10;  // Run the benchmark 10 times
      bool saveOutput = false;
-     int numRuns = 10;  // Run the benchmark 10 times
+     int numThreads = 0;  // Use system default or environment variable
+     
+     // Check if OMP_NUM_THREADS is set in the environment
+     char* omp_num_threads = getenv("OMP_NUM_THREADS");
+     if (omp_num_threads) {
+         std::cout << "OMP_NUM_THREADS environment variable: " << omp_num_threads << std::endl;
+     } else {
+         std::cout << "OMP_NUM_THREADS environment variable not set" << std::endl;
+     }
      
      // Parse command line arguments
      for (int i = 1; i < argc; i++) {
-         std::string arg = argv[i];
-         if (arg == "--size" && i + 1 < argc) {
-             gridSize = std::stoi(argv[++i]);
-         } else if (arg == "--iterations" && i + 1 < argc) {
-             iterations = std::stoi(argv[++i]);
-         } else if (arg == "--save") {
-             saveOutput = true;
-         } else if (arg == "--runs" && i + 1 < argc) {
-             numRuns = std::stoi(argv[++i]);
-         }
-     }
+        std::string arg = argv[i];
+        
+        if (arg == "--width" && i + 1 < argc) {
+            width = std::atoi(argv[++i]);
+        } else if (arg == "--height" && i + 1 < argc) {
+            height = std::atoi(argv[++i]);
+        } else if (arg == "--frames" && i + 1 < argc) {
+            totalFrames = std::atoi(argv[++i]);
+        } else if (arg == "--threads" && i + 1 < argc) {
+            numThreads = std::atoi(argv[++i]);
+            std::cout << "Thread count manually set to: " << numThreads << std::endl;
+        } else if (arg == "--output") {
+            saveOutput = true;
+        } else if (arg == "--runs" && i + 1 < argc) {
+            runs = std::atoi(argv[++i]);
+        }
+    }
      
-    //  std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
-    //            << " for " << iterations << " iterations" 
-    //            << " across " << numRuns << " runs"
-    //            << (saveOutput ? " (with output)" : " (no output)") << std::endl;
+     std::cout << "Running benchmark with grid size " << width << "x" << height 
+               << " for " << totalFrames << " iterations" 
+               << " across " << runs << " runs"
+               << (saveOutput ? " (with output)" : " (no output)") << std::endl;
+     
+     // Display available threads info
+     std::cout << "System has " << omp_get_max_threads() << " OpenMP threads available" << std::endl;
      
      // Variables to store aggregated statistics
      std::vector<double> totalSimTimes;
@@ -88,27 +107,30 @@
      std::vector<long> memoryUsages;
      std::vector<double> checksums;
      
-     for (int run = 0; run < numRuns; run++) {
-         std::cout << "\n=== Run " << (run + 1) << " of " << numRuns << " ===" << std::endl;
+     for (int run = 0; run < runs; run++) {
+         std::cout << "\n=== Run " << (run + 1) << " of " << runs << " ===" << std::endl;
          
          // Record initial memory usage
          long initialMemory = getMemoryUsage();
          
          // Create simulation
          auto startSetup = std::chrono::high_resolution_clock::now();
-         OpenMPHeatDiffusion2D simulation(gridSize, gridSize, 0.1, saveOutput);
+         OpenMPHeatDiffusion2D simulation(width, height, 0.1, saveOutput, numThreads);
          auto endSetup = std::chrono::high_resolution_clock::now();
+         
+         // Report thread count being used
+         std::cout << "Using " << simulation.getNumThreads() << " OpenMP threads for this run" << std::endl;
          
          // Record memory after setup
          long afterSetupMemory = getMemoryUsage();
          
          // Record simulation time with detailed per-iteration timing
          std::vector<double> iterationTimes;
-         iterationTimes.reserve(iterations);
+         iterationTimes.reserve(totalFrames);
          
          auto totalStart = std::chrono::high_resolution_clock::now();
          
-         for (int i = 0; i < iterations; i++) {
+         for (int i = 0; i < totalFrames; i++) {
              auto iterStart = std::chrono::high_resolution_clock::now();
              simulation.update();
              auto iterEnd = std::chrono::high_resolution_clock::now();
@@ -116,9 +138,9 @@
              double iterTime = std::chrono::duration<double, std::milli>(iterEnd - iterStart).count();
              iterationTimes.push_back(iterTime);
              
-            //  if (i % 10 == 0) {
-            //      std::cout << "Iteration " << i << " completed in " << iterTime << " ms" << std::endl;
-            //  }
+             if (i % 100 == 0) {
+                 std::cout << "Iteration " << i << " completed in " << iterTime << " ms" << std::endl;
+             }
          }
          
          auto totalEnd = std::chrono::high_resolution_clock::now();
@@ -129,14 +151,14 @@
          
          double minTime = *std::min_element(iterationTimes.begin(), iterationTimes.end());
          double maxTime = *std::max_element(iterationTimes.begin(), iterationTimes.end());
-         double avgTime = totalSimTime / iterations;
+         double avgTime = totalSimTime / totalFrames;
          
          // Get final memory usage
          long finalMemory = getMemoryUsage();
          long memoryIncrease = finalMemory - initialMemory;
          
          // Calculate performance metric
-         double perfMetric = (gridSize * gridSize * iterations / totalSimTime * 1000);
+         double perfMetric = (width * height * totalFrames / totalSimTime * 1000);
          
          // Get checksum
          double checksum = simulation.getChecksum();
@@ -163,13 +185,13 @@
      }
      
      // Calculate aggregate statistics
-     double avgTotalSimTime = std::accumulate(totalSimTimes.begin(), totalSimTimes.end(), 0.0) / numRuns;
-     double avgSetupTime = std::accumulate(setupTimes.begin(), setupTimes.end(), 0.0) / numRuns;
-     double avgIterTime = std::accumulate(avgIterTimes.begin(), avgIterTimes.end(), 0.0) / numRuns;
-     double avgMinIterTime = std::accumulate(minIterTimes.begin(), minIterTimes.end(), 0.0) / numRuns;
-     double avgMaxIterTime = std::accumulate(maxIterTimes.begin(), maxIterTimes.end(), 0.0) / numRuns;
-     double avgPerfMetric = std::accumulate(perfMetrics.begin(), perfMetrics.end(), 0.0) / numRuns;
-     double avgMemoryUsage = std::accumulate(memoryUsages.begin(), memoryUsages.end(), 0.0) / numRuns;
+     double avgTotalSimTime = std::accumulate(totalSimTimes.begin(), totalSimTimes.end(), 0.0) / runs;
+     double avgSetupTime = std::accumulate(setupTimes.begin(), setupTimes.end(), 0.0) / runs;
+     double avgIterTime = std::accumulate(avgIterTimes.begin(), avgIterTimes.end(), 0.0) / runs;
+     double avgMinIterTime = std::accumulate(minIterTimes.begin(), minIterTimes.end(), 0.0) / runs;
+     double avgMaxIterTime = std::accumulate(maxIterTimes.begin(), maxIterTimes.end(), 0.0) / runs;
+     double avgPerfMetric = std::accumulate(perfMetrics.begin(), perfMetrics.end(), 0.0) / runs;
+     double avgMemoryUsage = std::accumulate(memoryUsages.begin(), memoryUsages.end(), 0.0) / runs;
      
      // Calculate standard deviations
      double stdDevTotalSimTime = calculateStdDev(totalSimTimes, avgTotalSimTime);
@@ -186,10 +208,10 @@
                                      [](double a, double b) { return std::abs(a - b) > 1e-10; }) == checksums.end();
      
      // Print aggregate results
-     std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
-     std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
-               << gridSize*gridSize << " cells)" << std::endl;
-     std::cout << "Iterations per Run: " << iterations << std::endl;
+     std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << runs << " RUNS) ===" << std::endl;
+     std::cout << "Grid Size: " << width << "x" << height << " (" 
+               << width*height << " cells)" << std::endl;
+     std::cout << "Iterations per Run: " << totalFrames << std::endl;
      std::cout << "\nTiming Statistics:" << std::endl;
      std::cout << "  Average Setup Time: " << avgSetupTime << " ms (StdDev: " << stdDevSetupTime << " ms)" << std::endl;
      std::cout << "  Average Total Simulation Time: " << avgTotalSimTime << " ms (StdDev: " << stdDevTotalSimTime << " ms)" << std::endl;
