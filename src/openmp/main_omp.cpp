@@ -21,7 +21,7 @@
      int totalFrames = 1000;          // Number of frames to simulate
      bool saveOutput = false;        // Disable output files for benchmark
      int runs = 10;                  // Number of runs for statistics
-     int numThreads = 9;             // Number of threads (0 = use system default)
+     int numThreads = 10;             // Number of threads (0 = use system default)
 
     char* omp_num_threads = getenv("OMP_NUM_THREADS");
     if (omp_num_threads) {
