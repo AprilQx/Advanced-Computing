@@ -6,6 +6,26 @@ set(CMAKE_CXX_STANDARD 17)  # Raised to 17 for filesystem support
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(MPI REQUIRED)
+# Platform-specific OpenMP handling
+if(APPLE)
+    # macOS-specific OpenMP configuration
+    find_library(OMP_LIB omp PATHS /opt/homebrew/Cellar/libomp/20.1.0/lib)
+    if(OMP_LIB)
+        set(OpenMP_C_FLAGS "-Xpreprocessor -fopenmp")
+        set(OpenMP_CXX_FLAGS "-Xpreprocessor -fopenmp")
+        set(OpenMP_C_LIB_NAMES "omp")
+        set(OpenMP_CXX_LIB_NAMES "omp")
+        set(OpenMP_omp_LIBRARY "${OMP_LIB}")
+        include_directories("/opt/homebrew/Cellar/libomp/20.1.0/include")
+        message(STATUS "Found OpenMP library on macOS: ${OMP_LIB}")
+    endif()
+else()
+    # Linux/CSD3 will have standard OpenMP support
+    message(STATUS "Using standard OpenMP detection for non-macOS platform")
+endif()
+
+
+find_package(OpenMP REQUIRED)
 
 # Force the use of mpicxx for compilation of MPI code on macOS
 if(APPLE)
@@ -102,10 +122,9 @@ set(OPTIMIZED_SOURCES_v3
     src/optimized_v3/main_optimized.cpp
 )
 
-# Benchmark sources
-set(BENCHMARK_SOURCES
-    benchmark/heat_diffusion_benchmark_timing.cpp
-    src/base/heat_diffusion.cpp
+set(OPENMP_SOURCES
+    src/openmp/optimized_heat_diffusion_omp.cpp
+    src/openmp/main_omp.cpp
 )
 
 
@@ -116,6 +135,12 @@ set(MPI_SOURCES
     src/base/heat_diffusion.cpp  # Include the base implementation for validation
 )
 
+
+# Benchmark sources
+set(BENCHMARK_SOURCES
+    benchmark/heat_diffusion_benchmark_timing.cpp
+    src/base/heat_diffusion.cpp
+)
 
 # Optimized benchmark sources
 set(OPTIMIZED_BENCHMARK_SOURCES_v1
@@ -133,6 +158,17 @@ set(OPTIMIZED_BENCHMARK_SOURCES_v2
 set(OPTIMIZED_BENCHMARK_SOURCES_v3
     benchmark/heat_diffusion_benchmark_optimised_timing_v3.cpp
     src/optimized_v3/optimized_heat_diffusion.cpp
+)
+
+# OpenMP benchmark sources
+set(OPENMP_BENCHMARK_SOURCES
+    benchmark/heat_diffusion_benchmark_openmp.cpp
+    src/openmp/optimized_heat_diffusion_omp.cpp
+)
+
+set(MPI_BENCHMARK_SOURCES
+    benchmark/heat_diffusion_benchmark_mpi.cpp
+    src/mpi/optimized_heat_diffusion_mpi.cpp
 )
 
 # Validation tool sources
@@ -206,6 +242,25 @@ if(FILESYSTEM_LIBRARIES)
     target_link_libraries(heat_diffusion_mpi PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
+
+# OpenMP implementation sources
+add_executable(heat_diffusion_openmp ${OPENMP_SOURCES})
+target_compile_options(heat_diffusion_openmp PRIVATE ${BASE_FLAGS_LIST} ${DEV_FLAGS_LIST})
+
+if(APPLE AND OMP_LIB)
+    # macOS-specific OpenMP linking
+    target_include_directories(heat_diffusion_openmp PRIVATE "/opt/homebrew/Cellar/libomp/20.1.0/include")
+    target_link_libraries(heat_diffusion_openmp PRIVATE "${OMP_LIB}")
+else()
+    # Standard OpenMP linking for non-macOS platforms
+    if(OpenMP_CXX_FOUND)
+        target_link_libraries(heat_diffusion_openmp PRIVATE OpenMP::OpenMP_CXX)
+    endif()
+endif()
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(heat_diffusion_openmp PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
+
 # Benchmark executables - use benchmark flags (no debug info, additional optimizations)
 add_executable(heat_diffusion_benchmark ${BENCHMARK_SOURCES})
 target_compile_options(heat_diffusion_benchmark PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
@@ -232,6 +287,34 @@ if(FILESYSTEM_LIBRARIES)
     target_link_libraries(heat_diffusion_optimized_benchmark_v3 PRIVATE ${FILESYSTEM_LIBRARIES})
 endif()
 
+
+# OpenMP implementation sources
+add_executable(heat_diffusion_openmp_benchmark ${OPENMP_BENCHMARK_SOURCES})
+target_compile_options(heat_diffusion_openmp_benchmark PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
+
+if(APPLE AND OMP_LIB)
+    # macOS-specific OpenMP linking
+    target_include_directories(heat_diffusion_openmp_benchmark PRIVATE "/opt/homebrew/Cellar/libomp/20.1.0/include")
+    target_link_libraries(heat_diffusion_openmp_benchmark PRIVATE "${OMP_LIB}")
+else()
+    # Standard OpenMP linking for non-macOS platforms
+    if(OpenMP_CXX_FOUND)
+        target_link_libraries(heat_diffusion_openmp_benchmark PRIVATE OpenMP::OpenMP_CXX)
+    endif()
+endif()
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(heat_diffusion_openmp_benchmark PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
+
+
+add_executable(heat_diffusion_mpi_benchmark ${MPI_BENCHMARK_SOURCES})
+target_compile_options(heat_diffusion_mpi_benchmark PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
+if(MPI_CXX_FOUND)
+    target_link_libraries(heat_diffusion_mpi_benchmark PRIVATE MPI::MPI_CXX)
+endif()
+if(FILESYSTEM_LIBRARIES)
+    target_link_libraries(heat_diffusion_mpi_benchmark PRIVATE ${FILESYSTEM_LIBRARIES})
+endif()
 
 # Validation tools - use development flags
 add_executable(validate ${VALIDATION_SOURCES})
@@ -261,6 +344,7 @@ if(ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion_optimized_v1 PRIVATE ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion_optimized_v3 PRIVATE ENABLE_VALIDATION)
     target_compile_definitions(heat_diffusion_mpi PRIVATE ENABLE_VALIDATION)
+    target_compile_definitions(heat_diffusion_openmp PRIVATE ENABLE_VALIDATION)
     message(STATUS "Validation mode enabled for heat_diffusion")
 endif()
 
@@ -268,6 +352,7 @@ endif()
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output/base)
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output/optimised)
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output/mpi)
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output/openmp)
 
 # macOS-specific mkdir command for scripts
 if(APPLE)
@@ -284,11 +369,14 @@ install(TARGETS
         heat_diffusion_optimized_v1 
         heat_diffusion_optimized_v3
         heat_diffusion_mpi 
+        heat_diffusion_openmp
         validate 
         test_validation 
         heat_diffusion_benchmark 
         heat_diffusion_optimized_benchmark_v1 
         heat_diffusion_optimized_benchmark_v3
+        heat_diffusion_openmp_benchmark
+        heat_diffusion_mpi_benchmark
         block_size_optimizer
         RUNTIME DESTINATION bin)
 
@@ -309,6 +397,11 @@ COMMAND validate --baseline ${CMAKE_BINARY_DIR}/output/base
                 --optimized ${CMAKE_BINARY_DIR}/output/mpi
                 --tolerance 1e-10)
 
+# Add validation test for OpenMP version
+add_test(NAME ValidateOpenMP
+         COMMAND validate --baseline ${CMAKE_BINARY_DIR}/output/base
+                         --optimized ${CMAKE_BINARY_DIR}/output/openmp
+                         --tolerance 1e-10)
 
 
 add_custom_target(run_mpi
@@ -316,6 +409,15 @@ COMMAND mpirun -np 4 --oversubscribe $<TARGET_FILE:heat_diffusion_mpi>
 DEPENDS heat_diffusion_mpi
 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 COMMENT "Running MPI version with 4 processes (macOS)"
+)
+
+
+
+add_custom_target(run_openmp
+    COMMAND $<TARGET_FILE:heat_diffusion_openmp> --threads 4
+    DEPENDS heat_diffusion_openmp
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Running OpenMP version with 4 threads"
 )
 # Print status information
 message(STATUS "========== Configuration Summary ==========")
@@ -335,6 +437,7 @@ message(STATUS "Development flags: ${DEV_FLAGS_STR}")
 message(STATUS "Benchmark flags: ${BENCHMARK_FLAGS_STR}")
 message(STATUS "Filesystem libraries: ${FILESYSTEM_LIBRARIES}")
 message(STATUS "MPI support: ${MPI_FOUND}")
+message(STATUS "OpenMP support: ${OpenMP_CXX_FOUND}")
 if(CSD3_PLATFORM)
     message(STATUS "OpenMP support: ${OpenMP_CXX_FOUND}")
 endif()
