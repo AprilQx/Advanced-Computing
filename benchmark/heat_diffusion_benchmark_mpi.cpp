@@ -53,25 +53,55 @@
  }
  
  int main(int argc, char* argv[]) {
+    // Initialize MPI first
+    MPI_Init(&argc, &argv);
+    
+    // Now you can safely use MPI functions
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+    
      // Default values
      int gridSize = 1000;
      int iterations = 1000;
      bool saveOutput = false;
      int numRuns = 10;  // Run the benchmark 10 times
+     int requestedRanks = -1;  // Default: no specific rank count requested
+
      
      // Parse command line arguments
-     for (int i = 1; i < argc; i++) {
-         std::string arg = argv[i];
-         if (arg == "--size" && i + 1 < argc) {
-             gridSize = std::stoi(argv[++i]);
-         } else if (arg == "--iterations" && i + 1 < argc) {
-             iterations = std::stoi(argv[++i]);
-         } else if (arg == "--save") {
-             saveOutput = true;
-         } else if (arg == "--runs" && i + 1 < argc) {
-             numRuns = std::stoi(argv[++i]);
-         }
-     }
+    for (int i = 1; i < argc; i++) {
+        std::string arg = argv[i];
+        if (arg == "--size" && i + 1 < argc) {
+            gridSize = std::stoi(argv[++i]);
+        } else if (arg == "--iterations" && i + 1 < argc) {
+            iterations = std::stoi(argv[++i]);
+        } else if (arg == "--save") {
+            saveOutput = true;
+        } else if (arg == "--runs" && i + 1 < argc) {
+            numRuns = std::stoi(argv[++i]);
+        } else if (arg == "--ranks" && i + 1 < argc) {
+            requestedRanks = std::stoi(argv[++i]);
+        }
+    }
+    // Validate the number of ranks if specified
+    if (requestedRanks > 0 && size != requestedRanks) {
+        if (rank == 0) {
+            std::cerr << "Error: Benchmark requested " << requestedRanks 
+                      << " ranks but is running with " << size << " ranks." << std::endl;
+            std::cerr << "Please run with: mpirun -n " << requestedRanks 
+                      << " ./heat_diffusion_mpi_benchmark [other options]" << std::endl;
+        }
+        MPI_Finalize();
+        return 1;
+    }
+
+    if (rank == 0) {
+        std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
+                 << " for " << iterations << " iterations"
+                 << " across " << numRuns << " runs using " << size << " MPI ranks"
+                 << (saveOutput ? " (with output)" : " (no output)") << std::endl;
+    }
      
     //  std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
     //            << " for " << iterations << " iterations" 
@@ -206,5 +236,7 @@
      std::cout << "\nNumerical Stability:" << std::endl;
      std::cout << "  Checksum consistency: " << (stable ? "Stable" : "Unstable") << std::endl;
      
-     return 0;
+     // Don't forget to finalize MPI at the end
+    MPI_Finalize();
+    return 0;
  }
