@@ -27,36 +27,6 @@
 void printUsage(const char* programName);
 void runSimulation(int width, int height, double diffusionRate, int totalFrames, bool saveOutput, int numThreads);
 
-// Function to get memory usage in KB - cross-platform
-long getMemoryUsage() {
-#ifdef __APPLE__
-    // macOS - use Mach kernel APIs for more accurate reporting
-    struct mach_task_basic_info info;
-    mach_msg_type_number_t size = MACH_TASK_BASIC_INFO_COUNT;
-    
-    if (task_info(mach_task_self(), MACH_TASK_BASIC_INFO, (task_info_t)&info, &size) == KERN_SUCCESS) {
-        // Convert from bytes to KB
-        return info.resident_size / 1024;
-    }
-    return 0;
-#else
-    // Linux implementation
-    struct rusage usage;
-    getrusage(RUSAGE_SELF, &usage);
-    return usage.ru_maxrss;
-#endif
-}
-
-// Function to calculate standard deviation
-double calculateStdDev(const std::vector<double>& values, double mean) {
-    double variance = 0.0;
-    for (const auto& value : values) {
-        double diff = value - mean;
-        variance += diff * diff;
-    }
-    return std::sqrt(variance / values.size());
-}
-
  /**
   * @brief Main function running the hybrid MPI+OpenMP parallelized heat diffusion simulation
   */
