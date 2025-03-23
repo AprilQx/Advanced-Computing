@@ -1,1 +1,1 @@
-./heat_diffusion_openmp_benchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./heat_diffusion_openmp_benchmark)
+./comprehensive-profiling-script-openmp.sh: line 229: ./heat_diffusion_openmp_benchmark: No such file or directory

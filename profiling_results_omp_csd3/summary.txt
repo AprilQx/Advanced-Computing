@@ -5,7 +5,7 @@ System Information:
   Architecture: Icelake (Intel Xeon 8360Y)
   Cores: 76 per node
   Memory: 256GB/512GB per node
-  Date: Sun Mar 23 20:04:54 GMT 2025
+  Date: Sun Mar 23 20:10:26 GMT 2025
 
 OpenMP Environment:
 OpenMP version: 201611
@@ -17,34 +17,134 @@ OpenMP num threads: 8
 Thread Scaling Results:
 Strong Scaling (Fixed Problem Size 2000x2000):
   1 threads:
+  Average Iteration Time: 9.06206 ms
+  Average Iteration Time: 9.06206 ms (StdDev: 0 ms)
+  Performance: -3.25497e+07 cell updates per second
+  Average Performance: -3.25497e+07 cell updates per second (StdDev: 0)
   2 threads:
+  Average Iteration Time: 4.79731 ms
+  Average Iteration Time: 4.79731 ms (StdDev: 0 ms)
+  Performance: -6.14859e+07 cell updates per second
+  Average Performance: -6.14859e+07 cell updates per second (StdDev: 0)
   4 threads:
+  Average Iteration Time: 2.65067 ms
+  Average Iteration Time: 2.65067 ms (StdDev: 0 ms)
+  Performance: -1.1128e+08 cell updates per second
+  Average Performance: -1.1128e+08 cell updates per second (StdDev: 0)
   8 threads:
+  Average Iteration Time: 1.07614 ms
+  Average Iteration Time: 1.07614 ms (StdDev: 0 ms)
+  Performance: -2.74099e+08 cell updates per second
+  Average Performance: -2.74099e+08 cell updates per second (StdDev: 0)
   16 threads:
+  Average Iteration Time: 0.537224 ms
+  Average Iteration Time: 0.537224 ms (StdDev: 0 ms)
+  Performance: -5.49058e+08 cell updates per second
+  Average Performance: -5.49058e+08 cell updates per second (StdDev: 0)
   32 threads:
+  Average Iteration Time: 1.66659 ms
+  Average Iteration Time: 1.66659 ms (StdDev: 0 ms)
+  Performance: -1.76989e+08 cell updates per second
+  Average Performance: -1.76989e+08 cell updates per second (StdDev: 0)
   64 threads:
+  Average Iteration Time: 3.26459 ms
+  Average Iteration Time: 3.26459 ms (StdDev: 0 ms)
+  Performance: -9.03534e+07 cell updates per second
+  Average Performance: -9.03534e+07 cell updates per second (StdDev: 0)
   76 threads:
+  Average Iteration Time: 1.68094 ms
+  Average Iteration Time: 1.68094 ms (StdDev: 0 ms)
+  Performance: -1.75477e+08 cell updates per second
+  Average Performance: -1.75477e+08 cell updates per second (StdDev: 0)
 
 Weak Scaling (Problem Size Scaled with Thread Count):
   1 threads (500x500 grid):
+Grid Size: 500x500 (250000 cells)
+  Average Iteration Time: 0.167488 ms
+  Average Iteration Time: 0.167488 ms (StdDev: 0 ms)
+  Performance: 1.49265e+09 cell updates per second
+  Average Performance: 1.49265e+09 cell updates per second (StdDev: 0)
   2 threads (707x707 grid):
+Grid Size: 707x707 (499849 cells)
+  Average Iteration Time: 0.165958 ms
+  Average Iteration Time: 0.165958 ms (StdDev: 0 ms)
+  Performance: 3.0119e+09 cell updates per second
+  Average Performance: 3.0119e+09 cell updates per second (StdDev: 0)
   4 threads (1000x1000 grid):
+Grid Size: 1000x1000 (1000000 cells)
+  Average Iteration Time: 0.265277 ms
+  Average Iteration Time: 0.265277 ms (StdDev: 0 ms)
+  Performance: 3.76964e+09 cell updates per second
+  Average Performance: 3.76964e+09 cell updates per second (StdDev: 0)
   8 threads (1414x1414 grid):
+Grid Size: 1414x1414 (1999396 cells)
+  Average Iteration Time: 0.296993 ms
+  Average Iteration Time: 0.296993 ms (StdDev: 0 ms)
+  Performance: 6.73213e+09 cell updates per second
+  Average Performance: 6.73213e+09 cell updates per second (StdDev: 0)
   16 threads (2000x2000 grid):
+Grid Size: 2000x2000 (4000000 cells)
+  Average Iteration Time: 0.95891 ms
+  Average Iteration Time: 0.95891 ms (StdDev: 0 ms)
+  Performance: 4.1714e+09 cell updates per second
+  Average Performance: 4.1714e+09 cell updates per second (StdDev: 0)
   32 threads (2828x2828 grid):
+Grid Size: 2828x2828 (7997584 cells)
+  Average Iteration Time: 6.18752 ms
+  Average Iteration Time: 6.18752 ms (StdDev: 0 ms)
+  Performance: 1.29253e+09 cell updates per second
+  Average Performance: 1.29253e+09 cell updates per second (StdDev: 0)
   64 threads (4000x4000 grid):
+Grid Size: 4000x4000 (16000000 cells)
+  Average Iteration Time: 41.7471 ms
+  Average Iteration Time: 41.7471 ms (StdDev: 0 ms)
+  Performance: 3.8326e+08 cell updates per second
+  Average Performance: 3.8326e+08 cell updates per second (StdDev: 0)
   76 threads (4358x4358 grid):
+Grid Size: 4358x4358 (18992164 cells)
+  Average Iteration Time: 20.4218 ms
+  Average Iteration Time: 20.4218 ms (StdDev: 0 ms)
+  Performance: 9.29997e+08 cell updates per second
+  Average Performance: 9.29997e+08 cell updates per second (StdDev: 0)
 
 Thread Affinity Results:
   KMP_AFFINITY=close:
+  Average Iteration Time: 5.2326 ms
+  Average Iteration Time: 5.2326 ms (StdDev: 0 ms)
+  Performance: 7.64438e+08 cell updates per second
+  Average Performance: 7.64438e+08 cell updates per second (StdDev: 0)
   KMP_AFFINITY=spread:
+  Average Iteration Time: 4.34479 ms
+  Average Iteration Time: 4.34479 ms (StdDev: 0 ms)
+  Performance: 9.20643e+08 cell updates per second
+  Average Performance: 9.20643e+08 cell updates per second (StdDev: 0)
   KMP_AFFINITY=master:
+  Average Iteration Time: 3.39984 ms
+  Average Iteration Time: 3.39984 ms (StdDev: 0 ms)
+  Performance: 1.17652e+09 cell updates per second
+  Average Performance: 1.17652e+09 cell updates per second (StdDev: 0)
   Explicit Places (OMP_PLACES=cores, OMP_PROC_BIND=close):
+  Average Iteration Time: 0.867168 ms
+  Average Iteration Time: 0.867168 ms (StdDev: 0 ms)
+  Performance: 4.61272e+09 cell updates per second
+  Average Performance: 4.61272e+09 cell updates per second (StdDev: 0)
 
 Scheduling Policy Results:
   OMP_SCHEDULE=static:
+  Average Iteration Time: 2.13022 ms
+  Average Iteration Time: 2.13022 ms (StdDev: 0 ms)
+  Performance: -1.38468e+08 cell updates per second
+  Average Performance: -1.38468e+08 cell updates per second (StdDev: 0)
   OMP_SCHEDULE=static,1:
+  Average Iteration Time: 6.16535 ms
+  Average Iteration Time: 6.16535 ms (StdDev: 0 ms)
+  Performance: -4.78427e+07 cell updates per second
+  Average Performance: -4.78427e+07 cell updates per second (StdDev: 0)
   OMP_SCHEDULE=static,10:
+  Average Iteration Time: 2.39281 ms
+  Average Iteration Time: 2.39281 ms (StdDev: 0 ms)
+  Performance: -1.23272e+08 cell updates per second
+  Average Performance: -1.23272e+08 cell updates per second (StdDev: 0)
   OMP_SCHEDULE=static,100:
   OMP_SCHEDULE=dynamic:
   OMP_SCHEDULE=dynamic,1:
@@ -62,21 +162,71 @@ Block Size Optimization:
 
 VTune Hotspots Summary:
 
+VTune Threading Summary:
+
 Cache Size Impact (Different Grid Sizes):
   Single Thread:
     Grid size 100x100:
+Grid Size: 100x100 (10000 cells)
+  Average Iteration Time: 0.00706875 ms
+  Average Iteration Time: 0.00706875 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 256x256:
+Grid Size: 256x256 (65536 cells)
+  Average Iteration Time: 0.0520772 ms
+  Average Iteration Time: 0.0520772 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 512x512:
+Grid Size: 512x512 (262144 cells)
+  Average Iteration Time: 0.272857 ms
+  Average Iteration Time: 0.272857 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 1024x1024:
+Grid Size: 1024x1024 (1048576 cells)
+  Average Iteration Time: 2.41317 ms
+  Average Iteration Time: 2.41317 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 2048x2048:
+Grid Size: 2048x2048 (4194304 cells)
+  Average Iteration Time: 10.2158 ms
+  Average Iteration Time: 10.2158 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 4096x4096:
+Grid Size: 4096x4096 (16777216 cells)
+  Average Iteration Time: 41.8703 ms
+  Average Iteration Time: 41.8703 ms (StdDev: 0 ms)
+Memory Usage:
   Full Parallelism (76 threads):
     Grid size 100x100:
+Grid Size: 100x100 (10000 cells)
+  Average Iteration Time: 0.0957125 ms
+  Average Iteration Time: 0.0957125 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 256x256:
+Grid Size: 256x256 (65536 cells)
+  Average Iteration Time: 0.0395367 ms
+  Average Iteration Time: 0.0395367 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 512x512:
+Grid Size: 512x512 (262144 cells)
+  Average Iteration Time: 0.148656 ms
+  Average Iteration Time: 0.148656 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 1024x1024:
+Grid Size: 1024x1024 (1048576 cells)
+  Average Iteration Time: 0.425524 ms
+  Average Iteration Time: 0.425524 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 2048x2048:
+Grid Size: 2048x2048 (4194304 cells)
+  Average Iteration Time: 25.0758 ms
+  Average Iteration Time: 25.0758 ms (StdDev: 0 ms)
+Memory Usage:
     Grid size 4096x4096:
+Grid Size: 4096x4096 (16777216 cells)
+  Average Iteration Time: 9.38206 ms
+  Average Iteration Time: 9.38206 ms (StdDev: 0 ms)
+Memory Usage:
 
 Parallel Efficiency:
 

@@ -1,1 +1,48 @@
-./heat_diffusion_openmp_benchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./heat_diffusion_openmp_benchmark)
+OMP_NUM_THREADS environment variable: 16
+Thread count manually set to: 16
+Running benchmark with grid size 2000x2000 for 1000 iterations across 1 runs (no output)
+System has 16 OpenMP threads available
+
+=== Run 1 of 1 ===
+OpenMP initialized with 16 threads
+Using 16 OpenMP threads for this run
+Iteration 0 completed in 4.62065 ms
+Iteration 100 completed in 0.616031 ms
+Iteration 200 completed in 0.557514 ms
+Iteration 300 completed in 0.618629 ms
+Iteration 400 completed in 0.46687 ms
+Iteration 500 completed in 0.548966 ms
+Iteration 600 completed in 0.536527 ms
+Iteration 700 completed in 0.380416 ms
+Iteration 800 completed in 0.487229 ms
+Iteration 900 completed in 0.491979 ms
+Run 1 Results:
+  Setup Time: 39.0249 ms
+  Total Simulation Time: 537.224 ms
+  Average Iteration Time: 0.537224 ms
+  Min/Max Iteration Time: 0.336218/4.62065 ms
+  Performance: -5.49058e+08 cell updates per second
+  Memory Usage Increase: 66796 KB
+  Checksum: 8.00039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 2000x2000 (4000000 cells)
+Iterations per Run: 1000
+
+Timing Statistics:
+  Average Setup Time: 39.0249 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 537.224 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.537224 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.336218/4.62065 ms
+
+Performance Statistics:
+  Average Performance: -5.49058e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (537.224 ms)
+  Worst Run: Run 1 (537.224 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 66796 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

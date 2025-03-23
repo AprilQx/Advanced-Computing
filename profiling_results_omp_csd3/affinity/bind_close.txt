@@ -1,1 +1,39 @@
-./heat_diffusion_openmp_benchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./heat_diffusion_openmp_benchmark)
+OMP_NUM_THREADS environment variable: 76
+Running benchmark with grid size 2000x2000 for 50 iterations across 1 runs (no output)
+OMP: Warning #58: KMP_AFFINITY: parameter invalid, ignoring "close".
+System has 76 OpenMP threads available
+
+=== Run 1 of 1 ===
+OpenMP initialized with 76 threads
+Using 76 OpenMP threads for this run
+Iteration 0 completed in 27.1276 ms
+Run 1 Results:
+  Setup Time: 424.878 ms
+  Total Simulation Time: 261.63 ms
+  Average Iteration Time: 5.2326 ms
+  Min/Max Iteration Time: 2.98736/27.1276 ms
+  Performance: 7.64438e+08 cell updates per second
+  Memory Usage Increase: 84468 KB
+  Checksum: 8.00039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 2000x2000 (4000000 cells)
+Iterations per Run: 50
+
+Timing Statistics:
+  Average Setup Time: 424.878 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 261.63 ms (StdDev: 0 ms)
+  Average Iteration Time: 5.2326 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 2.98736/27.1276 ms
+
+Performance Statistics:
+  Average Performance: 7.64438e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (261.63 ms)
+  Worst Run: Run 1 (261.63 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 84468 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
