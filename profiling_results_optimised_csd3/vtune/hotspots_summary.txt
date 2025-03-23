@@ -1,0 +1,40 @@
+Elapsed Time: 5.008s
+    CPU Time: 4.880s
+        Effective Time: 4.880s
+        Spin Time: 0s
+        Overhead Time: 0s
+    Total Thread Count: 1
+    Paused Time: 0s
+
+Top Hotspots
+Function                        Module                                 CPU Time  % of CPU Time(%)
+------------------------------  -------------------------------------  --------  ----------------
+OptimizedHeatDiffusion::update  heat_diffusion_optimized_benchmark_v2    4.880s            100.0%
+Effective CPU Utilization: 1.3%
+ | The metric value is low, which may signal a poor logical CPU cores
+ | utilization caused by load imbalance, threading runtime overhead, contended
+ | synchronization, or thread/process underutilization. Explore sub-metrics to
+ | estimate the efficiency of MPI and OpenMP parallelism or run the Locks and
+ | Waits analysis to identify parallel bottlenecks for other parallel runtimes.
+ |
+    Average Effective CPU Utilization: 0.985 out of 76
+Collection and Platform Info
+    Application Command Line: ./heat_diffusion_optimized_benchmark_v2 "--size" "1000" "--iterations" "1000" 
+    Operating System: 4.18.0-553.34.1.el8_10.x86_64 Unix/Linux
+    Computer Name: cpu-q-132
+    Result Size: 3.7 MB 
+    Collection start time: 19:25:32 23/03/2025 UTC
+    Collection stop time: 19:25:37 23/03/2025 UTC
+    Collector Type: Driverless Perf per-process counting,User-mode sampling and tracing
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Icelake
+        Frequency: 2.594 GHz
+        Logical CPU Count: 76
+        Cache Allocation Technology
+            Level 2 capability: not detected
+            Level 3 capability: available
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.
