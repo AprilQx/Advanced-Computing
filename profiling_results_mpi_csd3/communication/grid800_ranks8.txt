@@ -1,0 +1,283 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+=== Run 1 of 1 ===
+
+
+=== Run 1 of 1 ===
+Running benchmark with grid size 800x800 for 100 iterations across 1 runs using 8 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 4x2 process grid for 8 processes
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+Domain decomposition: Global size = 800x800, Process grid = 4x2
+Rank 0 has local domain size 400x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+Rank 1 has local domain size 400x200 starting at global position (400,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 400x200 starting at global position (0,200)
+Rank 2 neighbors: N=0, E=3, S=4, W=-1
+Rank 3 has local domain size 400x200 starting at global position (400,200)
+Rank 3 neighbors: N=1, E=-1, S=5, W=2
+Rank 4 has local domain size 400x200 starting at global position (0,400)
+Rank 4 neighbors: N=2, E=5, S=6, W=-1
+Rank 5 has local domain size 400x200 starting at global position (400,400)
+Rank 5 neighbors: N=3, E=-1, S=7, W=4
+Rank 6 has local domain size 400x200 starting at global position (0,600)
+Rank 6 neighbors: N=4, E=7, S=-1, W=-1
+Rank 7 has local domain size 400x200 starting at global position (400,600)
+Rank 7 neighbors: N=5, E=-1, S=-1, W=6
+Run 1 Results:
+  Setup Time: Run 1 Results:
+  Setup Time: 3.45569 ms
+  Total Simulation Time: Run 1 Results:
+  Setup Time: 3.77994 ms
+  Total Simulation Time: 10.4998 ms
+  Average Iteration Time: 0.104998 ms
+  Min/Max Iteration Time: 0.095119/0.37313 ms
+  Performance: Run 1 Results:
+  Setup Time: 3.47785 ms
+  Total Simulation Time: 10.4991 ms
+  Average Iteration Time: 0.104991 ms
+  Min/Max Iteration Time: 0.095246/0.358179 ms
+  Performance: 6.09578e+09 cell updates per second
+  Memory Usage Increase: 3976 KBRun 1 Results:
+  Setup Time: 3.97258 ms
+  Total Simulation Time: 10.511 ms
+  Average Iteration Time: 0.10511 ms
+  Min/Max Iteration Time: 0.095309/0.355231 ms
+  Performance: 6.08886e+09 cell updates per second
+  Memory Usage Increase: 4468 KB
+  Checksum: 1.28039e+07
+Run 1 Results:
+  Setup Time: 3.94786 ms
+  Total Simulation Time: 10.5158 ms
+  Average Iteration Time: 0.105158 ms
+  Min/Max Iteration Time: 0.09528/0.350441 ms
+  Performance: 6.08606e+09 cell updates per second
+  Memory Usage Increase: 4260 KB
+  Checksum: 1.28039e+07
+Run 1 Results:
+  Setup Time: 3.72474 ms
+  Total Simulation Time: 10.5214 ms
+  Average Iteration Time: 0.105214 ms
+  Min/Max Iteration Time: 0.094393/0.345818 ms
+  Performance: 6.08282e+09 cell updates per second
+  Memory Usage Increase: 3940 KB
+  Checksum: 1.28039e+07
+3.84136 ms
+  Total Simulation Time: 10.25 ms
+  Average Iteration Time: 0.1025 ms
+  Min/Max Iteration Time: 0.094644/0.237979 ms
+  Performance: 6.2439e+09 cell updates per second
+  Memory Usage Increase: 6096 KB
+  Checksum: 1.28039e+07
+10.4036 ms
+  Average Iteration Time: 0.104036 ms
+  Min/Max Iteration Time: 0.094621/0.397517 ms
+  Performance: 6.15169e+09 cell updates per second
+  Memory Usage Increase: 3956 KB
+  Checksum: 1.28039e+07
+6.09537e+09 cell updates per second
+  Memory Usage Increase: 4020 KB
+  Checksum: 1.28039e+07
+
+  Checksum: 1.28039e+07
+Run 1 Results:
+  Setup Time: 3.76466 ms
+  Total Simulation Time: 10.5182 ms
+  Average Iteration Time: 0.105182 ms
+  Min/Max Iteration Time: 0.095001/0.346728 ms
+  Performance: 6.08469e+09 cell updates per second
+  Memory Usage Increase: 3908 KB
+  Checksum: 1.28039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.84136 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.25 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.1025 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.094644/0.237979 ms
+
+Performance Statistics:
+  Average Performance: 6.2439e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.25 ms)
+  Worst Run: Run 1 (10.25 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 6096 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.45569 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.4036 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.104036 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.094621/0.397517 ms
+
+Performance Statistics:
+  Average Performance: 6.15169e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.4036 ms)
+  Worst Run: Run 1 (10.4036 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 3956 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.77994 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.4998 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.104998 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.095119/0.37313 ms
+
+Performance Statistics:
+  Average Performance: 6.09537e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.4998 ms)
+  Worst Run: Run 1 (10.4998 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 4020 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.47785 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.4991 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.104991 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.095246/0.358179 ms
+
+Performance Statistics:
+  Average Performance: 6.09578e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.4991 ms)
+  Worst Run: Run 1 (10.4991 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 3976 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.97258 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.511 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10511 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.095309/0.355231 ms
+
+Performance Statistics:
+  Average Performance: 6.08886e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.511 ms)
+  Worst Run: Run 1 (10.511 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 4468 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.94786 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.5158 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105158 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.09528/0.350441 ms
+
+Performance Statistics:
+  Average Performance: 6.08606e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.5158 ms)
+  Worst Run: Run 1 (10.5158 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 4260 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.76466 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.5182 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105182 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.095001/0.346728 ms
+
+Performance Statistics:
+  Average Performance: 6.08469e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.5182 ms)
+  Worst Run: Run 1 (10.5182 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 3908 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.72474 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.5214 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105214 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.094393/0.345818 ms
+
+Performance Statistics:
+  Average Performance: 6.08282e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.5214 ms)
+  Worst Run: Run 1 (10.5214 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 3940 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
