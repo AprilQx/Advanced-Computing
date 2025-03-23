@@ -1,0 +1,221 @@
+#!/bin/bash
+
+# Profiling script for MPI applications
+# Designed to run on CSD3 or similar HPC systems
+
+# Create directories
+mkdir -p profiling_results_mpi/{gprof,valgrind,scaling,communication}
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}Starting MPI profiling...${NC}"
+
+# Create build directory
+mkdir -p build
+cd build
+
+# Configure and build
+echo -e "${BLUE}Configuring and building...${NC}"
+
+# First, build normal optimized version
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j4
+
+# Build version with gprof profiling
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-pg"
+make -j4 
+
+#=====================
+# 1. GPROF Profiling (each MPI rank will generate its own profile)
+#=====================
+echo -e "${BLUE}Running gprof profiling...${NC}"
+
+# Run with small grid for quick profiling
+mpirun -n 4 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1
+
+# Generate gprof report for each rank
+for gmon in gmon.out.*; do
+    # Extract rank number from filename if present
+    if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
+        RANK="${BASH_REMATCH[1]}"
+    else
+        RANK="combined"
+    fi
+    
+    gprof ./heat_diffusion_mpi_benchmark $gmon > ../profiling_results_mpi/gprof/gprof_report_rank_${RANK}.txt
+    echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
+done
+
+#=====================
+# 2. MPI-specific profiling
+#=====================
+echo -e "${BLUE}Running MPI-specific profiling...${NC}"
+
+# Return to optimized build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j4
+
+# MPI scaling test
+echo -e "${YELLOW}Running strong scaling test...${NC}"
+for RANKS in 1 2 4 8 16; do
+    echo -e "Testing with ${RANKS} MPI ranks..."
+    
+    # Ensure we don't exceed available resources
+    if [ $RANKS -le $(nproc) ]; then
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 500 --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt
+    else
+        echo "Skipping ${RANKS} ranks test (exceeds available processors)"
+    fi
+done
+
+# Weak scaling test (increase problem size with number of ranks)
+echo -e "${YELLOW}Running weak scaling test...${NC}"
+for RANKS in 1 2 4 8 16; do
+    BASE_SIZE=100
+    SIZE=$(($BASE_SIZE * $RANKS))  # Scale problem with ranks
+    
+    echo -e "Testing with ${RANKS} MPI ranks, grid size ${SIZE}x${SIZE}..."
+    
+    # Ensure we don't exceed available resources
+    if [ $RANKS -le $(nproc) ]; then
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size $SIZE --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt
+    else
+        echo "Skipping ${RANKS} ranks test (exceeds available processors)"
+    fi
+done
+
+#=====================
+# 3. MPI Communication Analysis
+#=====================
+echo -e "${BLUE}Running MPI communication analysis...${NC}"
+
+# Add specific tests for MPI communication patterns
+echo -e "${BLUE}Running MPI communication pattern tests...${NC}"
+
+# Analyze data distribution & scaling impact
+for GRID_SIZE in 100 400 1000; do
+    echo -e "${YELLOW}Testing grid size ${GRID_SIZE} with different rank counts...${NC}"
+    
+    for PROCS in 1 2 4 8; do
+        # Check if we have enough processors
+        if [ $PROCS -le $(nproc) ]; then
+            echo -e "Running with ${PROCS} ranks on ${GRID_SIZE}x${GRID_SIZE} grid..."
+            mpirun -n $PROCS ./heat_diffusion_mpi_benchmark --size $GRID_SIZE --iterations 100 --runs 1 > \
+                ../profiling_results_mpi/communication/grid${GRID_SIZE}_ranks${PROCS}.txt
+        fi
+    done
+done
+
+#=====================
+# 4. VALGRIND with MPI ranks
+#=====================
+echo -e "${BLUE}Running Valgrind on a single MPI rank...${NC}"
+
+# Note: Running valgrind with MPI can be tricky - we'll run on just one rank
+valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1 > ../profiling_results_mpi/valgrind/cachegrind_output.txt 2>&1
+
+# Find the cachegrind output file
+CACHEGRIND_FILE=$(ls cachegrind.out.*)
+if [ -n "$CACHEGRIND_FILE" ]; then
+    cg_annotate $CACHEGRIND_FILE > ../profiling_results_mpi/valgrind/cachegrind_report.txt
+fi
+
+#=====================
+# 5. Generate Summary
+#=====================
+echo -e "${GREEN}Generating summary...${NC}"
+cd ..
+
+echo "MPI PROFILING SUMMARY" > profiling_results_mpi/summary.txt
+echo "====================" >> profiling_results_mpi/summary.txt
+echo "" >> profiling_results_mpi/summary.txt
+
+# Add scaling results
+echo "Strong Scaling Results:" >> profiling_results_mpi/summary.txt
+for RANKS in 1 2 4 8 16; do
+    if [ -f profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt ]; then
+        echo "  ${RANKS} ranks:" >> profiling_results_mpi/summary.txt
+        grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+    fi
+done
+echo "" >> profiling_results_mpi/summary.txt
+
+echo "Weak Scaling Results:" >> profiling_results_mpi/summary.txt
+for RANKS in 1 2 4 8 16; do
+    if [ -f profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt ]; then
+        echo "  ${RANKS} ranks (${RANKS}x base problem size):" >> profiling_results_mpi/summary.txt
+        grep "Average Iteration Time:" profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+    fi
+done
+echo "" >> profiling_results_mpi/summary.txt
+
+# Add gprof summary from rank 0 (most representative)
+if [ -f profiling_results_mpi/gprof/gprof_report_rank_0.txt ]; then
+    echo "Top functions from gprof (rank 0):" >> profiling_results_mpi/summary.txt
+    head -n 20 profiling_results_mpi/gprof/gprof_report_rank_0.txt >> profiling_results_mpi/summary.txt
+    echo "" >> profiling_results_mpi/summary.txt
+fi
+
+# Analyze communication patterns
+echo "MPI Communication Pattern Analysis:" >> profiling_results_mpi/summary.txt
+echo "--------------------------------" >> profiling_results_mpi/summary.txt
+echo "" >> profiling_results_mpi/summary.txt
+
+echo "Grid Size Scaling with Fixed Rank Count (4 ranks):" >> profiling_results_mpi/summary.txt
+for SIZE in 100 400 1000; do
+    if [ -f profiling_results_mpi/communication/grid${SIZE}_ranks4.txt ]; then
+        echo "  Grid ${SIZE}x${SIZE}:" >> profiling_results_mpi/summary.txt
+        grep "Average Iteration Time:" profiling_results_mpi/communication/grid${SIZE}_ranks4.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+        grep "Performance:" profiling_results_mpi/communication/grid${SIZE}_ranks4.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+    fi
+done
+echo "" >> profiling_results_mpi/summary.txt
+
+echo "Rank Scaling with Fixed Grid Size (400x400):" >> profiling_results_mpi/summary.txt
+for RANKS in 1 2 4 8; do
+    if [ -f profiling_results_mpi/communication/grid400_ranks${RANKS}.txt ]; then
+        echo "  ${RANKS} ranks:" >> profiling_results_mpi/summary.txt
+        grep "Average Iteration Time:" profiling_results_mpi/communication/grid400_ranks${RANKS}.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+        grep "Performance:" profiling_results_mpi/communication/grid400_ranks${RANKS}.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+    fi
+done
+echo "" >> profiling_results_mpi/summary.txt
+
+# Calculate parallel efficiency
+echo "Parallel Efficiency:" >> profiling_results_mpi/summary.txt
+if [ -f profiling_results_mpi/scaling/strong_scaling_1ranks.txt ] && [ -f profiling_results_mpi/scaling/strong_scaling_4ranks.txt ]; then
+    # Average Iteration Time: 
+    TIME_1=$(grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_1ranks.txt | awk '{print $4}')
+    TIME_4=$(grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_4ranks.txt | awk '{print $4}')
+    
+    # Calculate efficiency if we have valid numbers
+    if [[ $TIME_1 =~ ^[0-9]+(\.[0-9]+)?$ ]] && [[ $TIME_4 =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        EFF=$(echo "scale=2; $TIME_1 / (4 * $TIME_4) * 100" | bc)
+        echo "  4 ranks efficiency: ${EFF}%" >> profiling_results_mpi/summary.txt
+    else
+        echo "  Could not calculate efficiency (missing or invalid timing data)" >> profiling_results_mpi/summary.txt
+    fi
+fi
+echo "" >> profiling_results_mpi/summary.txt
+
+echo -e "${GREEN}MPI profiling complete! Results in profiling_results_mpi/ directory.${NC}"
+
+# Show quick summary on screen
+echo -e "${BLUE}Quick Results:${NC}"
+if [ -f profiling_results_mpi/scaling/strong_scaling_1ranks.txt ]; then
+    TIME_1=$(grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_1ranks.txt | awk '{print $4}')
+    echo -e "  Single rank time: ${TIME_1} ms"
+fi
+
+for RANKS in 2 4 8 16; do
+    if [ -f profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt ]; then
+        TIME=$(grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt | awk '{print $4}')
+        echo -e "  ${RANKS} ranks time: ${TIME} ms"
+    fi
+done
+
+echo -e "${GREEN}See full details in profiling_results_mpi/summary.txt${NC}"
