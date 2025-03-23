@@ -1,0 +1,73 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 100x100 for 100 iterations across 1 runs using 2 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 2x1 process grid for 2 processes
+
+=== Run 1 of 1 ===
+Domain decomposition: Global size = 100x100, Process grid = 2x1
+Rank 1 has local domain size 100x50 starting at global position (0,50)
+Rank 1 neighbors: N=Rank 0 has local domain size 100x50 starting at global position (0,0)
+Rank 0 neighbors: N=0, E=-1, S=-1, W=-1
+-1, E=-1, S=1, W=-1
+Run 1 Results:
+  Setup Time: Run 1 Results:
+  Setup Time: 1.69082 ms
+  Total Simulation Time: 0.610947 ms
+  Average Iteration Time: 0.00610947 ms
+  Min/Max Iteration Time: 0.005177/0.012103 ms
+  Performance: 1.85807 ms
+  Total Simulation Time: 0.610296 ms
+  Average Iteration Time: 0.00610296 ms
+  Min/Max Iteration Time: 0.005176/0.014933 ms
+  Performance: 1.63855e+09 cell updates per second
+  Memory Usage Increase: 2220 KB
+  Checksum: 203920
+1.6368e+09 cell updates per second
+  Memory Usage Increase: 2048 KB
+  Checksum: 203920
+
+=== AGGREGATE BENCHMARK RESULTS (1
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 1.85807 ms (StdDev: 0 ms)
+  Average Total Simulation Time:  RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 1.69082 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 0.610947 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00610947 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.005177/0.012103 ms
+0.610296 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00610296 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.005176/0.014933 ms
+
+Performance Statistics:
+  Average Performance: 1.63855e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (0.610296 ms)
+  Worst Run: Run 
+Performance Statistics:
+  Average Performance: 1.6368e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (0.610947 ms)
+  Worst Run: Run 1 (0.610947 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 2048 KB1 (0.610296 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 2220 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+
+Numerical Stability:
+  Checksum consistency: Stable

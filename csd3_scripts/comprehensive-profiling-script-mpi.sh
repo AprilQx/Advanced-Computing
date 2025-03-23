@@ -72,23 +72,21 @@ for RANKS in 1 2 4 8 16 32 64 128; do
     
     # Ensure we don't exceed available resources
     if [ $RANKS -le 152 ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 2000 --iterations 100 --runs 1 > ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds allocated processors)"
     fi
 done
 
-# Weak scaling test (increase problem size with number of ranks)
+# Adjust the weak scaling base size (currently 100)
 echo -e "${YELLOW}Running weak scaling test...${NC}"
 for RANKS in 1 2 4 8 16 32 64 128; do
-    # Ensure we have a square number of ranks for 2D decomposition if your code supports it
-    # Adjust the size calculation based on your actual decomposition strategy
-    BASE_SIZE=100
-    SIZE=$(echo "scale=0; sqrt($BASE_SIZE * $BASE_SIZE * $RANKS)" | bc -l)  # Scale problem with ranks for 2D decomposition
+    # Change BASE_SIZE from 100 to your desired value (e.g., 200)
+    BASE_SIZE=200
+    SIZE=$(echo "scale=0; sqrt($BASE_SIZE * $BASE_SIZE * $RANKS)" | bc -l)
     
     echo -e "Testing with ${RANKS} MPI ranks, grid size ${SIZE}x${SIZE}..."
     
-    # Ensure we don't exceed available resources
     if [ $RANKS -le 152 ]; then
         mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size $SIZE --iterations 100 --runs 1 > ${RESULTS_DIR}/scaling/weak_scaling_${RANKS}ranks.txt
     else
@@ -105,19 +103,19 @@ echo -e "${BLUE}Running process placement tests...${NC}"
 for PLACEMENT in "scatter" "bunch" "core"; do
     echo -e "${YELLOW}Testing with -genv I_MPI_PIN_PROCESSOR_LIST=${PLACEMENT}${NC}"
     
-    mpirun -n 8 -genv I_MPI_PIN_PROCESSOR_LIST=${PLACEMENT} ./heat_diffusion_mpi_benchmark --size 500 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/placement_${PLACEMENT}.txt
+    mpirun -n 8 -genv I_MPI_PIN_PROCESSOR_LIST=${PLACEMENT} ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/placement_${PLACEMENT}.txt
 done
 
 # Test across nodes (1 node vs 2 nodes with same total ranks)
 echo -e "${YELLOW}Testing single-node vs multi-node performance${NC}"
 # 8 ranks on 1 node
-mpirun -n 8 -ppn 8 -host $(hostname) ./heat_diffusion_mpi_benchmark --size 500 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/single_node_8ranks.txt
+mpirun -n 8 -ppn 8 -host $(hostname) ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/single_node_8ranks.txt
 
 # Get two node hostnames
 NODES=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 2 | paste -sd "," -)
 if [[ $(echo $NODES | tr -cd ',' | wc -c) -eq 1 ]]; then
     # 8 ranks across 2 nodes (4 per node)
-    mpirun -n 8 -ppn 4 -host $NODES ./heat_diffusion_mpi_benchmark --size 500 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/multi_node_8ranks.txt
+    mpirun -n 8 -ppn 4 -host $NODES ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/multi_node_8ranks.txt
 fi
 
 #=====================
@@ -126,7 +124,7 @@ fi
 echo -e "${BLUE}Running MPI communication analysis...${NC}"
 
 # Analyze data distribution & scaling impact
-for GRID_SIZE in 100 400 1000 2000; do
+for GRID_SIZE in 200 800 2000 4000; do
     echo -e "${YELLOW}Testing grid size ${GRID_SIZE} with different rank counts...${NC}"
     
     for PROCS in 1 2 4 8 16 32; do
