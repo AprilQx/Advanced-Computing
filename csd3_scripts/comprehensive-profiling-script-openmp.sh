@@ -163,12 +163,12 @@ if module load intel/oneapi/2022.1.0/vtune/2022.1.0 &> /dev/null ; then
     # Threading analysis with user-mode sampling only
     echo -e "${YELLOW}Running threading analysis...${NC}"
     export OMP_NUM_THREADS=16  # Lower thread count for profiling
-    vtune  -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 100 --runs 1
+    vtune  -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 100000 --height 100000 --frames 1000 --runs 1 
     
     # Hotspots analysis with user-mode sampling only
     echo -e "${YELLOW}Running hotspots analysis...${NC}"
     export OMP_NUM_THREADS=16
-    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 100 --runs 1
+    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 100000 --height 100000 --frames 1000 --runs 1
     
     # Generate reports (only if data was collected)
     if [ -d "${RESULTS_DIR}/vtune/threading" ]; then

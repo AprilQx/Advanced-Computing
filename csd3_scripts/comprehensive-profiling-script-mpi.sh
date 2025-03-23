@@ -72,7 +72,7 @@ for RANKS in 1 2 4 8 16 32 64 128; do
     
     # Ensure we don't exceed available resources
     if [ $RANKS -le 152 ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 2000 --iterations 100 --runs 1 > ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 2000 --iterations 1000 --runs 1 > ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds allocated processors)"
     fi
