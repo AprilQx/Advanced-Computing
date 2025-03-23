@@ -4,7 +4,7 @@ module load cmake/latest
 module load  intel/oneapi/2022.1.0/vtune/2022.1.0
 PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
-RESULTS_DIR="./profiling_results_omp_csd3"
+RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_omp_csd3"
 mkdir -p ${RESULTS_DIR}/{vtune,thread_scaling,affinity,cache,schedulingM}
 
 # Colors for output

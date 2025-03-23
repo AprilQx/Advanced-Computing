@@ -1,7 +1,7 @@
 module load   intel/oneapi/2022.1.0/itac
 PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
-RESULTS_DIR="./profiling_results_mpi_csd3"
+RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_mpi_csd3"
 mkdir -p ${RESULTS_DIR}/{scaling,communication,placement}
 
 # Colors for output
