@@ -46,7 +46,7 @@ CC=mpiicc CXX=mpiicpc cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-ma
 make -j 76 heat_diffusion_mpi_benchmark
 
 # Try to load ITAC module
-if module load intel/itac &> /dev/null || module load intel-itac &> /dev/null; then
+if module load intel/oneapi/2022.1.0/itac &> /dev/null; then
     mkdir -p ${RESULTS_DIR}/itac
     
     # Run with ITAC tracing
