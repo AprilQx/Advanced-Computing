@@ -1,307 +1,297 @@
 /**
- * @file heat_diffusion_benchmark_hybrid.cpp
- * @brief Benchmark for 2D Heat Diffusion Simulation with Hybrid MPI+OpenMP parallelization
+ * @file main_hybrid.cpp
+ * @brief Main program for Hybrid MPI+OpenMP parallelized heat diffusion simulation
  */
 
  #include "../src/hybrid/optimized_heat_diffusion_hybrid.h"
  #include <iostream>
  #include <chrono>
- #include <iomanip>
- #include <vector>
- #include <algorithm>
+ #include <string>
+ #include <cstdlib>
+ #include <cstring>
  #include <numeric>
+ #include <vector>
  #include <cmath>
+ #include <algorithm>
  #include <mpi.h>
  #include <omp.h>
+
+
+// For memory usage reporting
+#include <sys/resource.h>
  
- // For memory usage reporting
- #include <sys/resource.h>
- 
- #ifdef __APPLE__
- #include <mach/mach.h>
- #endif
- 
- // Function to get memory usage in KB - cross-platform
- long getMemoryUsage() {
- #ifdef __APPLE__
-     // macOS - use Mach kernel APIs for more accurate reporting
-     struct mach_task_basic_info info;
-     mach_msg_type_number_t size = MACH_TASK_BASIC_INFO_COUNT;
-     
-     if (task_info(mach_task_self(), MACH_TASK_BASIC_INFO, (task_info_t)&info, &size) == KERN_SUCCESS) {
-         // Convert from bytes to KB
-         return info.resident_size / 1024;
-     }
-     return 0;
- #else
-     // Linux implementation
-     struct rusage usage;
-     getrusage(RUSAGE_SELF, &usage);
-     return usage.ru_maxrss;
- #endif
- }
- 
- // Function to calculate standard deviation
- double calculateStdDev(const std::vector<double>& values, double mean) {
-     double variance = 0.0;
-     for (const auto& value : values) {
-         double diff = value - mean;
-         variance += diff * diff;
-     }
-     return std::sqrt(variance / values.size());
- }
- 
+#ifdef __APPLE__
+#include <mach/mach.h>
+#endif
+// Forward declarations
+void printUsage(const char* programName);
+void runSimulation(int width, int height, double diffusionRate, int totalFrames, bool saveOutput, int numThreads);
+
+// Function to get memory usage in KB - cross-platform
+long getMemoryUsage() {
+#ifdef __APPLE__
+    // macOS - use Mach kernel APIs for more accurate reporting
+    struct mach_task_basic_info info;
+    mach_msg_type_number_t size = MACH_TASK_BASIC_INFO_COUNT;
+    
+    if (task_info(mach_task_self(), MACH_TASK_BASIC_INFO, (task_info_t)&info, &size) == KERN_SUCCESS) {
+        // Convert from bytes to KB
+        return info.resident_size / 1024;
+    }
+    return 0;
+#else
+    // Linux implementation
+    struct rusage usage;
+    getrusage(RUSAGE_SELF, &usage);
+    return usage.ru_maxrss;
+#endif
+}
+
+// Function to calculate standard deviation
+double calculateStdDev(const std::vector<double>& values, double mean) {
+    double variance = 0.0;
+    for (const auto& value : values) {
+        double diff = value - mean;
+        variance += diff * diff;
+    }
+    return std::sqrt(variance / values.size());
+}
+
+ /**
+  * @brief Main function running the hybrid MPI+OpenMP parallelized heat diffusion simulation
+  */
  int main(int argc, char* argv[]) {
-     // Initialize MPI with thread support for OpenMP
+     // Initialize MPI with thread support required by OpenMP
      int provided;
      MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &provided);
      
      // Check if MPI provides the required level of thread support
-     int rank, size;
+     int rank, worldSize;
      MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-     MPI_Comm_size(MPI_COMM_WORLD, &size);
-     
-     if (rank == 0 && provided < MPI_THREAD_FUNNELED) {
-         std::cerr << "Warning: MPI implementation does not provide required thread support level." << std::endl;
-     }
-     
-     // Default values
-     int gridSize = 1000;
-     int iterations = 1000;
-     bool saveOutput = false;
-     int numRuns = 10;  // Run the benchmark 10 times
-     int requestedRanks = -1;  // Default: no specific rank count requested
-     int numThreads = 0;  // Default: use system default for OpenMP threads
-     
-     // Parse command line arguments
-     for (int i = 1; i < argc; i++) {
-         std::string arg = argv[i];
-         if (arg == "--size" && i + 1 < argc) {
-             gridSize = std::stoi(argv[++i]);
-         } else if (arg == "--iterations" && i + 1 < argc) {
-             iterations = std::stoi(argv[++i]);
-         } else if (arg == "--save") {
-             saveOutput = true;
-         } else if (arg == "--runs" && i + 1 < argc) {
-             numRuns = std::stoi(argv[++i]);
-         } else if (arg == "--ranks" && i + 1 < argc) {
-             requestedRanks = std::stoi(argv[++i]);
-         } else if (arg == "--threads" && i + 1 < argc) {
-             numThreads = std::stoi(argv[++i]);
-         }
-     }
-     
-     // Validate the number of ranks if specified
-     if (requestedRanks > 0 && size != requestedRanks) {
-         if (rank == 0) {
-             std::cerr << "Error: Benchmark requested " << requestedRanks 
-                      << " ranks but is running with " << size << " ranks." << std::endl;
-             std::cerr << "Please run with: mpirun -n " << requestedRanks 
-                      << " ./heat_diffusion_hybrid_benchmark [other options]" << std::endl;
-         }
-         MPI_Finalize();
-         return 1;
-     }
-     
-     // Set OpenMP threads if requested
-     if (numThreads > 0) {
-         omp_set_num_threads(numThreads);
-     }
-     
-     // Get actual number of threads that will be used
-     int actualThreads = 1;  // Default to 1 in case OpenMP is not enabled
-     #pragma omp parallel
-     {
-         #pragma omp master
-         {
-             actualThreads = omp_get_num_threads();
-         }
-     }
+     MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
      
      if (rank == 0) {
-         std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
-                  << " for " << iterations << " iterations"
-                  << " across " << numRuns << " runs"
-                  << " using " << size << " MPI ranks and " << actualThreads << " OpenMP threads per rank"
-                  << " (total " << size * actualThreads << " parallel units)"
-                  << (saveOutput ? " (with output)" : " (no output)") << std::endl;
-         
-         // Print OpenMP environment info
-         char* omp_num_threads = getenv("OMP_NUM_THREADS");
-         std::cout << "OpenMP environment: "
-                  << "OMP_NUM_THREADS=" << (omp_num_threads ? omp_num_threads : "not set")
-                  << ", Max threads available=" << omp_get_max_threads()
-                  << ", Using=" << actualThreads << std::endl;
+         if (provided < MPI_THREAD_FUNNELED) {
+             std::cerr << "Warning: MPI implementation does not provide required thread support level." << std::endl;
+         }
      }
      
-     // Variables to store aggregated statistics
-     std::vector<double> totalSimTimes;
-     std::vector<double> setupTimes;
-     std::vector<double> avgIterTimes;
-     std::vector<double> minIterTimes;
-     std::vector<double> maxIterTimes;
-     std::vector<double> perfMetrics;
-     std::vector<long> memoryUsages;
-     std::vector<double> checksums;
+     // Default settings
+     int width = 1000;
+     int height = 1000;
+     double diffusionRate = 0.1;
+     int totalFrames = 1000;
+     bool saveOutput = false;
+     std::string outputDir = "output/hybrid";
+     int numThreads = 0; // 0 means use system default
      
-     for (int run = 0; run < numRuns; run++) {
-         if (rank == 0) {
-             std::cout << "\n=== Run " << (run + 1) << " of " << numRuns << " ===" << std::endl;
-         }
-         
-         // Record initial memory usage
-         long initialMemory = getMemoryUsage();
-         
-         // Create simulation
-         auto startSetup = std::chrono::high_resolution_clock::now();
-         HybridHeatDiffusion2D simulation(gridSize, gridSize, 0.1, saveOutput, numThreads);
-         auto endSetup = std::chrono::high_resolution_clock::now();
-         
-         // Record memory after setup
-         long afterSetupMemory = getMemoryUsage();
-         
-         // Record simulation time with detailed per-iteration timing
-         std::vector<double> iterationTimes;
-         iterationTimes.reserve(iterations);
-         
-         // Synchronize all processes before timing
-         MPI_Barrier(MPI_COMM_WORLD);
-         auto totalStart = std::chrono::high_resolution_clock::now();
-         
-         for (int i = 0; i < iterations; i++) {
-             auto iterStart = std::chrono::high_resolution_clock::now();
-             simulation.update();
-             auto iterEnd = std::chrono::high_resolution_clock::now();
+     // Parse command line arguments (rank 0 will do this and broadcast)
+     if (rank == 0) {
+         for (int i = 1; i < argc; i++) {
+             std::string arg = argv[i];
              
-             double iterTime = std::chrono::duration<double, std::milli>(iterEnd - iterStart).count();
-             iterationTimes.push_back(iterTime);
-             
-             // Optionally report progress every 100 iterations
-             if (rank == 0 && i > 0 && i % 100 == 0) {
-                 std::cout << "  Completed " << i << "/" << iterations << " iterations" << std::endl;
+             if (arg == "--help") {
+                 printUsage(argv[0]);
+                 MPI_Abort(MPI_COMM_WORLD, 0);
+                 return 0;
+             } else if (arg == "--width" && i + 1 < argc) {
+                 width = std::atoi(argv[++i]);
+             } else if (arg == "--height" && i + 1 < argc) {
+                 height = std::atoi(argv[++i]);
+             } else if (arg == "--rate" && i + 1 < argc) {
+                 diffusionRate = std::atof(argv[++i]);
+             } else if (arg == "--frames" && i + 1 < argc) {
+                 totalFrames = std::atoi(argv[++i]);
+             } else if (arg == "--threads" && i + 1 < argc) {
+                 numThreads = std::atoi(argv[++i]);
+             } else if (arg == "--output") {
+                 saveOutput = true;
+             } else if (arg == "--output-dir" && i + 1 < argc) {
+                 outputDir = argv[++i];
+             } else {
+                 std::cerr << "Unknown option: " << arg << std::endl;
+                 printUsage(argv[0]);
+                 MPI_Abort(MPI_COMM_WORLD, 1);
+                 return 1;
              }
          }
          
-         // Synchronize all processes after timing
-         MPI_Barrier(MPI_COMM_WORLD);
-         auto totalEnd = std::chrono::high_resolution_clock::now();
+         // Validate arguments
+         if (width <= 0 || height <= 0) {
+             std::cerr << "Error: Grid dimensions must be positive" << std::endl;
+             MPI_Abort(MPI_COMM_WORLD, 1);
+             return 1;
+         }
          
-         // Calculate timing statistics
-         double totalSimTime = std::chrono::duration<double, std::milli>(totalEnd - totalStart).count();
-         double setupTime = std::chrono::duration<double, std::milli>(endSetup - startSetup).count();
+         if (diffusionRate <= 0) {
+             std::cerr << "Error: Diffusion rate must be positive" << std::endl;
+             MPI_Abort(MPI_COMM_WORLD, 1);
+             return 1;
+         }
          
-         double minTime = *std::min_element(iterationTimes.begin(), iterationTimes.end());
-         double maxTime = *std::max_element(iterationTimes.begin(), iterationTimes.end());
-         double avgTime = totalSimTime / iterations;
-         
-         // Get final memory usage
-         long finalMemory = getMemoryUsage();
-         long memoryIncrease = finalMemory - initialMemory;
-         
-         // Calculate performance metric (cell updates per second)
-         double perfMetric = (gridSize * gridSize * iterations / totalSimTime * 1000);
-         
-         // Get checksum
-         double checksum = simulation.getChecksum();
-         
-         // Store results for this run
-         totalSimTimes.push_back(totalSimTime);
-         setupTimes.push_back(setupTime);
-         avgIterTimes.push_back(avgTime);
-         minIterTimes.push_back(minTime);
-         maxIterTimes.push_back(maxTime);
-         perfMetrics.push_back(perfMetric);
-         memoryUsages.push_back(memoryIncrease);
-         checksums.push_back(checksum);
-         
-         // Print individual run results (only on rank 0)
-         if (rank == 0) {
-             std::cout << "Run " << (run + 1) << " Results:" << std::endl;
-             std::cout << "  Setup Time: " << setupTime << " ms" << std::endl;
-             std::cout << "  Total Simulation Time: " << totalSimTime << " ms" << std::endl;
-             std::cout << "  Average Iteration Time: " << avgTime << " ms" << std::endl;
-             std::cout << "  Min/Max Iteration Time: " << minTime << "/" << maxTime << " ms" << std::endl;
-             std::cout << "  Performance: " << std::fixed << std::setprecision(2) << (perfMetric / 1e6) 
-                      << " million cell updates per second" << std::endl;
-             std::cout << "  Memory Usage Increase: " << memoryIncrease << " KB" << std::endl;
-             std::cout << "  Checksum: " << checksum << std::endl;
+         if (totalFrames <= 0) {
+             std::cerr << "Error: Number of frames must be positive" << std::endl;
+             MPI_Abort(MPI_COMM_WORLD, 1);
+             return 1;
          }
      }
      
-     // Only rank 0 calculates and prints aggregate statistics
+     // Broadcast parameters to all processes
+     MPI_Bcast(&width, 1, MPI_INT, 0, MPI_COMM_WORLD);
+     MPI_Bcast(&height, 1, MPI_INT, 0, MPI_COMM_WORLD);
+     MPI_Bcast(&diffusionRate, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+     MPI_Bcast(&totalFrames, 1, MPI_INT, 0, MPI_COMM_WORLD);
+     MPI_Bcast(&numThreads, 1, MPI_INT, 0, MPI_COMM_WORLD);
+     MPI_Bcast(&saveOutput, 1, MPI_C_BOOL, 0, MPI_COMM_WORLD);
+     
+     // Print OpenMP environment info on rank 0
      if (rank == 0) {
-         // Calculate aggregate statistics
-         double avgTotalSimTime = std::accumulate(totalSimTimes.begin(), totalSimTimes.end(), 0.0) / numRuns;
-         double avgSetupTime = std::accumulate(setupTimes.begin(), setupTimes.end(), 0.0) / numRuns;
-         double avgIterTime = std::accumulate(avgIterTimes.begin(), avgIterTimes.end(), 0.0) / numRuns;
-         double avgMinIterTime = std::accumulate(minIterTimes.begin(), minIterTimes.end(), 0.0) / numRuns;
-         double avgMaxIterTime = std::accumulate(maxIterTimes.begin(), maxIterTimes.end(), 0.0) / numRuns;
-         double avgPerfMetric = std::accumulate(perfMetrics.begin(), perfMetrics.end(), 0.0) / numRuns;
-         double avgMemoryUsage = std::accumulate(memoryUsages.begin(), memoryUsages.end(), 0.0) / numRuns;
+         // Check environment variables
+         char* omp_num_threads = getenv("OMP_NUM_THREADS");
+         if (omp_num_threads) {
+             std::cout << "OMP_NUM_THREADS environment variable: " << omp_num_threads << std::endl;
+         } else {
+             std::cout << "OMP_NUM_THREADS environment variable not set" << std::endl;
+         }
          
-         // Calculate standard deviations
-         double stdDevTotalSimTime = calculateStdDev(totalSimTimes, avgTotalSimTime);
-         double stdDevSetupTime = calculateStdDev(setupTimes, avgSetupTime);
-         double stdDevIterTime = calculateStdDev(avgIterTimes, avgIterTime);
-         double stdDevPerfMetric = calculateStdDev(perfMetrics, avgPerfMetric);
-         
-         // Identify best and worst runs
-         int bestRunIndex = std::min_element(totalSimTimes.begin(), totalSimTimes.end()) - totalSimTimes.begin();
-         int worstRunIndex = std::max_element(totalSimTimes.begin(), totalSimTimes.end()) - totalSimTimes.begin();
-         
-         // Check if all checksums are the same (numerical stability)
-         bool stable = std::adjacent_find(checksums.begin(), checksums.end(), 
-                                         [](double a, double b) { return std::abs(a - b) > 1e-10; }) == checksums.end();
-         
-         // Print aggregate results
-         std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
-         std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
-                  << gridSize*gridSize << " cells)" << std::endl;
-         std::cout << "Iterations per Run: " << iterations << std::endl;
-         std::cout << "Parallel Configuration: " << size << " MPI ranks × " << actualThreads 
-                  << " OpenMP threads = " << (size * actualThreads) << " total parallel units" << std::endl;
-         
-         std::cout << "\nTiming Statistics:" << std::endl;
-         std::cout << "  Average Setup Time: " << avgSetupTime << " ms (StdDev: " << stdDevSetupTime << " ms)" << std::endl;
-         std::cout << "  Average Total Simulation Time: " << avgTotalSimTime << " ms (StdDev: " << stdDevTotalSimTime << " ms)" << std::endl;
-         std::cout << "  Average Iteration Time: " << avgIterTime << " ms (StdDev: " << stdDevIterTime << " ms)" << std::endl;
-         std::cout << "  Average Min/Max Iteration Time: " << avgMinIterTime << "/" << avgMaxIterTime << " ms" << std::endl;
-         
-         std::cout << "\nPerformance Statistics:" << std::endl;
-         std::cout << "  Average Performance: " << std::fixed << std::setprecision(2) << (avgPerfMetric / 1e6) 
-                  << " million cell updates per second (StdDev: " << (stdDevPerfMetric / 1e6) << ")" << std::endl;
-         std::cout << "  Cell updates per second per parallel unit: " 
-                  << std::fixed << std::setprecision(2) << (avgPerfMetric / 1e6 / (size * actualThreads)) 
-                  << " million" << std::endl;
-         std::cout << "  Best Run: Run " << (bestRunIndex + 1) << " (" << totalSimTimes[bestRunIndex] << " ms)" << std::endl;
-         std::cout << "  Worst Run: Run " << (worstRunIndex + 1) << " (" << totalSimTimes[worstRunIndex] << " ms)" << std::endl;
-         std::cout << "  Coefficient of Variation: " << (stdDevTotalSimTime / avgTotalSimTime * 100) << "%" << std::endl;
-         
-         std::cout << "\nMemory Usage:" << std::endl;
-         std::cout << "  Average Memory Increase: " << avgMemoryUsage << " KB" << std::endl;
-         std::cout << "  Average Memory Per Rank: " << (avgMemoryUsage / size) << " KB" << std::endl;
-         
-         std::cout << "\nNumerical Stability:" << std::endl;
-         std::cout << "  Checksum consistency: " << (stable ? "Stable" : "Unstable") << std::endl;
-         std::cout << "  Final checksum: " << checksums.back() << std::endl;
-         
-         // Output in CSV format for scripted analysis
-         std::cout << "\nCSV Format (for data collection):" << std::endl;
-         std::cout << "grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum" << std::endl;
-         std::cout << gridSize << "," 
-                  << iterations << "," 
-                  << size << "," 
-                  << actualThreads << "," 
-                  << (size * actualThreads) << "," 
-                  << avgTotalSimTime << "," 
-                  << stdDevTotalSimTime << "," 
-                  << (avgPerfMetric / 1e6) << "," 
-                  << avgMemoryUsage << "," 
-                  << checksums.back() 
-                  << std::endl;
+         std::cout << "Max OpenMP threads available: " << omp_get_max_threads() << std::endl;
+         std::cout << "OpenMP thread count requested: " << (numThreads > 0 ? numThreads : omp_get_max_threads()) << std::endl;
      }
      
-     // Finalize MPI
+     // Run the simulation
+     runSimulation(width, height, diffusionRate, totalFrames, saveOutput, numThreads);
+     
+     // Clean MPI termination
+     if (rank == 0) {
+         std::cout << "Simulation complete. Finalizing MPI..." << std::endl;
+     }
+     
+     MPI_Barrier(MPI_COMM_WORLD);
      MPI_Finalize();
+     
      return 0;
  }
+ 
+ /**
+  * @brief Run the simulation and collect performance statistics
+  */
+ void runSimulation(int width, int height, double diffusionRate, int totalFrames, bool saveOutput, int numThreads) {
+     int rank, worldSize;
+     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+     MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
+     
+     // Create output directory if needed (only rank 0)
+     if (saveOutput && rank == 0) {
+         system("mkdir -p output/hybrid");
+     }
+     
+     // Print simulation parameters (only rank 0)
+     if (rank == 0) {
+         std::cout << "Running Hybrid MPI+OpenMP heat diffusion simulation with parameters:" << std::endl
+                   << "  Grid size: " << width << "x" << height << std::endl
+                   << "  Diffusion rate: " << diffusionRate << std::endl
+                   << "  Total frames: " << totalFrames << std::endl
+                   << "  Number of MPI processes: " << worldSize << std::endl
+                   << "  OpenMP threads per MPI process: " << (numThreads > 0 ? numThreads : omp_get_max_threads()) << std::endl
+                   << "  Total parallel units: " << worldSize * (numThreads > 0 ? numThreads : omp_get_max_threads()) << std::endl
+                   << "  Output: " << (saveOutput ? "enabled" : "disabled") << std::endl;
+     }
+     
+     const int numRuns = 5; // Run multiple times to get better performance statistics
+     std::vector<double> runTimes;
+     
+     for (int run = 0; run < numRuns; run++) {
+         if (rank == 0) {
+             std::cout << "Starting run " << run + 1 << " of " << numRuns << std::endl;
+         }
+         
+         // Create simulation instance
+         HybridHeatDiffusion2D simulation(width, height, diffusionRate, saveOutput, numThreads);
+         
+         // Synchronize before timing
+         MPI_Barrier(MPI_COMM_WORLD);
+         
+         // Record start time
+         auto startTime = std::chrono::high_resolution_clock::now();
+         
+         // Run simulation for specified number of frames
+         for (int i = 0; i < totalFrames; i++) {
+             simulation.update();
+             
+             // Optional: report progress every 100 frames
+             if (rank == 0 && (i+1) % 100 == 0) {
+                 std::cout << "Completed " << (i+1) << " frames of " << totalFrames << std::endl;
+             }
+         }
+         
+         // Synchronize to ensure all processes are finished
+         MPI_Barrier(MPI_COMM_WORLD);
+         
+         // Record end time and calculate duration
+         auto endTime = std::chrono::high_resolution_clock::now();
+         double totalSimTime = std::chrono::duration<double, std::milli>(endTime - startTime).count();
+         
+         // Store the time in milliseconds
+         runTimes.push_back(totalSimTime);
+         
+         // Calculate checksum to verify correctness
+         double checksum = simulation.getChecksum();
+         
+         // Print results for this run (only rank 0)
+         if (rank == 0) {
+             std::cout << "Run " << (run + 1) << " completed in " << totalSimTime << " ms" << std::endl;
+             std::cout << "Final temperature checksum: " << checksum << std::endl;
+         }
+         
+         // Give MPI some time to clean up
+         MPI_Barrier(MPI_COMM_WORLD);
+     }
+     
+     // Calculate statistics (only rank 0)
+     if (rank == 0 && !runTimes.empty()) {
+         double totalTime = std::accumulate(runTimes.begin(), runTimes.end(), 0.0);
+         double meanTime = totalTime / numRuns;
+         
+         // Calculate standard deviation
+         double variance = 0.0;
+         for (const auto& time : runTimes) {
+             variance += std::pow(time - meanTime, 2);
+         }
+         double stdDev = std::sqrt(variance / numRuns);
+         
+         // Find min and max times
+         double minTime = *std::min_element(runTimes.begin(), runTimes.end());
+         double maxTime = *std::max_element(runTimes.begin(), runTimes.end());
+         
+         // Output statistics
+         std::cout << "\nPerformance Statistics over " << numRuns << " runs:" << std::endl;
+         std::cout << "  MPI Processes: " << worldSize << std::endl;
+         std::cout << "  OpenMP Threads per Process: " << numThreads << std::endl;
+         std::cout << "  Total Parallel Units: " << worldSize * numThreads << std::endl;
+         std::cout << "  Average time: " << meanTime << " ms" << std::endl;
+         std::cout << "  Standard deviation: " << stdDev << " ms" << std::endl;
+         std::cout << "  Minimum time: " << minTime << " ms" << std::endl;
+         std::cout << "  Maximum time: " << maxTime << " ms" << std::endl;
+         
+         // Calculate frames per second
+         double fps = totalFrames / (meanTime / 1000.0);
+         std::cout << "  Average frames per second: " << fps << std::endl;
+     }
+    }
+
+ /**
+  * @brief Print usage instructions for the program
+  * @param programName Name of the executable
+  */
+ void printUsage(const char* programName) {
+    std::cout << "Usage: " << programName << " [OPTIONS]\n"
+              << "Options:\n"
+              << "  --help                 Show this help message\n"
+              << "  --width WIDTH          Set grid width (default: 100)\n"
+              << "  --height HEIGHT        Set grid height (default: 100)\n"
+              << "  --rate RATE            Set diffusion rate (default: 0.1)\n"
+              << "  --frames FRAMES        Set number of frames to simulate (default: 100)\n"
+              << "  --output               Enable output file generation\n"
+              << "  --output-dir DIR       Directory for output files (default: output/mpi)\n"
+              << std::endl;
+}
