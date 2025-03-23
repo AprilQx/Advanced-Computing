@@ -1,0 +1,130 @@
+COMPREHENSIVE PROFILING SUMMARY
+===============================
+
+Top functions from gprof:
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00     1000     0.00     0.00  HeatDiffusion::update()
+  0.00      0.00     0.00     1000     0.00     0.00  HeatDiffusion::saveFrame(int)
+  0.00      0.00     0.00       35     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  0.00      0.00     0.00       18     0.00     0.00  frame_dummy
+  0.00      0.00     0.00       10     0.00     0.00  HeatDiffusion::HeatDiffusion(int, int, double, bool)
+  0.00      0.00     0.00       10     0.00     0.00  HeatDiffusion::getChecksum() const
+  0.00      0.00     0.00        5     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+  0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
+  0.00      0.00     0.00        1     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+
+Cache statistics (cachegrind):
+
+Memory usage (massif):
+
+Performance by grid size:
+Grid size 100x100:
+  Average Iteration Time: 0.382665 ms
+  Average Iteration Time: 0.373017 ms
+  Average Iteration Time: 0.370493 ms
+  Average Iteration Time: 0.37707 ms
+  Average Iteration Time: 0.3736 ms
+  Average Iteration Time: 0.376275 ms
+  Average Iteration Time: 0.377143 ms
+  Average Iteration Time: 0.374147 ms
+  Average Iteration Time: 0.37556 ms
+  Average Iteration Time: 0.379222 ms
+  Average Iteration Time: 0.375919 ms (StdDev: 0.0032539 ms)
+  Performance: 2.61325e+07 cell updates per second
+  Performance: 2.68084e+07 cell updates per second
+  Performance: 2.6991e+07 cell updates per second
+  Performance: 2.65202e+07 cell updates per second
+  Performance: 2.67666e+07 cell updates per second
+  Performance: 2.65763e+07 cell updates per second
+  Performance: 2.65151e+07 cell updates per second
+  Performance: 2.67274e+07 cell updates per second
+  Performance: 2.66269e+07 cell updates per second
+  Performance: 2.63698e+07 cell updates per second
+  Average Performance: 2.66034e+07 cell updates per second (StdDev: 229487)
+Memory Usage:
+
+Grid size 200x200:
+  Average Iteration Time: 1.499 ms
+  Average Iteration Time: 2.05736 ms
+  Average Iteration Time: 1.46694 ms
+  Average Iteration Time: 1.47338 ms
+  Average Iteration Time: 1.47712 ms
+  Average Iteration Time: 1.49518 ms
+  Average Iteration Time: 1.51269 ms
+  Average Iteration Time: 1.57325 ms
+  Average Iteration Time: 1.49986 ms
+  Average Iteration Time: 1.50064 ms
+  Average Iteration Time: 1.55554 ms (StdDev: 0.16961 ms)
+  Performance: 2.66844e+07 cell updates per second
+  Performance: 1.94424e+07 cell updates per second
+  Performance: 2.72677e+07 cell updates per second
+  Performance: 2.71484e+07 cell updates per second
+  Performance: 2.70797e+07 cell updates per second
+  Performance: 2.67527e+07 cell updates per second
+  Performance: 2.64429e+07 cell updates per second
+  Performance: 2.54251e+07 cell updates per second
+  Performance: 2.66692e+07 cell updates per second
+  Performance: 2.66552e+07 cell updates per second
+  Average Performance: 2.59568e+07 cell updates per second (StdDev: 2.22517e+06)
+Memory Usage:
+
+Grid size 500x500:
+  Average Iteration Time: 9.46519 ms
+  Average Iteration Time: 9.40036 ms
+  Average Iteration Time: 9.41925 ms
+  Average Iteration Time: 9.64328 ms
+  Average Iteration Time: 9.31808 ms
+  Average Iteration Time: 9.71452 ms
+  Average Iteration Time: 9.30788 ms
+  Average Iteration Time: 9.36775 ms
+  Average Iteration Time: 9.29495 ms
+  Average Iteration Time: 9.47527 ms
+  Average Iteration Time: 9.44065 ms (StdDev: 0.133845 ms)
+  Performance: 2.64126e+07 cell updates per second
+  Performance: 2.65947e+07 cell updates per second
+  Performance: 2.65414e+07 cell updates per second
+  Performance: 2.59248e+07 cell updates per second
+  Performance: 2.68296e+07 cell updates per second
+  Performance: 2.57347e+07 cell updates per second
+  Performance: 2.6859e+07 cell updates per second
+  Performance: 2.66873e+07 cell updates per second
+  Performance: 2.68963e+07 cell updates per second
+  Performance: 2.63845e+07 cell updates per second
+  Average Performance: 2.64865e+07 cell updates per second (StdDev: 370958)
+Memory Usage:
+
+Grid size 1000x1000:
+  Average Iteration Time: 41.8462 ms
+  Average Iteration Time: 40.636 ms
+  Average Iteration Time: 38.1413 ms
+  Average Iteration Time: 38.8859 ms
+  Average Iteration Time: 38.5644 ms
+  Average Iteration Time: 38.5039 ms
+  Average Iteration Time: 38.2371 ms
+  Average Iteration Time: 39.0486 ms
+  Average Iteration Time: 38.3834 ms
+  Average Iteration Time: 39.8135 ms
+  Average Iteration Time: 39.206 ms (StdDev: 1.14741 ms)
+  Performance: 2.3897e+07 cell updates per second
+  Performance: 2.46087e+07 cell updates per second
+  Performance: 2.62183e+07 cell updates per second
+  Performance: 2.57163e+07 cell updates per second
+  Performance: 2.59307e+07 cell updates per second
+  Performance: 2.59714e+07 cell updates per second
+  Performance: 2.61526e+07 cell updates per second
+  Performance: 2.56091e+07 cell updates per second
+  Performance: 2.6053e+07 cell updates per second
+  Performance: 2.51171e+07 cell updates per second
+  Average Performance: 2.55274e+07 cell updates per second (StdDev: 722283)
+Memory Usage:
+

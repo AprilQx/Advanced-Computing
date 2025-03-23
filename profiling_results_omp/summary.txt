@@ -1,0 +1,139 @@
+OPENMP BENCHMARK PROFILING SUMMARY
+=================================
+
+Thread Scaling Results:
+Strong Scaling (Fixed Problem Size):
+  1 threads:
+  Average Iteration Time: 0.518792 ms
+  Average Iteration Time: 0.518792 ms (StdDev: 0 ms)
+  Performance: 1.92755e+09 cell updates per second
+  Average Performance: 1.92755e+09 cell updates per second (StdDev: 0)
+  2 threads:
+  Average Iteration Time: 0.272465 ms
+  Average Iteration Time: 0.272465 ms (StdDev: 0 ms)
+  Performance: 3.6702e+09 cell updates per second
+  Average Performance: 3.6702e+09 cell updates per second (StdDev: 0)
+  4 threads:
+  Average Iteration Time: 0.153472 ms
+  Average Iteration Time: 0.153472 ms (StdDev: 0 ms)
+  Performance: 6.51586e+09 cell updates per second
+  Average Performance: 6.51586e+09 cell updates per second (StdDev: 0)
+  8 threads:
+  Average Iteration Time: 0.320883 ms
+  Average Iteration Time: 0.320883 ms (StdDev: 0 ms)
+  Performance: 3.11641e+09 cell updates per second
+  Average Performance: 3.11641e+09 cell updates per second (StdDev: 0)
+  10 threads:
+  Average Iteration Time: 0.388844 ms
+  Average Iteration Time: 0.388844 ms (StdDev: 0 ms)
+  Performance: 2.57172e+09 cell updates per second
+  Average Performance: 2.57172e+09 cell updates per second (StdDev: 0)
+
+Weak Scaling (Problem Size Scaled with Thread Count):
+  1 threads (500x500 grid):
+Grid Size: 500x500 (250000 cells)
+  Average Iteration Time: 0.135067 ms
+  Average Iteration Time: 0.135067 ms (StdDev: 0 ms)
+  Performance: 1.85094e+09 cell updates per second
+  Average Performance: 1.85094e+09 cell updates per second (StdDev: 0)
+  2 threads (707x707 grid):
+Grid Size: 707x707 (499849 cells)
+  Average Iteration Time: 0.115482 ms
+  Average Iteration Time: 0.115482 ms (StdDev: 0 ms)
+  Performance: 4.32835e+09 cell updates per second
+  Average Performance: 4.32835e+09 cell updates per second (StdDev: 0)
+  4 threads (1000x1000 grid):
+Grid Size: 1000x1000 (1000000 cells)
+  Average Iteration Time: 0.146625 ms
+  Average Iteration Time: 0.146625 ms (StdDev: 0 ms)
+  Performance: 6.82012e+09 cell updates per second
+  Average Performance: 6.82012e+09 cell updates per second (StdDev: 0)
+  8 threads (1414x1414 grid):
+Grid Size: 1414x1414 (1999396 cells)
+  Average Iteration Time: 0.445355 ms
+  Average Iteration Time: 0.445355 ms (StdDev: 0 ms)
+  Performance: 4.48944e+09 cell updates per second
+  Average Performance: 4.48944e+09 cell updates per second (StdDev: 0)
+  10 threads (1581x1581 grid):
+Grid Size: 1581x1581 (2499561 cells)
+  Average Iteration Time: 0.629875 ms
+  Average Iteration Time: 0.629875 ms (StdDev: 0 ms)
+  Performance: 3.96834e+09 cell updates per second
+  Average Performance: 3.96834e+09 cell updates per second (StdDev: 0)
+
+Thread Affinity Results:
+  OMP_PROC_BIND=close:
+  Average Iteration Time: 0.397513 ms
+  Average Iteration Time: 0.397513 ms (StdDev: 0 ms)
+  Performance: 2.51564e+09 cell updates per second
+  Average Performance: 2.51564e+09 cell updates per second (StdDev: 0)
+  OMP_PROC_BIND=spread:
+  Average Iteration Time: 0.39023 ms
+  Average Iteration Time: 0.39023 ms (StdDev: 0 ms)
+  Performance: 2.56259e+09 cell updates per second
+  Average Performance: 2.56259e+09 cell updates per second (StdDev: 0)
+  OMP_PROC_BIND=master:
+  Average Iteration Time: 2.23067 ms
+  Average Iteration Time: 2.23067 ms (StdDev: 0 ms)
+  Performance: 4.48295e+08 cell updates per second
+  Average Performance: 4.48295e+08 cell updates per second (StdDev: 0)
+
+Parallel Efficiency:
+
+Top functions from gprof:
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       50     0.00     0.00  OpenMPHeatDiffusion2D::update()
+  0.00      0.00     0.00       50     0.00     0.00  OpenMPHeatDiffusion2D::saveFrame(int)
+  0.00      0.00     0.00       20     0.00     0.00  frame_dummy
+  0.00      0.00     0.00        7     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
+  0.00      0.00     0.00        1     0.00     0.00  OpenMPHeatDiffusion2D::OpenMPHeatDiffusion2D(int, int, double, bool, int)
+  0.00      0.00     0.00        1     0.00     0.00  OpenMPHeatDiffusion2D::getChecksum() const
+  0.00      0.00     0.00        1     0.00     0.00  OpenMPHeatDiffusion2D::getNumThreads() const
+  0.00      0.00     0.00        1     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+
+Cache statistics (cachegrind):
+
+Memory usage (massif):
+
+Cache Size Impact (Different Grid Sizes):
+  Grid size 100x100:
+Grid Size: 100x100 (10000 cells)
+  Average Iteration Time: 0.0105334 ms
+  Average Iteration Time: 0.0105334 ms (StdDev: 0 ms)
+Memory Usage:
+  Grid size 256x256:
+Grid Size: 256x256 (65536 cells)
+  Average Iteration Time: 0.295262 ms
+  Average Iteration Time: 0.295262 ms (StdDev: 0 ms)
+Memory Usage:
+  Grid size 512x512:
+Grid Size: 512x512 (262144 cells)
+  Average Iteration Time: 0.107035 ms
+  Average Iteration Time: 0.107035 ms (StdDev: 0 ms)
+Memory Usage:
+  Grid size 1024x1024:
+Grid Size: 1024x1024 (1048576 cells)
+  Average Iteration Time: 0.333208 ms
+  Average Iteration Time: 0.333208 ms (StdDev: 0 ms)
+Memory Usage:
+  Grid size 2048x2048:
+Grid Size: 2048x2048 (4194304 cells)
+  Average Iteration Time: 1.53658 ms
+  Average Iteration Time: 1.53658 ms (StdDev: 0 ms)
+Memory Usage:
+
+Speedup Analysis:
+  Thread count | Speedup (vs 1 thread)
+  -------------|----------------------
+

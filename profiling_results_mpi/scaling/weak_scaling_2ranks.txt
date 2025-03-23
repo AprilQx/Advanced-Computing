@@ -1,0 +1,71 @@
+Running benchmark with grid size 200x200 for 100 iterations across 1 runs using 2 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 2x1 process grid for 2 processes
+
+=== Run 1 of 1 ===
+Domain decomposition: Global size = 200x200, Process grid = 2x1
+Rank 0 has local domain size 200x100 starting at global position (0,0)
+Rank 0 neighbors: N=-2, E=-2, S=1, W=-2
+Rank 1 has local domain size 200x100 starting at global position (0,100)
+Rank 1 neighbors: N=0, E=-2, S=-2, W=-2
+Run 1 Results:
+  Setup Time: 0.248375 ms
+  Total Simulation Time: 1.0185 ms
+  Average Iteration Time: 0.010185 ms
+  Min/Max Iteration Time: 0.009333/0.022 ms
+  Performance: 3.92734e+09 cell updates per second
+  Memory Usage Increase: 852 KB
+  Checksum: 803920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 200x200 (40000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 0.248375 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 1.0185 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.010185 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.009333/0.022 ms
+
+Performance Statistics:
+  Average Performance: 3.92734e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (1.0185 ms)
+  Worst Run: Run 1 (1.0185 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 852 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+Run 1 Results:
+  Setup Time: 0.248416 ms
+  Total Simulation Time: 1.01862 ms
+  Average Iteration Time: 0.0101862 ms
+  Min/Max Iteration Time: 0.009375/0.021292 ms
+  Performance: 3.92686e+09 cell updates per second
+  Memory Usage Increase: 788 KB
+  Checksum: 803920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 200x200 (40000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 0.248416 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 1.01862 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0101862 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.009375/0.021292 ms
+
+Performance Statistics:
+  Average Performance: 3.92686e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (1.01862 ms)
+  Worst Run: Run 1 (1.01862 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 788 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

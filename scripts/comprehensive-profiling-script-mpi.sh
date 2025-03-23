@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Profiling script for MPI applications
-# Designed to run on CSD3 or similar HPC systems
+# Improved MPI profiling script that addresses path issues
+# Designed to run inside Docker containers
 
-# Create directories
-mkdir -p profiling_results_mpi/{gprof,valgrind,scaling,communication}
+# Allow MPI to run as root in Docker
+export OMPI_ALLOW_RUN_AS_ROOT=1
+export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -12,22 +13,35 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Create directories
+mkdir -p /app/profiling_results_mpi/{gprof,valgrind,scaling,communication}
+
 echo -e "${GREEN}Starting MPI profiling...${NC}"
 
-# Create build directory
-mkdir -p build
+# Go to project root where CMakeLists.txt is located
+cd /app
+
+# Create build directory if it doesn't exist
+if [ ! -d "build" ]; then
+    mkdir -p build
+fi
+
+# Enter build directory
 cd build
 
 # Configure and build
 echo -e "${BLUE}Configuring and building...${NC}"
 
-# First, build normal optimized version
+# Build with normal optimization
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j4
+make -j4 heat_diffusion_mpi_benchmark
 
-# Build version with gprof profiling
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-pg"
-make -j4 
+# Verify the executable exists
+if [ ! -f "heat_diffusion_mpi_benchmark" ]; then
+    echo -e "${YELLOW}Error: heat_diffusion_mpi_benchmark was not built correctly${NC}"
+    echo "Please check your build configuration and try again."
+    exit 1
+fi
 
 #=====================
 # 1. GPROF Profiling (each MPI rank will generate its own profile)

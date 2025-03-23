@@ -1,0 +1,63 @@
+==2186== Cachegrind, a cache and branch-prediction profiler
+==2186== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==2186== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2186== Command: mpirun -n 1 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1
+==2186== 
+--2186-- Warning: Cannot auto-detect cache config, using defaults.
+--2186--          Run with -v to see.
+==2186== Warning: noted but unhandled ioctl 0x5441 with no size/direction hints.
+==2186==    This could cause spurious value errors to appear.
+==2186==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
+Running benchmark with grid size 100x100 for 100 iterations across 1 runs using 1 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 1x1 process grid for 1 processes
+Domain decomposition: Global size = 100x100, Process grid = 1x1
+Rank 0 has local domain size 100x100 starting at global position (0,0)
+Rank 0 neighbors: N=-2, E=-2, S=-2, W=-2
+Run 1 Results:
+  Setup Time: 0.208292 ms
+  Total Simulation Time: 0.456875 ms
+  Average Iteration Time: 0.00456875 ms
+  Min/Max Iteration Time: 0.004416/0.005084 ms
+  Performance: 2.18878e+09 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 0.208292 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 0.456875 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00456875 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.004416/0.005084 ms
+
+Performance Statistics:
+  Average Performance: 2.18878e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (0.456875 ms)
+  Worst Run: Run 1 (0.456875 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 0 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+==2186== 
+==2186== I   refs:      71,226,716
+==2186== I1  misses:       293,665
+==2186== LLi misses:        39,331
+==2186== I1  miss rate:       0.41%
+==2186== LLi miss rate:       0.06%
+==2186== 
+==2186== D   refs:      25,704,615  (16,953,789 rd   + 8,750,826 wr)
+==2186== D1  misses:     1,703,836  ( 1,326,676 rd   +   377,160 wr)
+==2186== LLd misses:       595,040  (   273,767 rd   +   321,273 wr)
+==2186== D1  miss rate:        6.6% (       7.8%     +       4.3%  )
+==2186== LLd miss rate:        2.3% (       1.6%     +       3.7%  )
+==2186== 
+==2186== LL refs:        1,997,501  ( 1,620,341 rd   +   377,160 wr)
+==2186== LL misses:        634,371  (   313,098 rd   +   321,273 wr)
+==2186== LL miss rate:         0.7% (       0.4%     +       3.7%  )

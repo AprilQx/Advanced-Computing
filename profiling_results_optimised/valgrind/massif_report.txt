@@ -1,54 +1,57 @@
 --------------------------------------------------------------------------------
-Command:            ./heat_diffusion_optimized_benchmark --size 500 --iterations 100
+Command:            ./heat_diffusion_optimized_benchmark_v2 --size 500 --iterations 100
 Massif arguments:   (none)
-ms_print arguments: massif.out.1294
+ms_print arguments: massif.out.1624
 --------------------------------------------------------------------------------
 
 
     MB
-3.915^ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::#
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-     |::                                                                     #
-   0 +----------------------------------------------------------------------->Mi
-     0                                                                   170.1
+3.922^                                                                :       
+     |:::::::#:::::::::::::@@@@@@@:::::::::::::::::::::::::::::@::::::@:::::::
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+     |:      #      :      @      :       :      :      :      @      @      :
+   0 +----------------------------------------------------------------------->Gi
+     0                                                                   1.645
 
-Number of snapshots: 14
- Detailed snapshots: [7 (peak)]
+Number of snapshots: 90
+ Detailed snapshots: [10 (peak), 31, 55, 65, 75, 85]
 
 --------------------------------------------------------------------------------
   n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
 --------------------------------------------------------------------------------
   0              0                0                0             0            0
-  1      1,821,780           27,720           27,704            16            0
-  2      1,828,445          100,432          100,408            24            0
-  3      1,929,978          104,536          104,504            32            0
-  4      1,939,302        2,104,544        2,104,504            40            0
-  5      1,939,348        4,104,552        4,104,504            48            0
-  6      2,564,871        4,105,360        4,105,304            56            0
-  7    178,291,263        4,105,360        4,105,304            56            0
-100.00% (4,105,304B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
-->48.72% (2,000,000B) 0x10B03F: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark)
-| ->48.72% (2,000,000B) 0x10A0E3: main (in /app/build/heat_diffusion_optimized_benchmark)
+  1      1,832,495           34,024           34,008            16            0
+  2      1,839,274          106,736          106,712            24            0
+  3      1,941,506          110,840          110,808            32            0
+  4      1,948,995        2,110,848        2,110,808            40            0
+  5      1,949,041        4,110,856        4,110,808            48            0
+  6      2,574,567        4,111,664        4,111,608            56            0
+  7    178,316,008        4,111,688        4,111,616            72            0
+  8    178,316,648        4,111,784        4,111,648           136            0
+  9    178,317,130        4,111,856        4,111,672           184            0
+ 10    178,349,021        4,111,856        4,111,672           184            0
+100.00% (4,111,672B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.64% (2,000,000B) 0x10BECF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
 |   
-->48.72% (2,000,000B) 0x10B05F: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark)
-| ->48.72% (2,000,000B) 0x10A0E3: main (in /app/build/heat_diffusion_optimized_benchmark)
+->48.64% (2,000,000B) 0x10BEEF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
 |   
 ->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
 | ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
@@ -56,14 +59,185 @@ Number of snapshots: 14
 |     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
 |       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
 |         
-->00.79% (32,600B) in 1+ places, all below ms_print's threshold (01.00%)
+->00.95% (38,968B) in 1+ places, all below ms_print's threshold (01.00%)
 
 --------------------------------------------------------------------------------
   n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
 --------------------------------------------------------------------------------
-  8    178,291,263        4,104,552        4,104,504            48            0
-  9    178,291,369        2,104,544        2,104,504            40            0
- 10    178,291,407          104,536          104,504            32            0
- 11    178,306,081           76,816           76,800            16            0
- 12    178,314,863            4,104            4,096             8            0
- 13    178,316,768                0                0             0            0
+ 11    178,349,165          111,032          110,872           160            0
+ 12    178,351,317        2,111,040        2,110,872           168            0
+ 13    178,351,363        4,111,048        4,110,872           176            0
+ 14    178,976,889        4,111,856        4,111,672           184            0
+ 15    354,718,304        4,111,880        4,111,688           192            0
+ 16    354,718,740        4,111,880        4,111,704           176            0
+ 17    354,719,176        4,111,880        4,111,720           160            0
+ 18    354,719,909        4,111,856        4,111,736           120            0
+ 19    354,747,922        4,111,048        4,110,936           112            0
+ 20    354,748,064          111,032          110,936            96            0
+ 21    354,750,198        2,111,040        2,110,936           104            0
+ 22    354,750,244        4,111,048        4,110,936           112            0
+ 23    355,375,770        4,111,856        4,111,736           120            0
+ 24    531,117,181        4,111,896        4,111,768           128            0
+ 25    531,118,049        4,111,976        4,111,832           144            0
+ 26    531,118,778        4,112,016        4,111,864           152            0
+ 27    531,146,867        4,111,208        4,111,064           144            0
+ 28    531,147,009          111,192          111,064           128            0
+ 29    531,149,143        2,111,200        2,111,064           136            0
+ 30    531,149,189        4,111,208        4,111,064           144            0
+ 31    531,774,715        4,112,016        4,111,864           152            0
+100.00% (4,111,864B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.64% (2,000,000B) 0x10BECF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->48.64% (2,000,000B) 0x10BEEF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->00.95% (39,160B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 32    707,544,026        4,111,208        4,111,064           144            0
+ 33    707,544,168          111,192          111,064           128            0
+ 34    707,546,302        2,111,200        2,111,064           136            0
+ 35    707,546,348        4,111,208        4,111,064           144            0
+ 36    708,171,874        4,112,016        4,111,864           152            0
+ 37    883,913,309        4,112,088        4,111,928           160            0
+ 38    883,914,177        4,112,232        4,112,056           176            0
+ 39    883,914,906        4,112,272        4,112,120           152            0
+ 40    883,942,893        4,111,464        4,111,320           144            0
+ 41    883,943,035          111,448          111,320           128            0
+ 42    883,945,169        2,111,456        2,111,320           136            0
+ 43    883,945,215        4,111,464        4,111,320           144            0
+ 44    884,570,741        4,112,272        4,112,120           152            0
+ 45  1,060,340,058        4,111,464        4,111,320           144            0
+ 46  1,060,340,200          111,448          111,320           128            0
+ 47  1,060,342,334        2,111,456        2,111,320           136            0
+ 48  1,060,342,380        4,111,464        4,111,320           144            0
+ 49  1,060,967,906        4,112,272        4,112,120           152            0
+ 50  1,236,737,207        4,111,464        4,111,320           144            0
+ 51  1,236,737,311        2,111,456        2,111,320           136            0
+ 52  1,236,739,483        2,111,456        2,111,320           136            0
+ 53  1,236,739,529        4,111,464        4,111,320           144            0
+ 54  1,237,365,055        4,112,272        4,112,120           152            0
+ 55  1,413,134,204        4,111,464        4,111,320           144            0
+100.00% (4,111,320B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.64% (2,000,000B) 0x10BECF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->48.64% (2,000,000B) 0x10BEEF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.64% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->00.94% (38,616B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 56  1,413,134,308        2,111,456        2,111,320           136            0
+ 57  1,413,136,480        2,111,456        2,111,320           136            0
+ 58  1,413,136,526        4,111,464        4,111,320           144            0
+ 59  1,413,762,052        4,112,272        4,112,120           152            0
+ 60  1,589,503,469        4,112,408        4,112,248           160            0
+ 61  1,589,503,549        4,112,336        4,112,184           152            0
+ 62  1,589,503,690        4,112,472        4,112,312           160            0
+ 63  1,589,503,770        4,112,400        4,112,248           152            0
+ 64  1,589,503,911        4,112,536        4,112,376           160            0
+ 65  1,589,503,991        4,112,448        4,112,312           136            0
+100.00% (4,112,312B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.63% (2,000,000B) 0x10BECF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.63% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->48.63% (2,000,000B) 0x10BEEF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.63% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->00.96% (39,608B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 66  1,589,504,132        4,112,584        4,112,440           144            0
+ 67  1,589,504,212        4,112,512        4,112,376           136            0
+ 68  1,589,504,353        4,112,648        4,112,504           144            0
+ 69  1,589,504,433        4,112,576        4,112,440           136            0
+ 70  1,589,504,574        4,112,712        4,112,568           144            0
+ 71  1,589,504,654        4,112,640        4,112,504           136            0
+ 72  1,589,504,796        4,112,776        4,112,632           144            0
+ 73  1,589,504,876        4,112,704        4,112,568           136            0
+ 74  1,589,505,018        4,112,840        4,112,696           144            0
+ 75  1,589,505,098        4,112,752        4,112,632           120            0
+100.00% (4,112,632B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->48.63% (2,000,000B) 0x10BECF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.63% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->48.63% (2,000,000B) 0x10BEEF: OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) (in /app/build/heat_diffusion_optimized_benchmark_v2)
+| ->48.63% (2,000,000B) 0x10A397: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   
+->01.77% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->01.77% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->01.77% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->01.77% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->00.97% (39,928B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 76  1,589,533,187        4,111,944        4,111,832           112            0
+ 77  1,589,533,291        2,111,936        2,111,832           104            0
+ 78  1,589,535,474        2,111,936        2,111,832           104            0
+ 79  1,589,535,520        4,111,944        4,111,832           112            0
+ 80  1,590,161,046        4,112,752        4,112,632           120            0
+ 81  1,765,930,489        4,111,944        4,111,832           112            0
+ 82  1,765,930,593        2,111,936        2,111,832           104            0
+ 83  1,765,991,942          111,792          111,704            88            0
+ 84  1,765,992,018          111,520          111,448            72            0
+ 85  1,765,992,094          111,248          111,192            56            0
+99.95% (111,192B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->65.35% (72,704B) 0x491EAF7: ??? (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+| ->65.35% (72,704B) 0x4005623: call_init (dl-init.c:70)
+|   ->65.35% (72,704B) 0x4005623: call_init (dl-init.c:26)
+|     ->65.35% (72,704B) 0x400572B: _dl_init (dl-init.c:117)
+|       ->65.35% (72,704B) 0x4017CC7: ??? (in /usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1)
+|         
+->30.57% (34,008B) 0x4C69387: monstartup (gmon.c:153)
+| ->30.57% (34,008B) 0x10B733: __gmon_start__ (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|   ->30.57% (34,008B) 0x4862937: ??? (in /usr/libexec/valgrind/vgpreload_massif-arm64-linux.so)
+|     
+->03.68% (4,096B) 0x4BE88F3: _IO_file_doallocate (filedoalloc.c:101)
+| ->03.68% (4,096B) 0x4BF71EF: _IO_doallocbuf (genops.c:347)
+|   ->03.68% (4,096B) 0x4BF71EF: _IO_doallocbuf (genops.c:342)
+|     ->03.68% (4,096B) 0x4BF65B7: _IO_file_overflow@@GLIBC_2.17 (fileops.c:744)
+|       ->03.68% (4,096B) 0x4BF5707: _IO_new_file_xsputn (fileops.c:1243)
+|         ->03.68% (4,096B) 0x4BF5707: _IO_file_xsputn@@GLIBC_2.17 (fileops.c:1196)
+|           ->03.68% (4,096B) 0x4BE9E6F: fwrite (iofwrite.c:39)
+|             ->03.68% (4,096B) 0x49B47B7: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30)
+|               ->03.68% (4,096B) 0x10A2E7: main (in /app/build/heat_diffusion_optimized_benchmark_v2)
+|                 
+->00.35% (384B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 86  1,765,992,170          110,976          110,936            40            0
+ 87  1,766,008,714           76,816           76,800            16            0
+ 88  1,766,017,724            4,104            4,096             8            0
+ 89  1,766,019,667                0                0             0            0

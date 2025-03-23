@@ -1,0 +1,145 @@
+==1627== Cachegrind, a cache and branch-prediction profiler
+==1627== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==1627== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1627== Command: ./heat_diffusion_benchmark --size 100 --iterations 100
+==1627== 
+--1627-- Warning: Cannot auto-detect cache config, using defaults.
+--1627--          Run with -v to see.
+
+=== Run 1 of 10 ===
+Run 1 Results:
+  Setup Time: 3.59104 ms
+  Total Simulation Time: 38.2665 ms
+  Average Iteration Time: 0.382665 ms
+  Min/Max Iteration Time: 0.357042/1.358 ms
+  Performance: 2.61325e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 2 of 10 ===
+Run 2 Results:
+  Setup Time: 2.17167 ms
+  Total Simulation Time: 37.3017 ms
+  Average Iteration Time: 0.373017 ms
+  Min/Max Iteration Time: 0.358625/0.466584 ms
+  Performance: 2.68084e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 3 of 10 ===
+Run 3 Results:
+  Setup Time: 1.05333 ms
+  Total Simulation Time: 37.0493 ms
+  Average Iteration Time: 0.370493 ms
+  Min/Max Iteration Time: 0.358208/0.410166 ms
+  Performance: 2.6991e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 4 of 10 ===
+Run 4 Results:
+  Setup Time: 0.679 ms
+  Total Simulation Time: 37.707 ms
+  Average Iteration Time: 0.37707 ms
+  Min/Max Iteration Time: 0.359334/0.521083 ms
+  Performance: 2.65202e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 5 of 10 ===
+Run 5 Results:
+  Setup Time: 0.750416 ms
+  Total Simulation Time: 37.36 ms
+  Average Iteration Time: 0.3736 ms
+  Min/Max Iteration Time: 0.360333/0.484958 ms
+  Performance: 2.67666e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 6 of 10 ===
+Run 6 Results:
+  Setup Time: 0.996375 ms
+  Total Simulation Time: 37.6275 ms
+  Average Iteration Time: 0.376275 ms
+  Min/Max Iteration Time: 0.361625/0.500625 ms
+  Performance: 2.65763e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 7 of 10 ===
+Run 7 Results:
+  Setup Time: 0.710375 ms
+  Total Simulation Time: 37.7143 ms
+  Average Iteration Time: 0.377143 ms
+  Min/Max Iteration Time: 0.360375/0.47625 ms
+  Performance: 2.65151e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 8 of 10 ===
+Run 8 Results:
+  Setup Time: 0.704083 ms
+  Total Simulation Time: 37.4147 ms
+  Average Iteration Time: 0.374147 ms
+  Min/Max Iteration Time: 0.359708/0.511167 ms
+  Performance: 2.67274e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 9 of 10 ===
+Run 9 Results:
+  Setup Time: 0.696792 ms
+  Total Simulation Time: 37.556 ms
+  Average Iteration Time: 0.37556 ms
+  Min/Max Iteration Time: 0.360125/0.482834 ms
+  Performance: 2.66269e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== Run 10 of 10 ===
+Run 10 Results:
+  Setup Time: 0.785375 ms
+  Total Simulation Time: 37.9222 ms
+  Average Iteration Time: 0.379222 ms
+  Min/Max Iteration Time: 0.360417/0.525709 ms
+  Performance: 2.63698e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== AGGREGATE BENCHMARK RESULTS (10 RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 1.21385 ms (StdDev: 0.900369 ms)
+  Average Total Simulation Time: 37.5919 ms (StdDev: 0.32539 ms)
+  Average Iteration Time: 0.375919 ms (StdDev: 0.0032539 ms)
+  Average Min/Max Iteration Time: 0.359579/0.573738 ms
+
+Performance Statistics:
+  Average Performance: 2.66034e+07 cell updates per second (StdDev: 229487)
+  Best Run: Run 3 (37.0493 ms)
+  Worst Run: Run 1 (38.2665 ms)
+  Coefficient of Variation: 0.865585%
+
+Memory Usage:
+  Average Memory Increase: 0 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+==1627== 
+==1627== I   refs:      74,579,929
+==1627== I1  misses:        13,881
+==1627== LLi misses:         2,694
+==1627== I1  miss rate:       0.02%
+==1627== LLi miss rate:       0.00%
+==1627== 
+==1627== D   refs:      31,269,779  (25,775,328 rd   + 5,494,451 wr)
+==1627== D1  misses:     2,703,729  ( 1,418,368 rd   + 1,285,361 wr)
+==1627== LLd misses:        14,763  (     9,209 rd   +     5,554 wr)
+==1627== D1  miss rate:        8.6% (       5.5%     +      23.4%  )
+==1627== LLd miss rate:        0.0% (       0.0%     +       0.1%  )
+==1627== 
+==1627== LL refs:        2,717,610  ( 1,432,249 rd   + 1,285,361 wr)
+==1627== LL misses:         17,457  (    11,903 rd   +     5,554 wr)
+==1627== LL miss rate:         0.0% (       0.0%     +       0.1%  )

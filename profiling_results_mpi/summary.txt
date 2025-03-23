@@ -1,0 +1,200 @@
+MPI PROFILING SUMMARY
+====================
+
+Strong Scaling Results:
+  1 ranks:
+  Average Iteration Time: 0.119201 ms
+  Average Iteration Time: 0.119201 ms (StdDev: 0 ms)
+  2 ranks:
+  Average Iteration Time: 0.0607146 ms
+  Average Iteration Time: 0.0607133 ms
+  Average Iteration Time: 0.0607133 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0607146 ms (StdDev: 0 ms)
+  4 ranks:
+  Average Iteration Time: 0.0348946 ms
+  Average Iteration Time: 0.0349175 ms
+  Average Iteration Time: 0.0349262 ms
+  Average Iteration Time: 0.0349946 ms
+  Average Iteration Time: 0.0349175 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0349262 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0348946 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0349946 ms (StdDev: 0 ms)
+  8 ranks:
+  Average Iteration Time: 0.0205362 ms
+  Average Iteration Time: 0.0205362 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0205875 ms
+  Average Iteration Time: 0.0205875 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0206179 ms
+  Average Iteration Time: 0.0206179 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0206646 ms
+  Average Iteration Time: 0.0206646 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0206192 ms
+  Average Iteration Time: 0.0206192 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0206558 ms
+  Average Iteration Time: 0.0206558 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0205325 ms
+  Average Iteration Time: 0.0205325 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0208412 ms
+  Average Iteration Time: 0.0208412 ms (StdDev: 0 ms)
+
+Weak Scaling Results:
+  1 ranks (1x base problem size):
+  Average Iteration Time: 0.00475708 ms
+  Average Iteration Time: 0.00475708 ms (StdDev: 0 ms)
+  2 ranks (2x base problem size):
+  Average Iteration Time: 0.010185 ms
+  Average Iteration Time: 0.010185 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0101862 ms
+  Average Iteration Time: 0.0101862 ms (StdDev: 0 ms)
+  4 ranks (4x base problem size):
+  Average Iteration Time: 0.0213321 ms
+  Average Iteration Time: 0.0213321 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0213537 ms
+  Average Iteration Time: 0.0213537 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0215404 ms
+  Average Iteration Time: 0.0215404 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0213158 ms
+  Average Iteration Time: 0.0213158 ms (StdDev: 0 ms)
+  8 ranks (8x base problem size):
+  Average Iteration Time: 0.0422037 ms
+  Average Iteration Time: 0.0434171 ms
+  Average Iteration Time: 0.0422492 ms
+  Average Iteration Time: 0.0434154 ms
+  Average Iteration Time: 0.0444375 ms
+  Average Iteration Time: 0.0422125 ms
+  Average Iteration Time: 0.0444408 ms
+  Average Iteration Time: 0.0444175 ms
+  Average Iteration Time: 0.0422125 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0444408 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0422492 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0422037 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0434171 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0444175 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0434154 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0444375 ms (StdDev: 0 ms)
+
+MPI Communication Pattern Analysis:
+--------------------------------
+
+Grid Size Scaling with Fixed Rank Count (4 ranks):
+  Grid 100x100:
+  Average Iteration Time: 0.00375416 ms
+  Average Iteration Time: 0.00375416 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00372375 ms
+  Average Iteration Time: 0.00372375 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00373833 ms
+  Average Iteration Time: 0.00373833 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00376583 ms
+  Average Iteration Time: 0.00376583 ms (StdDev: 0 ms)
+  Performance: 2.66371e+09 cell updates per second
+  Average Performance: 2.66371e+09 cell updates per second (StdDev: 0)
+  Performance: 2.68546e+09 cell updates per second
+  Average Performance: 2.68546e+09 cell updates per second (StdDev: 0)
+  Performance: 2.67499e+09 cell updates per second
+  Average Performance: 2.67499e+09 cell updates per second (StdDev: 0)
+  Performance: 2.65546e+09 cell updates per second
+  Average Performance: 2.65546e+09 cell updates per second (StdDev: 0)
+  Grid 400x400:
+  Average Iteration Time: 0.0220475 ms
+  Average Iteration Time: 0.0220296 ms
+  Average Iteration Time: 0.0220308 ms
+  Average Iteration Time: 0.0220308 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.02243 ms
+  Average Iteration Time: 0.0220475 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.02243 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0220296 ms (StdDev: 0 ms)
+  Performance: 7.25706e+09 cell updates per second
+  Performance: 7.26296e+09 cell updates per second
+  Performance: 7.26255e+09 cell updates per second
+  Average Performance: 7.26255e+09 cell updates per second (StdDev: 0)
+  Performance: 7.1333e+09 cell updates per second
+  Average Performance: 7.25706e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.1333e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.26296e+09 cell updates per second (StdDev: 0)
+  Grid 1000x1000:
+  Average Iteration Time: 0.140005 ms
+  Average Iteration Time: 0.140441 ms
+  Average Iteration Time: 0.140019 ms
+  Average Iteration Time: 0.140029 ms
+  Average Iteration Time: 0.140019 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.140029 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.140005 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.140441 ms (StdDev: 0 ms)
+  Performance: 7.14262e+09 cell updates per second
+  Performance: 7.12044e+09 cell updates per second
+  Performance: 7.14188e+09 cell updates per second
+  Performance: 7.14137e+09 cell updates per second
+  Average Performance: 7.14188e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.14137e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.14262e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.12044e+09 cell updates per second (StdDev: 0)
+
+Rank Scaling with Fixed Grid Size (400x400):
+  1 ranks:
+  Average Iteration Time: 0.0681937 ms
+  Average Iteration Time: 0.0681937 ms (StdDev: 0 ms)
+  Performance: 2.34626e+09 cell updates per second
+  Average Performance: 2.34626e+09 cell updates per second (StdDev: 0)
+  2 ranks:
+  Average Iteration Time: 0.0369233 ms
+  Average Iteration Time: 0.03693 ms
+  Average Iteration Time: 0.03693 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0369233 ms (StdDev: 0 ms)
+  Performance: 4.3333e+09 cell updates per second
+  Performance: 4.33252e+09 cell updates per second
+  Average Performance: 4.33252e+09 cell updates per second (StdDev: 0)
+  Average Performance: 4.3333e+09 cell updates per second (StdDev: 0)
+  4 ranks:
+  Average Iteration Time: 0.0220475 ms
+  Average Iteration Time: 0.0220296 ms
+  Average Iteration Time: 0.0220308 ms
+  Average Iteration Time: 0.0220308 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.02243 ms
+  Average Iteration Time: 0.0220475 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.02243 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0220296 ms (StdDev: 0 ms)
+  Performance: 7.25706e+09 cell updates per second
+  Performance: 7.26296e+09 cell updates per second
+  Performance: 7.26255e+09 cell updates per second
+  Average Performance: 7.26255e+09 cell updates per second (StdDev: 0)
+  Performance: 7.1333e+09 cell updates per second
+  Average Performance: 7.25706e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.1333e+09 cell updates per second (StdDev: 0)
+  Average Performance: 7.26296e+09 cell updates per second (StdDev: 0)
+  8 ranks:
+  Average Iteration Time: 0.0173596 ms
+  Average Iteration Time: 0.0173596 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0177979 ms
+  Average Iteration Time: 0.0177979 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173612 ms
+  Average Iteration Time: 0.0173612 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173058 ms
+  Average Iteration Time: 0.0173058 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0177662 ms
+  Average Iteration Time: 0.0177662 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0176621 ms
+  Average Iteration Time: 0.0176621 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173796 ms
+  Average Iteration Time: 0.0173796 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0172162 ms
+  Average Iteration Time: 0.0172162 ms (StdDev: 0 ms)
+  Performance: 9.21681e+09 cell updates per second
+  Average Performance: 9.21681e+09 cell updates per second (StdDev: 0)
+  Performance: 8.98982e+09 cell updates per second
+  Average Performance: 8.98982e+09 cell updates per second (StdDev: 0)
+  Performance: 9.21593e+09 cell updates per second
+  Average Performance: 9.21593e+09 cell updates per second (StdDev: 0)
+  Performance: 9.24544e+09 cell updates per second
+  Average Performance: 9.24544e+09 cell updates per second (StdDev: 0)
+  Performance: 9.00584e+09 cell updates per second
+  Average Performance: 9.00584e+09 cell updates per second (StdDev: 0)
+  Performance: 9.05896e+09 cell updates per second
+  Average Performance: 9.05896e+09 cell updates per second (StdDev: 0)
+  Performance: 9.2062e+09 cell updates per second
+  Average Performance: 9.2062e+09 cell updates per second (StdDev: 0)
+  Performance: 9.29355e+09 cell updates per second
+  Average Performance: 9.29355e+09 cell updates per second (StdDev: 0)
+
+Parallel Efficiency:
+  Could not calculate efficiency (missing or invalid timing data)
+
