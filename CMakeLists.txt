@@ -347,7 +347,7 @@ if(FILESYSTEM_LIBRARIES)
 endif()
 
 
-add_executable(heat_diffusion_benchmark_hybrid ${MPI_BENCHMARK_SOURCES})
+add_executable(heat_diffusion_benchmark_hybrid ${HYBRID_BENCHMARK_SOURCES})
 target_compile_options(heat_diffusion_benchmark_hybrid PRIVATE ${BASE_FLAGS_LIST} ${BENCHMARK_FLAGS_LIST})
 if(MPI_CXX_FOUND)
     target_link_libraries(heat_diffusion_benchmark_hybrid PRIVATE MPI::MPI_CXX)
