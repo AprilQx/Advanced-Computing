@@ -1,0 +1,1666 @@
+MPI PROFILING SUMMARY (CSD3 ICELAKE)
+=================================
+
+System Information:
+  Architecture: Icelake (Intel Xeon 8360Y)
+  Cores: 76 per node
+  Memory: 256GB/512GB per node
+  MPI Implementation: Intel MPI
+  Date: Sun Mar 23 18:16:51 GMT 2025
+
+Strong Scaling Results:
+  1 ranks:
+  Average Iteration Time: 5.2611 ms
+  Average Iteration Time: 5.2611 ms (StdDev: 0 ms)
+  2 ranks:
+  Average Iteration Time: 2.39382 ms
+  Average Iteration Time: 2.39388 ms
+  Average Iteration Time: 2.39382 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.39388 ms (StdDev: 0 ms)
+  4 ranks:
+  Average Iteration Time: 6.87484 ms
+  Average Iteration Time: 6.81827 ms
+  Average Iteration Time: 6.87465 ms
+  Average Iteration Time: 6.81782 ms
+  Average Iteration Time: 6.87484 ms (StdDev: 0 ms)
+  Average Iteration Time: 6.81827 ms (StdDev: 0 ms)
+  Average Iteration Time: 6.87465 ms (StdDev: 0 ms)
+  Average Iteration Time: 6.81782 ms (StdDev: 0 ms)
+  8 ranks:
+  Average Iteration Time: 2.45081 ms
+  Average Iteration Time: 2.47103 ms
+  Average Iteration Time: 2.46927 ms
+  Average Iteration Time: 2.48821 ms
+  Average Iteration Time: 2.46959 ms
+  Average Iteration Time: 2.49005 ms
+  Average Iteration Time: 2.45213 ms
+  Average Iteration Time: 2.47103 ms
+  Average Iteration Time: 2.47103 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.48821 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.45081 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.47103 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.46959 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.49005 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.45213 ms (StdDev: 0 ms)
+  Average Iteration Time: 2.46927 ms (StdDev: 0 ms)
+  16 ranks:
+  Average Iteration Time: 0.320617 ms
+  Average Iteration Time: 0.320743 ms
+  Average Iteration Time: 0.320621 ms
+  Average Iteration Time: 0.320692 ms
+  Average Iteration Time: 0.320389 ms
+  Average Iteration Time: 0.320407 ms
+  Average Iteration Time: 0.320435 ms
+  Average Iteration Time: 0.320386 ms
+  Average Iteration Time: 0.320319 ms
+  Average Iteration Time: 0.320492 ms
+  Average Iteration Time: 0.320478 ms
+  Average Iteration Time: 0.3202 ms
+  Average Iteration Time: 0.32022 ms
+  Average Iteration Time: 0.320311 ms
+  Average Iteration Time: 0.320226 ms
+  Average Iteration Time: 0.320094 ms
+  Average Iteration Time: 0.320621 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320692 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320319 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320492 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.32022 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320478 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320226 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320094 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.3202 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320311 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320743 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320389 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320407 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320435 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320386 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.320617 ms (StdDev: 0 ms)
+  32 ranks:
+  Average Iteration Time: 0.184199 ms
+  Average Iteration Time: 0.18418 ms
+  Average Iteration Time: 0.184179 ms
+  Average Iteration Time: 0.184137 ms
+  Average Iteration Time: 0.183808 ms
+  Average Iteration Time: 0.184019 ms
+  Average Iteration Time: 0.184036 ms
+  Average Iteration Time: 0.184069 ms
+  Average Iteration Time: 0.184178 ms
+  Average Iteration Time: 0.184262 ms
+  Average Iteration Time: 0.184392 ms
+  Average Iteration Time: 0.184324 ms
+  Average Iteration Time: 0.184308 ms
+  Average Iteration Time: 0.184373 ms
+  Average Iteration Time: 0.184661 ms
+  Average Iteration Time: 0.184575 ms
+  Average Iteration Time: 0.184375 ms
+  Average Iteration Time: 0.184558 ms
+  Average Iteration Time: 0.184563 ms
+  Average Iteration Time: 0.18441 ms
+  Average Iteration Time: 0.184214 ms
+  Average Iteration Time: 0.184352 ms
+  Average Iteration Time: 0.184796 ms
+  Average Iteration Time: 0.184648 ms
+  Average Iteration Time: 0.184351 ms
+  Average Iteration Time: 0.184426 ms
+  Average Iteration Time: 0.184492 ms
+  Average Iteration Time: 0.18459 ms
+  Average Iteration Time: 0.184398 ms
+  Average Iteration Time: 0.184613 ms
+  Average Iteration Time: 0.184695 ms
+  Average Iteration Time: 0.184749 ms
+  Average Iteration Time: 
+  Average Iteration Time: 0.18459 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184695 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184613 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184352 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184648 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184398 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184199 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.18418 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184179 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184492 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184575 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184351 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184308 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184178 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184661 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.183808 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184214 ms (StdDev: 0 ms)
+  Average Iteration Time: 
+  Average Iteration Time: 0.184375 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184558 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184563 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.18441 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184796 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184426 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184137 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184262 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184019 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184036 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184069 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184392 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184324 ms (StdDev: 0 ms)
+  64 ranks:
+  Average Iteration Time: 0.112148 ms
+  Average Iteration Time: 0.112148 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.111221 ms
+  Average Iteration Time: 0.111221 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110819 ms
+  Average Iteration Time: 0.110819 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110326 ms
+  Average Iteration Time: 0.11002 ms
+  Average Iteration Time: 0.106682 ms
+  Average Iteration Time: 0.106535 ms
+  Average Iteration Time: 0.106426 ms
+  Average Iteration Time: 0.110913 ms
+  Average Iteration Time: 0.107642 ms
+  Average Iteration Time: 0.107353 ms
+  Average Iteration Time: 0.10739 ms
+  Average Iteration Time: 0.109779 ms
+  Average Iteration Time: 0.106494 ms
+  Average Iteration Time: 0.106064 ms
+  Average Iteration Time: 0.10614 ms
+  Average Iteration Time: 0.110289 ms
+  Average Iteration Time: 0.107244 ms
+  Average Iteration Time: 0.10699 ms
+  Average Iteration Time: 0.106919 ms
+  Average Iteration Time: 0.109609 ms
+  Average Iteration Time: 0.107027 ms
+  Average Iteration Time: 0.106678 ms
+  Average Iteration Time: 0.106701 ms
+  Average Iteration Time: 0.110248 ms
+  Average Iteration Time: 0.107137 ms
+  Average Iteration Time: 0.106791 ms
+  Average Iteration Time: 0.106816 ms
+  Average Iteration Time: 0.106914 ms
+  Average Iteration Time: 0.106877 ms
+  Average Iteration Time: 0.106403 ms
+  Average Iteration Time: 0.10661 ms
+  Average Iteration Time: 0.109846 ms
+  Average Iteration Time: 0.105993 ms
+  Average Iteration Time: 0.105797 ms
+  Average Iteration Time: 0.105944 ms
+  Average Iteration Time: 0.109104 ms
+  Average Iteration Time: 0.105511 ms
+  Average Iteration Time: 0.105305 ms
+  Average Iteration Time: 0.105541 ms
+  Average Iteration Time: 0.109807 ms
+  Average Iteration Time: 0.107193 ms
+  Average Iteration Time: 0.106961 ms
+  Average Iteration Time: 0.10696 ms
+  Average Iteration Time: 0.109323 ms
+  Average Iteration Time: 0.106265 ms
+  Average Iteration Time: 0.105919 ms
+  Average Iteration Time: 0.106096 ms
+  Average Iteration Time: 0.109741 ms
+  Average Iteration Time: 0.106802 ms
+  Average Iteration Time: 0.106591 ms
+  Average Iteration Time: 0.106525 ms
+  Average Iteration Time: 0.109824 ms
+  Average Iteration Time: 0.106789 ms
+  Average Iteration Time: 0.106789 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106599 ms
+  Average Iteration Time: 0.106599 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106603 ms
+  Average Iteration Time: 0.110238 ms
+  Average Iteration Time: 0.110238 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.108005 ms
+  Average Iteration Time: 0.107703 ms
+  Average Iteration Time: 0.107759 ms
+  Average Iteration Time: 0.107759 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109977 ms
+  Average Iteration Time: 0.109977 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107478 ms
+  Average Iteration Time: 0.107478 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107147 ms
+  Average Iteration Time: 0.107147 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107243 ms
+  Average Iteration Time: 0.107243 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109824 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107703 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.108005 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106603 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106961 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106096 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109741 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106802 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106591 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106525 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105541 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109807 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106265 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109846 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105305 ms (StdDev: 0 ms)
+  Average Iteration Time: 
+  Average Iteration Time: 0.109323 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105919 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106816 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106914 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106877 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106403 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10661 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105993 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105797 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.105944 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109104 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107193 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10696 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110289 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109609 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106678 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106701 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110248 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107137 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106791 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.11002 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110913 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107353 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10739 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.109779 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10614 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110326 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106682 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106535 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106426 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107642 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106494 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106064 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107244 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.10699 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.106919 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.107027 ms (StdDev: 0 ms)
+  128 ranks:
+  Average Iteration Time: 0.300746 ms
+  Average Iteration Time: 0.300746 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301029 ms
+  Average Iteration Time: 0.301029 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301209 ms
+  Average Iteration Time: 0.30065 ms
+  Average Iteration Time: 0.300516 ms
+  Average Iteration Time: 0.299517 ms
+  Average Iteration Time: 0.30006 ms
+  Average Iteration Time: 0.300268 ms
+  Average Iteration Time: 0.300268 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30324 ms
+  Average Iteration Time: 0.30324 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303613 ms
+  Average Iteration Time: 0.303613 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300955 ms
+  Average Iteration Time: 0.300955 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30061 ms
+  Average Iteration Time: 0.302133 ms
+  Average Iteration Time: 0.302133 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302032 ms
+  Average Iteration Time: 0.302032 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30196 ms
+  Average Iteration Time: 0.284527 ms
+  Average Iteration Time: 0.302405 ms
+  Average Iteration Time: 0.302405 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302594 ms
+  Average Iteration Time: 0.302594 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302592 ms
+  Average Iteration Time: 0.286982 ms
+  Average Iteration Time: 0.301214 ms
+  Average Iteration Time: 0.301214 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301891 ms
+  Average Iteration Time: 0.301891 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302103 ms
+  Average Iteration Time: Run 1 Results:
+  Average Iteration Time: 0.301634 ms
+  Average Iteration Time: 0.301634 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301729 ms
+  Average Iteration Time: 0.301729 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302197 ms
+  Average Iteration Time: 0.302197 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302784 ms
+  Average Iteration Time: 0.302784 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302128 ms
+  Average Iteration Time: 0.302128 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300566 ms
+  Average Iteration Time: 0.300566 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300513 ms
+  Average Iteration Time: 0.300513 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301467 ms
+  Average Iteration Time: 0.301467 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301381 ms
+  Average Iteration Time: 0.301381 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30147 ms
+  Average Iteration Time: 0.30147 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.28405 ms
+  Average Iteration Time: 0.28405 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301894 ms
+  Average Iteration Time: 0.301894 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301565 ms
+  Average Iteration Time: 0.301565 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.281862 ms
+  Average Iteration Time: 0.281862 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300466 ms
+  Average Iteration Time: 0.300466 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300407 ms
+  Average Iteration Time: 0.300407 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.282835 ms
+  Average Iteration Time: 0.282835 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301453 ms
+  Average Iteration Time: 0.301453 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301667 ms
+  Average Iteration Time: 0.301667 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301939 ms
+  Average Iteration Time: 0.301939 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.282866 ms
+  Average Iteration Time: 0.282866 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.281316 ms
+  Average Iteration Time: 0.281316 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.281088 ms
+  Average Iteration Time: 0.281088 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300982 ms
+  Average Iteration Time: 0.300982 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.287267 ms
+  Average Iteration Time: 0.287267 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.282569 ms
+  Average Iteration Time: 0.282569 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.287343 ms
+  Average Iteration Time: 0.287343 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.299585 ms
+  Average Iteration Time: 0.299585 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.299688 ms
+  Average Iteration Time: 0.299688 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301209 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300516 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.299517 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30006 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30061 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30196 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.284527 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302592 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.286982 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30065 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.304592 ms
+  Average Iteration Time: 0.304592 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302837 ms
+  Average Iteration Time: 0.302837 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302949 ms
+  Average Iteration Time: 0.302949 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.293156 ms
+  Average Iteration Time: 0.293156 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303462 ms
+  Average Iteration Time: 0.303462 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.296448 ms
+  Average Iteration Time: 0.296448 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.304129 ms
+  Average Iteration Time: 0.304129 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303853 ms
+  Average Iteration Time: 0.303853 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303013 ms
+  Average Iteration Time: 0.303013 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30304 ms
+  Average Iteration Time: 0.30304 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.297005 ms
+  Average Iteration Time: 0.297005 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.29682 ms
+  Average Iteration Time: 0.29682 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.296262 ms
+  Average Iteration Time: 0.296262 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.296193 ms
+  Average Iteration Time: 0.296193 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301524 ms
+  Average Iteration Time: 0.301524 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301305 ms
+  Average Iteration Time: 0.301305 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.291108 ms
+  Average Iteration Time: 0.291108 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20047 ms
+  Average Iteration Time: 0.20047 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303279 ms
+  Average Iteration Time: 0.303279 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.296934 ms
+  Average Iteration Time: 0.296934 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303398 ms
+  Average Iteration Time: 0.303398 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303758 ms
+  Average Iteration Time: 0.303758 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.299588 ms
+  Average Iteration Time: 0.299588 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.297436 ms
+  Average Iteration Time: 0.297436 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198655 ms
+  Average Iteration Time: 0.198655 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298004 ms
+  Average Iteration Time: 0.298004 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303414 ms
+  Average Iteration Time: 0.303414 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303679 ms
+  Average Iteration Time: 0.303679 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.29153 ms
+  Average Iteration Time: 0.29153 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30403 ms
+  Average Iteration Time: 0.30403 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.304011 ms
+  Average Iteration Time: 0.304011 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303231 ms
+  Average Iteration Time: 0.303231 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301703 ms
+  Average Iteration Time: 0.301703 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.290478 ms
+  Average Iteration Time: 0.290478 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.292575 ms
+  Average Iteration Time: 0.292575 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.294924 ms
+  Average Iteration Time: 0.294924 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302633 ms
+  Average Iteration Time: 0.302633 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.303174 ms
+  Average Iteration Time: 0.303174 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20073 ms
+  Average Iteration Time: 0.20073 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302579 ms
+  Average Iteration Time: 0.302579 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298139 ms
+  Average Iteration Time: 0.298139 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298281 ms
+  Average Iteration Time: 0.298281 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0822529 ms
+  Average Iteration Time: 0.0822529 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301723 ms
+  Average Iteration Time: 0.301723 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301949 ms
+  Average Iteration Time: 0.301949 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.296126 ms
+  Average Iteration Time: 0.296126 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200487 ms
+  Average Iteration Time: 0.200487 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.302533 ms
+  Average Iteration Time: 0.302533 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.297755 ms
+  Average Iteration Time: 0.297755 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198978 ms
+  Average Iteration Time: 0.198978 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298142 ms
+  Average Iteration Time: 0.298142 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.3015 ms
+  Average Iteration Time: 0.3015 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.293055 ms
+  Average Iteration Time: 0.293055 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.29603 ms
+  Average Iteration Time: 0.29603 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.199887 ms
+  Average Iteration Time: 0.199887 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.295353 ms
+  Average Iteration Time: 0.295353 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300815 ms
+  Average Iteration Time: 0.300815 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.294495 ms
+  Average Iteration Time: 0.294495 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.293182 ms
+  Average Iteration Time: 0.293182 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300929 ms
+  Average Iteration Time: 0.300929 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.294305 ms
+  Average Iteration Time: 0.294305 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.301593 ms
+  Average Iteration Time: 0.301593 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.29422 ms
+  Average Iteration Time: 0.29422 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298735 ms
+  Average Iteration Time: 0.298735 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.292181 ms
+  Average Iteration Time: 0.292181 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300437 ms
+  Average Iteration Time: 0.300437 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.288683 ms
+  Average Iteration Time: 0.288683 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.29327 ms
+  Average Iteration Time: 0.29327 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.292958 ms
+  Average Iteration Time: 0.292958 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298383 ms
+  Average Iteration Time: 0.298383 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.298354 ms
+  Average Iteration Time: 0.298354 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.297777 ms
+  Average Iteration Time: 0.297777 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.299456 ms
+  Average Iteration Time: 0.299456 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.292042 ms
+  Average Iteration Time: 0.292042 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.291969 ms
+  Average Iteration Time: 0.291969 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.300306 ms
+  Average Iteration Time: 0.300306 ms (StdDev: 0 ms)
+
+Weak Scaling Results:
+  1 ranks (100x100 grid):
+  Average Iteration Time: 0.0460598 ms
+  Average Iteration Time: 0.0460598 ms (StdDev: 0 ms)
+  2 ranks (141x141 grid):
+  Average Iteration Time: 0.0471649 ms
+  Average Iteration Time: 0.0471696 ms
+  Average Iteration Time: 0.0471649 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0471696 ms (StdDev: 0 ms)
+  4 ranks (200x200 grid):
+  Average Iteration Time: 0.0663126 ms
+  Average Iteration Time: 0.0664441 ms
+  Average Iteration Time: 0.0635741 ms
+  Average Iteration Time: 0.0663105 ms
+  Average Iteration Time: 0.0664441 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0663105 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0663126 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0635741 ms (StdDev: 0 ms)
+  8 ranks (282x282 grid):
+  Average Iteration Time: 0.0517109 ms
+  Average Iteration Time: 0.0516859 ms
+  Average Iteration Time: 0.0517325 ms
+  Average Iteration Time: 0.0517399 ms
+  Average Iteration Time: 0.0517742 ms
+  Average Iteration Time: 0.0518026 ms
+  Average Iteration Time: 0.0517942 ms
+  Average Iteration Time: 0.0517683 ms
+  Average Iteration Time: 0.0516859 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517683 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517109 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517325 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517942 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517399 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0517742 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0518026 ms (StdDev: 0 ms)
+  16 ranks (400x400 grid):
+  Average Iteration Time: 0.0559064 ms
+  Average Iteration Time: 0.0559891 ms
+  Average Iteration Time: 0.058734 ms
+  Average Iteration Time: 0.0588036 ms
+  Average Iteration Time: 0.0587098 ms
+  Average Iteration Time: 0.0587171 ms
+  Average Iteration Time: 0.0588065 ms
+  Average Iteration Time: 0.0588116 ms
+  Average Iteration Time: 0.0586281 ms
+  Average Iteration Time: 0.0587089 ms
+  Average Iteration Time: 0.0587471 ms
+  Average Iteration Time: 0.0586786 ms
+  Average Iteration Time: 0.058785 ms
+  Average Iteration Time: 0.0588597 ms
+  Average Iteration Time: 0.0587874 ms
+  Average Iteration Time: 0.0587725 ms
+  Average Iteration Time: 0.0559064 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0559891 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.058734 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587098 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587089 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587471 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.058785 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587725 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0588036 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587171 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0588065 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0588116 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0586281 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0586786 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0588597 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0587874 ms (StdDev: 0 ms)
+  32 ranks (565x565 grid):
+  Average Iteration Time: 0.0625991 ms
+  Average Iteration Time: 0.0627224 ms
+  Average Iteration Time: 0.0649574 ms
+  Average Iteration Time: 0.064811 ms
+  Average Iteration Time: 0.0646837 ms
+  Average Iteration Time: 0.0647529 ms
+  Average Iteration Time: 0.0648229 ms
+  Average Iteration Time: 0.0648636 ms
+  Average Iteration Time: 0.064872 ms
+  Average Iteration Time: 0.0649391 ms
+  Average Iteration Time: 0.0648836 ms
+  Average Iteration Time: 0.0649276 ms
+  Average Iteration Time: 0.0648112 ms
+  Average Iteration Time: 0.064736 ms
+  Average Iteration Time: 0.0645242 ms
+  Average Iteration Time: 0.0647825 ms
+  Average Iteration Time: 0.064445 ms
+  Average Iteration Time: 0.0644809 ms
+  Average Iteration Time: 0.0644394 ms
+  Average Iteration Time: 0.0645236 ms
+  Average Iteration Time: 0.0643483 ms
+  Average Iteration Time: 0.0644457 ms
+  Average Iteration Time: 0.0645693 ms
+  Average Iteration Time: 0.0645473 ms
+  Average Iteration Time: 0.0644103 ms
+  Average Iteration Time: 0.0644817 ms
+  Average Iteration Time: 0.0645341 ms
+  Average Iteration Time: 0.0644204 ms
+  Average Iteration Time: 0.0645018 ms
+  Average Iteration Time: 0.0647135 ms
+  Average Iteration Time: 0.0646904 ms
+  Average Iteration Time: 0.0645642 ms
+  Average Iteration Time: 0.0627224 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0649574 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0625991 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.064736 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645242 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0646837 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.064872 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0648112 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0647825 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645018 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.064811 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0647529 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0648229 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0648636 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0649391 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0648836 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0649276 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645473 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0647135 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0646904 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645642 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.064445 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644809 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644394 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645236 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0643483 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644457 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645693 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644103 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644817 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0645341 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0644204 ms (StdDev: 0 ms)
+  64 ranks (800x800 grid):
+  Average Iteration Time: 0.0863928 ms
+  Average Iteration Time: 0.0863928 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0804094 ms
+  Average Iteration Time: 0.0804094 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0772864 ms
+  Average Iteration Time: 0.0772864 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791058 ms
+  Average Iteration Time: 0.0811708 ms
+  Average Iteration Time: 0.0776024 ms
+  Average Iteration Time: 0.0773307 ms
+  Average Iteration Time: 0.0792369 ms
+  Average Iteration Time: 0.0778478 ms
+  Average Iteration Time: 0.0791467 ms
+  Average Iteration Time: 0.0789421 ms
+  Average Iteration Time: 0.0808452 ms
+  Average Iteration Time: 0.0801742 ms
+  Average Iteration Time: 0.0791302 ms
+  Average Iteration Time: 0.0782463 ms
+  Average Iteration Time: 0.079449 ms
+  Average Iteration Time: 0.0758873 ms
+  Average Iteration Time: 0.078937 ms
+  Average Iteration Time: 0.0782918 ms
+  Average Iteration Time: 0.0784798 ms
+  Average Iteration Time: 0.080345 ms
+  Average Iteration Time: 0.0800428 ms
+  Average Iteration Time: 0.0801224 ms
+  Average Iteration Time: 0.0787595 ms
+  Average Iteration Time: 0.0784162 ms
+  Average Iteration Time: 0.0786067 ms
+  Average Iteration Time: 0.0774763 ms
+  Average Iteration Time: 0.0760788 ms
+  Average Iteration Time: 0.0791253 ms
+  Average Iteration Time: 0.079555 ms
+  Average Iteration Time: 0.0780281 ms
+  Average Iteration Time: 0.0781852 ms
+  Average Iteration Time: 0.0776793 ms
+  Average Iteration Time: 0.0788553 ms
+  Average Iteration Time: 0.0791602 ms
+  Average Iteration Time: 0.0794205 ms
+  Average Iteration Time: 0.0795949 ms
+  Average Iteration Time: 0.078484 ms
+  Average Iteration Time: 0.0787357 ms
+  Average Iteration Time: 0.080078 ms
+  Average Iteration Time: 0.0771596 ms
+  Average Iteration Time: 0.0863011 ms
+  Average Iteration Time: 0.0799166 ms
+  Average Iteration Time: 0.079492 ms
+  Average Iteration Time: 0.0783042 ms
+  Average Iteration Time: 0.085526 ms
+  Average Iteration Time: 0.0790595 ms
+  Average Iteration Time: 0.0784476 ms
+  Average Iteration Time: 0.0766191 ms
+  Average Iteration Time: 0.0787346 ms
+  Average Iteration Time: 0.0802883 ms
+  Average Iteration Time: 0.0802883 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0787677 ms
+  Average Iteration Time: 0.0787677 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0800455 ms
+  Average Iteration Time: 0.0800455 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.080381 ms
+  Average Iteration Time: 0.080381 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.077923 ms
+  Average Iteration Time: 0.077923 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0779974 ms
+  Average Iteration Time: 0.0779974 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.079734 ms
+  Average Iteration Time: 0.079734 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0794344 ms
+  Average Iteration Time: 0.0794344 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0805297 ms
+  Average Iteration Time: 0.0805297 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0809742 ms
+  Average Iteration Time: 0.0809742 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0787332 ms
+  Average Iteration Time: 0.0787332 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0786737 ms
+  Average Iteration Time: 0.0786737 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0781616 ms
+  Average Iteration Time: 0.0781616 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0789965 ms
+  Average Iteration Time: 0.0789965 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0800428 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0787595 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0784162 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0774763 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0760788 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791253 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.079555 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0780281 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0781852 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0776793 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791602 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0794205 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0795949 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.078484 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0787357 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.080078 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0771596 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0863011 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.079492 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.085526 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0790595 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0784476 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0766191 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0787346 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791058 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0811708 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0776024 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0773307 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0792369 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0778478 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791467 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0789421 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0808452 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0801742 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0791302 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0782463 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.079449 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0758873 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.078937 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0782918 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0784798 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.080345 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0801224 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0786067 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0788553 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0799166 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0783042 ms (StdDev: 0 ms)
+  128 ranks (1131x1131 grid):
+  Average Iteration Time: 0.176801 ms
+  Average Iteration Time: 0.176801 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.180671 ms
+  Average Iteration Time: 0.180671 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.182369 ms
+  Average Iteration Time: 0.182369 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.203085 ms
+  Average Iteration Time: 0.178503 ms
+  Average Iteration Time: 0.178653 ms
+  Average Iteration Time: 0.178904 ms
+  Average Iteration Time: 0.178991 ms
+  Average Iteration Time: 0.205895 ms
+  Average Iteration Time: 0.205843 ms
+  Average Iteration Time: 0.205546 ms
+  Average Iteration Time: 0.205647 ms
+  Average Iteration Time: 0.205296 ms
+  Average Iteration Time: 0.205451 ms
+  Average Iteration Time: 0.205615 ms
+  Average Iteration Time: 0.202996 ms
+  Average Iteration Time: 0.205668 ms
+  Average Iteration Time: 0.20554 ms
+  Average Iteration Time: 0.205349 ms
+  Average Iteration Time: 0.205365 ms
+  Average Iteration Time: 0.204902 ms
+  Average Iteration Time: 0.205021 ms
+  Average Iteration Time: 0.205194 ms
+  Average Iteration Time: 0.204165 ms
+  Average Iteration Time: 0.204371 ms
+  Average Iteration Time: 0.204265 ms
+  Average Iteration Time: 0.205101 ms
+  Average Iteration Time: 0.205043 ms
+  Average Iteration Time: 0.204554 ms
+  Average Iteration Time: 0.202251 ms
+  Average Iteration Time: 0.202138 ms
+  Average Iteration Time: 0.202667 ms
+  Average Iteration Time: 0.205866 ms
+  Average Iteration Time: 0.205073 ms
+  Average Iteration Time: 0.20537 ms
+  Average Iteration Time: 0.205879 ms
+  Average Iteration Time: 0.204572 ms
+  Average Iteration Time: 0.204691 ms
+  Average Iteration Time: 0.205162 ms
+  Average Iteration Time: 0.205372 ms
+  Average Iteration Time: 0.20589 ms
+  Average Iteration Time: 0.205408 ms
+  Average Iteration Time: 0.205227 ms
+  Average Iteration Time: 0.205232 ms
+  Average Iteration Time: 0.204383 ms
+  Average Iteration Time: 0.20158 ms
+  Average Iteration Time: 0.201975 ms
+  Average Iteration Time: 0.202288 ms
+  Average Iteration Time: 0.202288 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202618 ms
+  Average Iteration Time: 0.202618 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205413 ms
+  Average Iteration Time: 0.205413 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.203473 ms
+  Average Iteration Time: 0.203473 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.203179 ms
+  Average Iteration Time: 0.203179 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204383 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205227 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20158 ms (StdDev: 0 ms)
+  Average Iteration Time: 
+  Average Iteration Time: 0.205372 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205408 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201975 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20537 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205879 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204572 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204691 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20589 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202251 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202138 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202667 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205866 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205073 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205162 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205194 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204165 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204371 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204265 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205101 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205043 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204554 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.178904 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205296 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205451
+  Average Iteration Time: 0.205615 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205668 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205349 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205365 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205021 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.203085 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.178503 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.178653 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.178991 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205895 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205843 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205546 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205647 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202996 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20554 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.204902 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200405 ms
+  Average Iteration Time: 0.200405 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200868 ms
+  Average Iteration Time: 0.200868 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197413 ms
+  Average Iteration Time: 0.197413 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197734 ms
+  Average Iteration Time: 0.197734 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197614 ms
+  Average Iteration Time: 0.197614 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197191 ms
+  Average Iteration Time: 0.197191 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197152 ms
+  Average Iteration Time: 0.197152 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200997 ms
+  Average Iteration Time: 0.200997 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.19695 ms
+  Average Iteration Time: 0.19695 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197275 ms
+  Average Iteration Time: 0.197275 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201017 ms
+  Average Iteration Time: 0.201017 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201385 ms
+  Average Iteration Time: 0.201385 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201608 ms
+  Average Iteration Time: 0.201608 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198463 ms
+  Average Iteration Time: 0.198463 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198063 ms
+  Average Iteration Time: 0.198063 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197856 ms
+  Average Iteration Time: 0.197856 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.2006 ms
+  Average Iteration Time: 0.2006 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200899 ms
+  Average Iteration Time: 0.200899 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201314 ms
+  Average Iteration Time: 0.201314 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200949 ms
+  Average Iteration Time: 0.200949 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201172 ms
+  Average Iteration Time: 0.201172 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201058 ms
+  Average Iteration Time: 0.201058 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20208 ms
+  Average Iteration Time: 0.20208 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.2018 ms
+  Average Iteration Time: 0.2018 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201208 ms
+  Average Iteration Time: 0.201208 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201454 ms
+  Average Iteration Time: 0.201454 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202135 ms
+  Average Iteration Time: 0.202135 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201885 ms
+  Average Iteration Time: 0.201885 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20174 ms
+  Average Iteration Time: 0.20174 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201946 ms
+  Average Iteration Time: 0.201946 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198023 ms
+  Average Iteration Time: 0.198023 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197648 ms
+  Average Iteration Time: 0.197648 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201735 ms
+  Average Iteration Time: 0.201735 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201078 ms
+  Average Iteration Time: 0.201078 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201962 ms
+  Average Iteration Time: 0.201962 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201551 ms
+  Average Iteration Time: 0.201551 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.202487 ms
+  Average Iteration Time: 0.202487 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201324 ms
+  Average Iteration Time: 0.201324 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201141 ms
+  Average Iteration Time: 0.201141 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201252 ms
+  Average Iteration Time: 0.201252 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200593 ms
+  Average Iteration Time: 0.200593 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200668 ms
+  Average Iteration Time: 0.200668 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20093 ms
+  Average Iteration Time: 0.20093 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197678 ms
+  Average Iteration Time: 0.197678 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20114 ms
+  Average Iteration Time: 0.20114 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200932 ms
+  Average Iteration Time: 0.200932 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200919 ms
+  Average Iteration Time: 0.200919 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201183 ms
+  Average Iteration Time: 0.201183 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.199983 ms
+  Average Iteration Time: 0.199983 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200086 ms
+  Average Iteration Time: 0.200086 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20037 ms
+  Average Iteration Time: 0.20037 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197655 ms
+  Average Iteration Time: 0.197655 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.201657 ms
+  Average Iteration Time: 0.201657 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.198072 ms
+  Average Iteration Time: 0.198072 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197962 ms
+  Average Iteration Time: 0.197962 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197935 ms
+  Average Iteration Time: 0.197935 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200046 ms
+  Average Iteration Time: 0.200046 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200062 ms
+  Average Iteration Time: 0.200062 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200267 ms
+  Average Iteration Time: 0.200267 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200601 ms
+  Average Iteration Time: 0.200601 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200762 ms
+  Average Iteration Time: 0.200762 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200607 ms
+  Average Iteration Time: 0.200607 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200803 ms
+  Average Iteration Time: 0.200803 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.20054 ms
+  Average Iteration Time: 0.20054 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200344 ms
+  Average Iteration Time: 0.200344 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.197821 ms
+  Average Iteration Time: 0.197821 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.200273 ms
+  Average Iteration Time: 0.200273 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.176557 ms
+  Average Iteration Time: 0.176557 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.176462 ms
+  Average Iteration Time: 0.176462 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.176741 ms
+  Average Iteration Time: 0.176741 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.180431 ms
+  Average Iteration Time: 0.180431 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.182502 ms
+  Average Iteration Time: 0.182502 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.175538 ms
+  Average Iteration Time: 0.175538 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.175482 ms
+  Average Iteration Time: 0.175482 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.175968 ms
+  Average Iteration Time: 0.175968 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.178681 ms
+  Average Iteration Time: 0.178681 ms (StdDev: 0 ms)
+
+Process Placement Analysis:
+  Placement strategy: scatter
+  Average Iteration Time: 0.171163 ms
+  Average Iteration Time: 0.17124 ms
+  Average Iteration Time: 0.171202 ms
+  Average Iteration Time: 0.171288 ms
+  Average Iteration Time: 0.169946 ms
+  Average Iteration Time: 0.169906 ms
+  Average Iteration Time: 0.17003 ms
+  Average Iteration Time: 0.171257 ms
+  Average Iteration Time: 0.169946 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171240.275173 ms
+  Average Iteration Time: 0.171288 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171257 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.169906 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.17003 ms (StdDev: 0Iterations per Run: 100
+  Average Iteration Time: 0.171163 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171202 ms (StdDev: 0 ms)
+  Placement strategy: bunch
+  Average Iteration Time: 0.168012 ms
+  Average Iteration Time: 0.168038 ms
+  Average Iteration Time: 0.16794 ms
+  Average Iteration Time: 0.167966 ms
+  Average Iteration Time: 0.166878 ms
+  Average Iteration Time: 0.16693 ms
+  Average Iteration Time: 0.167014 ms
+  Average Iteration Time: 0.168023 ms
+  Average Iteration Time: 0.166878 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.167014 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.168012 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.167966 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.16794 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.168023 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.168038 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.16693 ms (StdDev: 0 ms)
+  Placement strategy: core
+  Average Iteration Time: 0.192472 msRun 1 Results:
+  Average Iteration Time: 0.19292 ms
+  Average Iteration Time: 0.191204 ms
+  Average Iteration Time: 0.19154 ms
+  Average Iteration Time: 0.190929 ms
+  Average Iteration Time: 0.192263 ms
+  Average Iteration Time: 0.192935 ms
+  Average Iteration Time: 0.193332 ms
+  Average Iteration Time: 0.191204 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.193332 ms (StdDev: 0 ms)
+  Average Iteration Time: 19.3332 ms)
+  Average Iteration Time: 0.19292 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.190929 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.192472 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.19154 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.192263 ms (StdDev: 0 ms)
+  Single node vs Multi-node (8 ranks):
+    Single node:
+  Average Iteration Time: Run 1 Results:
+  Average Iteration Time: 0.171339 ms
+  Average Iteration Time: 0.171209 ms
+  Average Iteration Time: 0.171368 ms
+  Average Iteration Time: 0.171268 ms
+  Average Iteration Time: 0.171335 ms
+  Average Iteration Time: 0.171254 ms
+  Average Iteration Time: 0.171225 ms
+  Average Iteration Time: 0.171339 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171068 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171268 ms (StdDev: 0 ms)0.157535/0.216954 ms
+  Average Iteration Time:  ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171209 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171368 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171335 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.171254 ms (StdDev: 0 ms)
+    Multi node:
+  Average Iteration Time: 0.16421 ms
+  Average Iteration Time: 0.164008 ms
+  Average Iteration Time: 0.164303 ms
+  Average Iteration Time: 0.164179 ms
+  Average Iteration Time: 0.164318 ms
+  Average Iteration Time: 0.164303 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164318 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164038 ms
+  Average Iteration Time: 0.164055 ms
+  Average Iteration Time: 0.164079 ms
+  Average Iteration Time: 0.16421 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164179 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164008 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164038 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164055 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.164079 ms (StdDev: 0 ms)
+
+MPI Communication Pattern Analysis:
+--------------------------------
+
+Grid Size Scaling with Fixed Rank Count (16 ranks):
+  Grid 100x100:
+  Average Iteration Time: 0.00939986 ms
+  Average Iteration Time: 0.00949581 ms
+  Average Iteration Time: 0.0118057 ms
+  Average Iteration Time: 0.0118231 ms
+  Average Iteration Time: 0.0118364 ms
+  Average Iteration Time: 0.0118154 ms
+  Average Iteration Time: 0.0117878 ms
+  Average Iteration Time: Run 1 Results:
+  Average Iteration Time: 0.0116576 ms
+  Average Iteration Time: 0.0116576 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0116344 ms
+  Average Iteration Time: 0.0116344 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118583 ms
+  Average Iteration Time: 0.0118583 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118161 ms
+  Average Iteration Time: 0.0118161 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0117052 ms
+  Average Iteration Time: 0.0117052 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0119108 ms
+  Average Iteration Time: 0.0119108 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118923 ms
+  Average Iteration Time: 0.0118923 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118532 ms
+  Average Iteration Time: 0.0118532 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118891 ms
+  Average Iteration Time: 0.0118891 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00939986 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00949581 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118057 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118231 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118364 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0118154 ms (StdDev: 0 ms)
+  Performance: 1.06385e+09 cell updates per second
+  Performance: 1.0531e+09 cell updates per second
+  Performance: 8.47046e+08 cell updates per second
+  Performance: 8.45801e+08 cell updates per second
+  Performance: 8.44852e+08 cell updates per second
+  Performance: 8.46356e+08 cell updates per second
+  Performance: 8.48337e+08 cell updates per second
+  Performance: 8.57809e+08 cell updates per second
+  Average Performance: 8.57809e+08Run 1 Results:
+  Performance: 8.59523e+08 cell updates per second
+  Average Performance: 8.59523e+08 cell updates per second (StdDev: 0)
+  Performance: 8.43293e+08 cell updates per second
+  Average Performance: 8.43293e+08 cell updates per second (StdDev: 0)
+  Performance: 8.46302e+08 cell updates per second
+  Average Performance: 8.46302e+08 cell updates per second (StdDev: 0)
+  Performance: 8.54324e+08 cell updates per second
+  Average Performance: 8.54324e+08 cell updates per second (StdDev: 0)
+  Performance: 8.39574e+08 cell updates per second
+  Average Performance: 8.39574e+08 cell updates per second (StdDev: 0)
+  Performance: 8.40881e+08 cell updates per second
+  Average Performance: 8.40881e+08 cell updates per second (StdDev: 0)
+  Performance: 8.43653e+08 cell updates per second
+  Average Performance: 8.43653e+08 cell updates per second (StdDev: 0)
+  Performance: 8.41109e+08 cell updates per second
+  Average Performance: 8.41109e+08 cell updates per second (StdDev: 0)
+  Average Performance: 1.06385e+09 cell updates per second (StdDev: 0)
+  Average Performance: 1.0531e+09 cell updates per second (StdDev: 0)
+  Average Performance: 8.47046e+08 cell updates per second (StdDev: 0)
+  Average Performance: 8.45801e+08 cell updates per second (StdDev: 0)
+  Average Performance: 8.44852e+08 cell updates per second (StdDev: 0)
+  Average Performance: 8.46356e+08 cell updates per second (StdDev: 0)
+  Average Performance: 8.48337e+08 cell updates per second (StdDev: 0)
+  Grid 400x400:
+  Average Iteration Time: Run 1 Results:
+  Average Iteration Time: 0.017583 ms
+  Average Iteration Time: 0.0173782 ms
+  Average Iteration Time: 0.0174505 ms
+  Average Iteration Time: 0.0174324 ms
+  Average Iteration Time: 0.0174773 ms
+  Average Iteration Time: 0.0174614 ms
+  Average Iteration Time: 0.0173914 ms
+  Average Iteration Time: 0.0174288 ms
+  Average Iteration Time: 0.0172692 ms
+  Average Iteration Time: 0.0172692 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0172293 ms
+  Average Iteration Time: 0.0172293 ms (StdDev: 0 ms)Run 1 Results:
+  Average Iteration Time: 0.017383 ms
+  Average Iteration Time: 0.017383 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173907 ms
+  Average Iteration Time: 0.0173907 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173897 ms
+  Average Iteration Time: 0.0173897 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174337 ms
+  Average Iteration Time: 0.0174337 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0175322 ms
+  Average Iteration Time: 0.0175322 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0177878 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.017583 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173782 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174505 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174324 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174773 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174614 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0173914 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0174288 ms (StdDev: 0 ms)
+  Performance: 9.09967e+09 cell updates per second
+  Performance: 9.20694e+09 cell updates per second
+  Performance: 9.1688e+09 cell updates per second
+  Performance: 9.17829e+09 cell updates per second
+  Performance: 9.15472e+09 cell updates per second
+  Performance: 9.16308e+09 cell updates per second
+  Performance: 9.19997e+09 cell updates per second
+  Performance: 9.18021e+09 cell updates per second
+  Performance: 9.26503e+09 cell updates per second
+  Average Performance: 9.26503e+09 cell updates per second (StdDev: 0)
+  Performance: 9.28649e+09 cell updates per second
+  Performance: 9.2044e+09 cell updates per second
+  Average Performance: 9.2044e+09 cell updates per second (StdDev: 0)
+  Performance: 9.20034e+09 cell updates per second
+  Average Performance: 9.20034e+09 cell updates per second (StdDev: 0)
+  Performance: 9.20083e+09 cell updates per second
+  Average Performance: 9.20083e+09 cell updates per second (StdDev: 0)
+  Performance: 9.17765e+09 cell updates per second
+  Average Performance: 9.17765e+09 cell updates per second (StdDev: 0)
+  Performance: 9.12605e+09 cell updates per second
+  Average Performance: 9.12605e+09 cell updates per second (StdDev: 0)
+  Performance: 8.99492e+09 cell updates per second
+  Average Performance: 8.99492e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.09967e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.20694e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.1688e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.17829e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.15472e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.16308e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.19997e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.18021e+09 cell updates per second (StdDev: 0)
+  Average Performance: 9.28649e+09 cell updates per second (StdDev: 0)
+  Grid 1000x1000:
+  Average Iteration Time: 0.0948423 ms
+  Average Iteration Time: 0.0951128 ms
+  Average Iteration Time: 0.0978423 ms
+  Average Iteration Time: 0.0981176 ms
+  Average Iteration Time: 0.0972381 ms
+  Average Iteration Time: 0.0973984 ms
+  Average Iteration Time: 0.0976358 ms
+  Average Iteration Time: 0.0979069 ms
+  Average Iteration Time: 0.0969404 ms
+  Average Iteration Time: 0.097187 ms
+  Average Iteration Time: 0.0974256 ms
+  Average Iteration Time: 0.0977339 ms
+  Average Iteration Time: 0.0969119 ms
+  Average Iteration Time: 0.0970063 ms
+  Average Iteration Time: 0.0972646 ms
+  Average Iteration Time: 0.0975527 ms
+  Average Iteration Time: 0.0978423 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0969119 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0975527 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0948423 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0951128 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0981176 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0972381 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0973984 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0976358 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0979069 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.097187 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0974256 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0977339 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0969404 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0970063 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0972646 ms (StdDev: 0 ms)
+  Performance: 1.05438e+10 cell updates per second
+  Performance: 1.05138e+10 cell updates per second
+  Performance: 1.02205e+10 cell updates per second
+  Performance: 1.01919e+10 cell updates per second
+  Performance: 1.0284e+10 cell updates per second
+  Performance: 1.02671e+10 cell updates per second
+  Performance: 1.02421e+10 cell updates per second
+  Performance: 1.02138e+10 cell updates per second
+  Performance: 1.03156e+10 cell updates per second
+  Performance: 1.02894e+10 cell updates per second
+  Performance: 1.02642e+10 cell updates per second
+  Performance: 1.02319e+10 cell updates per second
+  Performance: 1.03187e+10 cell updates per second
+  Performance: 1.03086e+10 cell updates per second
+  Performance: 1.02812e+10 cell updates per second
+  Performance: 1.02509e+10 cell updates per second
+  Average Performance: 1.02205e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03187e+10 cell updates per second (StdDev: 0
+  Average Performance: 1.02509e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.05438e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.05138e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.01919e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.0284e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02421e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02138e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02894e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02642e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02319e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02671e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03156e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03086e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02812e+10 cell updates per second (StdDev: 0)
+  Grid 2000x2000:
+  Average Iteration Time: 0.350979 ms
+  Average Iteration Time: 0.351433 ms
+  Average Iteration Time: 0.354366 ms
+  Average Iteration Time: 0.354408 ms
+  Average Iteration Time: 0.354101 ms
+  Average Iteration Time: 0.35447 ms
+  Average Iteration Time: 0.354637 ms
+  Average Iteration Time: 0.354655 ms
+  Average Iteration Time: 0.353544 ms
+  Average Iteration Time: 0.354022 ms
+  Average Iteration Time: 0.354304 ms
+  Average Iteration Time: 0.354446 ms
+  Average Iteration Time: 0.35339 ms
+  Average Iteration Time: 0.353859 ms
+  Average Iteration Time: 0.354129 ms
+  Average Iteration Time: 0.354145 ms
+  Average Iteration Time: 0.35339 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.350979 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.351433 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354366 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354022 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354446 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354145 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354408
+  Average Iteration Time: 0.354101 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.35447 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354637 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354655 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.353544 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354304 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.353859 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.354129 ms (StdDev: 0 ms)
+  Performance: 1.13967e+10 cell updates per second
+  Performance: 1.1382e+10 cell updates per second
+  Performance: 1.12878e+10 cell updates per second
+  Performance: 1.12864e+10 cell updates per second
+  Performance: 1.12962e+10 cell updates per second
+  Performance: 1.12845e+10 cell updates per second
+  Performance: 1.12791e+10 cell updates per second
+  Performance: 1.12786e+10 cell updates per second
+  Performance: 1.1314e+10 cell updates per second
+  Performance: 1.12987e+10 cell updates per second
+  Performance: 1.12897e+10 cell updates per second
+  Performance: 1.12852e+10 cell updates per second
+  Performance: 1.13189e+10 cell updates per second
+  Performance: 1.13039e+10 cell updates per second
+  Performance: 1.12953e+10 cell updates per second
+  Performance: 1.12948e+10 cell updates per second
+  Average Performance: 1.13189e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.13967e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.1382e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12878e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12987e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12852e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12948e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12962e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12845e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12791e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12786e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12864e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.1314e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12897e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.13039e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.12953e+10 cell updates per second (StdDev: 0)
+
+Rank Scaling with Fixed Grid Size (1000x1000):
+  1 ranks:
+  Average Iteration Time: 1.20297 ms
+  Average Iteration Time: 1.20297 ms (StdDev: 0 ms)
+  Performance: 8.31279e+08 cell updates per second
+  Average Performance: 8.31279e+08 cell updates per second (StdDev: 0)
+  2 ranks:
+  Average Iteration Time: 0.634207 ms
+  Average Iteration Time: 0.634117 ms
+  Average Iteration Time: 0.63420763.4117 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.634117 ms (StdDev: 0 ms)
+  Performance: 1.57677e+09 cell updates per second
+  Performance: 1.577e+09 cell updates per second
+  Average Performance: 1.577e+09 cell updates per second (StdDev: 0)
+  Average Performance: 1.57677e+09 cell updates per second (StdDev: 0)
+  4 ranks:
+  Average Iteration Time: 0.305969 ms
+  Average Iteration Time: 0.305993 ms
+  Average Iteration Time: 0.306157 ms
+  Average Iteration Time: 0.306097 ms
+  Average Iteration Time: 0.306157 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.306097 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.305969
+  Average Iteration Time: 0.305993 ms (StdDev: 0 ms)
+  Performance: 3.2683e+09 cell updates per second
+  Performance: 3.26805e+09 cell updates per second
+  Performance: 3.2663e+09 cell updates per second
+  Performance: 3.26693e+09 cell updates per second
+  Average Performance: 3.26693e+09 cell updates per second (StdDev: 0)
+  Average Performance: 3.2663e+09 cell updates per second (StdDev: 0)
+  Average Performance: 
+  Average Performance: 3.2683e+09 cell updates per second (StdDev: 0)
+  8 ranks:
+  Average Iteration Time: 0.159529 ms
+  Average Iteration Time: 0.159586 ms
+  Average Iteration Time: 0.159534 ms
+  Average Iteration Time: 0.159501 ms
+  Average Iteration Time: 0.159709 ms
+  Average Iteration Time: 0.159555 ms
+  Average Iteration Time: 0.159683 ms
+  Average Iteration Time: 0.159768 ms
+  Average Iteration Time: 0.159534 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159683 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159586
+  Average Iteration Time: 0.159501 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159555 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159529 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159709 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.159768 ms (StdDev: 0 ms)
+  Performance: 6.26847e+09 cell updates per second
+  Performance: 6.26621e+09 cell updates per second
+  Performance: 6.26825e+09 cell updates per second
+  Performance: 6.26955e+09 cell updates per second
+  Performance: 6.26141e+09 cell updates per second
+  Performance: 6.26743e+09 cell updates per second
+  Performance: 6.2624e+09 cell updates per second
+  Performance: 6.25906e+09 cell updates per second
+  Average Performance: 6.26825e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.2624e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.26743e+09 cell updates per second (StdDev: 0)0 ms)
+  Average Performance: 6.26847e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.26621e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.26955e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.26141e+09 cell updates per second (StdDev: 0)
+  Average Performance: 6.25906e+09 cell updates per second (StdDev: 0)
+  16 ranks:
+  Average Iteration Time: 0.0948423 ms
+  Average Iteration Time: 0.0951128 ms
+  Average Iteration Time: 0.0978423 ms
+  Average Iteration Time: 0.0981176 ms
+  Average Iteration Time: 0.0972381 ms
+  Average Iteration Time: 0.0973984 ms
+  Average Iteration Time: 0.0976358 ms
+  Average Iteration Time: 0.0979069 ms
+  Average Iteration Time: 0.0969404 ms
+  Average Iteration Time: 0.097187 ms
+  Average Iteration Time: 0.0974256 ms
+  Average Iteration Time: 0.0977339 ms
+  Average Iteration Time: 0.0969119 ms
+  Average Iteration Time: 0.0970063 ms
+  Average Iteration Time: 0.0972646 ms
+  Average Iteration Time: 0.0975527 ms
+  Average Iteration Time: 0.0978423 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0969119 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0975527 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0948423 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0951128 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0981176 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0972381 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0973984 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0976358 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0979069 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.097187 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0974256 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0977339 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0969404 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0970063 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0972646 ms (StdDev: 0 ms)
+  Performance: 1.05438e+10 cell updates per second
+  Performance: 1.05138e+10 cell updates per second
+  Performance: 1.02205e+10 cell updates per second
+  Performance: 1.01919e+10 cell updates per second
+  Performance: 1.0284e+10 cell updates per second
+  Performance: 1.02671e+10 cell updates per second
+  Performance: 1.02421e+10 cell updates per second
+  Performance: 1.02138e+10 cell updates per second
+  Performance: 1.03156e+10 cell updates per second
+  Performance: 1.02894e+10 cell updates per second
+  Performance: 1.02642e+10 cell updates per second
+  Performance: 1.02319e+10 cell updates per second
+  Performance: 1.03187e+10 cell updates per second
+  Performance: 1.03086e+10 cell updates per second
+  Performance: 1.02812e+10 cell updates per second
+  Performance: 1.02509e+10 cell updates per second
+  Average Performance: 1.02205e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03187e+10 cell updates per second (StdDev: 0
+  Average Performance: 1.02509e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.05438e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.05138e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.01919e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.0284e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02421e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02138e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02894e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02642e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02319e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02671e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03156e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.03086e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.02812e+10 cell updates per second (StdDev: 0)
+  32 ranks:
+  Average Iteration Time: 0.0521081 ms
+  Average Iteration Time: 0.0521819 ms
+  Average Iteration Time: 0.0521663 ms
+  Average Iteration Time: 0.0520851 ms
+  Average Iteration Time: 0.0521711 ms
+  Average Iteration Time: 0.0520698 ms
+  Average Iteration Time: 0.0522327 ms
+  Average Iteration Time: 0.0523204 ms
+  Average Iteration Time: 0.0524423 ms
+  Average Iteration Time: 0.0522184 ms
+  Average Iteration Time: 0.0521866 ms
+  Average Iteration Time: 0.0522375 ms
+  Average Iteration Time: 0.0522716 ms
+  Average Iteration Time: 0.0522154 ms
+  Average Iteration Time: 0.0522181 ms
+  Average Iteration Time: 0.052234 ms
+  Average Iteration Time: 0.052193 ms
+  Average Iteration Time: 0.0522258 ms
+  Average Iteration Time: 0.0520325 ms
+  Average Iteration Time: 0.0522227 ms
+  Average Iteration Time: 0.0521681 ms
+  Average Iteration Time: 0.0522719 ms
+  Average Iteration Time: 0.0522757 ms
+  Average Iteration Time: 0.0522983 ms
+  Average Iteration Time: 0.0522021 ms
+  Average Iteration Time: 0.0521228 ms
+  Average Iteration Time: 0.0521964 ms
+  Average Iteration Time: 0.0522537 ms
+  Average Iteration Time: 0.0520841 ms
+  Average Iteration Time: 0.0522066 ms
+  Average Iteration Time: Run 1 Results:
+  Average Iteration Time: 0.0523233 ms
+  Average Iteration Time: 0.0523233Run 1 Results:
+  Average Iteration Time: 0.0526191 ms
+  Average Iteration Time: 0.0526191 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521081 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521819 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521663 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0520851 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0524423 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522184 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522716 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522154 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522181 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.052234 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522021 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522537 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0520841 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521711 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0520698 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522327 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0523204 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521866 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522375 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.052193 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522258 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0520325 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522227 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521681 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522719 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522757 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0522983 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521228 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0521964 ms (StdDev: 0 ms)
+  Performance: 1.91909e+10 cell updates per second
+  Performance: 1.91637e+10 cell updates per second
+  Performance: 1.91695e+10 cell updates per second
+  Performance: 1.91993e+10 cell updates per second
+  Performance: 1.91677e+10 cell updates per second
+  Performance: 1.9205e+10 cell updates per second
+  Performance: 1.91451e+10 cell updates per second
+  Performance: 1.9113e+10 cell updates per second
+  Performance: 1.90686e+10 cell updates per second
+  Performance: 1.91503e+10 cell updates per second
+  Performance: 1.9162e+10 cell updates per second
+  Performance: 1.91433e+10 cell updates per second
+  Performance: 1.91308e+10 cell updates per second
+  Performance: 1.91514e+10 cell updates per second
+  Performance: 1.91504e+10 cell updates per second
+  Performance: 1.91446e+10 cell updates per second
+  Performance: 1.91597e+10 cell updates per second
+  Performance: 1.91476e+10 cell updates per second
+  Performance: 1.92187e+10 cell updates per second
+  Performance: 1.91488e+10 cell updates per second
+  Performance: 1.91688e+10 cell updates per second
+  Performance: 1.91307e+10 cell updates per second
+  Performance: 1.91293e+10 cell updates per second
+  Performance: 1.91211e+10 cell updates per second
+  Performance: 1.91563e+10 cell updates per second
+  Performance: 1.91855e+10 cell updates per second
+  Performance: 1.91584e+10 cell updates per second
+  Performance: 1.91374e+10 cell updates per second
+  Performance: 1.91997e+10 cell updates per second
+  Performance: 1.91547e+10 cell updates per second
+  Performance: 1.9112e+10 cell updates per second
+  Performance: 1.90045e+10 cell updates per second
+  Average Performance: 1.90045e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91909e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91637e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91695e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91993e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.90686e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91503e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91308e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91514e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91504e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91446e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91563e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91374e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91997e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91547e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.9112e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91677e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.9205e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91451e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.9113e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.9162e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91433e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91597e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91476e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.92187e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91488e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91688e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91307e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91293e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91211e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91855e+10 cell updates per second (StdDev: 0)
+  Average Performance: 1.91584e+10 cell updates per second (StdDev: 0)
+
+Parallel Efficiency:
+  Could not calculate efficiency (missing or invalid timing data)
+
