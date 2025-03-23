@@ -1,7 +1,7 @@
 module load  intel/oneapi/2022.1.0/vtune/2022.1.0
 PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
-RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_base_csd3"
+RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_optimised_csd3"
 
 
 # Colors for output
@@ -34,10 +34,10 @@ if module load intel/oneapi/2022.1.0/vtune/2022.1.0  &> /dev/null ; then
     mkdir -p ${RESULTS_DIR}/vtune
     
     # Hotspots analysis
-    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_benchmark --size 1000 --iterations 1000
+    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_optimized_benchmark_v2 --size 1000 --iterations 1000
     
     # Memory access analysis
-    vtune -collect memory-access -result-dir ${RESULTS_DIR}/vtune/memory ./heat_diffusion_benchmark --size 1000 --iterations 1000
+    vtune -collect memory-access -result-dir ${RESULTS_DIR}/vtune/memory ./heat_diffusion_optimized_benchmark_v2 --size 1000 --iterations 1000
     
     # Generate reports
     vtune -report summary -result-dir ${RESULTS_DIR}/vtune/hotspots -format text -report-output ${RESULTS_DIR}/vtune/hotspots_summary.txt
@@ -65,7 +65,7 @@ for SIZE in 100 200 500 1000 2000; do
     fi
     
     # Measure time and output
-    ./heat_diffusion_benchmark --size $SIZE --iterations $ITER > ${RESULTS_DIR}/benchmark_${SIZE}.txt 2>&1
+    ./heat_diffusion_optimized_benchmark_v2 --size $SIZE --iterations $ITER > ${RESULTS_DIR}/benchmark_${SIZE}.txt 2>&1
 done
 
 #=====================

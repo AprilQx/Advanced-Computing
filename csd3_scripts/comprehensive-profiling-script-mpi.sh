@@ -1,8 +1,8 @@
 module load   intel/oneapi/2022.1.0/itac
-
+PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
 RESULTS_DIR="./profiling_results_mpi_csd3"
-mkdir -p ${RESULTS_DIR}/{gprof,scaling,communication,placement}
+mkdir -p ${RESULTS_DIR}/{scaling,communication,placement}
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Starting MPI profiling on CSD3 Icelake...${NC}"
-cd ..
+cd ${PROJECT_DIR}
 # Create build directory
 mkdir -p build
 cd build
@@ -30,32 +30,6 @@ if [ ! -f "heat_diffusion_mpi_benchmark" ]; then
     exit 1
 fi
 
-#=====================
-# 1. GPROF Profiling (each MPI rank will generate its own profile)
-#=====================
-echo -e "${BLUE}Building version with GPROF profiling...${NC}"
-
-# Build with profiling
-CC=mpiicc CXX=mpiicpc cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-march=icelake-server -pg"
-make -j 76 heat_diffusion_mpi_benchmark
-
-echo -e "${BLUE}Running gprof profiling...${NC}"
-
-# Run with small grid for quick profiling - smaller MPI job for profiling
-mpirun -n 4 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1
-
-# Generate gprof report for each rank
-for gmon in gmon.out.*; do
-    # Extract rank number from filename if present
-    if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
-        RANK="${BASH_REMATCH[1]}"
-    else
-        RANK="combined"
-    fi
-    
-    gprof ./heat_diffusion_mpi_benchmark $gmon > ${RESULTS_DIR}/gprof/gprof_report_rank_${RANK}.txt
-    echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
-done
 
 #=====================
 # 2. Intel Trace Analyzer and Collector (ITAC) profiling

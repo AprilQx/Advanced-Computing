@@ -2,10 +2,10 @@
 
 module load cmake/latest
 module load  intel/oneapi/2022.1.0/vtune/2022.1.0
-
+PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
 RESULTS_DIR="./profiling_results_omp_csd3"
-mkdir -p ${RESULTS_DIR}/{gprof,vtune,thread_scaling,affinity,cache,schedulingM}
+mkdir -p ${RESULTS_DIR}/{vtune,thread_scaling,affinity,cache,schedulingM}
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -19,7 +19,7 @@ echo -e "${GREEN}Starting OpenMP profiling on CSD3 Icelake...${NC}"
 NUM_CORES=76  # Hard-coded for icelake
 echo -e "${YELLOW}System has ${NUM_CORES} CPU cores available${NC}"
 
-cd ..
+cd ${PROJECT_DIR}
 # Create build directory
 mkdir -p build
 cd build
@@ -84,21 +84,6 @@ else
     echo -e "${YELLOW}Failed to compile OpenMP test program${NC}"
 fi
 
-#=====================
-# 2. GPROF Profiling
-#=====================
-echo -e "${BLUE}Running gprof profiling...${NC}"
-
-# Build with profiling enabled
-CC=icc CXX=icpc cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-march=icelake-server -pg -qopenmp"
-make -j 76 heat_diffusion_openmp_benchmark
-
-# Run with small grid for quick profiling - single thread for cleaner profile
-export OMP_NUM_THREADS=1
-./heat_diffusion_openmp_benchmark --width 500 --height 500 --frames 50 --runs 1
-
-# Generate gprof report
-gprof ./heat_diffusion_openmp_benchmark gmon.out > ${RESULTS_DIR}/gprof/gprof_report.txt
 
 #=====================
 # 3. Thread Scaling Tests
@@ -170,23 +155,23 @@ unset OMP_PROC_BIND
 echo -e "${BLUE}Running Intel VTune profiling...${NC}"
 
 # Try to load VTune module
-if module load vtune &> /dev/null || module load intel/vtune/latest &> /dev/null; then
+if module load intel/oneapi/2022.1.0/vtune/2022.1.0 &> /dev/null ; then
     mkdir -p ${RESULTS_DIR}/vtune
     
     # Threading analysis
     echo -e "${YELLOW}Running threading analysis...${NC}"
     export OMP_NUM_THREADS=16  # Lower thread count for profiling
-    vtune -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 10 --runs 1
+    vtune -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
     
     # Hotspots analysis
     echo -e "${YELLOW}Running hotspots analysis...${NC}"
     export OMP_NUM_THREADS=16
-    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 10 --runs 1
+    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
     
     # Memory access analysis
     echo -e "${YELLOW}Running memory access analysis...${NC}"
     export OMP_NUM_THREADS=16
-    vtune -collect memory-access -result-dir ${RESULTS_DIR}/vtune/memory ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 10 --runs 1
+    vtune -collect memory-access -result-dir ${RESULTS_DIR}/vtune/memory ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
     
     # Generate reports
     vtune -report summary -result-dir ${RESULTS_DIR}/vtune/threading -format text -report-output ${RESULTS_DIR}/vtune/threading_summary.txt
@@ -364,12 +349,6 @@ for BLOCK in 8 16 32 64 128 256; do
 done
 echo "" >> ${RESULTS_DIR}/summary.txt
 
-# Add gprof summary
-if [ -f "${RESULTS_DIR}/gprof/gprof_report.txt" ]; then
-    echo "Top functions from gprof:" >> ${RESULTS_DIR}/summary.txt
-    head -n 20 ${RESULTS_DIR}/gprof/gprof_report.txt >> ${RESULTS_DIR}/summary.txt 2>/dev/null
-    echo "" >> ${RESULTS_DIR}/summary.txt
-fi
 
 # Add VTune summary if available
 if [ -f "${RESULTS_DIR}/vtune/hotspots_summary.txt" ]; then
