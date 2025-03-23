@@ -5,7 +5,7 @@ module load  intel/oneapi/2022.1.0/vtune/2022.1.0
 PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
 RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_omp_csd3"
-mkdir -p ${RESULTS_DIR}/{vtune,thread_scaling,affinity,cache,schedulingM}
+mkdir -p ${RESULTS_DIR}/{vtune,thread_scaling,affinity,cache,scheduling}
 
 # Colors for output
 GREEN='\033[0;32m'
@@ -102,7 +102,7 @@ echo -e "${YELLOW}Running strong scaling tests...${NC}"
 for THREADS in "${THREAD_COUNTS[@]}"; do
     echo -e "Testing with ${THREADS} threads..."
     export OMP_NUM_THREADS=$THREADS
-    ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 50 --runs 1 --threads $THREADS > \
+    ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 1000 --runs 1 --threads $THREADS > \
         ${RESULTS_DIR}/thread_scaling/strong_scaling_${THREADS}threads.txt 2>&1
 done
 
@@ -156,30 +156,30 @@ echo -e "${BLUE}Running Intel VTune profiling...${NC}"
 
 # Try to load VTune module
 if module load intel/oneapi/2022.1.0/vtune/2022.1.0 &> /dev/null ; then
-    mkdir -p ${RESULTS_DIR}/vtune
+    # Clean up previous results and create fresh directories
+    rm -rf ${RESULTS_DIR}/vtune/threading ${RESULTS_DIR}/vtune/hotspots ${RESULTS_DIR}/vtune/memory
+    mkdir -p ${RESULTS_DIR}/vtune/threading ${RESULTS_DIR}/vtune/hotspots ${RESULTS_DIR}/vtune/memory
     
-    # Threading analysis
+    # Threading analysis with user-mode sampling only
     echo -e "${YELLOW}Running threading analysis...${NC}"
     export OMP_NUM_THREADS=16  # Lower thread count for profiling
-    vtune -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
+    vtune -collect-without-driver -collect threading -result-dir ${RESULTS_DIR}/vtune/threading ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 100 --runs 1
     
-    # Hotspots analysis
+    # Hotspots analysis with user-mode sampling only
     echo -e "${YELLOW}Running hotspots analysis...${NC}"
     export OMP_NUM_THREADS=16
-    vtune -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
+    vtune -collect-without-driver -collect hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 100 --runs 1
     
-    # Memory access analysis
-    echo -e "${YELLOW}Running memory access analysis...${NC}"
-    export OMP_NUM_THREADS=16
-    vtune -collect memory-access -result-dir ${RESULTS_DIR}/vtune/memory ./heat_diffusion_openmp_benchmark --width 1000 --height 1000 --frames 1000 --runs 1
+    # Generate reports (only if data was collected)
+    if [ -d "${RESULTS_DIR}/vtune/threading" ]; then
+        vtune -report summary -result-dir ${RESULTS_DIR}/vtune/threading -format text -report-output ${RESULTS_DIR}/vtune/threading_summary.txt
+    fi
     
-    # Generate reports
-    vtune -report summary -result-dir ${RESULTS_DIR}/vtune/threading -format text -report-output ${RESULTS_DIR}/vtune/threading_summary.txt
-    vtune -report summary -result-dir ${RESULTS_DIR}/vtune/hotspots -format text -report-output ${RESULTS_DIR}/vtune/hotspots_summary.txt
-    vtune -report summary -result-dir ${RESULTS_DIR}/vtune/memory -format text -report-output ${RESULTS_DIR}/vtune/memory_summary.txt
-    
-    # Add top hotspots report
-    vtune -report top-hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots -format text -report-output ${RESULTS_DIR}/vtune/top_hotspots.txt
+    if [ -d "${RESULTS_DIR}/vtune/hotspots" ]; then
+        vtune -report summary -result-dir ${RESULTS_DIR}/vtune/hotspots -format text -report-output ${RESULTS_DIR}/vtune/hotspots_summary.txt
+        # Use the correct parameter for top-hotspots
+        vtune -report hotspots -result-dir ${RESULTS_DIR}/vtune/hotspots -format text -report-output ${RESULTS_DIR}/vtune/top_hotspots.txt
+    fi
 else
     echo -e "${YELLOW}Intel VTune not available. Skipping VTune profiling.${NC}"
 fi
@@ -217,7 +217,6 @@ done
 # 8. Scheduling Policy Tests
 #=====================
 echo -e "${BLUE}Running scheduling policy tests...${NC}"
-
 # Test different OpenMP scheduling strategies
 export OMP_NUM_THREADS=76
 for SCHEDULE in "static" "dynamic" "guided" "auto"; do
@@ -225,14 +224,14 @@ for SCHEDULE in "static" "dynamic" "guided" "auto"; do
     
     # Test with default chunk size
     export OMP_SCHEDULE=$SCHEDULE
-    ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 20 --runs 1 > \
+    ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 1000 --runs 1 > \
         ${RESULTS_DIR}/scheduling/schedule_${SCHEDULE}.txt 2>&1
     
     # Test with specific chunk size (except for auto)
     if [ "$SCHEDULE" != "auto" ]; then
         for CHUNK in 1 10 100; do
             export OMP_SCHEDULE="${SCHEDULE},${CHUNK}"
-            ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 20 --runs 1 > \
+            ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 1000 --runs 1 > \
                 ${RESULTS_DIR}/scheduling/schedule_${SCHEDULE}_chunk${CHUNK}.txt 2>&1
         done
     fi
