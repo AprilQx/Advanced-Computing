@@ -1,0 +1,13 @@
+OpenMP version: 201611
+OpenMP max threads: 8
+OpenMP number of processors: 16
+OpenMP dynamic adjustment: disabled
+OpenMP num threads: 8
+Thread 6 of 8 is running on processor 25
+Thread 0 of 8 is running on processor 74
+Thread 7 of 8 is running on processor 29
+Thread 5 of 8 is running on processor 27
+Thread 2 of 8 is running on processor 31
+Thread 4 of 8 is running on processor 51
+Thread 3 of 8 is running on processor 72
+Thread 1 of 8 is running on processor 74

@@ -1,7 +1,9 @@
 # Load required modules for CSD3
 
-module load cmake/latest
+module purge
+module load rhel8/default-icl
 module load  intel/oneapi/2022.1.0/vtune/2022.1.0
+
 PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
 RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_omp_csd3"

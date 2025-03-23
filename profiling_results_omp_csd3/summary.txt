@@ -1,0 +1,82 @@
+OPENMP BENCHMARK PROFILING SUMMARY (CSD3 ICELAKE)
+==========================================
+
+System Information:
+  Architecture: Icelake (Intel Xeon 8360Y)
+  Cores: 76 per node
+  Memory: 256GB/512GB per node
+  Date: Sun Mar 23 20:04:54 GMT 2025
+
+OpenMP Environment:
+OpenMP version: 201611
+OpenMP max threads: 8
+OpenMP number of processors: 16
+OpenMP dynamic adjustment: disabled
+OpenMP num threads: 8
+
+Thread Scaling Results:
+Strong Scaling (Fixed Problem Size 2000x2000):
+  1 threads:
+  2 threads:
+  4 threads:
+  8 threads:
+  16 threads:
+  32 threads:
+  64 threads:
+  76 threads:
+
+Weak Scaling (Problem Size Scaled with Thread Count):
+  1 threads (500x500 grid):
+  2 threads (707x707 grid):
+  4 threads (1000x1000 grid):
+  8 threads (1414x1414 grid):
+  16 threads (2000x2000 grid):
+  32 threads (2828x2828 grid):
+  64 threads (4000x4000 grid):
+  76 threads (4358x4358 grid):
+
+Thread Affinity Results:
+  KMP_AFFINITY=close:
+  KMP_AFFINITY=spread:
+  KMP_AFFINITY=master:
+  Explicit Places (OMP_PLACES=cores, OMP_PROC_BIND=close):
+
+Scheduling Policy Results:
+  OMP_SCHEDULE=static:
+  OMP_SCHEDULE=static,1:
+  OMP_SCHEDULE=static,10:
+  OMP_SCHEDULE=static,100:
+  OMP_SCHEDULE=dynamic:
+  OMP_SCHEDULE=dynamic,1:
+  OMP_SCHEDULE=dynamic,10:
+  OMP_SCHEDULE=dynamic,100:
+  OMP_SCHEDULE=guided:
+  OMP_SCHEDULE=guided,1:
+  OMP_SCHEDULE=guided,10:
+  OMP_SCHEDULE=guided,100:
+  OMP_SCHEDULE=auto:
+
+Block Size Optimization:
+  Single Thread Results:
+  Parallel Results (76 threads):
+
+VTune Hotspots Summary:
+
+Cache Size Impact (Different Grid Sizes):
+  Single Thread:
+    Grid size 100x100:
+    Grid size 256x256:
+    Grid size 512x512:
+    Grid size 1024x1024:
+    Grid size 2048x2048:
+    Grid size 4096x4096:
+  Full Parallelism (76 threads):
+    Grid size 100x100:
+    Grid size 256x256:
+    Grid size 512x512:
+    Grid size 1024x1024:
+    Grid size 2048x2048:
+    Grid size 4096x4096:
+
+Parallel Efficiency:
+
