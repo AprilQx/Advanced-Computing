@@ -1,5 +1,6 @@
+PROJECT_DIR="/home/xx823/Advanced-Computing" 
 # Create directories
-RESULTS_DIR="./profiling_results_base_csd3"
+RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_base_csd3"
 mkdir -p ${RESULTS_DIR}/{gprof,valgrind}
 
 # Colors for output
@@ -9,7 +10,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Starting profiling on CSD3 Icelake...${NC}"
-
+cd ${PROJECT_DIR}
 # Create build directory
 mkdir -p build
 cd build

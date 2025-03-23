@@ -19,6 +19,7 @@ echo -e "${GREEN}Starting OpenMP profiling on CSD3 Icelake...${NC}"
 NUM_CORES=76  # Hard-coded for icelake
 echo -e "${YELLOW}System has ${NUM_CORES} CPU cores available${NC}"
 
+cd ..
 # Create build directory
 mkdir -p build
 cd build

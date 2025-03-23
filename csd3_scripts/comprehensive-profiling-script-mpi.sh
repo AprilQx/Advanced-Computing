@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Starting MPI profiling on CSD3 Icelake...${NC}"
-
+cd ..
 # Create build directory
 mkdir -p build
 cd build
