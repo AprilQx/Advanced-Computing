@@ -30,7 +30,7 @@ make -j 76
 echo -e "${BLUE}Running Intel VTune profiling...${NC}"
 
 # Try to load VTune module
-if module load vtune &> /dev/null || module load intel/vtune/latest &> /dev/null; then
+if module load intel/oneapi/2022.1.0/vtune/2022.1.0  &> /dev/null ; then
     mkdir -p ${RESULTS_DIR}/vtune
     
     # Hotspots analysis
