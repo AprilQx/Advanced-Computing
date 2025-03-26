@@ -102,3 +102,7 @@ slurm-*.out
 # Temporary files
 .DS_Store
 Thumbs.db
+
+#docs
+docs/*
+!docs/mainpage.md

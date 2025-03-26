@@ -197,6 +197,15 @@ tools/block_size_optimizer.cpp
 src/optimized_v3/optimized_heat_diffusion.cpp
 )
 
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+    add_custom_target(docs
+        ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Generating API documentation with Doxygen" VERBATIM
+    )
+endif()
+
 # Add filesystem library linking for GCC 8.5
 if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.0)
     message(STATUS "GCC version less than 9.0, linking with stdc++fs for filesystem support")

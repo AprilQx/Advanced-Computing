@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y \
     openmpi-bin \
     openmpi-common \
     bc \
+    doxygen \
+    graphviz \
     && rm -rf /var/lib/apt/lists/*
 
 # Install additional Python tools
