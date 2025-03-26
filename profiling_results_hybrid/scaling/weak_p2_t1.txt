@@ -1,0 +1,43 @@
+Running benchmark with grid size 707x707 for 50 iterations across 1 runs using 2 MPI ranks and 1 OpenMP threads per rank (total 2 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=1, Max threads available=1, Using=1
+
+=== Run 1 of 1 ===
+Creating a 2x1 process grid for 2 processes
+Rank 1 has local domain size 707x354 starting at global position (0,353)
+Domain decomposition: Global size = 707x707, Process grid = 2x1
+Rank 0 has local domain size 707x353 starting at global position (0,0)
+OpenMP initialized with 1 threads per MPI rank
+Run 1 Results:
+  Setup Time: 1.19858 ms
+  Total Simulation Time: 15.2079 ms
+  Performance: 1.64339e+09 cell updates per second
+  Memory Usage Increase: 4296 KB
+  Checksum: 1.00009e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 707x707 (499849 cells)
+Iterations per Run: 50
+Parallel Configuration: 2 MPI ranks × 1 OpenMP threads = 2 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 1.19858 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 15.2079 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: 1643.39 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 821.69 million
+  Best Run: Run 1 (15.21 ms)
+  Worst Run: Run 1 (15.21 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 4296.00 KB
+  Average Memory Per Rank: 2148.00 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 10000900.00
+
+CSV Format (for data collection):
+grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+707,50,2,1,2,15.21,0.00,1643.39,4296.00,10000900.00

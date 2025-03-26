@@ -118,4 +118,11 @@ Note that we utilised gprof and Valgrind Suite in the docker environment, and ut
      * Script: `scripts/block_size_optimizer.sh`
 
 ## Reproducibility
+* Mac
+* CSD3
+* Linux using Docker
+
+## Documentation
+
+## Visualization using python scripts
 

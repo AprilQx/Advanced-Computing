@@ -34,11 +34,11 @@ echo -e "${BLUE}Configuring and building...${NC}"
 
 # Build with normal optimization
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j4 heat_diffusion_hybrid_benchmark
+make -j4 heat_diffusion_benchmark_hybrid
 
 # Verify the executable exists
-if [ ! -f "heat_diffusion_hybrid_benchmark" ]; then
-    echo -e "${YELLOW}Error: heat_diffusion_hybrid_benchmark was not built correctly${NC}"
+if [ ! -f "heat_diffusion_benchmark_hybrid" ]; then
+    echo -e "${YELLOW}Error: heat_diffusion_benchmark_hybrid was not built correctly${NC}"
     echo "Please check your build configuration and try again."
     exit 1
 fi
@@ -87,11 +87,11 @@ echo -e "${BLUE}Running gprof profiling...${NC}"
 
 # Build with profiling enabled
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-pg"
-make -j4 heat_diffusion_hybrid_benchmark
+make -j4 heat_diffusion_benchmark_hybrid
 
 # Run with small grid for quick profiling - 2 MPI ranks, 2 threads per rank
 export OMP_NUM_THREADS=2
-mpirun -n 2 ./heat_diffusion_hybrid_benchmark --size 500 --iterations 50 --runs 1 --threads 2
+mpirun -n 2 ./heat_diffusion_benchmark_hybrid --size 500 --iterations 50 --runs 1 --threads 2
 
 # Generate gprof report for each rank
 for gmon in gmon.out.*; do
@@ -102,7 +102,7 @@ for gmon in gmon.out.*; do
         RANK="combined"
     fi
     
-    gprof ./heat_diffusion_hybrid_benchmark $gmon > ../profiling_results_hybrid/gprof/gprof_report_rank_${RANK}.txt
+    gprof ./heat_diffusion_benchmark_hybrid $gmon > ../profiling_results_hybrid/gprof/gprof_report_rank_${RANK}.txt
     echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
 done
 
@@ -113,7 +113,7 @@ echo -e "${BLUE}Running thread-process balance tests...${NC}"
 
 # Build optimized version again
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j4 heat_diffusion_hybrid_benchmark
+make -j4 heat_diffusion_benchmark_hybrid
 
 # Define test combinations of processes and threads
 # Keep total cores constant (processes * threads = constant)
@@ -142,7 +142,7 @@ for COMBO in "${COMBINATIONS[@]}"; do
     echo -e "Testing with ${PROCS} processes and ${THREADS} threads per process (total cores: $((PROCS*THREADS)))..."
     
     export OMP_NUM_THREADS=$THREADS
-    mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/process_thread_balance/procs${PROCS}_threads${THREADS}.txt 2>&1
     
     # Check if the run was successful
@@ -178,7 +178,7 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
         echo -e "Running strong scaling test with ${PROCS} processes and ${THREADS} threads per process..."
         
         export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
             ../profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
         
         # Check if the run was successful
@@ -211,7 +211,7 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
         echo -e "Running weak scaling test with ${PROCS} processes, ${THREADS} threads, grid size ${SIZE}x${SIZE}..."
         
         export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size $SIZE --iterations 50 --runs 1 --threads $THREADS > \
+        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size $SIZE --iterations 50 --runs 1 --threads $THREADS > \
             ../profiling_results_hybrid/scaling/weak_p${PROCS}_t${THREADS}.txt 2>&1
         
         # Check if the run was successful
@@ -247,7 +247,7 @@ for BIND in "${OMP_BINDING_TYPES[@]}"; do
     export OMP_NUM_THREADS=$THREADS
     export OMP_PROC_BIND=$BIND
     
-    mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/affinity/bind_${BIND}.txt 2>&1
     
     # Check if the run was successful
@@ -266,7 +266,7 @@ echo -e "${BLUE}Running Valgrind on a single MPI rank with multiple threads...${
 
 # Note: Running valgrind with MPI+OpenMP can be tricky - we'll run on just one rank
 export OMP_NUM_THREADS=4
-valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_hybrid_benchmark --size 200 --iterations 10 --runs 1 --threads 4 > \
+valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_benchmark_hybrid --size 200 --iterations 10 --runs 1 --threads 4 > \
     ../profiling_results_hybrid/valgrind/cachegrind_output.txt 2>&1
 
 # Find the cachegrind output file
@@ -289,7 +289,7 @@ for GRID_SIZE in 200 500 1000; do
     THREADS=2
     
     export OMP_NUM_THREADS=$THREADS
-    mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size $GRID_SIZE --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size $GRID_SIZE --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/communication/grid${GRID_SIZE}_p${PROCS}_t${THREADS}.txt 2>&1
     
     # Check if the run was successful
@@ -321,19 +321,18 @@ for LEVEL in "${THREAD_LEVELS[@]}"; do
     # This assumes you have a way to configure the thread support level during compilation
     # Modify this to match your project's build system
     cmake .. -DCMAKE_BUILD_TYPE=Release -DMPI_THREAD_LEVEL=${LEVEL}
-    make -j4 heat_diffusion_hybrid_benchmark
+    make -j4 heat_diffusion_benchmark_hybrid
     
     if [ -f "heat_diffusion_hybrid_benchmark" ]; then
         export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_hybrid_benchmark --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
             ../profiling_results_hybrid/thread_support/${LEVEL}.txt 2>&1
     else
         echo -e "${YELLOW}Failed to compile with thread support level: ${LEVEL}${NC}"
     fi
 done
 
-# Restore original benchmark binary
-mv heat_diffusion_hybrid_benchmark.bak heat_diffusion_hybrid_benchmark
+
 
 #=====================
 # 10. Dynamic Thread Adjustment Test
