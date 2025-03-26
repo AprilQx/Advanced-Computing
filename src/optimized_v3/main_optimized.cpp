@@ -34,7 +34,7 @@
      // Run multiple benchmark iterations
      for (int run = 1; run <= runs; ++run) {
          // Create simulation
-         OptimizedHeatDiffusion2D simulation(width, height, diffusionRate, saveOutput);
+         OptimizedHeatDiffusionD simulation(width, height, diffusionRate, saveOutput);
          
          // Record start time
          auto startTime = std::chrono::high_resolution_clock::now();

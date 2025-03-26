@@ -62,7 +62,8 @@
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     
      // Default values
-     int gridSize = 1000;
+     int height = 1000;
+        int width = 1000;
      int iterations = 1000;
      bool saveOutput = false;
      int numRuns = 10;  // Run the benchmark 10 times
@@ -72,8 +73,10 @@
      // Parse command line arguments
     for (int i = 1; i < argc; i++) {
         std::string arg = argv[i];
-        if (arg == "--size" && i + 1 < argc) {
-            gridSize = std::stoi(argv[++i]);
+        if (arg == "--height" && i + 1 < argc) {
+            width = std::atoi(argv[++i]);
+        } else if (arg == "--width" && i + 1 < argc) {
+            height = std::atoi(argv[++i]);
         } else if (arg == "--iterations" && i + 1 < argc) {
             iterations = std::stoi(argv[++i]);
         } else if (arg == "--save") {
@@ -88,7 +91,7 @@
     if (requestedRanks > 0 && size != requestedRanks) {
         if (rank == 0) {
             std::cerr << "Error: Benchmark requested " << requestedRanks 
-                      << " ranks but is running with " << size << " ranks." << std::endl;
+                      << " ranks but is running with " <<  size << " ranks." << std::endl;
             std::cerr << "Please run with: mpirun -n " << requestedRanks 
                       << " ./heat_diffusion_mpi_benchmark [other options]" << std::endl;
         }
@@ -97,7 +100,7 @@
     }
 
     if (rank == 0) {
-        std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
+        std::cout << "Running benchmark with grid size " << width << "x" << height 
                  << " for " << iterations << " iterations"
                  << " across " << numRuns << " runs using " << size << " MPI ranks"
                  << (saveOutput ? " (with output)" : " (no output)") << std::endl;
@@ -126,7 +129,7 @@
          
          // Create simulation
          auto startSetup = std::chrono::high_resolution_clock::now();
-         OptimizedHeatDiffusionMPI simulation(gridSize, gridSize, 0.1, saveOutput);
+         OptimizedHeatDiffusionMPI simulation(width, height, 0.1, saveOutput);
          auto endSetup = std::chrono::high_resolution_clock::now();
          
          // Record memory after setup
@@ -166,7 +169,7 @@
          long memoryIncrease = finalMemory - initialMemory;
          
          // Calculate performance metric
-         double perfMetric = (gridSize * gridSize * iterations / totalSimTime * 1000);
+         double perfMetric = (width * height * iterations / totalSimTime * 1000);
          
          // Get checksum
          double checksum = simulation.getChecksum();
@@ -216,8 +219,8 @@
      if (rank == 0) {
      // Print aggregate results
      std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
-     std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
-               << gridSize*gridSize << " cells)" << std::endl;
+     std::cout << "Grid Size: " << width << "x" << height << " (" 
+     << width*height << " cells)" << std::endl;
      std::cout << "Iterations per Run: " << iterations << std::endl;
      std::cout << "\nTiming Statistics:" << std::endl;
      std::cout << "  Average Setup Time: " << avgSetupTime << " ms (StdDev: " << stdDevSetupTime << " ms)" << std::endl;

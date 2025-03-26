@@ -1,7 +1,8 @@
 /**
- * @file heat_diffusion_benchmark.cpp
+ * @file heat_diffusion_benchmark_optimised.cpp
  * @brief Benchmark for 2D Heat Diffusion Simulation with multiple runs
  */
+
 
  #include "../src/base/heat_diffusion.h"
  #include <iostream>
@@ -51,7 +52,8 @@
  
  int main(int argc, char* argv[]) {
      // Default values
-     int gridSize = 1000;
+     int width = 1000;
+        int height = 1000;
      int iterations = 1000;
      bool saveOutput = false;
      int numRuns = 10;  // Run the benchmark 10 times
@@ -59,8 +61,10 @@
      // Parse command line arguments
      for (int i = 1; i < argc; i++) {
          std::string arg = argv[i];
-         if (arg == "--size" && i + 1 < argc) {
-             gridSize = std::stoi(argv[++i]);
+         if (arg == "--width" && i + 1 < argc) {
+            width = std::stoi(argv[++i]);
+         }     if (arg == "--height" && i + 1 < argc) {
+            height = std::stoi(argv[++i]);
          } else if (arg == "--iterations" && i + 1 < argc) {
              iterations = std::stoi(argv[++i]);
          } else if (arg == "--save") {
@@ -93,7 +97,7 @@
          
          // Create simulation
          auto startSetup = std::chrono::high_resolution_clock::now();
-         HeatDiffusion simulation(gridSize, gridSize, 0.1, saveOutput);
+         HeatDiffusion simulation(width, height, 0.1, saveOutput);
          auto endSetup = std::chrono::high_resolution_clock::now();
          
          // Record memory after setup
@@ -105,9 +109,8 @@
          
          auto totalStart = std::chrono::high_resolution_clock::now();
          
-    
          for (int i = 0; i < iterations; i++) {
-            auto iterStart = std::chrono::high_resolution_clock::now(); 
+             auto iterStart = std::chrono::high_resolution_clock::now();
              simulation.update();
              auto iterEnd = std::chrono::high_resolution_clock::now();
              
@@ -134,7 +137,7 @@
          long memoryIncrease = finalMemory - initialMemory;
          
          // Calculate performance metric
-         double perfMetric = (gridSize * gridSize * iterations / totalSimTime * 1000);
+         double perfMetric = (width * height * iterations / totalSimTime * 1000);
          
          // Get checksum
          double checksum = simulation.getChecksum();
@@ -185,8 +188,8 @@
      
      // Print aggregate results
      std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
-     std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
-               << gridSize*gridSize << " cells)" << std::endl;
+     std::cout << "Grid Size: " << width << "x" << height << " (" 
+               << width*height << " cells)" << std::endl;
      std::cout << "Iterations per Run: " << iterations << std::endl;
      std::cout << "\nTiming Statistics:" << std::endl;
      std::cout << "  Average Setup Time: " << avgSetupTime << " ms (StdDev: " << stdDevSetupTime << " ms)" << std::endl;

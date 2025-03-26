@@ -21,7 +21,7 @@
  #include <chrono>
  #include "../../include/Array_2D/Array_2D.h"
  
- OptimizedHeatDiffusion2D::OptimizedHeatDiffusion2D(int w, int h, double rate, bool save)
+ OptimizedHeatDiffusionD::OptimizedHeatDiffusionD(int w, int h, double rate, bool save)
      : width(w), height(h), diffusionRate(rate),temperature(h,w),nextTemperature(h,w), saveOutput(save), frameCount(0) {
      
      // Initialize with ambient temperature (20°C)
@@ -43,7 +43,7 @@
  
 
  
- void OptimizedHeatDiffusion2D::update() {
+ void OptimizedHeatDiffusionD::update() {
      // Try smaller block sizes for this problem size
      // These can be tuned for your specific hardware
      const int blockSizeY = 1; //BUGS!!!!!!!!!!!
@@ -96,7 +96,7 @@
      frameCount++;
  }
  
- double OptimizedHeatDiffusion2D::getChecksum() const {
+ double OptimizedHeatDiffusionD::getChecksum() const {
      double sum = 0.0;
      
      // Use cache-aware traversal for checksum calculation
@@ -109,7 +109,7 @@
      return sum;
  }
  
- void OptimizedHeatDiffusion2D::saveFrame(int frameNumber) {
+ void OptimizedHeatDiffusionD::saveFrame(int frameNumber) {
      if (!saveOutput) return;
      
      static bool dirCreated = false;

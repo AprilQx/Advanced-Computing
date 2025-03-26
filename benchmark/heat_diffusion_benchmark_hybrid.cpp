@@ -67,7 +67,8 @@
      }
      
      // Default values
-     int gridSize = 1000;
+     int height = 1000;
+     int width = 1000;
      int iterations = 1000;
      bool saveOutput = false;
      int numRuns = 10;  // Run the benchmark 10 times
@@ -77,8 +78,10 @@
      // Parse command line arguments
      for (int i = 1; i < argc; i++) {
          std::string arg = argv[i];
-         if (arg == "--size" && i + 1 < argc) {
-             gridSize = std::stoi(argv[++i]);
+         if (arg == "--height" && i + 1 < argc) {
+            width = std::atoi(argv[++i]);
+        } else if (arg == "--width" && i + 1 < argc) {
+            height = std::atoi(argv[++i]);
          } else if (arg == "--iterations" && i + 1 < argc) {
              iterations = std::stoi(argv[++i]);
          } else if (arg == "--save") {
@@ -96,7 +99,7 @@
      if (requestedRanks > 0 && size != requestedRanks) {
          if (rank == 0) {
              std::cerr << "Error: Benchmark requested " << requestedRanks 
-                      << " ranks but is running with " << size << " ranks." << std::endl;
+                      << " ranks but is running with " <<  size << " ranks." << std::endl;
              std::cerr << "Please run with: mpirun -n " << requestedRanks 
                       << " ./heat_diffusion_hybrid_benchmark [other options]" << std::endl;
          }
@@ -120,7 +123,7 @@
      }
      
      if (rank == 0) {
-         std::cout << "Running benchmark with grid size " << gridSize << "x" << gridSize 
+         std::cout << "Running benchmark with grid size " << width << "x" << height 
                   << " for " << iterations << " iterations"
                   << " across " << numRuns << " runs"
                   << " using " << size << " MPI ranks and " << actualThreads << " OpenMP threads per rank"
@@ -155,7 +158,7 @@
          
          // Create simulation
          auto startSetup = std::chrono::high_resolution_clock::now();
-         HybridHeatDiffusion2D simulation(gridSize, gridSize, 0.1, saveOutput, numThreads);
+         HybridHeatDiffusion2D simulation(width, height,  0.1, saveOutput, numThreads);
          auto endSetup = std::chrono::high_resolution_clock::now();
          
          // Record memory after setup
@@ -184,7 +187,7 @@
          long memoryIncrease = finalMemory - initialMemory;
          
          // Calculate performance metric (cell updates per second)
-         double perfMetric = (gridSize * gridSize * iterations / totalSimTime * 1000);
+         double perfMetric = (width * height * iterations / totalSimTime * 1000);
          
          // Get checksum
          double checksum = simulation.getChecksum();
@@ -230,8 +233,8 @@
          
          // Print aggregate results
          std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
-         std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
-                  << gridSize*gridSize << " cells)" << std::endl;
+         std::cout << "Grid Size: " << width << "x" << height << " (" 
+         << width*height << " cells)" << std::endl;
          std::cout << "Iterations per Run: " << iterations << std::endl;
          std::cout << "Parallel Configuration: " << size << " MPI ranks × " << actualThreads 
                   << " OpenMP threads = " << (size * actualThreads) << " total parallel units" << std::endl;
@@ -262,8 +265,9 @@
          
          // Output in CSV format for scripted analysis
          std::cout << "\nCSV Format (for data collection):" << std::endl;
-         std::cout << "grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum" << std::endl;
-         std::cout << gridSize << "," 
+         std::cout << "width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum" << std::endl;
+         std::cout << width << "," 
+                    << height << ","
                   << iterations << "," 
                   << size << "," 
                   << actualThreads << "," 

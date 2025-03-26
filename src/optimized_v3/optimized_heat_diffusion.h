@@ -16,7 +16,7 @@
   * @class OptimizedHeatDiffusion2D
   * @brief Class implementing optimized 2D heat diffusion simulation with block processing
   */
- class OptimizedHeatDiffusion2D {
+ class OptimizedHeatDiffusionD {
  private:
      int width, height;              ///< Dimensions of the simulation grid
      double diffusionRate;           ///< Thermal diffusivity coefficient
@@ -75,12 +75,12 @@
       * @param rate Thermal diffusivity coefficient
       * @param save Flag to control whether output files are saved
       */
-     OptimizedHeatDiffusion2D(int w, int h, double rate, bool save = true);
+     OptimizedHeatDiffusionD(int w, int h, double rate, bool save = true);
      
      /**
       * @brief Virtual destructor for polymorphism
       */
-     virtual ~OptimizedHeatDiffusion2D() = default;
+     virtual ~OptimizedHeatDiffusionD() = default;
      
      /**
       * @brief Updates the simulation by one timestep with block processing
