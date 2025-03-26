@@ -5,17 +5,17 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00      102     0.00     0.00  HybridHeatDiffusion2D::exchangeHalos()
-  0.00      0.00     0.00       50     0.00     0.00  HybridHeatDiffusion2D::update()
-  0.00      0.00     0.00       18     0.00     0.00  frame_dummy
-  0.00      0.00     0.00        8     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
-  0.00      0.00     0.00        6     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
-  0.00      0.00     0.00        2     0.00     0.00  HybridHeatDiffusion2D::setupOpenMP()
-  0.00      0.00     0.00        2     0.00     0.00  HybridHeatDiffusion2D::initMPI()
-  0.00      0.00     0.00        2     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::getChecksum()
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int)
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::~HybridHeatDiffusion2D()
+  0.00      0.00     0.00      201     0.00     0.00  OptimizedHeatDiffusionMPI::exchangeHalos()
+  0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusionMPI::update()
+  0.00      0.00     0.00       19     0.00     0.00  frame_dummy
+  0.00      0.00     0.00        7     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
+  0.00      0.00     0.00        2     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::getChecksum()
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::initMPI()
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::~OptimizedHeatDiffusionMPI()
+  0.00      0.00     0.00        1     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -56,43 +56,42 @@ notice and this notice are preserved.
 granularity: each sample hit covers 4 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00      18/18          main [8]
-[1]      0.0    0.00    0.00      18         frame_dummy [1]
+                0.00    0.00      19/19          main [7]
+[1]      0.0    0.00    0.00      19         frame_dummy [1]
 -----------------------------------------------
-                0.00    0.00       2/102         HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-                0.00    0.00     100/102         HybridHeatDiffusion2D::update() [11]
-[10]     0.0    0.00    0.00     102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00       1/201         OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
+                0.00    0.00     200/201         OptimizedHeatDiffusionMPI::update() [10]
+[9]      0.0    0.00    0.00     201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
-                0.00    0.00      50/50          main [8]
-[11]     0.0    0.00    0.00      50         HybridHeatDiffusion2D::update() [11]
-                0.00    0.00     100/102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00     100/100         main [7]
+[10]     0.0    0.00    0.00     100         OptimizedHeatDiffusionMPI::update() [10]
+                0.00    0.00     200/201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
-                0.00    0.00       8/8           main [8]
-[12]     0.0    0.00    0.00       8         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [12]
+                0.00    0.00       7/7           main [7]
+[11]     0.0    0.00    0.00       7         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [11]
 -----------------------------------------------
-                0.00    0.00       6/6           main [8]
-[13]     0.0    0.00    0.00       6         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [13]
+                0.00    0.00       4/4           main [7]
+[12]     0.0    0.00    0.00       4         calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [12]
 -----------------------------------------------
-                0.00    0.00       2/2           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-[14]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::setupOpenMP() [14]
+                0.00    0.00       2/2           main [7]
+[13]     0.0    0.00    0.00       2         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [13]
 -----------------------------------------------
-                0.00    0.00       2/2           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-[15]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::initMPI() [15]
+                0.00    0.00       1/1           main [7]
+[14]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::getChecksum() [14]
 -----------------------------------------------
-                0.00    0.00       2/2           main [8]
-[16]     0.0    0.00    0.00       2         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [16]
+                0.00    0.00       1/1           OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
+[15]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::initMPI() [15]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
-[17]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::getChecksum() [17]
+                0.00    0.00       1/1           main [7]
+[16]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
+                0.00    0.00       1/1           OptimizedHeatDiffusionMPI::initMPI() [15]
+                0.00    0.00       1/201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
-[18]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-                0.00    0.00       2/2           HybridHeatDiffusion2D::setupOpenMP() [14]
-                0.00    0.00       2/2           HybridHeatDiffusion2D::initMPI() [15]
-                0.00    0.00       2/102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00       1/1           main [7]
+[17]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::~OptimizedHeatDiffusionMPI() [17]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
-[19]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [19]
+                0.00    0.00       1/1           main [7]
+[18]     0.0    0.00    0.00       1         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [18]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -185,7 +184,7 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [17] HybridHeatDiffusion2D::getChecksum() [15] HybridHeatDiffusion2D::initMPI() [12] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
-  [14] HybridHeatDiffusion2D::setupOpenMP() [18] HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [16] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
-  [10] HybridHeatDiffusion2D::exchangeHalos() [19] HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [1] frame_dummy
-  [11] HybridHeatDiffusion2D::update() [13] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  [12] calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [15] OptimizedHeatDiffusionMPI::initMPI() [11] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  [14] OptimizedHeatDiffusionMPI::getChecksum() [16] OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [18] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+   [9] OptimizedHeatDiffusionMPI::exchangeHalos() [17] OptimizedHeatDiffusionMPI::~OptimizedHeatDiffusionMPI() [1] frame_dummy
+  [10] OptimizedHeatDiffusionMPI::update() [13] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)

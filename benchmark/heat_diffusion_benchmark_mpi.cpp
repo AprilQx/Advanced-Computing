@@ -180,16 +180,15 @@
          perfMetrics.push_back(perfMetric);
          memoryUsages.push_back(memoryIncrease);
          checksums.push_back(checksum);
-         
-         // Print individual run results
-         std::cout << "Run " << (run + 1) << " Results:" << std::endl;
-         std::cout << "  Setup Time: " << setupTime << " ms" << std::endl;
-         std::cout << "  Total Simulation Time: " << totalSimTime << " ms" << std::endl;
-         std::cout << "  Average Iteration Time: " << avgTime << " ms" << std::endl;
-         std::cout << "  Min/Max Iteration Time: " << minTime << "/" << maxTime << " ms" << std::endl;
-         std::cout << "  Performance: " << perfMetric << " cell updates per second" << std::endl;
-         std::cout << "  Memory Usage Increase: " << memoryIncrease << " KB" << std::endl;
-         std::cout << "  Checksum: " << checksum << std::endl;
+         // Print individual run results (only on rank 0)
+        if (rank == 0) {
+            std::cout << "Run " << (run + 1) << " Results:" << std::endl;
+            std::cout << "  Setup Time: " << setupTime << " ms" << std::endl;
+            std::cout << "  Total Simulation Time: " << totalSimTime << " ms" << std::endl;
+            std::cout << "  Performance: " << perfMetric << " cell updates per second" << std::endl;
+            std::cout << "  Memory Usage Increase: " << memoryIncrease << " KB" << std::endl;
+            std::cout << "  Checksum: " << checksum << std::endl;
+        }
      }
      
      // Calculate aggregate statistics
@@ -214,7 +213,7 @@
      // Check if all checksums are the same (numerical stability)
      bool stable = std::adjacent_find(checksums.begin(), checksums.end(), 
                                      [](double a, double b) { return std::abs(a - b) > 1e-10; }) == checksums.end();
-     
+     if (rank == 0) {
      // Print aggregate results
      std::cout << "\n=== AGGREGATE BENCHMARK RESULTS (" << numRuns << " RUNS) ===" << std::endl;
      std::cout << "Grid Size: " << gridSize << "x" << gridSize << " (" 
@@ -240,3 +239,4 @@
     MPI_Finalize();
     return 0;
  }
+    }

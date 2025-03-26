@@ -7,13 +7,13 @@ Domain decomposition: Global size = 1414x1414, Process grid = 2x2
 Rank 0 has local domain size 707x707 starting at global position (0,0)
 OpenMP initialized with 2 threads per MPI rank
 Rank 2 has local domain size 707x707 starting at global position (0,707)
-Rank 3 has local domain size 707x707 starting at global position (707,707)
 Rank 1 has local domain size 707x707 starting at global position (707,0)
+Rank 3 has local domain size 707x707 starting at global position (707,707)
 Run 1 Results:
-  Setup Time: 146.83 ms
-  Total Simulation Time: 1509.31 ms
-  Performance: 6.62353e+07 cell updates per second
-  Memory Usage Increase: 8376 KB
+  Setup Time: 130.919 ms
+  Total Simulation Time: 1675.01 ms
+  Performance: 5.9683e+07 cell updates per second
+  Memory Usage Increase: 8472 KB
   Checksum: 3.99918e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -22,19 +22,19 @@ Iterations per Run: 50
 Parallel Configuration: 4 MPI ranks × 2 OpenMP threads = 8 total parallel units
 
 Timing Statistics:
-  Average Setup Time: 146.83 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 1509.31 ms (StdDev: 0 ms)
+  Average Setup Time: 130.919 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 1675.01 ms (StdDev: 0 ms)
 
 Performance Statistics:
-  Average Performance: 66.24 million cell updates per second (StdDev: 0.00)
-  Cell updates per second per parallel unit: 8.28 million
-  Best Run: Run 1 (1509.31 ms)
-  Worst Run: Run 1 (1509.31 ms)
+  Average Performance: 59.68 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 7.46 million
+  Best Run: Run 1 (1675.01 ms)
+  Worst Run: Run 1 (1675.01 ms)
   Coefficient of Variation: 0.00%
 
 Memory Usage:
-  Average Memory Increase: 8376.00 KB
-  Average Memory Per Rank: 2094.00 KB
+  Average Memory Increase: 8472.00 KB
+  Average Memory Per Rank: 2118.00 KB
 
 Numerical Stability:
   Checksum consistency: Stable
@@ -42,4 +42,4 @@ Numerical Stability:
 
 CSV Format (for data collection):
 grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
-1414,50,4,2,8,1509.31,0.00,66.24,8376.00,39991840.00
+1414,50,4,2,8,1675.01,0.00,59.68,8472.00,39991840.00

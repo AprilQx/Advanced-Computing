@@ -52,17 +52,28 @@ echo -e "${BLUE}Running gprof profiling...${NC}"
 mpirun -n 4 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1
 
 # Generate gprof report for each rank
-for gmon in gmon.out.*; do
-    # Extract rank number from filename if present
-    if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
-        RANK="${BASH_REMATCH[1]}"
-    else
-        RANK="combined"
-    fi
-    
-    gprof ./heat_diffusion_mpi_benchmark $gmon > ../profiling_results_mpi/gprof/gprof_report_rank_${RANK}.txt
-    echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
-done
+echo -e "${YELLOW}Looking for gprof data files...${NC}"
+
+# First look for rank-specific gmon.out files
+if ls gmon.out.* 2>/dev/null; then
+    for gmon in gmon.out.*; do
+        # Extract rank number from filename
+        if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
+            RANK="${BASH_REMATCH[1]}"
+            gprof ./heat_diffusion_mpi_benchmark $gmon > ../profiling_results_mpi/gprof/gprof_report_rank_${RANK}.txt
+            echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
+        fi
+    done
+# If no rank-specific files found, try the default gmon.out
+elif [ -f "gmon.out" ]; then
+    echo -e "${YELLOW}No rank-specific gmon files found, using default gmon.out${NC}"
+    gprof ./heat_diffusion_mpi_benchmark gmon.out > ../profiling_results_mpi/gprof/gprof_report_combined.txt
+    echo -e "${YELLOW}Created combined gprof report${NC}"
+else
+    echo -e "${YELLOW}Warning: No gprof data files found!${NC}"
+    echo -e "${YELLOW}Make sure your executable was compiled with -pg flag${NC}"
+    echo -e "${YELLOW}and the execution completed successfully.${NC}"
+fi
 
 #=====================
 # 2. MPI-specific profiling
@@ -153,20 +164,15 @@ echo "Strong Scaling Results:" >> profiling_results_mpi/summary.txt
 for RANKS in 1 2 4 8 16; do
     if [ -f profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt ]; then
         echo "  ${RANKS} ranks:" >> profiling_results_mpi/summary.txt
-        grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt >> profiling_results_mpi/summary.txt 2>/dev/null
+        # Only grab the line with StdDev info to avoid duplicates
+        grep "Average Iteration Time:.*StdDev" profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt | sort -u >> profiling_results_mpi/summary.txt 2>/dev/null
+        
+        # If no StdDev lines found, fall back to the regular ones and sort them unique
+        if [ $? -ne 0 ]; then
+            grep "Average Iteration Time:" profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt | sort -u >> profiling_results_mpi/summary.txt 2>/dev/null
+        fi
     fi
 done
-echo "" >> profiling_results_mpi/summary.txt
-
-echo "Weak Scaling Results:" >> profiling_results_mpi/summary.txt
-for RANKS in 1 2 4 8 16; do
-    if [ -f profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt ]; then
-        echo "  ${RANKS} ranks (${RANKS}x base problem size):" >> profiling_results_mpi/summary.txt
-        grep "Average Iteration Time:" profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt >> profiling_results_mpi/summary.txt 2>/dev/null
-    fi
-done
-echo "" >> profiling_results_mpi/summary.txt
-
 # Add gprof summary from rank 0 (most representative)
 if [ -f profiling_results_mpi/gprof/gprof_report_rank_0.txt ]; then
     echo "Top functions from gprof (rank 0):" >> profiling_results_mpi/summary.txt

@@ -7,10 +7,10 @@ Domain decomposition: Global size = 1000x1000, Process grid = 1x1
 Rank 0 has local domain size 1000x1000 starting at global position (0,0)
 OpenMP initialized with 1 threads per MPI rank
 Run 1 Results:
-  Setup Time: 2.98704 ms
-  Total Simulation Time: 58.8158 ms
-  Performance: 8.50112e+08 cell updates per second
-  Memory Usage Increase: 15892 KB
+  Setup Time: 4.32992 ms
+  Total Simulation Time: 60.1303 ms
+  Performance: 8.31527e+08 cell updates per second
+  Memory Usage Increase: 15824 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -19,19 +19,19 @@ Iterations per Run: 50
 Parallel Configuration: 1 MPI ranks × 1 OpenMP threads = 1 total parallel units
 
 Timing Statistics:
-  Average Setup Time: 2.98704 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 58.8158 ms (StdDev: 0 ms)
+  Average Setup Time: 4.32992 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 60.1303 ms (StdDev: 0 ms)
 
 Performance Statistics:
-  Average Performance: 850.11 million cell updates per second (StdDev: 0.00)
-  Cell updates per second per parallel unit: 850.11 million
-  Best Run: Run 1 (58.82 ms)
-  Worst Run: Run 1 (58.82 ms)
+  Average Performance: 831.53 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 831.53 million
+  Best Run: Run 1 (60.13 ms)
+  Worst Run: Run 1 (60.13 ms)
   Coefficient of Variation: 0.00%
 
 Memory Usage:
-  Average Memory Increase: 15892.00 KB
-  Average Memory Per Rank: 15892.00 KB
+  Average Memory Increase: 15824.00 KB
+  Average Memory Per Rank: 15824.00 KB
 
 Numerical Stability:
   Checksum consistency: Stable
@@ -39,4 +39,4 @@ Numerical Stability:
 
 CSV Format (for data collection):
 grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
-1000,50,1,1,1,58.82,0.00,850.11,15892.00,20003920.00
+1000,50,1,1,1,60.13,0.00,831.53,15824.00,20003920.00

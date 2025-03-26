@@ -1,0 +1,58 @@
+# Heat Diffusion Simulation Profiling Summary
+Date: Wed Mar 26 20:16:41 UTC 2025
+
+## System Information
+- CPU Cores: 10
+- MPI Implementation: mpirun (Open MPI) 4.1.2
+
+## Thread-Process Balance Tests
+Tested configurations (processes:threads):
+- 1 processes × 10 threads:   Performance: 8.09797e+08 cell updates per second
+- 10 processes × 1 threads:   Performance: 2.32433e+07 cell updates per second
+- 2 processes × 5 threads:   Performance: 1.62166e+09 cell updates per second
+- 5 processes × 2 threads:   Performance: 4.93494e+07 cell updates per second
+- 4 processes × 2 threads:   Performance: 5.00923e+07 cell updates per second
+
+## Strong Scaling Tests
+Fixed problem size (1000×1000), varying process and thread counts:
+- 1 processes × 1 threads:   Total Simulation Time: 60.1303 ms,   Performance: 8.31527e+08 cell updates per second
+- 1 processes × 2 threads:   Total Simulation Time: 59.7185 ms,   Performance: 8.37261e+08 cell updates per second
+- 1 processes × 4 threads:   Total Simulation Time: 61.4351 ms,   Performance: 8.13867e+08 cell updates per second
+- 2 processes × 1 threads:   Total Simulation Time: 32.2337 ms,   Performance: 1.55117e+09 cell updates per second
+- 2 processes × 2 threads:   Total Simulation Time: 31.3162 ms,   Performance: 1.59662e+09 cell updates per second
+- 4 processes × 1 threads:   Total Simulation Time: 822.287 ms,   Performance: 6.0806e+07 cell updates per second
+- 4 processes × 2 threads:   Total Simulation Time: 1007.15 ms,   Performance: 4.96449e+07 cell updates per second
+
+## Weak Scaling Tests
+Scaled problem size, consistent work per process/thread:
+- 1 processes × 1 threads (500×500):   Total Simulation Time: 14.8291 ms
+- 1 processes × 2 threads (707×707):   Total Simulation Time: 29.7793 ms
+- 1 processes × 4 threads (1000×1000):   Total Simulation Time: 61.0736 ms
+- 2 processes × 1 threads (707×707):   Total Simulation Time: 15.1374 ms
+- 2 processes × 2 threads (1000×1000):   Total Simulation Time: 31.1086 ms
+- 4 processes × 1 threads (1000×1000):   Total Simulation Time: 824.279 ms
+- 4 processes × 2 threads (1414×1414):   Total Simulation Time: 1675.01 ms
+
+## Thread Affinity Tests
+Testing thread binding strategies with 4 processes and 2 threads:
+- OMP_PROC_BIND=close:   Total Simulation Time: 31.094 ms
+- OMP_PROC_BIND=spread:   Total Simulation Time: 31.4742 ms
+- OMP_PROC_BIND=master:   Total Simulation Time: 31.5062 ms
+
+## Communication Pattern Analysis
+Testing different grid sizes with fixed process/thread configuration:
+- Grid 200×200: Failed or not run
+- Grid 500×500: Failed or not run
+- Grid 1000×1000: Failed or not run
+
+## Profiling Tools
+- gprof: Reports available in profiling_results_hybrid/gprof/
+- valgrind/cachegrind: Report available in profiling_results_hybrid/valgrind/
+
+## Key Findings and Recommendations
+Please review the detailed results to identify:
+1. Optimal process-thread balance for your hardware
+2. Scaling efficiency with increasing parallel resources
+3. Impact of thread affinity on performance
+4. Communication overhead at different problem sizes
+5. Hotspots and bottlenecks identified by gprof and cachegrind

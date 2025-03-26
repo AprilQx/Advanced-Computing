@@ -5,16 +5,16 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00     1000     0.00     0.00  OptimizedHeatDiffusion::update()
-  0.00      0.00     0.00     1000     0.00     0.00  OptimizedHeatDiffusion::saveFrame(int)
-  0.00      0.00     0.00       35     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
-  0.00      0.00     0.00       18     0.00     0.00  frame_dummy
-  0.00      0.00     0.00       10     0.00     0.00  OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool)
-  0.00      0.00     0.00       10     0.00     0.00  OptimizedHeatDiffusion::~OptimizedHeatDiffusion()
-  0.00      0.00     0.00       10     0.00     0.00  OptimizedHeatDiffusion::getChecksum() const
-  0.00      0.00     0.00        5     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+  0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusion::update()
+  0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusion::saveFrame(int)
+  0.00      0.00     0.00       19     0.00     0.00  frame_dummy
+  0.00      0.00     0.00        7     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
   0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
-  0.00      0.00     0.00        1     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        2     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::~OptimizedHeatDiffusion()
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::getChecksum() const
+  0.00      0.00     0.00        1     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -55,36 +55,36 @@ notice and this notice are preserved.
 granularity: each sample hit covers 4 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00      18/18          main [7]
-[1]      0.0    0.00    0.00      18         frame_dummy [1]
+                0.00    0.00      19/19          main [7]
+[1]      0.0    0.00    0.00      19         frame_dummy [1]
 -----------------------------------------------
-                0.00    0.00    1000/1000        main [7]
-[9]      0.0    0.00    0.00    1000         OptimizedHeatDiffusion::update() [9]
-                0.00    0.00    1000/1000        OptimizedHeatDiffusion::saveFrame(int) [10]
+                0.00    0.00     100/100         main [7]
+[9]      0.0    0.00    0.00     100         OptimizedHeatDiffusion::update() [9]
+                0.00    0.00     100/100         OptimizedHeatDiffusion::saveFrame(int) [10]
 -----------------------------------------------
-                0.00    0.00    1000/1000        OptimizedHeatDiffusion::update() [9]
-[10]     0.0    0.00    0.00    1000         OptimizedHeatDiffusion::saveFrame(int) [10]
+                0.00    0.00     100/100         OptimizedHeatDiffusion::update() [9]
+[10]     0.0    0.00    0.00     100         OptimizedHeatDiffusion::saveFrame(int) [10]
 -----------------------------------------------
-                0.00    0.00      35/35          main [7]
-[11]     0.0    0.00    0.00      35         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [11]
------------------------------------------------
-                0.00    0.00      10/10          main [7]
-[12]     0.0    0.00    0.00      10         OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) [12]
------------------------------------------------
-                0.00    0.00      10/10          main [7]
-[13]     0.0    0.00    0.00      10         OptimizedHeatDiffusion::~OptimizedHeatDiffusion() [13]
------------------------------------------------
-                0.00    0.00      10/10          main [7]
-[14]     0.0    0.00    0.00      10         OptimizedHeatDiffusion::getChecksum() const [14]
------------------------------------------------
-                0.00    0.00       5/5           main [7]
-[15]     0.0    0.00    0.00       5         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [15]
+                0.00    0.00       7/7           main [7]
+[11]     0.0    0.00    0.00       7         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [11]
 -----------------------------------------------
                 0.00    0.00       4/4           main [7]
-[16]     0.0    0.00    0.00       4         calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [16]
+[12]     0.0    0.00    0.00       4         calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           main [7]
+[13]     0.0    0.00    0.00       2         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [13]
 -----------------------------------------------
                 0.00    0.00       1/1           main [7]
-[17]     0.0    0.00    0.00       1         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [17]
+[14]     0.0    0.00    0.00       1         OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) [14]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[15]     0.0    0.00    0.00       1         OptimizedHeatDiffusion::~OptimizedHeatDiffusion() [15]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[16]     0.0    0.00    0.00       1         OptimizedHeatDiffusion::getChecksum() const [16]
+-----------------------------------------------
+                0.00    0.00       1/1           main [7]
+[17]     0.0    0.00    0.00       1         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [17]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -177,7 +177,7 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [16] calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [13] OptimizedHeatDiffusion::~OptimizedHeatDiffusion() [15] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
-   [9] OptimizedHeatDiffusion::update() [17] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [1] frame_dummy
-  [10] OptimizedHeatDiffusion::saveFrame(int) [14] OptimizedHeatDiffusion::getChecksum() const
-  [12] OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) [11] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  [12] calculateStdDev(std::vector<double, std::allocator<double> > const&, double) [15] OptimizedHeatDiffusion::~OptimizedHeatDiffusion() [17] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+   [9] OptimizedHeatDiffusion::update() [13] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [1] frame_dummy
+  [10] OptimizedHeatDiffusion::saveFrame(int) [16] OptimizedHeatDiffusion::getChecksum() const
+  [14] OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool) [11] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)

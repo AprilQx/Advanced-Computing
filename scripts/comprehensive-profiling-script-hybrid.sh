@@ -14,7 +14,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Create directories
-mkdir -p /app/profiling_results_hybrid/{gprof,valgrind,scaling,communication,thread_scaling,process_thread_balance}
+mkdir -p /app/profiling_results_hybrid/{gprof,valgrind,scaling,communication,process_thread_balance}
 
 echo -e "${GREEN}Starting Hybrid MPI+OpenMP profiling...${NC}"
 
@@ -80,6 +80,7 @@ else
     echo -e "${YELLOW}Warning: mpirun not found in PATH${NC}"
 fi
 
+
 #=====================
 # 2. GPROF Profiling
 #=====================
@@ -89,23 +90,38 @@ echo -e "${BLUE}Running gprof profiling...${NC}"
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-pg"
 make -j4 heat_diffusion_benchmark_hybrid
 
+# Create directory for gprof results if it doesn't exist
+mkdir -p ../profiling_results_hybrid/gprof
+
 # Run with small grid for quick profiling - 2 MPI ranks, 2 threads per rank
 export OMP_NUM_THREADS=2
 mpirun -n 2 ./heat_diffusion_benchmark_hybrid --size 500 --iterations 50 --runs 1 --threads 2
 
-# Generate gprof report for each rank
-for gmon in gmon.out.*; do
-    # Extract rank number from filename if present
-    if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
-        RANK="${BASH_REMATCH[1]}"
+# Look for all possible gmon output variations
+echo -e "${YELLOW}Looking for gprof data files...${NC}"
+if ls gmon.out* 2>/dev/null; then
+    # Generate gprof report for each gmon file
+    for gmon in gmon.out*; do
+        # Extract rank number from filename if present
+        if [[ $gmon =~ .*\.([0-9]+)$ ]]; then
+            RANK="${BASH_REMATCH[1]}"
+        else
+            RANK="combined"
+        fi
+        
+        gprof ./heat_diffusion_benchmark_hybrid $gmon > ../profiling_results_hybrid/gprof/gprof_report_rank_${RANK}.txt
+        echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
+    done
+else
+    echo -e "${YELLOW}No gprof data files found. Using default gmon.out if exists...${NC}"
+    if [ -f "gmon.out" ]; then
+        gprof ./heat_diffusion_benchmark_hybrid gmon.out > ../profiling_results_hybrid/gprof/gprof_report_combined.txt
+        echo -e "${YELLOW}Created gprof report from gmon.out${NC}"
     else
-        RANK="combined"
+        echo -e "${YELLOW}Warning: No gprof data files found at all.${NC}"
+        echo -e "${YELLOW}Check that your application ran successfully and generated profiling data.${NC}"
     fi
-    
-    gprof ./heat_diffusion_benchmark_hybrid $gmon > ../profiling_results_hybrid/gprof/gprof_report_rank_${RANK}.txt
-    echo -e "${YELLOW}Created gprof report for rank ${RANK}${NC}"
-done
-
+fi
 #=====================
 # 3. Thread-Process Balance Tests
 #=====================
@@ -298,46 +314,154 @@ for GRID_SIZE in 200 500 1000; do
     fi
 done
 
+
 #=====================
-# 9. Test Different MPI Thread Support Levels
+# 9. Generate Summary
 #=====================
-echo -e "${BLUE}Testing different MPI thread support levels...${NC}"
-mkdir -p ../profiling_results_hybrid/thread_support
+echo -e "${BLUE}Generating summary report...${NC}"
 
-# This test requires recompilation with different thread support levels
-# We'll test with a balanced hybrid configuration
-PROCS=2
-THREADS=2
+# Create summary file
+SUMMARY_FILE="../profiling_results_hybrid/summary.txt"
+echo "# Heat Diffusion Simulation Profiling Summary" > $SUMMARY_FILE
+echo "Date: $(date)" >> $SUMMARY_FILE
+echo "" >> $SUMMARY_FILE
 
-# Save a copy of the original benchmark for backup
-cp heat_diffusion_hybrid_benchmark heat_diffusion_hybrid_benchmark.bak
+# System information
+echo "## System Information" >> $SUMMARY_FILE
+echo "- CPU Cores: $NUM_CORES" >> $SUMMARY_FILE
+if [ -f "openmp_test" ]; then
+    echo "- $(./openmp_test | tr '\n' ' ')" >> $SUMMARY_FILE
+fi
+echo "- MPI Implementation: $(mpirun --version | head -n 1)" >> $SUMMARY_FILE
+echo "" >> $SUMMARY_FILE
 
-# Test different thread support levels
-THREAD_LEVELS=("MPI_THREAD_SINGLE" "MPI_THREAD_FUNNELED" "MPI_THREAD_SERIALIZED" "MPI_THREAD_MULTIPLE")
-for LEVEL in "${THREAD_LEVELS[@]}"; do
-    echo -e "${YELLOW}Testing with thread support level: ${LEVEL}${NC}"
+# Thread-Process Balance summary
+echo "## Thread-Process Balance Tests" >> $SUMMARY_FILE
+echo "Tested configurations (processes:threads):" >> $SUMMARY_FILE
+for COMBO in "${COMBINATIONS[@]}"; do
+    PROCS=$(echo $COMBO | cut -d':' -f1)
+    THREADS=$(echo $COMBO | cut -d':' -f2)
     
-    # Recompile with specific thread support level
-    # This assumes you have a way to configure the thread support level during compilation
-    # Modify this to match your project's build system
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DMPI_THREAD_LEVEL=${LEVEL}
-    make -j4 heat_diffusion_benchmark_hybrid
-    
-    if [ -f "heat_diffusion_hybrid_benchmark" ]; then
-        export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
-            ../profiling_results_hybrid/thread_support/${LEVEL}.txt 2>&1
+    RESULT_FILE="../profiling_results_hybrid/process_thread_balance/procs${PROCS}_threads${THREADS}.txt"
+    if [ -f "$RESULT_FILE" ]; then
+        # Extract performance information if available
+        PERF=$(grep "Performance:" $RESULT_FILE | head -n 1)
+        if [ -n "$PERF" ]; then
+            echo "- $PROCS processes × $THREADS threads: $PERF" >> $SUMMARY_FILE
+        else
+            echo "- $PROCS processes × $THREADS threads: Completed" >> $SUMMARY_FILE
+        fi
     else
-        echo -e "${YELLOW}Failed to compile with thread support level: ${LEVEL}${NC}"
+        echo "- $PROCS processes × $THREADS threads: Failed or not run" >> $SUMMARY_FILE
     fi
 done
+echo "" >> $SUMMARY_FILE
 
+# Strong scaling summary
+echo "## Strong Scaling Tests" >> $SUMMARY_FILE
+echo "Fixed problem size (1000×1000), varying process and thread counts:" >> $SUMMARY_FILE
+for CONFIG in "${STRONG_CONFIGS[@]}"; do
+    PROCS=$(echo $CONFIG | cut -d':' -f1)
+    THREADS=$(echo $CONFIG | cut -d':' -f2)
+    
+    RESULT_FILE="../profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt"
+    if [ -f "$RESULT_FILE" ]; then
+        # Extract time and performance if available
+        TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
+        PERF=$(grep "Performance:" $RESULT_FILE | head -n 1)
+        
+        if [ -n "$TIME" ] && [ -n "$PERF" ]; then
+            echo "- $PROCS processes × $THREADS threads: $TIME, $PERF" >> $SUMMARY_FILE
+        else
+            echo "- $PROCS processes × $THREADS threads: Completed" >> $SUMMARY_FILE
+        fi
+    else
+        echo "- $PROCS processes × $THREADS threads: Not tested (requires $((PROCS*THREADS)) cores)" >> $SUMMARY_FILE
+    fi
+done
+echo "" >> $SUMMARY_FILE
 
+# Weak scaling summary
+echo "## Weak Scaling Tests" >> $SUMMARY_FILE
+echo "Scaled problem size, consistent work per process/thread:" >> $SUMMARY_FILE
+for CONFIG in "${STRONG_CONFIGS[@]}"; do
+    PROCS=$(echo $CONFIG | cut -d':' -f1)
+    THREADS=$(echo $CONFIG | cut -d':' -f2)
+    TOTAL_CORES=$((PROCS * THREADS))
+    
+    if [ $TOTAL_CORES -le $NUM_CORES ]; then
+        SIZE=$(echo "sqrt($BASE_SIZE * $BASE_SIZE * $TOTAL_CORES)" | bc)
+        SIZE=${SIZE%.*}
+        
+        RESULT_FILE="../profiling_results_hybrid/scaling/weak_p${PROCS}_t${THREADS}.txt"
+        if [ -f "$RESULT_FILE" ]; then
+            # Extract time and performance if available
+            TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
+            
+            if [ -n "$TIME" ]; then
+                echo "- $PROCS processes × $THREADS threads (${SIZE}×${SIZE}): $TIME" >> $SUMMARY_FILE
+            else
+                echo "- $PROCS processes × $THREADS threads (${SIZE}×${SIZE}): Completed" >> $SUMMARY_FILE
+            fi
+        else
+            echo "- $PROCS processes × $THREADS threads (${SIZE}×${SIZE}): Failed or not run" >> $SUMMARY_FILE
+        fi
+    fi
+done
+echo "" >> $SUMMARY_FILE
 
-#=====================
-# 10. Dynamic Thread Adjustment Test
-#=====================
-echo -e "${BLUE}Testing dynamic thread adjustment...${NC}"
-mkdir -p ../profiling_results_hybrid/dynamic_threads
+# Thread affinity summary
+echo "## Thread Affinity Tests" >> $SUMMARY_FILE
+echo "Testing thread binding strategies with $PROCS processes and $THREADS threads:" >> $SUMMARY_FILE
+for BIND in "${OMP_BINDING_TYPES[@]}"; do
+    RESULT_FILE="../profiling_results_hybrid/affinity/bind_${BIND}.txt"
+    if [ -f "$RESULT_FILE" ]; then
+        TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
+        
+        if [ -n "$TIME" ]; then
+            echo "- OMP_PROC_BIND=$BIND: $TIME" >> $SUMMARY_FILE
+        else
+            echo "- OMP_PROC_BIND=$BIND: Completed" >> $SUMMARY_FILE
+        fi
+    else
+        echo "- OMP_PROC_BIND=$BIND: Failed or not run" >> $SUMMARY_FILE
+    fi
+done
+echo "" >> $SUMMARY_FILE
 
-# Test
+# Communication pattern summary
+echo "## Communication Pattern Analysis" >> $SUMMARY_FILE
+echo "Testing different grid sizes with fixed process/thread configuration:" >> $SUMMARY_FILE
+for GRID_SIZE in 200 500 1000; do
+    RESULT_FILE="../profiling_results_hybrid/communication/grid${GRID_SIZE}_p${PROCS}_t${THREADS}.txt"
+    if [ -f "$RESULT_FILE" ]; then
+        TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
+        
+        if [ -n "$TIME" ]; then
+            echo "- Grid ${GRID_SIZE}×${GRID_SIZE}: $TIME" >> $SUMMARY_FILE
+        else
+            echo "- Grid ${GRID_SIZE}×${GRID_SIZE}: Completed" >> $SUMMARY_FILE
+        fi
+    else
+        echo "- Grid ${GRID_SIZE}×${GRID_SIZE}: Failed or not run" >> $SUMMARY_FILE
+    fi
+done
+echo "" >> $SUMMARY_FILE
+
+# Profiling tools summary
+echo "## Profiling Tools" >> $SUMMARY_FILE
+echo "- gprof: Reports available in profiling_results_hybrid/gprof/" >> $SUMMARY_FILE
+echo "- valgrind/cachegrind: Report available in profiling_results_hybrid/valgrind/" >> $SUMMARY_FILE
+echo "" >> $SUMMARY_FILE
+
+# Key findings and recommendations
+echo "## Key Findings and Recommendations" >> $SUMMARY_FILE
+echo "Please review the detailed results to identify:" >> $SUMMARY_FILE
+echo "1. Optimal process-thread balance for your hardware" >> $SUMMARY_FILE
+echo "2. Scaling efficiency with increasing parallel resources" >> $SUMMARY_FILE
+echo "3. Impact of thread affinity on performance" >> $SUMMARY_FILE
+echo "4. Communication overhead at different problem sizes" >> $SUMMARY_FILE
+echo "5. Hotspots and bottlenecks identified by gprof and cachegrind" >> $SUMMARY_FILE
+
+echo -e "${GREEN}Summary generated: ${SUMMARY_FILE}${NC}"
+echo -e "${GREEN}Profiling complete. All results available in profiling_results_hybrid/${NC}"

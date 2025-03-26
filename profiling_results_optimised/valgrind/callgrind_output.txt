@@ -1,119 +1,29 @@
 
-=== Run 1 of 10 ===
+=== Run 1 of 1 ===
 Run 1 Results:
-  Setup Time: 1.32129 ms
-  Total Simulation Time: 11.5525 ms
-  Average Iteration Time: 0.115525 ms
-  Min/Max Iteration Time: 0.100417/0.832291 ms
-  Performance: 8.6561e+07 cell updates per second
+  Setup Time: 1.08925 ms
+  Total Simulation Time: 11.2092 ms
+  Average Iteration Time: 0.112092 ms
+  Min/Max Iteration Time: 0.100167/0.725167 ms
+  Performance: 8.92127e+07 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203920
 
-=== Run 2 of 10 ===
-Run 2 Results:
-  Setup Time: 0.720084 ms
-  Total Simulation Time: 10.3291 ms
-  Average Iteration Time: 0.103291 ms
-  Min/Max Iteration Time: 0.100417/0.126959 ms
-  Performance: 9.6814e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 3 of 10 ===
-Run 3 Results:
-  Setup Time: 0.098125 ms
-  Total Simulation Time: 10.3508 ms
-  Average Iteration Time: 0.103508 ms
-  Min/Max Iteration Time: 0.100333/0.122792 ms
-  Performance: 9.6611e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 4 of 10 ===
-Run 4 Results:
-  Setup Time: 0.169959 ms
-  Total Simulation Time: 10.5221 ms
-  Average Iteration Time: 0.105221 ms
-  Min/Max Iteration Time: 0.100458/0.1445 ms
-  Performance: 9.50382e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 5 of 10 ===
-Run 5 Results:
-  Setup Time: 0.100417 ms
-  Total Simulation Time: 10.4907 ms
-  Average Iteration Time: 0.104907 ms
-  Min/Max Iteration Time: 0.10225/0.126541 ms
-  Performance: 9.53228e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 6 of 10 ===
-Run 6 Results:
-  Setup Time: 0.099459 ms
-  Total Simulation Time: 10.4525 ms
-  Average Iteration Time: 0.104525 ms
-  Min/Max Iteration Time: 0.102333/0.122583 ms
-  Performance: 9.56705e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 7 of 10 ===
-Run 7 Results:
-  Setup Time: 0.096959 ms
-  Total Simulation Time: 10.5031 ms
-  Average Iteration Time: 0.105031 ms
-  Min/Max Iteration Time: 0.10225/0.120709 ms
-  Performance: 9.52098e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 8 of 10 ===
-Run 8 Results:
-  Setup Time: 0.098 ms
-  Total Simulation Time: 10.4586 ms
-  Average Iteration Time: 0.104586 ms
-  Min/Max Iteration Time: 0.102291/0.116958 ms
-  Performance: 9.56149e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 9 of 10 ===
-Run 9 Results:
-  Setup Time: 0.098375 ms
-  Total Simulation Time: 10.4164 ms
-  Average Iteration Time: 0.104164 ms
-  Min/Max Iteration Time: 0.102292/0.116 ms
-  Performance: 9.60023e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== Run 10 of 10 ===
-Run 10 Results:
-  Setup Time: 0.097292 ms
-  Total Simulation Time: 10.4722 ms
-  Average Iteration Time: 0.104722 ms
-  Min/Max Iteration Time: 0.102292/0.148292 ms
-  Performance: 9.54912e+07 cell updates per second
-  Memory Usage Increase: 0 KB
-  Checksum: 203920
-
-=== AGGREGATE BENCHMARK RESULTS (10 RUNS) ===
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
 Grid Size: 100x100 (10000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 0.289996 ms (StdDev: 0.389871 ms)
-  Average Total Simulation Time: 10.5548 ms (StdDev: 0.337875 ms)
-  Average Iteration Time: 0.105548 ms (StdDev: 0.00337875 ms)
-  Average Min/Max Iteration Time: 0.101533/0.197763 ms
+  Average Setup Time: 1.08925 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 11.2092 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.112092 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.100167/0.725167 ms
 
 Performance Statistics:
-  Average Performance: 9.48336e+07 cell updates per second (StdDev: 2.81155e+06)
-  Best Run: Run 2 (10.3291 ms)
-  Worst Run: Run 1 (11.5525 ms)
-  Coefficient of Variation: 3.20115%
+  Average Performance: 8.92127e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (11.2092 ms)
+  Worst Run: Run 1 (11.2092 ms)
+  Coefficient of Variation: 0%
 
 Memory Usage:
   Average Memory Increase: 0 KB
