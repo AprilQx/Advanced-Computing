@@ -161,24 +161,14 @@
          // Record memory after setup
          long afterSetupMemory = getMemoryUsage();
          
-         // Record simulation time with detailed per-iteration timing
-         std::vector<double> iterationTimes;
-         iterationTimes.reserve(iterations);
          
          auto totalStart = std::chrono::high_resolution_clock::now();
          
          for (int i = 0; i < iterations; i++) {
-             auto iterStart = std::chrono::high_resolution_clock::now();
+    
              simulation.update();
-             auto iterEnd = std::chrono::high_resolution_clock::now();
              
-             double iterTime = std::chrono::duration<double, std::milli>(iterEnd - iterStart).count();
-             iterationTimes.push_back(iterTime);
-             
-             // Optionally report progress every 100 iterations
-             if (rank == 0 && i > 0 && i % 100 == 0) {
-                 std::cout << "  Completed " << i << "/" << iterations << " iterations" << std::endl;
-             }
+            
          }
          
          auto totalEnd = std::chrono::high_resolution_clock::now();
@@ -187,8 +177,6 @@
          double totalSimTime = std::chrono::duration<double, std::milli>(totalEnd - totalStart).count();
          double setupTime = std::chrono::duration<double, std::milli>(endSetup - startSetup).count();
          
-         double minTime = *std::min_element(iterationTimes.begin(), iterationTimes.end());
-         double maxTime = *std::max_element(iterationTimes.begin(), iterationTimes.end());
          double avgTime = totalSimTime / iterations;
          
          // Get final memory usage
@@ -204,9 +192,6 @@
          // Store results for this run
          totalSimTimes.push_back(totalSimTime);
          setupTimes.push_back(setupTime);
-         avgIterTimes.push_back(avgTime);
-         minIterTimes.push_back(minTime);
-         maxIterTimes.push_back(maxTime);
          perfMetrics.push_back(perfMetric);
          memoryUsages.push_back(memoryIncrease);
          checksums.push_back(checksum);
@@ -216,8 +201,6 @@
              std::cout << "Run " << (run + 1) << " Results:" << std::endl;
              std::cout << "  Setup Time: " << setupTime << " ms" << std::endl;
              std::cout << "  Total Simulation Time: " << totalSimTime << " ms" << std::endl;
-             std::cout << "  Average Iteration Time: " << avgTime << " ms" << std::endl;
-             std::cout << "  Min/Max Iteration Time: " << minTime << "/" << maxTime << " ms" << std::endl;
              std::cout << "  Performance: " << perfMetric << " cell updates per second" << std::endl;
              std::cout << "  Memory Usage Increase: " << memoryIncrease << " KB" << std::endl;
              std::cout << "  Checksum: " << checksum << std::endl;
@@ -229,16 +212,12 @@
          // Calculate aggregate statistics
          double avgTotalSimTime = std::accumulate(totalSimTimes.begin(), totalSimTimes.end(), 0.0) / numRuns;
          double avgSetupTime = std::accumulate(setupTimes.begin(), setupTimes.end(), 0.0) / numRuns;
-         double avgIterTime = std::accumulate(avgIterTimes.begin(), avgIterTimes.end(), 0.0) / numRuns;
-         double avgMinIterTime = std::accumulate(minIterTimes.begin(), minIterTimes.end(), 0.0) / numRuns;
-         double avgMaxIterTime = std::accumulate(maxIterTimes.begin(), maxIterTimes.end(), 0.0) / numRuns;
          double avgPerfMetric = std::accumulate(perfMetrics.begin(), perfMetrics.end(), 0.0) / numRuns;
          double avgMemoryUsage = std::accumulate(memoryUsages.begin(), memoryUsages.end(), 0.0) / numRuns;
          
          // Calculate standard deviations
          double stdDevTotalSimTime = calculateStdDev(totalSimTimes, avgTotalSimTime);
          double stdDevSetupTime = calculateStdDev(setupTimes, avgSetupTime);
-         double stdDevIterTime = calculateStdDev(avgIterTimes, avgIterTime);
          double stdDevPerfMetric = calculateStdDev(perfMetrics, avgPerfMetric);
          
          // Identify best and worst runs
@@ -260,8 +239,8 @@
          std::cout << "\nTiming Statistics:" << std::endl;
          std::cout << "  Average Setup Time: " << avgSetupTime << " ms (StdDev: " << stdDevSetupTime << " ms)" << std::endl;
          std::cout << "  Average Total Simulation Time: " << avgTotalSimTime << " ms (StdDev: " << stdDevTotalSimTime << " ms)" << std::endl;
-         std::cout << "  Average Iteration Time: " << avgIterTime << " ms (StdDev: " << stdDevIterTime << " ms)" << std::endl;
-         std::cout << "  Average Min/Max Iteration Time: " << avgMinIterTime << "/" << avgMaxIterTime << " ms" << std::endl;
+
+
          
          std::cout << "\nPerformance Statistics:" << std::endl;
          std::cout << "  Average Performance: " << std::fixed << std::setprecision(2) << (avgPerfMetric / 1e6) 

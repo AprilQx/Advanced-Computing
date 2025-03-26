@@ -1,0 +1,2 @@
+# Heat Diffusion Simulation
+This repository contains an optimized and parallelized implementation of a 2D heat diffusion simulation using the Finite Difference Method. The project demonstrates high-performance computing techniques using MPI for distributed memory parallelism and OpenMP for shared memory parallelism.
