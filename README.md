@@ -61,21 +61,17 @@ Note that we utilised gprof and Valgrind Suite in the docker environment, and ut
 1. **gprof (GNU Profiler)**
    - Function-level profiling to identify hotspots in sequential code execution.
    - Found in profiling scripts: `comprehensive-profiling-script-*.sh`
-   
    - Output stored in: `profiling_results_*/gprof/`
 
 2. **Valgrind Suite**
     * Cachegrind
          - Cache usage analysis to identify memory access patterns and cache misses.
-
         - Output stored in:  `profiling_results_*/valgrind/cachegrind_*`
     * Callgrind
         - Call graph generation and execution profiling.
-
         - Output in: `profiling_results_*/valgrind/callgrind_*`
     * Massif
         - Heap profiling to analyze memory usage over time.
-
         - Output in profiling_results_*/valgrind/massif_*
 
 3. **VTune (Intel)**
@@ -121,5 +117,5 @@ Note that we utilised gprof and Valgrind Suite in the docker environment, and ut
      * Source: `tools/block_size_optimizer.cpp`
      * Script: `scripts/block_size_optimizer.sh`
 
-
+## 
 
