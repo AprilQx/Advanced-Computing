@@ -32,10 +32,10 @@
      MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
      
      // Default settings
-     int width = 1000;
-     int height = 1000;
+     int width = 100;
+     int height = 100;
      double diffusionRate = 0.1;
-     int totalFrames = 1000;
+     int totalFrames = 100;
      bool saveOutput = false;
      std::string outputDir = "output/optimised";
      

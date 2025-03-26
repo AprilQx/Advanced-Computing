@@ -475,22 +475,8 @@ add_test(NAME ValidateHybrid
                          --optimized ${CMAKE_BINARY_DIR}/output/hybrid
                          --tolerance 1e-10)
                          
+# Add validation test for Optimised version
 
-add_custom_target(run_mpi
-COMMAND mpirun -np 4 --oversubscribe $<TARGET_FILE:heat_diffusion_mpi>
-DEPENDS heat_diffusion_mpi
-WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-COMMENT "Running MPI version with 4 processes (macOS)"
-)
-
-
-
-add_custom_target(run_openmp
-    COMMAND $<TARGET_FILE:heat_diffusion_openmp> --threads 4
-    DEPENDS heat_diffusion_openmp
-    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    COMMENT "Running OpenMP version with 4 threads"
-)
 # Print status information
 message(STATUS "========== Configuration Summary ==========")
 message(STATUS "Operating System: ${CMAKE_SYSTEM_NAME}")
