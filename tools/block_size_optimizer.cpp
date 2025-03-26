@@ -15,14 +15,14 @@
  #include <fstream>
  
  // Modified version of OptimizedHeatDiffusion2D that accepts block sizes
- class BlockSizeTestDiffusion : public OptimizedHeatDiffusion2D {
+ class BlockSizeTestDiffusion : public OptimizedHeatDiffusionD {
  private:
      int blockSizeX;
      int blockSizeY;
  
  public:
      BlockSizeTestDiffusion(int w, int h, double rate, int bsx, int bsy)
-         : OptimizedHeatDiffusion2D(w, h, rate, false), blockSizeX(bsx), blockSizeY(bsy) {}
+         : OptimizedHeatDiffusionD(w, h, rate, false), blockSizeX(bsx), blockSizeY(bsy) {}
  
      void update() {
          // Pre-compute constants outside all loops

@@ -20,6 +20,10 @@ The project is organized as follows:
 * **benchmark:** Performance benchmarking code
 * **tools**: Validation tools and utilities
 * **scripts**: Profiling and benchmarking scripts
+* **.gitignore**: Configuration file for Git to exclude build artifacts, temporary files, and IDE-specific files from version control
+* **doxyfile**: Doxygen configuration file for automatic code documentation generation from source comments
+* **Dockerfile**: Container definition for consistent development and profiling environment across platforms
+* **CMakelists.txt**: Main build system configuration file defining compilation targets, dependencies, and platform-specific settings
 
 ## Implementation Approaches
 
@@ -53,6 +57,45 @@ This approach is particularly well-suited for modern HPC architectures that feat
 - Use OpenMP for fine-grained parallelism within nodes
 
 
+
+## Documentation with Doxygen
+This project is configured with comprehensive Doxygen documentation support. Here's how to use it:
+### Generating Documentation
+```
+# Generate documentation using Doxygen
+doxygen Doxyfile
+
+# Or if you're using Docker
+docker run -it --rm -v $(pwd):/app hpc-benchmark-env bash -c "cd /app && doxygen Doxyfile"
+
+# Or generate documentation through CMake
+cd build
+make docs
+```
+
+### Viewing HTML Documentation
+
+```
+# Open HTML documentation (macOS)
+open docs/html/index.html
+
+# Open HTML documentation (Linux)
+xdg-open docs/html/index.html
+```
+### Viewing PDF Documentation
+```
+# Generate PDF from LaTeX files
+cd docs/latex
+make
+
+# Open the PDF (macOS)
+open refman.pdf
+
+# Open the PDF (Linux)
+xdg-open refman.pdf
+```
+
+If you encounter LaTeX compilation errors, you can still view the HTML documentation which contains the same information in a more accessible format.
 ## Building the Project
 
 ### Prerequisites
@@ -154,6 +197,164 @@ The project includes special configuration for macOS, which requires additional 
 * Detects Open MPI installation (common on macOS via Homebrew/MacPorts)
 * Adds macOS-specific MPI flags if needed
 
+## 📣 Running Heat Diffusion Simulation
+After successful compilation, you can run the different versions of the heat diffusion simulation with various command-line options. Below are instructions for running each implementation.
+
+
+### Command Line Options for Non-benchmarks
+All non-benchmark implementations support these basic options:
+
+```
+  --help                 Show help message
+  --width WIDTH          Set grid width (default: 100)
+  --height HEIGHT        Set grid height (default: 100)
+  --rate RATE            Set diffusion rate (default: 0.1)
+  --frames FRAMES        Set number of frames to simulate (default: 100)
+  --output               Enable output file generation
+  --output-dir DIR       Directory for output files
+```
+### Running the Baseline Implementation
+```
+./build/heat_diffusion [OPTIONS]
+```
+Example:
+```
+./build/heat_diffusion --width 500 --height 500 --frames 1000 --output
+```
+
+### Running the Optimized Implementations
+```
+./build/heat_diffusion_optimized_v1 [OPTIONS]  # Flat array version
+./build/heat_diffusion_optimized_v2 [OPTIONS]  # Flat 2D array version
+./build/heat_diffusion_optimized_v3 [OPTIONS]  # Cache blocked version
+```
+### Running the OpenMP Implementation
+```
+./build/heat_diffusion_openmp [OPTIONS] [--threads NUM_THREADS]
+```
+The --threads option sets the number of OpenMP threads to use.
+
+### Running the MPI Implementation
+```
+mpirun -n NUM_PROCESSES ./build/heat_diffusion_mpi [OPTIONS]
+```
+
+### Running the Hybrid MPI+OpenMP Implementation
+```
+mpirun -np NUM_PROCESSES ./build/heat_diffusion_hybrid [OPTIONS] [--threads NUM_THREADS]
+```
+
+Example:
+```
+# Run with 4 MPI processes, each using 4 OpenMP threads
+export OMP_NUM_THREADS=4
+mpirun -np 4 ./build/heat_diffusion_hybrid --width 2000 --height 2000
+```
+
+
+
+
+
+## 📣 Running Heat Diffusion Benchmarks
+The project includes comprehensive benchmark executables for all implementations. Benchmarks run multiple trials and report detailed performance statistics
+
+### Common Benchmark Options
+All benchmark executables share these command-line options:
+```
+--width WIDTH          Set grid width (default: 1000)
+--height HEIGHT        Set grid height (default: 1000)
+--iterations ITERS     Number of iterations to run (default: 1000)
+--runs RUNS            Number of benchmark runs (default: 10)
+--save                 Enable output file generation (disabled by default)
+```
+
+### Running Sequential Implementation Benchmarks
+```
+# Base implementation benchmark
+./build/heat_diffusion_benchmark
+
+# Optimized implementation benchmarks
+./build/heat_diffusion_optimized_benchmark_v1
+./build/heat_diffusion_optimized_benchmark_v2
+./build/heat_diffusion_optimized_benchmark_v3
+```
+Example with options:
+```
+./build/heat_diffusion_optimized_benchmark_v3 --width 2000 --height 2000 --iterations 500 --runs 5
+```
+
+### Running OpenMP Implementation Benchmark
+```
+./build/heat_diffusion_openmp_benchmark [--threads NUM_THREADS]
+```
+* --threads NUM_THREADS: Number of OpenMP threads to use
+  
+```
+# Run with 8 threads
+./build/heat_diffusion_openmp_benchmark --threads 8
+
+# Use OMP_NUM_THREADS environment variable
+export OMP_NUM_THREADS=6
+./build/heat_diffusion_openmp_benchmark
+```
+### Running MPI Implementation Benchmark
+
+```
+mpirun -np NUM_PROCESSES ./build/heat_diffusion_mpi_benchmark
+```
+The MPI benchmark adds the option:
+* --ranks RANKS: Expected number of MPI ranks (validates against actual running ranks)
+
+```
+mpirun -np 4 ./build/heat_diffusion_mpi_benchmark --width 2000 --height 2000
+```
+### Running Hybrid MPI+OpenMP Implementation Benchmark
+
+```
+mpirun -np NUM_PROCESSES ./build/heat_diffusion_benchmark_hybrid [--threads THREADS]
+```
+### Benchmark Output
+Each benchmark reports detailed statistics including:
+
+* Setup time and simulation time
+* Per-iteration timing statistics
+* Performance metrics (cell updates per second)
+* Memory usage (on supported mac platforms)
+* Numerical stability verification
+
+## Using Docker for Development and Profiling
+
+The project includes Docker configuration to provide a consistent development and profiling environment across different platforms. This is especially useful for macOS users who need Linux-specific profiling tools.
+
+### Docker Setup
+
+```bash
+# Build the Docker image
+docker build -t hpc-benchmark-env .
+
+# Run the container interactively with current directory mounted
+docker run -it --rm -v $(pwd):/app hpc-benchmark-env
+```
+Once inside the container, you'll have access to all development and profiling tools
+```
+# Navigate to the mounted project directory
+cd /app
+
+# Build the project
+mkdir -p build && cd build
+cmake ..
+make -j$(nproc)
+
+# Run simulations
+./heat_diffusion_optimized_v3 --width 500 --height 500
+
+# Run MPI simulations
+mpirun -np 4 ./heat_diffusion_mpi --width 1000 --height 1000
+```
+
+## Using csd3 for Development and Profiling
+
+unfinished!!!!
 
 ## Profiling Tools Used in the Heat Diffusion Project
 
