@@ -22,6 +22,13 @@
      
      // Setup domain decomposition
      initMPI();
+
+     // Create output directories once at initialization (only rank 0)
+    if (rank == 0 && saveOutput) {
+        system("mkdir -p output/mpi");
+        system("mkdir -p output/mpi_halos");
+    }
+    MPI_Barrier(cartComm);
      
      // Re-instantiate the arrays with correct size (including ghost cells)
      temperature = Array_2D<double>(localHeight+2, localWidth+2);
@@ -188,7 +195,7 @@
      temperature.swap(nextTemperature);
      
      if (saveOutput) {
-         saveFrame(frameCount);
+        saveFrame(frameCount);
         if (frameCount % 10 == 0) {
             saveHaloVisualization(frameCount / 10);
         }
@@ -270,7 +277,6 @@
      
      // Only rank 0 writes to file
      if (rank == 0) {
-         system("mkdir -p output/mpi");
          std::string filename = "output/mpi/frame_" + std::to_string(frameNumber) + ".txt";
          std::ofstream outFile(filename);
          
@@ -337,11 +343,6 @@
 
  void OptimizedHeatDiffusionMPI::saveHaloVisualization(int frameNumber) {
     if (!saveOutput) return;
-    
-    // Create directory for halo visualization
-    if (rank == 0) {
-        system("mkdir -p output/mpi_halos");
-    }
     MPI_Barrier(cartComm);
     
     // Each process saves its own local domain with halos

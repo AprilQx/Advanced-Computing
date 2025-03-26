@@ -27,10 +27,10 @@ int main(int argc, char* argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
     
     // Default settings
-    int width = 1000;
-    int height = 1000;
+    int width = 100;
+    int height = 100;
     double diffusionRate = 0.1;
-    int totalFrames = 1000;
+    int totalFrames = 100;
     bool saveOutput = false;
     bool visualizeHalos = false;
     std::string outputDir = "output/optimised";
@@ -140,7 +140,7 @@ void runSimulation(int width, int height, double diffusionRate, int totalFrames,
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &worldSize);
     
-    const int numRuns = 10; // Run multiple times to get performance statistics
+    const int numRuns = 1; // Run multiple times to get performance statistics
     std::vector<double> runTimes;
     
     for (int run = 0; run < numRuns; run++) {
