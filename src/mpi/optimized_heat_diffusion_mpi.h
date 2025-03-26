@@ -50,7 +50,7 @@
       * @param gatheredData Full temperature grid (only valid on rank 0)
       */
      void gatherGrid(double* gatheredData);
-
+ 
  public:
      /**
       * @brief Constructor for the OptimizedHeatDiffusionMPI simulation
@@ -82,15 +82,6 @@
       * @param frameNumber The current frame number for the output filename
       */
      void saveFrame(int frameNumber);
-
-     /**
-      * @brief Saves a visualization of the domain decomposition with halos
-      * @param frameNumber The current frame number for the output filename
-      * 
-      * Creates a visualization file showing each process's domain including ghost cells,
-      * with special markers to differentiate between interior cells and halo cells.
-      */
-     void saveHaloVisualization(int frameNumber);
  };
  
  #endif // OPTIMIZED_HEAT_DIFFUSION_MPI_H
