@@ -189,6 +189,9 @@
      
      if (saveOutput) {
          saveFrame(frameCount);
+        if (frameCount % 10 == 0) {
+            saveHaloVisualization(frameCount / 10);
+        }
      }
      frameCount++;
  }
@@ -331,3 +334,112 @@
          delete[] fullGrid;
      }
  }
+
+ void OptimizedHeatDiffusionMPI::saveHaloVisualization(int frameNumber) {
+    if (!saveOutput) return;
+    
+    // Create directory for halo visualization
+    if (rank == 0) {
+        system("mkdir -p output/mpi_halos");
+    }
+    MPI_Barrier(cartComm);
+    
+    // Each process saves its own local domain with halos
+    std::string filename = "output/mpi_halos/rank_" + std::to_string(rank) + 
+                           "_frame_" + std::to_string(frameNumber) + ".txt";
+    std::ofstream outFile(filename);
+    
+    if (outFile.is_open()) {
+        // Write local grid dimensions and global position
+        outFile << "# Rank: " << rank << ", Position: (" << startCol << "," << startRow 
+                << "), Size: " << localWidth << "x" << localHeight << std::endl;
+        outFile << "# Domain with halos: " << (localWidth+2) << "x" << (localHeight+2) << std::endl;
+        outFile << "# Neighbors: N=" << neighbors[0] << ", E=" << neighbors[1] 
+                << ", S=" << neighbors[2] << ", W=" << neighbors[3] << std::endl;
+        outFile << "# Format: 'h' marks halo cells, numbers are temperature values" << std::endl;
+        
+        // Write the entire local grid including halos
+        for (int y = 0; y < localHeight + 2; y++) {
+            for (int x = 0; x < localWidth + 2; x++) {
+                // Mark halo cells with 'h' prefix
+                bool isHalo = (y == 0 || y == localHeight + 1 || 
+                               x == 0 || x == localWidth + 1);
+                
+                if (isHalo) {
+                    outFile << "h" << temperature(y, x) << " ";
+                } else {
+                    outFile << temperature(y, x) << " ";
+                }
+            }
+            outFile << std::endl;
+        }
+        outFile.close();
+    }
+    
+    // Now also create a consolidated visualization on rank 0
+    if (rank == 0) {
+        // Allocate buffer for full grid
+        double* fullGrid = new double[globalWidth * globalHeight];
+        
+        // Gather the local grids to rank 0 (reusing existing method)
+        gatherGrid(fullGrid);
+        
+        // Create a visualization that shows the domain decomposition
+        std::string fullFilename = "output/mpi_halos/full_decomposition_frame_" + 
+                                   std::to_string(frameNumber) + ".txt";
+        std::ofstream fullFile(fullFilename);
+        
+        if (fullFile.is_open()) {
+            // Write header information
+            fullFile << "# Heat diffusion at frame " << frameNumber << std::endl;
+            fullFile << "# Domain decomposition: " << dims[0] << "x" << dims[1] << " process grid" << std::endl;
+            fullFile << "# Global size: " << globalWidth << "x" << globalHeight << std::endl;
+            fullFile << "# Process boundaries are marked with | and --- characters" << std::endl;
+            
+            // Create a visualization with process boundaries
+            for (int y = 0; y < globalHeight; y++) {
+                // Check if this is a process boundary row
+                bool isBoundaryRow = false;
+                for (int p = 1; p < dims[0]; p++) {
+                    if (y == p * (globalHeight / dims[0])) {
+                        isBoundaryRow = true;
+                        break;
+                    }
+                }
+                
+                // If it's a boundary row, draw a line
+                if (isBoundaryRow) {
+                    for (int x = 0; x < globalWidth; x++) {
+                        fullFile << "--- ";
+                    }
+                    fullFile << std::endl;
+                }
+                
+                // Write the data row
+                for (int x = 0; x < globalWidth; x++) {
+                    // Check if this is a process boundary column
+                    bool isBoundaryCol = false;
+                    for (int p = 1; p < dims[1]; p++) {
+                        if (x == p * (globalWidth / dims[1])) {
+                            isBoundaryCol = true;
+                            break;
+                        }
+                    }
+                    
+                    // If it's a boundary column, mark it
+                    if (isBoundaryCol) {
+                        fullFile << "| ";
+                    }
+                    
+                    // Write the temperature value
+                    fullFile << fullGrid[y * globalWidth + x] << " ";
+                }
+                fullFile << std::endl;
+            }
+            
+            fullFile.close();
+        }
+        
+        delete[] fullGrid;
+    }
+}
