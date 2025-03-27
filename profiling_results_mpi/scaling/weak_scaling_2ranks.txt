@@ -1,39 +1,39 @@
-Running benchmark with grid size 0x1000 for 1000 iterations across 1 runs using 2 MPI ranks (no output)
+Running benchmark with grid size 707x707 for 100 iterations across 1 runs using 2 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 2x1 process grid for 2 processes
 
 === Run 1 of 1 ===
-Domain decomposition: Global size = 0x1000, Process grid = 2x1
-Rank 0 has local domain size 0x500 starting at global position (0,0)
+Rank 1 has local domain size 707x354 starting at global position (0,353)
+Rank 1 neighbors: N=0, E=-2, S=-2, W=-2
+Domain decomposition: Global size = 707x707, Process grid = 2x1
+Rank 0 has local domain size 707x353 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=1, W=-2
 Run 1 Results:
-  Setup Time: 0.173041 ms
-  Total Simulation Time: 0.24975 ms
-  Performance: 0 cell updates per second
-  Memory Usage Increase: 436 KB
-  Checksum: 0
+  Setup Time: 1.475 ms
+  Total Simulation Time: 11.78 ms
+  Performance: 4.24319e+09 cell updates per second
+  Memory Usage Increase: 4424 KB
+  Checksum: 1.00009e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 0x1000 (0 cells)
-Iterations per Run: 1000
+Grid Size: 707x707 (499849 cells)
+Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 0.173041 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 0.24975 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.00024975 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.000166/0.003291 ms
+  Average Setup Time: 1.475 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 11.78 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.1178 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.114083/0.156125 ms
 
 Performance Statistics:
-  Average Performance: 0 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (0.24975 ms)
-  Worst Run: Run 1 (0.24975 ms)
+  Average Performance: 4.24319e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (11.78 ms)
+  Worst Run: Run 1 (11.78 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 436 KB
+  Average Memory Increase: 4424 KB
 
 Numerical Stability:
   Checksum consistency: Stable
-Rank 1 has local domain size 0x500 starting at global position (0,500)
-Rank 1 neighbors: N=0, E=-2, S=-2, W=-2

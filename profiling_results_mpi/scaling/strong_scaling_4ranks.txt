@@ -8,6 +8,8 @@ Running benchmark with grid size 1000x1000 for 50 iterations across 1 runs using
 
 === Run 1 of 1 ===
 Creating a 2x2 process grid for 4 processes
+Rank 3 has local domain size 500x500 starting at global position (500,500)
+Rank 3 neighbors: N=1, E=-2, S=-2, W=2
 Rank 1 has local domain size 500x500 starting at global position (500,0)
 Rank 1 neighbors: N=-2, E=-2, S=3, W=0
 Rank 2 has local domain size 500x500 starting at global position (0,500)
@@ -15,13 +17,11 @@ Rank 2 neighbors: N=0, E=3, S=-2, W=-2
 Domain decomposition: Global size = 1000x1000, Process grid = 2x2
 Rank 0 has local domain size 500x500 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=1, S=2, W=-2
-Rank 3 has local domain size 500x500 starting at global position (500,500)
-Rank 3 neighbors: N=1, E=-2, S=-2, W=2
 Run 1 Results:
-  Setup Time: 2.2925 ms
-  Total Simulation Time: 9.17425 ms
-  Performance: 5.45004e+09 cell updates per second
-  Memory Usage Increase: 4440 KB
+  Setup Time: 5.789 ms
+  Total Simulation Time: 10.9262 ms
+  Performance: 4.57615e+09 cell updates per second
+  Memory Usage Increase: 4576 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -29,19 +29,19 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 50
 
 Timing Statistics:
-  Average Setup Time: 2.2925 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 9.17425 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.183485 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.12375/0.2725 ms
+  Average Setup Time: 5.789 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 10.9262 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.218524 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.132834/0.426375 ms
 
 Performance Statistics:
-  Average Performance: 5.45004e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (9.17425 ms)
-  Worst Run: Run 1 (9.17425 ms)
+  Average Performance: 4.57615e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (10.9262 ms)
+  Worst Run: Run 1 (10.9262 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 4440 KB
+  Average Memory Increase: 4576 KB
 
 Numerical Stability:
   Checksum consistency: Stable

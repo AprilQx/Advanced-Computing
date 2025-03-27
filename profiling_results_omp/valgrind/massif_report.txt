@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 Command:            ./heat_diffusion_openmp_benchmark --width 500 --height 500 --frames 10 --runs 1
 Massif arguments:   (none)
-ms_print arguments: massif.out.1270 massif.out.1324 massif.out.2366 massif.out.3356
+ms_print arguments: massif.out.1270 massif.out.1324 massif.out.2366 massif.out.324 massif.out.3356
 --------------------------------------------------------------------------------
 
 

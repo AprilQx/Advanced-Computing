@@ -12,9 +12,10 @@ Events shown:     Ir
 Event sort order: Ir
 Thresholds:       99
 Include dirs:     
-User annotated:   callgrind.out.1320
+User annotated:   callgrind.out.3352
+                  callgrind.out.320
                   callgrind.out.2362
-                  callgrind.out.3352
+                  callgrind.out.1320
 Auto-annotation:  on
 
 --------------------------------------------------------------------------------
@@ -237,14 +238,19 @@ Ir                  file:function
   No information has been collected for callgrind.out.3352
 
 --------------------------------------------------------------------------------
--- User-annotated source: callgrind.out.1320
+-- User-annotated source: callgrind.out.320
 --------------------------------------------------------------------------------
-  No information has been collected for callgrind.out.1320
+  No information has been collected for callgrind.out.320
 
 --------------------------------------------------------------------------------
 -- User-annotated source: callgrind.out.2362
 --------------------------------------------------------------------------------
   No information has been collected for callgrind.out.2362
+
+--------------------------------------------------------------------------------
+-- User-annotated source: callgrind.out.1320
+--------------------------------------------------------------------------------
+  No information has been collected for callgrind.out.1320
 
 --------------------------------------------------------------------------------
 The following files chosen for auto-annotation could not be found:

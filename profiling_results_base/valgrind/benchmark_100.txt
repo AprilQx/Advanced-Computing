@@ -1,101 +1,101 @@
 
 === Run 1 of 10 ===
 Run 1 Results:
-  Setup Time: 0.038458 ms
-  Total Simulation Time: 4.47521 ms
-  Average Iteration Time: 0.00447521 ms
-  Min/Max Iteration Time: 0.004/0.088166 ms
-  Performance: 2.23453e+09 cell updates per second
-  Memory Usage Increase: 256 KB
+  Setup Time: 0.039666 ms
+  Total Simulation Time: 4.46821 ms
+  Average Iteration Time: 0.00446821 ms
+  Min/Max Iteration Time: 0.004083/0.03225 ms
+  Performance: 2.23803e+09 cell updates per second
+  Memory Usage Increase: 444 KB
   Checksum: 203912
 
 === Run 2 of 10 ===
 Run 2 Results:
-  Setup Time: 0.00725 ms
-  Total Simulation Time: 4.8625 ms
-  Average Iteration Time: 0.0048625 ms
-  Min/Max Iteration Time: 0.004083/0.053125 ms
-  Performance: 2.05656e+09 cell updates per second
+  Setup Time: 0.006625 ms
+  Total Simulation Time: 4.56037 ms
+  Average Iteration Time: 0.00456037 ms
+  Min/Max Iteration Time: 0.004083/0.043375 ms
+  Performance: 2.1928e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 3 of 10 ===
 Run 3 Results:
-  Setup Time: 0.008708 ms
-  Total Simulation Time: 4.33654 ms
-  Average Iteration Time: 0.00433654 ms
-  Min/Max Iteration Time: 0.004042/0.023125 ms
-  Performance: 2.30598e+09 cell updates per second
+  Setup Time: 0.006792 ms
+  Total Simulation Time: 4.40629 ms
+  Average Iteration Time: 0.00440629 ms
+  Min/Max Iteration Time: 0.004083/0.028541 ms
+  Performance: 2.26948e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 4 of 10 ===
 Run 4 Results:
-  Setup Time: 0.006583 ms
-  Total Simulation Time: 4.45071 ms
-  Average Iteration Time: 0.00445071 ms
-  Min/Max Iteration Time: 0.004083/0.023 ms
-  Performance: 2.24683e+09 cell updates per second
+  Setup Time: 0.008333 ms
+  Total Simulation Time: 4.46737 ms
+  Average Iteration Time: 0.00446737 ms
+  Min/Max Iteration Time: 0.004041/0.03175 ms
+  Performance: 2.23845e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 5 of 10 ===
 Run 5 Results:
-  Setup Time: 0.007042 ms
-  Total Simulation Time: 4.33408 ms
-  Average Iteration Time: 0.00433408 ms
-  Min/Max Iteration Time: 0.004/0.02275 ms
-  Performance: 2.30729e+09 cell updates per second
+  Setup Time: 0.008292 ms
+  Total Simulation Time: 4.33971 ms
+  Average Iteration Time: 0.00433971 ms
+  Min/Max Iteration Time: 0.004041/0.019875 ms
+  Performance: 2.3043e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 6 of 10 ===
 Run 6 Results:
-  Setup Time: 0.006875 ms
-  Total Simulation Time: 4.39262 ms
-  Average Iteration Time: 0.00439262 ms
-  Min/Max Iteration Time: 0.004041/0.02075 ms
-  Performance: 2.27654e+09 cell updates per second
+  Setup Time: 0.0105 ms
+  Total Simulation Time: 4.33792 ms
+  Average Iteration Time: 0.00433792 ms
+  Min/Max Iteration Time: 0.004041/0.017333 ms
+  Performance: 2.30525e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 7 of 10 ===
 Run 7 Results:
-  Setup Time: 0.006542 ms
-  Total Simulation Time: 4.47738 ms
-  Average Iteration Time: 0.00447738 ms
-  Min/Max Iteration Time: 0.004125/0.039958 ms
-  Performance: 2.23345e+09 cell updates per second
+  Setup Time: 0.009292 ms
+  Total Simulation Time: 4.29992 ms
+  Average Iteration Time: 0.00429992 ms
+  Min/Max Iteration Time: 0.004041/0.021958 ms
+  Performance: 2.32563e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 8 of 10 ===
 Run 8 Results:
-  Setup Time: 0.006583 ms
-  Total Simulation Time: 4.41592 ms
-  Average Iteration Time: 0.00441592 ms
-  Min/Max Iteration Time: 0.004083/0.048833 ms
-  Performance: 2.26454e+09 cell updates per second
+  Setup Time: 0.009209 ms
+  Total Simulation Time: 4.35767 ms
+  Average Iteration Time: 0.00435767 ms
+  Min/Max Iteration Time: 0.004083/0.018917 ms
+  Performance: 2.29481e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 9 of 10 ===
 Run 9 Results:
-  Setup Time: 0.010334 ms
-  Total Simulation Time: 4.247 ms
-  Average Iteration Time: 0.004247 ms
-  Min/Max Iteration Time: 0.004/0.023209 ms
-  Performance: 2.3546e+09 cell updates per second
+  Setup Time: 0.006292 ms
+  Total Simulation Time: 4.21758 ms
+  Average Iteration Time: 0.00421758 ms
+  Min/Max Iteration Time: 0.004/0.013709 ms
+  Performance: 2.37103e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
 === Run 10 of 10 ===
 Run 10 Results:
-  Setup Time: 0.009708 ms
-  Total Simulation Time: 4.39383 ms
-  Average Iteration Time: 0.00439383 ms
-  Min/Max Iteration Time: 0.004083/0.037292 ms
-  Performance: 2.27592e+09 cell updates per second
+  Setup Time: 0.00625 ms
+  Total Simulation Time: 4.23862 ms
+  Average Iteration Time: 0.00423863 ms
+  Min/Max Iteration Time: 0.004083/0.013333 ms
+  Performance: 2.35926e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203912
 
@@ -104,19 +104,19 @@ Grid Size: 100x100 (10000 cells)
 Iterations per Run: 1000
 
 Timing Statistics:
-  Average Setup Time: 0.0108083 ms (StdDev: 0.00930902 ms)
-  Average Total Simulation Time: 4.43858 ms (StdDev: 0.156641 ms)
-  Average Iteration Time: 0.00443858 ms (StdDev: 0.000156641 ms)
-  Average Min/Max Iteration Time: 0.004054/0.0380208 ms
+  Average Setup Time: 0.0111251 ms (StdDev: 0.00961239 ms)
+  Average Total Simulation Time: 4.36937 ms (StdDev: 0.10207 ms)
+  Average Iteration Time: 0.00436937 ms (StdDev: 0.00010207 ms)
+  Average Min/Max Iteration Time: 0.0040579/0.0241041 ms
 
 Performance Statistics:
-  Average Performance: 2.25563e+09 cell updates per second (StdDev: 7.52155e+07)
-  Best Run: Run 9 (4.247 ms)
-  Worst Run: Run 2 (4.8625 ms)
-  Coefficient of Variation: 3.52908%
+  Average Performance: 2.2899e+09 cell updates per second (StdDev: 5.3214e+07)
+  Best Run: Run 9 (4.21758 ms)
+  Worst Run: Run 2 (4.56037 ms)
+  Coefficient of Variation: 2.33604%
 
 Memory Usage:
-  Average Memory Increase: 25.6 KB
+  Average Memory Increase: 44.4 KB
 
 Numerical Stability:
   Checksum consistency: Stable

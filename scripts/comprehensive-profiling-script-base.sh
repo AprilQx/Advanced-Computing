@@ -57,7 +57,7 @@ for SIZE in 100 200 500 1000 2000; do
     
     # Reduce iterations for larger grids
     if [ $SIZE -gt 500 ]; then
-        ITER=50
+        ITER=100
     else 
         ITER=100
     fi

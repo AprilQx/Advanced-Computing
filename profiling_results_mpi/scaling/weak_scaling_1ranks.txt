@@ -1,35 +1,35 @@
-Running benchmark with grid size 0x1000 for 1000 iterations across 1 runs using 1 MPI ranks (no output)
+Running benchmark with grid size 500x500 for 100 iterations across 1 runs using 1 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 1x1 process grid for 1 processes
-Domain decomposition: Global size = 0x1000, Process grid = 1x1
-Rank 0 has local domain size 0x1000 starting at global position (0,0)
+Domain decomposition: Global size = 500x500, Process grid = 1x1
+Rank 0 has local domain size 500x500 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 0.174875 ms
-  Total Simulation Time: 0.143875 ms
-  Performance: 0 cell updates per second
-  Memory Usage Increase: 284 KB
-  Checksum: 0
+  Setup Time: 0.933208 ms
+  Total Simulation Time: 11.5137 ms
+  Performance: 2.17132e+09 cell updates per second
+  Memory Usage Increase: 4256 KB
+  Checksum: 5.00392e+06
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 0x1000 (0 cells)
-Iterations per Run: 1000
+Grid Size: 500x500 (250000 cells)
+Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 0.174875 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 0.143875 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.000143875 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 8.3e-05/0.000333 ms
+  Average Setup Time: 0.933208 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 11.5137 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.115137 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.1125/0.144125 ms
 
 Performance Statistics:
-  Average Performance: 0 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (0.143875 ms)
-  Worst Run: Run 1 (0.143875 ms)
+  Average Performance: 2.17132e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (11.5137 ms)
+  Worst Run: Run 1 (11.5137 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 284 KB
+  Average Memory Increase: 4256 KB
 
 Numerical Stability:
   Checksum consistency: Stable
