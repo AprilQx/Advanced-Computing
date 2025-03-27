@@ -88,7 +88,7 @@ fi
 
 
 #=====================
-# 3. Thread Scaling Tests
+# 2. Thread Scaling Tests
 #=====================
 echo -e "${BLUE}Running thread scaling tests...${NC}"
 
