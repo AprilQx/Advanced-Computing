@@ -1,35 +1,35 @@
-Running benchmark with grid size 1000x1000 for 100 iterations across 1 runs using 1 MPI ranks (no output)
+Running benchmark with grid size 0x1000 for 1000 iterations across 1 runs using 1 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 1x1 process grid for 1 processes
-Domain decomposition: Global size = 1000x1000, Process grid = 1x1
-Rank 0 has local domain size 1000x1000 starting at global position (0,0)
+Domain decomposition: Global size = 0x1000, Process grid = 1x1
+Rank 0 has local domain size 0x1000 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 3.03104 ms
-  Total Simulation Time: 47.9804 ms
-  Performance: 2.08419e+09 cell updates per second
-  Memory Usage Increase: 16000 KB
-  Checksum: 2.00039e+07
+  Setup Time: 0.174875 ms
+  Total Simulation Time: 0.143875 ms
+  Performance: 0 cell updates per second
+  Memory Usage Increase: 284 KB
+  Checksum: 0
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 1000x1000 (1000000 cells)
-Iterations per Run: 100
+Grid Size: 0x1000 (0 cells)
+Iterations per Run: 1000
 
 Timing Statistics:
-  Average Setup Time: 3.03104 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 47.9804 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.479804 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.438583/0.58525 ms
+  Average Setup Time: 0.174875 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 0.143875 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.000143875 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 8.3e-05/0.000333 ms
 
 Performance Statistics:
-  Average Performance: 2.08419e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (47.9804 ms)
-  Worst Run: Run 1 (47.9804 ms)
+  Average Performance: 0 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (0.143875 ms)
+  Worst Run: Run 1 (0.143875 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 16000 KB
+  Average Memory Increase: 284 KB
 
 Numerical Stability:
   Checksum consistency: Stable

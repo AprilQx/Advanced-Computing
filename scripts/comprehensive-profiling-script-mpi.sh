@@ -101,13 +101,14 @@ done
 echo -e "${YELLOW}Running weak scaling test...${NC}"
 for RANKS in 1 2 4 8 10; do
     BASE_SIZE=500
-    SIZE=$(($BASE_SIZE * $RANKS))  # Scale problem with ranks
-    
+    SIZE=$(echo "sqrt($BASE_SIZE * $BASE_SIZE * $THREADS)" | bc) # Scale problem with ranks
+    SIZE=${SIZE%.*} # Remove decimal part
+
     echo -e "Testing with ${RANKS} MPI ranks, grid size ${SIZE}x${SIZE}..."
     
     # Ensure we don't exceed available resources
     if [ $RANKS -le $(nproc) ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size $SIZE --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark ---width $SIZE --height $SIZE --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/weak_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds available processors)"
     fi

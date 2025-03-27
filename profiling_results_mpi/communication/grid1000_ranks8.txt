@@ -1,43 +1,43 @@
 
 === Run 1 of 1 ===
+Rank 3 has local domain size 500x250 starting at global position (500,250)
+Rank 3 neighbors: N=1, E=-2, S=5, W=2
 
 === Run 1 of 1 ===
+Rank 4 has local domain size 500x250 starting at global position (0,500)
+Rank 4 neighbors: N=2, E=5, S=6, W=-2
 
 === Run 1 of 1 ===
+Rank 5 has local domain size 500x250 starting at global position (500,500)
+Rank 5 neighbors: N=3, E=-2, S=7, W=4
+
+=== Run 1 of 1 ===
+Rank 6 has local domain size 500x250 starting at global position (0,750)
+Rank 6 neighbors: N=4, E=7, S=-2, W=-2
+
+=== Run 1 of 1 ===
+Rank 7 has local domain size 500x250 starting at global position (500,750)
+Rank 7 neighbors: N=5, E=-2, S=-2, W=6
 Running benchmark with grid size 1000x1000 for 100 iterations across 1 runs using 8 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 4x2 process grid for 8 processes
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
 Domain decomposition: Global size = 1000x1000, Process grid = 4x2
-Rank 7 has local domain size 500x250 starting at global position (500,750)
-Rank 7 neighbors: N=5, E=-2, S=-2, W=6
-Rank 3 has local domain size 500x250 starting at global position (500,250)
-Rank 3 neighbors: N=1, E=-2, S=5, W=2
-Rank 6 has local domain size 500x250 starting at global position (0,750)
-Rank 6 neighbors: N=4, E=7, S=-2, W=-2
-Rank 2 has local domain size 500x250 starting at global position (0,250)
-Rank 2 neighbors: N=0, E=3, S=4, W=-2
-Rank 4 has local domain size 500x250 starting at global position (0,500)
-Rank 4 neighbors: N=2, E=5, S=6, W=-2
-Rank 5 has local domain size 500x250 starting at global position (500,500)
-Rank 5 neighbors: N=3, E=-2, S=7, W=4
 Rank 0 has local domain size 500x250 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=1, S=2, W=-2
+
+=== Run 1 of 1 ===
 Rank 1 has local domain size 500x250 starting at global position (500,0)
 Rank 1 neighbors: N=-2, E=-2, S=3, W=0
+
+=== Run 1 of 1 ===
+Rank 2 has local domain size 500x250 starting at global position (0,250)
+Rank 2 neighbors: N=0, E=3, S=4, W=-2
 Run 1 Results:
-  Setup Time: 28.2732 ms
-  Total Simulation Time: 20.5584 ms
-  Performance: 4.8642e+09 cell updates per second
-  Memory Usage Increase: 2464 KB
+  Setup Time: 4.26658 ms
+  Total Simulation Time: 11.488 ms
+  Performance: 8.7047e+09 cell updates per second
+  Memory Usage Increase: 2488 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -45,19 +45,19 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 28.2732 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 20.5584 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.205584 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.0645/5.98275 ms
+  Average Setup Time: 4.26658 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 11.488 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.11488 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.063625/2.15525 ms
 
 Performance Statistics:
-  Average Performance: 4.8642e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (20.5584 ms)
-  Worst Run: Run 1 (20.5584 ms)
+  Average Performance: 8.7047e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (11.488 ms)
+  Worst Run: Run 1 (11.488 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 2464 KB
+  Average Memory Increase: 2488 KB
 
 Numerical Stability:
   Checksum consistency: Stable

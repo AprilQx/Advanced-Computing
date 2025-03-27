@@ -1,71 +1,71 @@
 
 === Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-Running benchmark with grid size 1000x1000 for 100 iterations across 1 runs using 10 MPI ranks (no output)
+Rank 9 has local domain size 0x200 starting at global position (0,800)
+Rank 9 neighbors: N=7, E=-2, S=-2, W=8
+Running benchmark with grid size 0x1000 for 1000 iterations across 1 runs using 10 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 5x2 process grid for 10 processes
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-Rank 6 has local domain size 500x200 starting at global position (0,600)
-Rank 6 neighbors: N=4, E=7, S=8, W=-2
-Rank 5 has local domain size 500x200 starting at global position (500,400)
-Rank 5 neighbors: N=3, E=-2, S=7, W=4
-Rank 8 has local domain size 500x200 starting at global position (0,800)
-Rank 8 neighbors: N=6, E=9, S=-2, W=-2
-Domain decomposition: Global size = 1000x1000, Process grid = 5x2
-Rank 0 has local domain size 500x200 starting at global position (0,0)
+Domain decomposition: Global size = 0x1000, Process grid = 5x2
+Rank 0 has local domain size 0x200 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=1, S=2, W=-2
-Rank 1 has local domain size 500x200 starting at global position (500,0)
+
+=== Run 1 of 1 ===
+Rank 1 has local domain size 0x200 starting at global position (0,0)
 Rank 1 neighbors: N=-2, E=-2, S=3, W=0
-Rank 2 has local domain size 500x200 starting at global position (0,200)
+
+=== Run 1 of 1 ===
+Rank 2 has local domain size 0x200 starting at global position (0,200)
 Rank 2 neighbors: N=0, E=3, S=4, W=-2
-Rank 3 has local domain size 500x200 starting at global position (500,200)
+
+=== Run 1 of 1 ===
+Rank 3 has local domain size 0x200 starting at global position (0,200)
 Rank 3 neighbors: N=1, E=-2, S=5, W=2
-Rank 9 has local domain size 500x200 starting at global position (500,800)
-Rank 9 neighbors: N=7, E=-2, S=-2, W=8
-Rank 4 has local domain size 500x200 starting at global position (0,400)
+
+=== Run 1 of 1 ===
+Rank 4 has local domain size 0x200 starting at global position (0,400)
 Rank 4 neighbors: N=2, E=5, S=6, W=-2
-Rank 7 has local domain size 500x200 starting at global position (500,600)
+
+=== Run 1 of 1 ===
+Rank 5 has local domain size 0x200 starting at global position (0,400)
+Rank 5 neighbors: N=3, E=-2, S=7, W=4
+
+=== Run 1 of 1 ===
+Rank 6 has local domain size 0x200 starting at global position (0,600)
+Rank 6 neighbors: N=4, E=7, S=8, W=-2
+
+=== Run 1 of 1 ===
+Rank 7 has local domain size 0x200 starting at global position (0,600)
 Rank 7 neighbors: N=5, E=-2, S=9, W=6
+
+=== Run 1 of 1 ===
+Rank 8 has local domain size 0x200 starting at global position (0,800)
+Rank 8 neighbors: N=6, E=9, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 12.5107 ms
-  Total Simulation Time: 32.5772 ms
-  Performance: 3.06963e+09 cell updates per second
-  Memory Usage Increase: 2132 KB
-  Checksum: 2.00039e+07
+  Setup Time: 2.45746 ms
+  Total Simulation Time: 5.06321 ms
+  Performance: 0 cell updates per second
+  Memory Usage Increase: 296 KB
+  Checksum: 0
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 1000x1000 (1000000 cells)
-Iterations per Run: 100
+Grid Size: 0x1000 (0 cells)
+Iterations per Run: 1000
 
 Timing Statistics:
-  Average Setup Time: 12.5107 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 32.5772 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.325773 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.051333/2.69621 ms
+  Average Setup Time: 2.45746 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 5.06321 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00506321 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.003458/0.26275 ms
 
 Performance Statistics:
-  Average Performance: 3.06963e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (32.5772 ms)
-  Worst Run: Run 1 (32.5772 ms)
+  Average Performance: 0 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (5.06321 ms)
+  Worst Run: Run 1 (5.06321 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 2132 KB
+  Average Memory Increase: 296 KB
 
 Numerical Stability:
   Checksum consistency: Stable

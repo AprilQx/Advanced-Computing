@@ -10,34 +10,34 @@
 === Run 1 of 1 ===
 
 === Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-Rank 4 has local domain size 500x250 starting at global position (0,500)
-Rank 4 neighbors: N=2, E=5, S=6, W=-2
-Rank 6 has local domain size 500x250 starting at global position (0,750)
-Rank 6 neighbors: N=4, E=7, S=-2, W=-2
-Rank 5 has local domain size 500x250 starting at global position (500,500)
-Rank 5 neighbors: N=3, E=-2, S=7, W=4
 Running benchmark with grid size 1000x1000 for 50 iterations across 1 runs using 8 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 4x2 process grid for 8 processes
-Domain decomposition: Global size = 1000x1000, Process grid = 4x2
-Rank 0 has local domain size 500x250 starting at global position (0,0)
-Rank 0 neighbors: N=-2, E=1, S=2, W=-2
-Rank 7 has local domain size 500x250 starting at global position (500,750)
-Rank 7 neighbors: N=5, E=-2, S=-2, W=6
-Rank 1 has local domain size 500x250 starting at global position (500,0)
-Rank 1 neighbors: N=-2, E=-2, S=3, W=0
+
+=== Run 1 of 1 ===
 Rank 2 has local domain size 500x250 starting at global position (0,250)
 Rank 2 neighbors: N=0, E=3, S=4, W=-2
 Rank 3 has local domain size 500x250 starting at global position (500,250)
 Rank 3 neighbors: N=1, E=-2, S=5, W=2
+Rank 4 has local domain size 500x250 starting at global position (0,500)
+Rank 4 neighbors: N=2, E=5, S=6, W=-2
+Rank 5 has local domain size 500x250 starting at global position (500,500)
+Rank 5 neighbors: N=3, E=-2, S=7, W=4
+Rank 6 has local domain size 500x250 starting at global position (0,750)
+Rank 6 neighbors: N=4, E=7, S=-2, W=-2
+Rank 1 has local domain size 500x250 starting at global position (500,0)
+Rank 1 neighbors: N=-2, E=-2, S=3, W=0
+Rank 7 has local domain size 500x250 starting at global position (500,750)
+Rank 7 neighbors: N=5, E=-2, S=-2, W=6
+Domain decomposition: Global size = 1000x1000, Process grid = 4x2
+Rank 0 has local domain size 500x250 starting at global position (0,0)
+Rank 0 neighbors: N=-2, E=1, S=2, W=-2
 Run 1 Results:
-  Setup Time: 8.158 ms
-  Total Simulation Time: 8.00242 ms
-  Performance: 6.24811e+09 cell updates per second
-  Memory Usage Increase: 2352 KB
+  Setup Time: 1.44367 ms
+  Total Simulation Time: 6.63283 ms
+  Performance: 7.53826e+09 cell updates per second
+  Memory Usage Increase: 2492 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -45,19 +45,19 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 50
 
 Timing Statistics:
-  Average Setup Time: 8.158 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 8.00242 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.160048 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.064583/2.17037 ms
+  Average Setup Time: 1.44367 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 6.63283 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.132657 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.063958/2.25325 ms
 
 Performance Statistics:
-  Average Performance: 6.24811e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (8.00242 ms)
-  Worst Run: Run 1 (8.00242 ms)
+  Average Performance: 7.53826e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (6.63283 ms)
+  Worst Run: Run 1 (6.63283 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 2352 KB
+  Average Memory Increase: 2492 KB
 
 Numerical Stability:
   Checksum consistency: Stable
