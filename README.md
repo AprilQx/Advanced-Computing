@@ -426,14 +426,56 @@ make -j$(nproc)
 ./heat_diffusion_optimized_v3 --width 500 --height 500
 
 # Run MPI simulations
+# Allow MPI to run as root in Docker
+export OMPI_ALLOW_RUN_AS_ROOT=1
+export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 mpirun -np 4 ./heat_diffusion_mpi --width 1000 --height 1000
 ```
 
-## Using csd3 for Development and Profiling
+## Using CSD3 for Development and Profiling
+Here's how to run the heat diffusion simulation scripts on CSD3.
+**Connecting to CSD3**
+```
+# Connect to CSD3 via SSH
+ssh username@login.hpc.cam.ac.uk
+```
+**Running Scripts on CSD3**
 
-unfinished!!!!
+Basic SLURM Job Submission:
+```
+sintr -A MPHIL-DIS-SL2-CPU  -t 01:00:00 -p icelake -N 1/2 #2 for hybrid case  
+```
 
+**Setting up the Environment**
 
+```
+# Clone the repository (if needed)
+git clone <repository-url>
+cd Coursework
+
+# Build the project
+mkdir -p build && cd build
+cmake ..
+make -j8
+```
+The project includes pre-configured SLURM scripts for CSD3:
+
+```
+# Submit the block size optimization job
+ ./scripts/block_size_optimizer.sh
+
+# Submit comprehensive profiling job
+./scripts/comprehensive-profiling-script.sh
+
+# Submit OpenMP-specific profiling job
+./scripts/comprehensive-profiling-script-openmp.sh
+
+# Submit MPI-specific profiling job
+./scripts/comprehensive-profiling-script-mpi.sh
+
+#runall scripts
+./runall-scripts.sh
+```
 
 
 ## Documentation with Doxygen
