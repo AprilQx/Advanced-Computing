@@ -8,20 +8,20 @@ Creating a 2x2 process grid for 4 processes
 === Run 1 of 1 ===
 
 === Run 1 of 1 ===
+Rank 3 has local domain size 500x500 starting at global position (500,500)
+Rank 3 neighbors: N=1, E=-2, S=-2, W=2
 Domain decomposition: Global size = 1000x1000, Process grid = 2x2
 Rank 0 has local domain size 500x500 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=1, S=2, W=-2
-Rank 1 has local domain size 500x500 starting at global position (500,0)
-Rank 1 neighbors: N=-2, E=-2, S=3, W=0
 Rank 2 has local domain size 500x500 starting at global position (0,500)
 Rank 2 neighbors: N=0, E=3, S=-2, W=-2
-Rank 3 has local domain size 500x500 starting at global position (500,500)
-Rank 3 neighbors: N=1, E=-2, S=-2, W=2
+Rank 1 has local domain size 500x500 starting at global position (500,0)
+Rank 1 neighbors: N=-2, E=-2, S=3, W=0
 Run 1 Results:
-  Setup Time: 2.06967 ms
-  Total Simulation Time: 15.6058 ms
-  Performance: 6.40789e+09 cell updates per second
-  Memory Usage Increase: 4456 KB
+  Setup Time: 2.71842 ms
+  Total Simulation Time: 18.4207 ms
+  Performance: 5.42869e+09 cell updates per second
+  Memory Usage Increase: 4404 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -29,19 +29,19 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 2.06967 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 15.6058 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.156058 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.121125/0.297166 ms
+  Average Setup Time: 2.71842 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 18.4207 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.184207 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.130083/0.417458 ms
 
 Performance Statistics:
-  Average Performance: 6.40789e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (15.6058 ms)
-  Worst Run: Run 1 (15.6058 ms)
+  Average Performance: 5.42869e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (18.4207 ms)
+  Worst Run: Run 1 (18.4207 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 4456 KB
+  Average Memory Increase: 4404 KB
 
 Numerical Stability:
   Checksum consistency: Stable

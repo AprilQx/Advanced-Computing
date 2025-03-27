@@ -1,35 +1,35 @@
-Running benchmark with grid size 500x500 for 100 iterations across 1 runs using 1 MPI ranks (no output)
+Running benchmark with grid size 1000x1000 for 50 iterations across 1 runs using 1 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 1x1 process grid for 1 processes
-Domain decomposition: Global size = 500x500, Process grid = 1x1
-Rank 0 has local domain size 500x500 starting at global position (0,0)
+Domain decomposition: Global size = 1000x1000, Process grid = 1x1
+Rank 0 has local domain size 1000x1000 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 1.10204 ms
-  Total Simulation Time: 11.9028 ms
-  Performance: 2.10035e+09 cell updates per second
-  Memory Usage Increase: 4268 KB
-  Checksum: 5.00392e+06
+  Setup Time: 9.85017 ms
+  Total Simulation Time: 23.1208 ms
+  Performance: 2.16255e+09 cell updates per second
+  Memory Usage Increase: 15972 KB
+  Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 500x500 (250000 cells)
-Iterations per Run: 100
+Grid Size: 1000x1000 (1000000 cells)
+Iterations per Run: 50
 
 Timing Statistics:
-  Average Setup Time: 1.10204 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 11.9028 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.119028 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.112667/0.168375 ms
+  Average Setup Time: 9.85017 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 23.1208 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.462417 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.437458/0.597083 ms
 
 Performance Statistics:
-  Average Performance: 2.10035e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (11.9028 ms)
-  Worst Run: Run 1 (11.9028 ms)
+  Average Performance: 2.16255e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (23.1208 ms)
+  Worst Run: Run 1 (23.1208 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 4268 KB
+  Average Memory Increase: 15972 KB
 
 Numerical Stability:
   Checksum consistency: Stable

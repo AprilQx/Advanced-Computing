@@ -103,9 +103,9 @@ for SIZE in 100 200 500 1000; do
     
     # Adjust iterations for larger grids
     if [ $SIZE -gt 500 ]; then
-        ITER=100
+        ITER=1000
     else 
-        ITER=100
+        ITER=1000
     fi
     
     # Measure time and output

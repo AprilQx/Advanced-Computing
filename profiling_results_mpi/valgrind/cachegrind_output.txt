@@ -1,13 +1,13 @@
-==950== Cachegrind, a cache and branch-prediction profiler
-==950== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
-==950== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==950== Command: mpirun -n 1 ./heat_diffusion_mpi_benchmark --height 100 --width 100 --iterations 100 --runs 1
-==950== 
---950-- Warning: Cannot auto-detect cache config, using defaults.
---950--          Run with -v to see.
-==950== Warning: noted but unhandled ioctl 0x5441 with no size/direction hints.
-==950==    This could cause spurious value errors to appear.
-==950==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
+==2993== Cachegrind, a cache and branch-prediction profiler
+==2993== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==2993== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2993== Command: mpirun -n 1 ./heat_diffusion_mpi_benchmark --height 100 --width 100 --iterations 100 --runs 1
+==2993== 
+--2993-- Warning: Cannot auto-detect cache config, using defaults.
+--2993--          Run with -v to see.
+==2993== Warning: noted but unhandled ioctl 0x5441 with no size/direction hints.
+==2993==    This could cause spurious value errors to appear.
+==2993==    See README_MISSING_SYSCALL_OR_IOCTL for guidance on writing a proper wrapper.
 Running benchmark with grid size 100x100 for 100 iterations across 1 runs using 1 MPI ranks (no output)
 
 === Run 1 of 1 ===
@@ -16,9 +16,9 @@ Domain decomposition: Global size = 100x100, Process grid = 1x1
 Rank 0 has local domain size 100x100 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 1.91654 ms
-  Total Simulation Time: 0.60025 ms
-  Performance: 1.66597e+09 cell updates per second
+  Setup Time: 0.193958 ms
+  Total Simulation Time: 0.453125 ms
+  Performance: 2.2069e+09 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203920
 
@@ -27,15 +27,15 @@ Grid Size: 100x100 (10000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 1.91654 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 0.60025 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.0060025 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.004541/0.101 ms
+  Average Setup Time: 0.193958 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 0.453125 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.00453125 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.004416/0.004958 ms
 
 Performance Statistics:
-  Average Performance: 1.66597e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (0.60025 ms)
-  Worst Run: Run 1 (0.60025 ms)
+  Average Performance: 2.2069e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (0.453125 ms)
+  Worst Run: Run 1 (0.453125 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
@@ -43,19 +43,19 @@ Memory Usage:
 
 Numerical Stability:
   Checksum consistency: Stable
-==950== 
-==950== I   refs:      71,181,186
-==950== I1  misses:       293,992
-==950== LLi misses:        39,378
-==950== I1  miss rate:       0.41%
-==950== LLi miss rate:       0.06%
-==950== 
-==950== D   refs:      25,710,708  (16,945,539 rd   + 8,765,169 wr)
-==950== D1  misses:     1,676,178  ( 1,297,371 rd   +   378,807 wr)
-==950== LLd misses:       591,232  (   271,295 rd   +   319,937 wr)
-==950== D1  miss rate:        6.5% (       7.7%     +       4.3%  )
-==950== LLd miss rate:        2.3% (       1.6%     +       3.7%  )
-==950== 
-==950== LL refs:        1,970,170  ( 1,591,363 rd   +   378,807 wr)
-==950== LL misses:        630,610  (   310,673 rd   +   319,937 wr)
-==950== LL miss rate:         0.7% (       0.4%     +       3.7%  )
+==2993== 
+==2993== I   refs:      71,174,981
+==2993== I1  misses:       293,846
+==2993== LLi misses:        39,364
+==2993== I1  miss rate:       0.41%
+==2993== LLi miss rate:       0.06%
+==2993== 
+==2993== D   refs:      25,709,206  (16,944,483 rd   + 8,764,723 wr)
+==2993== D1  misses:     1,675,607  ( 1,296,905 rd   +   378,702 wr)
+==2993== LLd misses:       591,221  (   271,280 rd   +   319,941 wr)
+==2993== D1  miss rate:        6.5% (       7.7%     +       4.3%  )
+==2993== LLd miss rate:        2.3% (       1.6%     +       3.7%  )
+==2993== 
+==2993== LL refs:        1,969,453  ( 1,590,751 rd   +   378,702 wr)
+==2993== LL misses:        630,585  (   310,644 rd   +   319,941 wr)
+==2993== LL miss rate:         0.7% (       0.4%     +       3.7%  )

@@ -86,12 +86,12 @@ make -j4
 
 # MPI scaling test
 echo -e "${YELLOW}Running strong scaling test...${NC}"
-for RANKS in 1 2 4 8 16; do
+for RANKS in 1 2 4 8 10; do
     echo -e "Testing with ${RANKS} MPI ranks..."
     
     # Ensure we don't exceed available resources
     if [ $RANKS -le $(nproc) ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --height 500 --width 500 --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --height 1000 --width 1000 --iterations 50 --runs 1 > ../profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds available processors)"
     fi
@@ -99,8 +99,8 @@ done
 
 # Weak scaling test (increase problem size with number of ranks)
 echo -e "${YELLOW}Running weak scaling test...${NC}"
-for RANKS in 1 2 4 8 16; do
-    BASE_SIZE=100
+for RANKS in 1 2 4 8 10; do
+    BASE_SIZE=500
     SIZE=$(($BASE_SIZE * $RANKS))  # Scale problem with ranks
     
     echo -e "Testing with ${RANKS} MPI ranks, grid size ${SIZE}x${SIZE}..."

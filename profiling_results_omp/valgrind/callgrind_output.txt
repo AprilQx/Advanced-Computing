@@ -1,9 +1,9 @@
-==1309== Callgrind, a call-graph generating cache profiler
-==1309== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
-==1309== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1309== Command: ./heat_diffusion_openmp_benchmark --width 200 --height 200 --frames 5 --runs 1
-==1309== 
-==1309== For interactive control, run 'callgrind_control -h'.
+==3352== Callgrind, a call-graph generating cache profiler
+==3352== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==3352== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3352== Command: ./heat_diffusion_openmp_benchmark --width 200 --height 200 --frames 5 --runs 1
+==3352== 
+==3352== For interactive control, run 'callgrind_control -h'.
 OMP_NUM_THREADS environment variable: 1
 Running benchmark with grid size 200x200 for 5 iterations across 1 runs (no output)
 System has 1 OpenMP threads available
@@ -11,13 +11,13 @@ System has 1 OpenMP threads available
 === Run 1 of 1 ===
 OpenMP initialized with 1 threads
 Using 1 OpenMP threads for this run
-Iteration 0 completed in 1.55904 ms
+Iteration 0 completed in 1.349 ms
 Run 1 Results:
-  Setup Time: 4.75654 ms
-  Total Simulation Time: 7.15008 ms
-  Average Iteration Time: 1.43002 ms
-  Min/Max Iteration Time: 0.445042/1.55904 ms
-  Performance: 2.79717e+07 cell updates per second
+  Setup Time: 4.73175 ms
+  Total Simulation Time: 7.55533 ms
+  Average Iteration Time: 1.51107 ms
+  Min/Max Iteration Time: 0.397167/1.349 ms
+  Performance: 2.64714e+07 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 803920
 
@@ -26,15 +26,15 @@ Grid Size: 200x200 (40000 cells)
 Iterations per Run: 5
 
 Timing Statistics:
-  Average Setup Time: 4.75654 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 7.15008 ms (StdDev: 0 ms)
-  Average Iteration Time: 1.43002 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.445042/1.55904 ms
+  Average Setup Time: 4.73175 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 7.55533 ms (StdDev: 0 ms)
+  Average Iteration Time: 1.51107 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.397167/1.349 ms
 
 Performance Statistics:
-  Average Performance: 2.79717e+07 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (7.15008 ms)
-  Worst Run: Run 1 (7.15008 ms)
+  Average Performance: 2.64714e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (7.55533 ms)
+  Worst Run: Run 1 (7.55533 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
@@ -42,8 +42,8 @@ Memory Usage:
 
 Numerical Stability:
   Checksum consistency: Stable
-==1309== 
-==1309== Events    : Ir
-==1309== Collected : 3862595
-==1309== 
-==1309== I   refs:      3,862,595
+==3352== 
+==3352== Events    : Ir
+==3352== Collected : 3862742
+==3352== 
+==3352== I   refs:      3,862,742

@@ -1,44 +1,60 @@
 --------------------------------------------------------------------------------
-Profile data file 'callgrind.out.3308' (creator: callgrind-3.18.1)
+Profile data file 'callgrind.out.1320' (creator: callgrind-3.18.1)
 --------------------------------------------------------------------------------
 I1 cache: 
 D1 cache: 
 LL cache: 
-Timerange: Basic block 0 - 517211246
+Timerange: Basic block 0 - 5943508
 Trigger: Program termination
-Profiled target:  ./heat_diffusion_benchmark --size 100 --iterations 100 (PID 3308, part 1)
+Profiled target:  ./heat_diffusion_benchmark --height 100 --width 100 --iterations 100 (PID 1320, part 1)
 Events recorded:  Ir
 Events shown:     Ir
 Event sort order: Ir
 Thresholds:       99
 Include dirs:     
-User annotated:   callgrind.out.5528
-                  callgrind.out.4418
-                  callgrind.out.6637
+User annotated:   
 Auto-annotation:  on
 
 --------------------------------------------------------------------------------
-Ir                     
+Ir                  
 --------------------------------------------------------------------------------
-7,085,162,605 (100.0%)  PROGRAM TOTALS
+74,584,351 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
-Ir                      file:function
+Ir                   file:function
 --------------------------------------------------------------------------------
-7,044,091,451 (99.42%)  ???:_mcount@@GLIBC_2.18
+70,819,451 (94.95%)  ???:_mcount@@GLIBC_2.18
+   493,915 ( 0.66%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   484,126 ( 0.65%)  ./elf/./elf/dl-lookup.c:do_lookup_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   260,044 ( 0.35%)  ./malloc/./malloc/malloc.c:_int_malloc'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+   246,491 ( 0.33%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/aarch64-linux-gnu/libc.so.6]
+   187,926 ( 0.25%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   154,895 ( 0.21%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   150,449 ( 0.20%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy [/usr/lib/aarch64-linux-gnu/libc.so.6]
+   144,488 ( 0.19%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memmove [/usr/lib/aarch64-linux-gnu/libc.so.6]
+   108,075 ( 0.14%)  ./elf/./elf/dl-lookup.c:check_match [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    87,705 ( 0.12%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    84,436 ( 0.11%)  ???:operator new(unsigned long)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    76,595 ( 0.10%)  ???:std::chrono::_V2::system_clock::now()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    74,662 ( 0.10%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    74,571 ( 0.10%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    66,688 ( 0.09%)  ./elf/./elf/do-rel.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    64,497 ( 0.09%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    63,240 ( 0.08%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_lookup_symbol_x'2
+    59,795 ( 0.08%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    56,508 ( 0.08%)  ./malloc/./malloc/malloc.c:free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    54,378 ( 0.07%)  ./stdio-common/./stdio-common/printf_fp.c:__printf_fp_l'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    48,731 ( 0.07%)  ./malloc/./malloc/malloc.c:_int_free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
 
 --------------------------------------------------------------------------------
--- User-annotated source: callgrind.out.5528
+The following files chosen for auto-annotation could not be found:
 --------------------------------------------------------------------------------
-  No information has been collected for callgrind.out.5528
-
---------------------------------------------------------------------------------
--- User-annotated source: callgrind.out.6637
---------------------------------------------------------------------------------
-  No information has been collected for callgrind.out.6637
-
---------------------------------------------------------------------------------
--- User-annotated source: callgrind.out.4418
---------------------------------------------------------------------------------
-  No information has been collected for callgrind.out.4418
+  ./elf/../sysdeps/aarch64/dl-machine.h
+  ./elf/./elf/dl-lookup.c
+  ./elf/./elf/do-rel.h
+  ./gmon/../gmon/mcount.c
+  ./malloc/./malloc/malloc.c
+  ./stdio-common/./stdio-common/printf_fp.c
+  ./string/../sysdeps/aarch64/multiarch/../memcpy.S
+  ./string/../sysdeps/aarch64/strcmp.S
 

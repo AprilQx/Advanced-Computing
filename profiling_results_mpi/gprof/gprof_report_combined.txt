@@ -5,12 +5,12 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00      201     0.00     0.00  OptimizedHeatDiffusionMPI::exchangeHalos()
+  0.00      0.00     0.00      101     0.00     0.00  OptimizedHeatDiffusionMPI::exchangeHalos()
   0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusionMPI::update()
-  0.00      0.00     0.00       19     0.00     0.00  frame_dummy
   0.00      0.00     0.00        7     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
   0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
   0.00      0.00     0.00        2     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        2     0.00     0.00  frame_dummy
   0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::getChecksum()
   0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::initMPI()
   0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool)
@@ -56,16 +56,16 @@ notice and this notice are preserved.
 granularity: each sample hit covers 4 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00      19/19          main [7]
-[1]      0.0    0.00    0.00      19         frame_dummy [1]
+                0.00    0.00       2/2           main [7]
+[1]      0.0    0.00    0.00       2         frame_dummy [1]
 -----------------------------------------------
-                0.00    0.00       1/201         OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
-                0.00    0.00     200/201         OptimizedHeatDiffusionMPI::update() [10]
-[9]      0.0    0.00    0.00     201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
+                0.00    0.00       1/101         OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
+                0.00    0.00     100/101         OptimizedHeatDiffusionMPI::update() [10]
+[9]      0.0    0.00    0.00     101         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
                 0.00    0.00     100/100         main [7]
 [10]     0.0    0.00    0.00     100         OptimizedHeatDiffusionMPI::update() [10]
-                0.00    0.00     200/201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
+                0.00    0.00     100/101         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
                 0.00    0.00       7/7           main [7]
 [11]     0.0    0.00    0.00       7         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [11]
@@ -85,7 +85,7 @@ index % time    self  children    called     name
                 0.00    0.00       1/1           main [7]
 [16]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::OptimizedHeatDiffusionMPI(int, int, double, bool) [16]
                 0.00    0.00       1/1           OptimizedHeatDiffusionMPI::initMPI() [15]
-                0.00    0.00       1/201         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
+                0.00    0.00       1/101         OptimizedHeatDiffusionMPI::exchangeHalos() [9]
 -----------------------------------------------
                 0.00    0.00       1/1           main [7]
 [17]     0.0    0.00    0.00       1         OptimizedHeatDiffusionMPI::~OptimizedHeatDiffusionMPI() [17]
