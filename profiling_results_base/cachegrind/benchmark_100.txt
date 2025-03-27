@@ -1,0 +1,55 @@
+==6612== Cachegrind, a cache and branch-prediction profiler
+==6612== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==6612== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==6612== Command: ./heat_diffusion_benchmark --height 100 --width 100 --iterations 100 --runs 1
+==6612== 
+--6612-- Warning: Cannot auto-detect cache config, using defaults.
+--6612--          Run with -v to see.
+
+=== Run 1 of 1 ===
+Run 1 Results:
+  Setup Time: 3.43858 ms
+  Total Simulation Time: 37.8477 ms
+  Average Iteration Time: 0.378477 ms
+  Min/Max Iteration Time: 0.35675/1.23696 ms
+  Performance: 2.64216e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.43858 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 37.8477 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.378477 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.35675/1.23696 ms
+
+Performance Statistics:
+  Average Performance: 2.64216e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (37.8477 ms)
+  Worst Run: Run 1 (37.8477 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 0 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+==6612== 
+==6612== I   refs:      9,204,794
+==6612== I1  misses:        4,654
+==6612== LLi misses:        2,154
+==6612== I1  miss rate:      0.05%
+==6612== LLi miss rate:      0.02%
+==6612== 
+==6612== D   refs:      3,810,847  (3,065,938 rd   + 744,909 wr)
+==6612== D1  misses:      289,311  (  157,605 rd   + 131,706 wr)
+==6612== LLd misses:       13,992  (    9,020 rd   +   4,972 wr)
+==6612== D1  miss rate:       7.6% (      5.1%     +    17.7%  )
+==6612== LLd miss rate:       0.4% (      0.3%     +     0.7%  )
+==6612== 
+==6612== LL refs:         293,965  (  162,259 rd   + 131,706 wr)
+==6612== LL misses:        16,146  (   11,174 rd   +   4,972 wr)
+==6612== LL miss rate:        0.1% (      0.1%     +     0.7%  )

@@ -1,0 +1,1 @@
+=== Cache statistics for 2000x2000 grid ===

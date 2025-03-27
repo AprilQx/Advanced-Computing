@@ -23,36 +23,6 @@ Each sample counts as 0.01 seconds.
  %         the percentage of the total running time of the
 time       program used by this function.
 
-Cache statistics (cachegrind):
-
 Memory usage (massif):
 
-Performance by grid size:
-Grid size 100x100:
-  Average Iteration Time: 0.387567 ms
-  Average Iteration Time: 0.387567 ms (StdDev: 0 ms)
-  Performance: 2.5802e+07 cell updates per second
-  Average Performance: 2.5802e+07 cell updates per second (StdDev: 0)
-Memory Usage:
-
-Grid size 200x200:
-  Average Iteration Time: 1.61075 ms
-  Average Iteration Time: 1.61075 ms (StdDev: 0 ms)
-  Performance: 2.48331e+07 cell updates per second
-  Average Performance: 2.48331e+07 cell updates per second (StdDev: 0)
-Memory Usage:
-
-Grid size 500x500:
-  Average Iteration Time: 9.36875 ms
-  Average Iteration Time: 9.36875 ms (StdDev: 0 ms)
-  Performance: 2.66845e+07 cell updates per second
-  Average Performance: 2.66845e+07 cell updates per second (StdDev: 0)
-Memory Usage:
-
-Grid size 1000x1000:
-  Average Iteration Time: 40.327 ms
-  Average Iteration Time: 40.327 ms (StdDev: 0 ms)
-  Performance: 2.47973e+07 cell updates per second
-  Average Performance: 2.47973e+07 cell updates per second (StdDev: 0)
-Memory Usage:
-
+Performance by grid size can be found in the cachegrind and valgrind directories.

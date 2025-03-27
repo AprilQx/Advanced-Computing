@@ -142,9 +142,10 @@
          auto totalStart = std::chrono::high_resolution_clock::now();
          
          for (int i = 0; i < iterations; i++) {
+
              auto iterStart = std::chrono::high_resolution_clock::now();
              simulation.update();
-             auto iterEnd = std::chrono::high_resolution_clock::now();
+             auto iterEnd =std::chrono::high_resolution_clock::now();
              
              double iterTime = std::chrono::duration<double, std::milli>(iterEnd - iterStart).count();
              iterationTimes.push_back(iterTime);
@@ -153,8 +154,7 @@
             //      std::cout << "Iteration " << i << " completed in " << iterTime << " ms" << std::endl;
             //  }
          }
-         
-         auto totalEnd = std::chrono::high_resolution_clock::now();
+         auto totalEnd =std::chrono::high_resolution_clock::now();
          
          // Calculate timing statistics
          double totalSimTime = std::chrono::duration<double, std::milli>(totalEnd - totalStart).count();

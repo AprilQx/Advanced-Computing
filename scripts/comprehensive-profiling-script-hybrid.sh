@@ -95,7 +95,7 @@ mkdir -p ../profiling_results_hybrid/gprof
 
 # Run with small grid for quick profiling - 2 MPI ranks, 2 threads per rank
 export OMP_NUM_THREADS=2
-mpirun -n 2 ./heat_diffusion_benchmark_hybrid --size 500 --iterations 50 --runs 1 --threads 2
+mpirun -n 2 ./heat_diffusion_benchmark_hybrid --width 500 --height 500 --iterations 50 --runs 1 --threads 2
 
 # Look for all possible gmon output variations
 echo -e "${YELLOW}Looking for gprof data files...${NC}"
@@ -158,7 +158,7 @@ for COMBO in "${COMBINATIONS[@]}"; do
     echo -e "Testing with ${PROCS} processes and ${THREADS} threads per process (total cores: $((PROCS*THREADS)))..."
     
     export OMP_NUM_THREADS=$THREADS
-    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --height 1000 --width 1000 --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/process_thread_balance/procs${PROCS}_threads${THREADS}.txt 2>&1
     
     # Check if the run was successful
@@ -194,7 +194,7 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
         echo -e "Running strong scaling test with ${PROCS} processes and ${THREADS} threads per process..."
         
         export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --height 1000 --width 1000 --iterations 50 --runs 1 --threads $THREADS > \
             ../profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
         
         # Check if the run was successful
@@ -227,7 +227,7 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
         echo -e "Running weak scaling test with ${PROCS} processes, ${THREADS} threads, grid size ${SIZE}x${SIZE}..."
         
         export OMP_NUM_THREADS=$THREADS
-        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size $SIZE --iterations 50 --runs 1 --threads $THREADS > \
+        mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --height $SIZE --width $SIZE --iterations 50 --runs 1 --threads $THREADS > \
             ../profiling_results_hybrid/scaling/weak_p${PROCS}_t${THREADS}.txt 2>&1
         
         # Check if the run was successful
@@ -263,7 +263,7 @@ for BIND in "${OMP_BINDING_TYPES[@]}"; do
     export OMP_NUM_THREADS=$THREADS
     export OMP_PROC_BIND=$BIND
     
-    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size 1000 --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --height 1000 --width 1000 --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/affinity/bind_${BIND}.txt 2>&1
     
     # Check if the run was successful
@@ -282,7 +282,7 @@ echo -e "${BLUE}Running Valgrind on a single MPI rank with multiple threads...${
 
 # Note: Running valgrind with MPI+OpenMP can be tricky - we'll run on just one rank
 export OMP_NUM_THREADS=4
-valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_benchmark_hybrid --size 200 --iterations 10 --runs 1 --threads 4 > \
+valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_benchmark_hybrid --height 200 --width 200 --iterations 10 --runs 1 --threads 4 > \
     ../profiling_results_hybrid/valgrind/cachegrind_output.txt 2>&1
 
 # Find the cachegrind output file
@@ -305,7 +305,7 @@ for GRID_SIZE in 200 500 1000; do
     THREADS=2
     
     export OMP_NUM_THREADS=$THREADS
-    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --size $GRID_SIZE --iterations 50 --runs 1 --threads $THREADS > \
+    mpirun -n $PROCS ./heat_diffusion_benchmark_hybrid --height $GRID_SIZE --width $GRID_SIZE --iterations 50 --runs 1 --threads $THREADS > \
         ../profiling_results_hybrid/communication/grid${GRID_SIZE}_p${PROCS}_t${THREADS}.txt 2>&1
     
     # Check if the run was successful

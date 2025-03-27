@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------
+I1 cache:         16384 B, 64 B, 4-way associative
+D1 cache:         16384 B, 64 B, 4-way associative
+LL cache:         262144 B, 64 B, 8-way associative
+Command:          ./heat_diffusion_benchmark --height 100 --width 100 --iterations 100 --runs 1
+Data file:        cachegrind.out.6612
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                 I1mr           ILmr           Dr                 D1mr             DLmr           Dw               D1mw             DLmw           
+--------------------------------------------------------------------------------
+9,204,794 (100.0%) 4,654 (100.0%) 2,154 (100.0%) 3,065,938 (100.0%) 157,605 (100.0%) 9,020 (100.0%) 744,909 (100.0%) 131,706 (100.0%) 4,972 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                 I1mr         ILmr         Dr                 D1mr             DLmr           Dw               D1mw             DLmw            file:function
+--------------------------------------------------------------------------------
+7,042,600 (76.51%)   8 ( 0.17%)   8 ( 0.37%) 2,451,700 (79.97%) 135,300 (85.85%)     1 ( 0.01%) 481,600 (64.65%) 124,999 (94.91%)     0           ???:HeatDiffusion::update()
+  593,865 ( 6.45%)  21 ( 0.45%)  18 ( 0.84%)   158,564 ( 5.17%)   2,255 ( 1.43%) 1,782 (19.76%)  58,449 ( 7.85%)      37 ( 0.03%)     8 ( 0.16%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x
+  560,594 ( 6.09%)  71 ( 1.53%)  55 ( 2.55%)   188,043 ( 6.13%)   5,707 ( 3.62%) 1,126 (12.48%)  88,311 (11.86%)     108 ( 0.08%)    58 ( 1.17%)  ./elf/./elf/dl-lookup.c:do_lookup_x
+  251,857 ( 2.74%)  33 ( 0.71%)  33 ( 1.53%)    52,730 ( 1.72%)   3,747 ( 2.38%) 3,280 (36.36%)  17,995 ( 2.42%)   1,899 ( 1.44%)   961 (19.33%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object
+  124,292 ( 1.35%)  21 ( 0.45%)  10 ( 0.46%)    17,032 ( 0.56%)     385 ( 0.24%)   158 ( 1.75%)       0                0              0           ./string/../sysdeps/aarch64/strcmp.S:strcmp
+  108,078 ( 1.17%)  18 ( 0.39%)  11 ( 0.51%)    40,379 ( 1.32%)     572 ( 0.36%)   346 ( 3.84%)  15,675 ( 2.10%)      30 ( 0.02%)     6 ( 0.12%)  ./elf/./elf/dl-lookup.c:check_match
+   69,032 ( 0.75%)   8 ( 0.17%)   8 ( 0.37%)    17,256 ( 0.56%)   2,314 ( 1.47%) 1,116 (12.37%)   6,881 ( 0.92%)       0              0           ./elf/./elf/do-rel.h:_dl_relocate_object
+   40,815 ( 0.44%)   2 ( 0.04%)   2 ( 0.09%)    10,205 ( 0.33%)   1,315 ( 0.83%)     0                3 ( 0.00%)       0              0           ???:HeatDiffusion::getChecksum() const
+   30,833 ( 0.33%)  58 ( 1.25%)  23 ( 1.07%)     5,411 ( 0.18%)      32 ( 0.02%)     1 ( 0.01%)   5,612 ( 0.75%)     211 ( 0.16%)   208 ( 4.18%)  ./malloc/./malloc/malloc.c:_int_malloc
+   30,032 ( 0.33%)  14 ( 0.30%)   6 ( 0.28%)    21,650 ( 0.71%)   1,307 ( 0.83%)    15 ( 0.17%)  21,650 ( 2.91%)   2,343 ( 1.78%) 2,339 (47.04%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy
+   29,233 ( 0.32%)  43 ( 0.92%)  23 ( 1.07%)     8,597 ( 0.28%)     268 ( 0.17%)     2 ( 0.02%)   4,370 ( 0.59%)       1 ( 0.00%)     0           ./malloc/./malloc/malloc.c:_int_free
+   17,934 ( 0.19%) 511 (10.98%) 250 (11.61%)     4,621 ( 0.15%)     630 ( 0.40%)    58 ( 0.64%)   1,240 ( 0.17%)      29 ( 0.02%)    21 ( 0.42%)  ???:???
+   14,558 ( 0.16%) 460 ( 9.88%)  73 ( 3.39%)     2,831 ( 0.09%)      21 ( 0.01%)     7 ( 0.08%)   1,626 ( 0.22%)      21 ( 0.02%)    10 ( 0.20%)  ./stdio-common/./stdio-common/printf_fp.c:__printf_fp_l
+   13,912 ( 0.15%)   0            0              9,436 ( 0.31%)       0              0                0                0              0           ./elf/../sysdeps/generic/ldsodefs.h:do_lookup_x
+   12,443 ( 0.14%)   0            0              5,599 ( 0.18%)       3 ( 0.00%)     1 ( 0.01%)       0                0              0           ./elf/../sysdeps/generic/ldsodefs.h:_dl_relocate_object
+   10,968 ( 0.12%)  48 ( 1.03%)   8 ( 0.37%)     3,552 ( 0.12%)     526 ( 0.33%)    13 ( 0.14%)   2,287 ( 0.31%)     124 ( 0.09%)    10 ( 0.20%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18
+   10,496 ( 0.11%)   7 ( 0.15%)   7 ( 0.32%)     2,112 ( 0.07%)       8 ( 0.01%)     0              384 ( 0.05%)       0              0           ???:std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+   10,467 ( 0.11%)  18 ( 0.39%)   7 ( 0.32%)     2,992 ( 0.10%)      18 ( 0.01%)     1 ( 0.01%)   1,501 ( 0.20%)       0              0           ./malloc/./malloc/malloc.c:malloc
+    9,433 ( 0.10%)  12 ( 0.26%)  12 ( 0.56%)     3,085 ( 0.10%)     189 ( 0.12%)   137 ( 1.52%)     388 ( 0.05%)      19 ( 0.01%)     1 ( 0.02%)  ./gmon/./gmon/gmon.c:write_gmon
+    9,344 ( 0.10%)   5 ( 0.11%)   5 ( 0.23%)     3,456 ( 0.11%)       4 ( 0.00%)     4 ( 0.04%)   1,408 ( 0.19%)       0              0           ./wcsmbs/./wcsmbs/btowc.c:btowc
+    9,244 ( 0.10%)  24 ( 0.52%)  14 ( 0.65%)     3,632 ( 0.12%)     471 ( 0.30%)   197 ( 2.18%)   1,044 ( 0.14%)       5 ( 0.00%)     2 ( 0.04%)  ./elf/./elf/dl-runtime.c:_dl_fixup
+
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./elf/../sysdeps/aarch64/dl-machine.h
+  ./elf/../sysdeps/generic/ldsodefs.h
+  ./elf/./elf/dl-lookup.c
+  ./elf/./elf/dl-runtime.c
+  ./elf/./elf/do-rel.h
+  ./gmon/../gmon/mcount.c
+  ./gmon/./gmon/gmon.c
+  ./malloc/./malloc/malloc.c
+  ./stdio-common/./stdio-common/printf_fp.c
+  ./string/../sysdeps/aarch64/multiarch/../memcpy.S
+  ./string/../sysdeps/aarch64/strcmp.S
+  ./wcsmbs/./wcsmbs/btowc.c
+

@@ -1,18 +1,18 @@
-==7112== Cachegrind, a cache and branch-prediction profiler
-==7112== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
-==7112== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==7112== Command: ./heat_diffusion_optimized_benchmark_v2 --size 200 --iterations 100 --runs 1
-==7112== 
---7112-- Warning: Cannot auto-detect cache config, using defaults.
---7112--          Run with -v to see.
+==9769== Cachegrind, a cache and branch-prediction profiler
+==9769== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==9769== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==9769== Command: ./heat_diffusion_optimized_benchmark_v2 --height 200 --width 200 --iterations 100 --runs 1
+==9769== 
+--9769-- Warning: Cannot auto-detect cache config, using defaults.
+--9769--          Run with -v to see.
 
 === Run 1 of 1 ===
 Run 1 Results:
-  Setup Time: 2.67571 ms
-  Total Simulation Time: 161.075 ms
-  Average Iteration Time: 1.61075 ms
-  Min/Max Iteration Time: 1.48121/3.95825 ms
-  Performance: 2.48331e+07 cell updates per second
+  Setup Time: 2.56842 ms
+  Total Simulation Time: 155.232 ms
+  Average Iteration Time: 1.55232 ms
+  Min/Max Iteration Time: 1.47808/2.52183 ms
+  Performance: 2.57679e+07 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 803920
 
@@ -21,15 +21,15 @@ Grid Size: 200x200 (40000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 2.67571 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 161.075 ms (StdDev: 0 ms)
-  Average Iteration Time: 1.61075 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 1.48121/3.95825 ms
+  Average Setup Time: 2.56842 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 155.232 ms (StdDev: 0 ms)
+  Average Iteration Time: 1.55232 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 1.47808/2.52183 ms
 
 Performance Statistics:
-  Average Performance: 2.48331e+07 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (161.075 ms)
-  Worst Run: Run 1 (161.075 ms)
+  Average Performance: 2.57679e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (155.232 ms)
+  Worst Run: Run 1 (155.232 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
@@ -37,19 +37,30 @@ Memory Usage:
 
 Numerical Stability:
   Checksum consistency: Stable
-==7112== 
-==7112== I   refs:      30,312,019
-==7112== I1  misses:         4,637
-==7112== LLi misses:         2,248
-==7112== I1  miss rate:       0.02%
-==7112== LLi miss rate:       0.01%
-==7112== 
-==7112== D   refs:      12,671,432  (10,442,080 rd   + 2,229,352 wr)
-==7112== D1  misses:     1,033,785  (   524,595 rd   +   509,190 wr)
-==7112== LLd misses:     1,024,144  (   516,106 rd   +   508,038 wr)
-==7112== D1  miss rate:        8.2% (       5.0%     +      22.8%  )
-==7112== LLd miss rate:        8.1% (       4.9%     +      22.8%  )
-==7112== 
-==7112== LL refs:        1,038,422  (   529,232 rd   +   509,190 wr)
-==7112== LL misses:      1,026,392  (   518,354 rd   +   508,038 wr)
-==7112== LL miss rate:         2.4% (       1.3%     +      22.8%  )
+==9769== 
+==9769== Process terminating with default action of signal 27 (SIGPROF)
+==9769==    at 0x4C3CDBC: __open_nocancel (open64_nocancel.c:39)
+==9769==    by 0x4C48E7F: write_gmon (gmon.c:370)
+==9769==    by 0x4C494FB: _mcleanup (gmon.c:444)
+==9769==    by 0x4B9D387: __cxa_finalize (cxa_finalize.c:83)
+==9769==    by 0x10B9CF: ??? (in /app/build/heat_diffusion_optimized_benchmark_v2)
+==9769==    by 0x4005397: _dl_fini (dl-fini.c:142)
+==9769==    by 0x4B9CDE7: __run_exit_handlers (exit.c:113)
+==9769==    by 0x4B9CF0B: exit (exit.c:143)
+==9769==    by 0x4B873FF: (below main) (libc_start_call_main.h:74)
+==9769== 
+==9769== I   refs:      30,297,278
+==9769== I1  misses:         4,496
+==9769== LLi misses:         2,128
+==9769== I1  miss rate:       0.01%
+==9769== LLi miss rate:       0.01%
+==9769== 
+==9769== D   refs:      12,665,285  (10,437,148 rd   + 2,228,137 wr)
+==9769== D1  misses:     1,033,213  (   524,052 rd   +   509,161 wr)
+==9769== LLd misses:     1,023,810  (   515,763 rd   +   508,047 wr)
+==9769== D1  miss rate:        8.2% (       5.0%     +      22.9%  )
+==9769== LLd miss rate:        8.1% (       4.9%     +      22.8%  )
+==9769== 
+==9769== LL refs:        1,037,709  (   528,548 rd   +   509,161 wr)
+==9769== LL misses:      1,025,938  (   517,891 rd   +   508,047 wr)
+==9769== LL miss rate:         2.4% (       1.3%     +      22.8%  )

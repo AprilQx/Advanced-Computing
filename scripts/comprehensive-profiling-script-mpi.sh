@@ -49,7 +49,7 @@ fi
 echo -e "${BLUE}Running gprof profiling...${NC}"
 
 # Run with small grid for quick profiling
-mpirun -n 4 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1
+mpirun -n 4 ./heat_diffusion_mpi_benchmark --height 100 --width 100 --iterations 100 --runs 1
 
 # Generate gprof report for each rank
 echo -e "${YELLOW}Looking for gprof data files...${NC}"
@@ -91,7 +91,7 @@ for RANKS in 1 2 4 8 16; do
     
     # Ensure we don't exceed available resources
     if [ $RANKS -le $(nproc) ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 500 --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --height 500 --width 500 --iterations 100 --runs 1 > ../profiling_results_mpi/scaling/strong_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds available processors)"
     fi
@@ -129,7 +129,7 @@ for GRID_SIZE in 100 400 1000; do
         # Check if we have enough processors
         if [ $PROCS -le $(nproc) ]; then
             echo -e "Running with ${PROCS} ranks on ${GRID_SIZE}x${GRID_SIZE} grid..."
-            mpirun -n $PROCS ./heat_diffusion_mpi_benchmark --size $GRID_SIZE --iterations 100 --runs 1 > \
+            mpirun -n $PROCS ./heat_diffusion_mpi_benchmark --height $GRID_SIZE --width $GRID_SIZE --iterations 100 --runs 1 > \
                 ../profiling_results_mpi/communication/grid${GRID_SIZE}_ranks${PROCS}.txt
         fi
     done
@@ -141,7 +141,7 @@ done
 echo -e "${BLUE}Running Valgrind on a single MPI rank...${NC}"
 
 # Note: Running valgrind with MPI can be tricky - we'll run on just one rank
-valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_mpi_benchmark --size 100 --iterations 100 --runs 1 > ../profiling_results_mpi/valgrind/cachegrind_output.txt 2>&1
+valgrind --tool=cachegrind mpirun -n 1 ./heat_diffusion_mpi_benchmark --height 100 --width 100 --iterations 100 --runs 1 > ../profiling_results_mpi/valgrind/cachegrind_output.txt 2>&1
 
 # Find the cachegrind output file
 CACHEGRIND_FILE=$(ls cachegrind.out.*)
