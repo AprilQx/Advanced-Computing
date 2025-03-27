@@ -7,10 +7,10 @@ Domain decomposition: Global size = 500x500, Process grid = 1x1
 Rank 0 has local domain size 500x500 starting at global position (0,0)
 OpenMP initialized with 1 threads per MPI rank
 Run 1 Results:
-  Setup Time: 1.13363 ms
-  Total Simulation Time: 14.8291 ms
-  Performance: 8.42936e+08 cell updates per second
-  Memory Usage Increase: 4128 KB
+  Setup Time: 1.00388 ms
+  Total Simulation Time: 15.2805 ms
+  Performance: 8.18034e+08 cell updates per second
+  Memory Usage Increase: 4124 KB
   Checksum: 5.00392e+06
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -19,24 +19,24 @@ Iterations per Run: 50
 Parallel Configuration: 1 MPI ranks × 1 OpenMP threads = 1 total parallel units
 
 Timing Statistics:
-  Average Setup Time: 1.13363 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 14.8291 ms (StdDev: 0 ms)
+  Average Setup Time: 1.00388 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 15.2805 ms (StdDev: 0 ms)
 
 Performance Statistics:
-  Average Performance: 842.94 million cell updates per second (StdDev: 0.00)
-  Cell updates per second per parallel unit: 842.94 million
-  Best Run: Run 1 (14.83 ms)
-  Worst Run: Run 1 (14.83 ms)
+  Average Performance: 818.03 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 818.03 million
+  Best Run: Run 1 (15.28 ms)
+  Worst Run: Run 1 (15.28 ms)
   Coefficient of Variation: 0.00%
 
 Memory Usage:
-  Average Memory Increase: 4128.00 KB
-  Average Memory Per Rank: 4128.00 KB
+  Average Memory Increase: 4124.00 KB
+  Average Memory Per Rank: 4124.00 KB
 
 Numerical Stability:
   Checksum consistency: Stable
   Final checksum: 5003920.00
 
 CSV Format (for data collection):
-grid_size,iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
-500,50,1,1,1,14.83,0.00,842.94,4128.00,5003920.00
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+500,500,50,1,1,1,15.28,0.00,818.03,4124.00,5003920.00

@@ -1,37 +1,43 @@
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
 Running benchmark with grid size 500x500 for 100 iterations across 1 runs using 8 MPI ranks (no output)
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
 
 === Run 1 of 1 ===
 Creating a 4x2 process grid for 8 processes
 
 === Run 1 of 1 ===
-Rank 7 has local domain size 250x125 starting at global position (250,375)
-Rank 7 neighbors: N=5, E=-2, S=-2, W=6
-Rank 5 has local domain size 250x125 starting at global position (250,250)
-Rank 5 neighbors: N=3, E=-2, S=7, W=4
-Rank 1 has local domain size 250x125 starting at global position (250,0)
-Rank 1 neighbors: N=-2, E=-2, S=3, W=0
-Rank 2 has local domain size 250x125 starting at global position (0,125)
-Rank 2 neighbors: N=0, E=3, S=4, W=-2
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
 Domain decomposition: Global size = 500x500, Process grid = 4x2
 Rank 0 has local domain size 250x125 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=1, S=2, W=-2
+Rank 7 has local domain size 250x125 starting at global position (250,375)
+Rank 7 neighbors: N=5, E=-2, S=-2, W=6
+Rank 1 has local domain size 250x125 starting at global position (250,0)
+Rank 1 neighbors: N=-2, E=-2, S=3, W=0
+
+=== Run 1 of 1 ===
+Rank 4 has local domain size 250x125 starting at global position (0,250)
+Rank 4 neighbors: N=2, E=5, S=6, W=-2
+Rank 3 has local domain size 250x125 starting at global position (250,125)
+Rank 3 neighbors: N=1, E=-2, S=5, W=2
+Rank 5 has local domain size 250x125 starting at global position (250,250)
+Rank 5 neighbors: N=3, E=-2, S=7, W=4
+Rank 6 has local domain size 250x125 starting at global position (0,375)
+Rank 6 neighbors: N=4, E=7, S=-2, W=-2
+Rank 2 has local domain size 250x125 starting at global position (0,125)
+Rank 2 neighbors: N=0, E=3, S=4, W=-2
 Run 1 Results:
-  Setup Time: 0.635875 ms
-  Total Simulation Time: 5.88746 ms
-  Performance: 4.24631e+09 cell updates per second
-  Memory Usage Increase: 1060 KB
+  Setup Time: 3.55863 ms
+  Total Simulation Time: 2.2505 ms
+  Performance: 1.11086e+10 cell updates per second
+  Memory Usage Increase: 1096 KB
   Checksum: 5.00392e+06
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -39,25 +45,19 @@ Grid Size: 500x500 (250000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 0.635875 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 5.88746 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.0588746 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.017708/0.835083 ms
+  Average Setup Time: 3.55863 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 2.2505 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.022505 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.017708/0.072375 ms
 
 Performance Statistics:
-  Average Performance: 4.24631e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (5.88746 ms)
-  Worst Run: Run 1 (5.88746 ms)
+  Average Performance: 1.11086e+10 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (2.2505 ms)
+  Worst Run: Run 1 (2.2505 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 1060 KB
+  Average Memory Increase: 1096 KB
 
 Numerical Stability:
   Checksum consistency: Stable
-Rank 3 has local domain size 250x125 starting at global position (250,125)
-Rank 3 neighbors: N=1, E=-2, S=5, W=2
-Rank 6 has local domain size 250x125 starting at global position (0,375)
-Rank 6 neighbors: N=4, E=7, S=-2, W=-2
-Rank 4 has local domain size 250x125 starting at global position (0,250)
-Rank 4 neighbors: N=2, E=5, S=6, W=-2

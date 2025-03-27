@@ -6,13 +6,13 @@ System has 1 OpenMP threads available
 === Run 1 of 1 ===
 OpenMP initialized with 1 threads
 Using 1 OpenMP threads for this run
-Iteration 0 completed in 0.12125 ms
+Iteration 0 completed in 0.124583 ms
 Run 1 Results:
-  Setup Time: 0.817459 ms
-  Total Simulation Time: 6.75333 ms
-  Average Iteration Time: 0.135067 ms
-  Min/Max Iteration Time: 0.115958/0.296791 ms
-  Performance: 1.85094e+09 cell updates per second
+  Setup Time: 1.00737 ms
+  Total Simulation Time: 6.69813 ms
+  Average Iteration Time: 0.133963 ms
+  Min/Max Iteration Time: 0.1115/0.225375 ms
+  Performance: 1.86619e+09 cell updates per second
   Memory Usage Increase: 3968 KB
   Checksum: 5.00392e+06
 
@@ -21,15 +21,15 @@ Grid Size: 500x500 (250000 cells)
 Iterations per Run: 50
 
 Timing Statistics:
-  Average Setup Time: 0.817459 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 6.75333 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.135067 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.115958/0.296791 ms
+  Average Setup Time: 1.00737 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 6.69813 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.133963 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.1115/0.225375 ms
 
 Performance Statistics:
-  Average Performance: 1.85094e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (6.75333 ms)
-  Worst Run: Run 1 (6.75333 ms)
+  Average Performance: 1.86619e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (6.69813 ms)
+  Worst Run: Run 1 (6.69813 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:

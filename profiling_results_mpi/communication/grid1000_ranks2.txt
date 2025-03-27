@@ -1,19 +1,19 @@
-
-=== Run 1 of 1 ===
 Running benchmark with grid size 1000x1000 for 100 iterations across 1 runs using 2 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 2x1 process grid for 2 processes
-Rank 1 has local domain size 1000x500 starting at global position (0,500)
-Rank 1 neighbors: N=0, E=-2, S=-2, W=-2
+
+=== Run 1 of 1 ===
 Domain decomposition: Global size = 1000x1000, Process grid = 2x1
 Rank 0 has local domain size 1000x500 starting at global position (0,0)
 Rank 0 neighbors: N=-2, E=-2, S=1, W=-2
+Rank 1 has local domain size 1000x500 starting at global position (0,500)
+Rank 1 neighbors: N=0, E=-2, S=-2, W=-2
 Run 1 Results:
-  Setup Time: 1.85508 ms
-  Total Simulation Time: 26.9309 ms
-  Performance: 3.7132e+09 cell updates per second
-  Memory Usage Increase: 8380 KB
+  Setup Time: 1.47625 ms
+  Total Simulation Time: 26.581 ms
+  Performance: 3.76208e+09 cell updates per second
+  Memory Usage Increase: 8192 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -21,19 +21,19 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 1.85508 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 26.9309 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.269309 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.215166/0.367041 ms
+  Average Setup Time: 1.47625 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 26.581 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.26581 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.250417/0.343625 ms
 
 Performance Statistics:
-  Average Performance: 3.7132e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (26.9309 ms)
-  Worst Run: Run 1 (26.9309 ms)
+  Average Performance: 3.76208e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (26.581 ms)
+  Worst Run: Run 1 (26.581 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 8380 KB
+  Average Memory Increase: 8192 KB
 
 Numerical Stability:
   Checksum consistency: Stable

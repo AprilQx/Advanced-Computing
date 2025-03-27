@@ -1,21 +1,19 @@
 Flat profile:
 
 Each sample counts as 0.01 seconds.
- no time accumulated
-
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00      102     0.00     0.00  HybridHeatDiffusion2D::exchangeHalos()
-  0.00      0.00     0.00       50     0.00     0.00  HybridHeatDiffusion2D::update()
-  0.00      0.00     0.00       18     0.00     0.00  frame_dummy
-  0.00      0.00     0.00        8     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
-  0.00      0.00     0.00        6     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
-  0.00      0.00     0.00        2     0.00     0.00  HybridHeatDiffusion2D::setupOpenMP()
-  0.00      0.00     0.00        2     0.00     0.00  HybridHeatDiffusion2D::initMPI()
-  0.00      0.00     0.00        2     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::getChecksum()
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int)
-  0.00      0.00     0.00        1     0.00     0.00  HybridHeatDiffusion2D::~HybridHeatDiffusion2D()
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+100.00      0.01     0.01        2     5.00     5.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+  0.00      0.01     0.00      102     0.00     0.00  HybridHeatDiffusion2D::exchangeHalos()
+  0.00      0.01     0.00       50     0.00     0.00  HybridHeatDiffusion2D::update()
+  0.00      0.01     0.00       18     0.00     0.00  frame_dummy
+  0.00      0.01     0.00        8     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  0.00      0.01     0.00        6     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.01     0.00        2     0.00     0.00  HybridHeatDiffusion2D::setupOpenMP()
+  0.00      0.01     0.00        2     0.00     0.00  HybridHeatDiffusion2D::initMPI()
+  0.00      0.01     0.00        1     0.00     0.00  HybridHeatDiffusion2D::getChecksum()
+  0.00      0.01     0.00        1     0.00     0.00  HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int)
+  0.00      0.01     0.00        1     0.00     0.00  HybridHeatDiffusion2D::~HybridHeatDiffusion2D()
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -53,45 +51,56 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) no time propagated
+granularity: each sample hit covers 4 byte(s) for 100.00% of 0.01 seconds
 
 index % time    self  children    called     name
-                0.00    0.00      18/18          main [8]
-[1]      0.0    0.00    0.00      18         frame_dummy [1]
+                                                 <spontaneous>
+[1]    100.0    0.00    0.01                 main [1]
+                0.01    0.00       2/2           void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [2]
+                0.00    0.00      50/50          HybridHeatDiffusion2D::update() [12]
+                0.00    0.00      18/18          frame_dummy [3]
+                0.00    0.00       8/8           void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [13]
+                0.00    0.00       6/6           int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [14]
+                0.00    0.00       1/1           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
+                0.00    0.00       1/1           HybridHeatDiffusion2D::getChecksum() [17]
+                0.00    0.00       1/1           HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [19]
+-----------------------------------------------
+                0.01    0.00       2/2           main [1]
+[2]    100.0    0.01    0.00       2         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [2]
+-----------------------------------------------
+                0.00    0.00      18/18          main [1]
+[3]      0.0    0.00    0.00      18         frame_dummy [3]
 -----------------------------------------------
                 0.00    0.00       2/102         HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-                0.00    0.00     100/102         HybridHeatDiffusion2D::update() [11]
-[10]     0.0    0.00    0.00     102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00     100/102         HybridHeatDiffusion2D::update() [12]
+[11]     0.0    0.00    0.00     102         HybridHeatDiffusion2D::exchangeHalos() [11]
 -----------------------------------------------
-                0.00    0.00      50/50          main [8]
-[11]     0.0    0.00    0.00      50         HybridHeatDiffusion2D::update() [11]
-                0.00    0.00     100/102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00      50/50          main [1]
+[12]     0.0    0.00    0.00      50         HybridHeatDiffusion2D::update() [12]
+                0.00    0.00     100/102         HybridHeatDiffusion2D::exchangeHalos() [11]
 -----------------------------------------------
-                0.00    0.00       8/8           main [8]
-[12]     0.0    0.00    0.00       8         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [12]
+                0.00    0.00       8/8           main [1]
+[13]     0.0    0.00    0.00       8         void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&) [13]
 -----------------------------------------------
-                0.00    0.00       6/6           main [8]
-[13]     0.0    0.00    0.00       6         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [13]
------------------------------------------------
-                0.00    0.00       2/2           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-[14]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::setupOpenMP() [14]
+                0.00    0.00       6/6           main [1]
+[14]     0.0    0.00    0.00       6         int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int) [14]
 -----------------------------------------------
                 0.00    0.00       2/2           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-[15]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::initMPI() [15]
+[15]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::setupOpenMP() [15]
 -----------------------------------------------
-                0.00    0.00       2/2           main [8]
-[16]     0.0    0.00    0.00       2         void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&) [16]
+                0.00    0.00       2/2           HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
+[16]     0.0    0.00    0.00       2         HybridHeatDiffusion2D::initMPI() [16]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
+                0.00    0.00       1/1           main [1]
 [17]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::getChecksum() [17]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
+                0.00    0.00       1/1           main [1]
 [18]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [18]
-                0.00    0.00       2/2           HybridHeatDiffusion2D::setupOpenMP() [14]
-                0.00    0.00       2/2           HybridHeatDiffusion2D::initMPI() [15]
-                0.00    0.00       2/102         HybridHeatDiffusion2D::exchangeHalos() [10]
+                0.00    0.00       2/2           HybridHeatDiffusion2D::setupOpenMP() [15]
+                0.00    0.00       2/2           HybridHeatDiffusion2D::initMPI() [16]
+                0.00    0.00       2/102         HybridHeatDiffusion2D::exchangeHalos() [11]
 -----------------------------------------------
-                0.00    0.00       1/1           main [8]
+                0.00    0.00       1/1           main [1]
 [19]     0.0    0.00    0.00       1         HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [19]
 -----------------------------------------------
 
@@ -185,7 +194,7 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [17] HybridHeatDiffusion2D::getChecksum() [15] HybridHeatDiffusion2D::initMPI() [12] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
-  [14] HybridHeatDiffusion2D::setupOpenMP() [18] HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [16] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
-  [10] HybridHeatDiffusion2D::exchangeHalos() [19] HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [1] frame_dummy
-  [11] HybridHeatDiffusion2D::update() [13] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  [17] HybridHeatDiffusion2D::getChecksum() [16] HybridHeatDiffusion2D::initMPI() [13] void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  [15] HybridHeatDiffusion2D::setupOpenMP() [18] HybridHeatDiffusion2D::HybridHeatDiffusion2D(int, int, double, bool, int) [2] void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+  [11] HybridHeatDiffusion2D::exchangeHalos() [19] HybridHeatDiffusion2D::~HybridHeatDiffusion2D() [3] frame_dummy
+  [12] HybridHeatDiffusion2D::update() [14] int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)

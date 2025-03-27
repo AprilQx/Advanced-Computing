@@ -1,65 +1,315 @@
 --------------------------------------------------------------------------------
-Profile data file 'callgrind.out.1620' (creator: callgrind-3.18.1)
+Profile data file 'callgrind.out.1309' (creator: callgrind-3.18.1)
 --------------------------------------------------------------------------------
 I1 cache: 
 D1 cache: 
 LL cache: 
-Timerange: Basic block 0 - 5943386
+Timerange: Basic block 0 - 626339
 Trigger: Program termination
-Profiled target:  ./heat_diffusion_benchmark --size 100 --iterations 100 (PID 1620, part 1)
+Profiled target:  ./heat_diffusion_openmp_benchmark --width 200 --height 200 --frames 5 --runs 1 (PID 1309, part 1)
 Events recorded:  Ir
 Events shown:     Ir
 Event sort order: Ir
 Thresholds:       99
 Include dirs:     
-User annotated:   callgrind.out.2542
+User annotated:   
 Auto-annotation:  on
 
 --------------------------------------------------------------------------------
-Ir                  
+Ir                 
 --------------------------------------------------------------------------------
-74,583,615 (100.0%)  PROGRAM TOTALS
+3,862,535 (100.0%)  PROGRAM TOTALS
 
 --------------------------------------------------------------------------------
-Ir                   file:function
+Ir                  file:function
 --------------------------------------------------------------------------------
-70,819,451 (94.95%)  ???:_mcount@@GLIBC_2.18
-   493,915 ( 0.66%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-   484,126 ( 0.65%)  ./elf/./elf/dl-lookup.c:do_lookup_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-   260,044 ( 0.35%)  ./malloc/./malloc/malloc.c:_int_malloc'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
-   246,491 ( 0.33%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/aarch64-linux-gnu/libc.so.6]
-   187,926 ( 0.25%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-   154,895 ( 0.21%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-   150,518 ( 0.20%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy [/usr/lib/aarch64-linux-gnu/libc.so.6]
-   144,488 ( 0.19%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memmove [/usr/lib/aarch64-linux-gnu/libc.so.6]
-   108,075 ( 0.14%)  ./elf/./elf/dl-lookup.c:check_match [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-    87,705 ( 0.12%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
-    84,436 ( 0.11%)  ???:operator new(unsigned long)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
-    76,615 ( 0.10%)  ???:std::chrono::_V2::system_clock::now()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
-    74,662 ( 0.10%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
-    74,571 ( 0.10%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
-    66,688 ( 0.09%)  ./elf/./elf/do-rel.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-    64,497 ( 0.09%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-    63,240 ( 0.08%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_lookup_symbol_x'2
-    59,795 ( 0.08%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
-    56,508 ( 0.08%)  ./malloc/./malloc/malloc.c:free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
-    53,871 ( 0.07%)  ./stdio-common/./stdio-common/printf_fp.c:__printf_fp_l'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
-    48,731 ( 0.07%)  ./malloc/./malloc/malloc.c:_int_free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
-
---------------------------------------------------------------------------------
--- User-annotated source: callgrind.out.2542
---------------------------------------------------------------------------------
-  No information has been collected for callgrind.out.2542
+1,398,385 (36.20%)  ???:OpenMPHeatDiffusion2D::update() [clone ._omp_fn.0] [/app/build/heat_diffusion_openmp_benchmark]
+  584,213 (15.13%)  ./elf/./elf/dl-lookup.c:do_lookup_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+  496,219 (12.85%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+  190,223 ( 4.92%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+  162,663 ( 4.21%)  ???:OpenMPHeatDiffusion2D::getChecksum() const [clone ._omp_fn.0] [/app/build/heat_diffusion_openmp_benchmark]
+  158,031 ( 4.09%)  ./elf/./elf/dl-lookup.c:do_lookup_x [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+  121,550 ( 3.15%)  ???:std::ostream::flush()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+  110,482 ( 2.86%)  ./elf/./elf/dl-lookup.c:check_match [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   67,982 ( 1.76%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   67,539 ( 1.75%)  ./elf/./elf/do-rel.h:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   65,230 ( 1.69%)  ./string/../sysdeps/aarch64/strcmp.S:strcmp'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   63,673 ( 1.65%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_lookup_symbol_x'2
+   24,103 ( 0.62%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+   16,554 ( 0.43%)  ./elf/../sysdeps/generic/ldsodefs.h:do_lookup_x'2
+   12,485 ( 0.32%)  ./elf/../sysdeps/generic/ldsodefs.h:_dl_relocate_object'2
+   11,245 ( 0.29%)  ???:std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+   10,569 ( 0.27%)  ./stdio-common/./stdio-common/printf_fp.c:__printf_fp_l'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    9,759 ( 0.25%)  ./elf/./elf/dl-version.c:_dl_check_map_versions'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    9,291 ( 0.24%)  ./gmon/./gmon/gmon.c:write_gmon'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    7,504 ( 0.19%)  ./elf/./elf/dl-runtime.c:_dl_fixup [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    6,277 ( 0.16%)  ./libio/./libio/iofwrite.c:fwrite [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    6,144 ( 0.16%)  ./wcsmbs/./wcsmbs/btowc.c:btowc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    5,961 ( 0.15%)  ./elf/./elf/dl-tunables.c:__GI___tunables_init'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    5,339 ( 0.14%)  ???:std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    4,858 ( 0.13%)  ./stdlib/./stdlib/mul_1.c:__mpn_mul_1 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    4,641 ( 0.12%)  ./libio/./libio/fileops.c:_IO_file_xsputn@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    4,564 ( 0.12%)  ./elf/../sysdeps/generic/dl-protected.h:do_lookup_x'2
+    4,530 ( 0.12%)  ./elf/./elf/dl-load.c:open_verify.constprop.0'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    4,521 ( 0.12%)  ./stdio-common/./stdio-common/vfprintf-internal.c:__vfprintf_internal [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    4,131 ( 0.11%)  ???:std::ctype<wchar_t>::_M_initialize_ctype()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    4,129 ( 0.11%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    4,102 ( 0.11%)  ./stdio-common/./stdio-common/vfprintf-internal.c:__vfprintf_internal'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,979 ( 0.10%)  ./elf/./elf/dl-misc.c:_dl_name_match_p [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    3,713 ( 0.10%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,686 ( 0.10%)  ???:std::ostream::sentry::sentry(std::ostream&) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    3,574 ( 0.09%)  ./stdio-common/./stdio-common/printf_fp.c:hack_digit [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,357 ( 0.09%)  ./malloc/./malloc/malloc.c:_int_malloc'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,321 ( 0.09%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:memcpy [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    3,280 ( 0.08%)  ./elf/./elf/dl-cache.c:_dl_cache_libcmp [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    3,200 ( 0.08%)  ./wcsmbs/./wcsmbs/btowc.c:btowc'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,156 ( 0.08%)  ./elf/./elf/dl-runtime.c:_dl_lookup_symbol_x
+    3,109 ( 0.08%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,072 ( 0.08%)  ./wcsmbs/./wcsmbs/wctob.c:wctob [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    3,002 ( 0.08%)  ./elf/./elf/dl-load.c:open_path'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    2,948 ( 0.08%)  ./stdio-common/./stdio-common/printf_fp.c:__printf_fp_l [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    2,858 ( 0.07%)  ./libio/./libio/genops.c:_IO_default_xsputn'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    2,676 ( 0.07%)  ???:0x0000000000124a50 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    2,420 ( 0.06%)  ./string/../sysdeps/aarch64/multiarch/../strlen.S:__GI_strlen [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    2,347 ( 0.06%)  ./elf/./elf/dl-load.c:_dl_map_object [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    2,344 ( 0.06%)  ./string/../sysdeps/aarch64/memset.S:calloc
+    2,312 ( 0.06%)  ./stdlib/../stdlib/strtol_l.c:____strtoul_l_internal'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    2,308 ( 0.06%)  ./libio/./libio/libioP.h:fwrite
+    2,306 ( 0.06%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    2,271 ( 0.06%)  ./elf/./elf/dl-load.c:_dl_map_object_from_fd'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    2,138 ( 0.06%)  ./elf/./elf/do-rel.h:_dl_lookup_symbol_x'2
+    2,018 ( 0.05%)  ???:std::locale::id::_M_id() const [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,967 ( 0.05%)  ./elf/./elf/dl-deps.c:_dl_map_object_deps'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,912 ( 0.05%)  ./stdlib/./stdlib/getenv.c:getenv'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,886 ( 0.05%)  ./libio/./libio/iofflush.c:fflush [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,789 ( 0.05%)  ???:__aarch64_cas4_acq [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,752 ( 0.05%)  ???:__aarch64_swp4_rel [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,725 ( 0.04%)  ./stdlib/./stdlib/getenv.c:getenv [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,693 ( 0.04%)  ./io/../sysdeps/unix/sysv/linux/open64_nocancel.c:__open_nocancel [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,692 ( 0.04%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,642 ( 0.04%)  ???:std::ostream::put(char)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,636 ( 0.04%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,584 ( 0.04%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_fixup
+    1,584 ( 0.04%)  ./string/../sysdeps/aarch64/strchrnul.S:strchrnul [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,499 ( 0.04%)  ./string/../sysdeps/aarch64/strncmp.S:strncmp [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,376 ( 0.04%)  ./libio/./libio/fileops.c:new_do_write [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,292 ( 0.03%)  ./malloc/./malloc/malloc.c:_int_free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,259 ( 0.03%)  ???:0x00000000000f6170 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,210 ( 0.03%)  ./libio/./libio/genops.c:_IO_link_in [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,199 ( 0.03%)  ???:std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,169 ( 0.03%)  ./elf/./elf/dl-minimal-malloc.c:__minimal_malloc [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,163 ( 0.03%)  ./elf/./elf/dl-object.c:_dl_new_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,155 ( 0.03%)  ./libio/./libio/genops.c:__GI__IO_un_link.part.0 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,152 ( 0.03%)  ./wcsmbs/./wcsmbsload.h:btowc
+    1,150 ( 0.03%)  ./locale/./locale/uselocale.c:uselocale [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,132 ( 0.03%)  ./libio/./libio/genops.c:_IO_setb [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,121 ( 0.03%)  ???:std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_float<double>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, char, double) const'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,106 ( 0.03%)  ./elf/./elf/dl-load.c:open_verify.constprop.0 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,092 ( 0.03%)  ./stdio-common/./stdio-common/printf_fp.c:hack_digit'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,089 ( 0.03%)  ???:std::ostream& std::ostream::_M_insert<double>(double)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,080 ( 0.03%)  ./elf/./elf/dl-runtime.c:_dl_fixup'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+    1,078 ( 0.03%)  ???:std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_float<double>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, char, double) const [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,071 ( 0.03%)  ./string/../sysdeps/aarch64/strchr.S:index [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,069 ( 0.03%)  ./wctype/./wctype/wctype_l.c:wctype_l'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+    1,067 ( 0.03%)  ./stdio-common/./stdio-common/vfprintf-internal.c:_IO_default_xsputn'2
+    1,049 ( 0.03%)  ???:__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::xsputn(char const*, long) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+    1,025 ( 0.03%)  ./dirent/../sysdeps/unix/sysv/linux/readdir64.c:readdir'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      984 ( 0.03%)  ???:__cxa_finalize
+      982 ( 0.03%)  ./string/../sysdeps/aarch64/multiarch/../strlen.S:strlen [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      978 ( 0.03%)  ???:OpenMPHeatDiffusion2D::OpenMPHeatDiffusion2D(int, int, double, bool, int) [clone ._omp_fn.1]'2 [/app/build/heat_diffusion_openmp_benchmark]
+      959 ( 0.02%)  ./libio/./libio/iogetdelim.c:getdelim'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      918 ( 0.02%)  ???:std::ostream& std::ostream::_M_insert<long>(long)'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      905 ( 0.02%)  ./elf/./elf/dl-cache.c:search_cache'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      900 ( 0.02%)  ./elf/./elf/dl-tunables.h:__GI___tunables_init'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      891 ( 0.02%)  ./libio/./libio/genops.c:_IO_old_init [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      884 ( 0.02%)  ./elf/./dl-map-segments.h:_dl_map_object_from_fd'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      880 ( 0.02%)  ???:0x000000000001b990 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      864 ( 0.02%)  ./libio/./libio/fileops.c:_IO_file_write@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      858 ( 0.02%)  ./libio/./libio/genops.c:_IO_no_init [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      856 ( 0.02%)  ./string/../sysdeps/aarch64/memcmp.S:bcmp [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      854 ( 0.02%)  ./elf/./elf/dl-reloc.c:_dl_relocate_object'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      836 ( 0.02%)  ???:std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      814 ( 0.02%)  ./libio/./libio/vsnprintf.c:__vsnprintf_internal [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      771 ( 0.02%)  ./gmon/../gmon/mcount.c:_mcount@@GLIBC_2.18'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      768 ( 0.02%)  ./elf/./elf/dl-profstub.c:_dl_mcount_wrapper_check [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      756 ( 0.02%)  ./string/../sysdeps/aarch64/memset.S:memset [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      753 ( 0.02%)  ./elf/./elf/get-dynamic-info.h:_dl_map_object_from_fd'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      698 ( 0.02%)  ./elf/./elf/rtld.c:dl_main'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      694 ( 0.02%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_start [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      684 ( 0.02%)  ./elf/../sysdeps/aarch64/dl-trampoline.S:_dl_runtime_resolve [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      682 ( 0.02%)  ???:std::locale::facet::_S_get_c_locale()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      670 ( 0.02%)  ./elf/./elf/dl-sort-maps.c:dfs_traversal.part.0 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      660 ( 0.02%)  ./string/../sysdeps/aarch64/multiarch/../memchr.S:__GI_memchr [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      654 ( 0.02%)  ./malloc/./malloc/malloc.c:free [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      647 ( 0.02%)  ???:std::locale::facet::_S_get_c_locale() [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      643 ( 0.02%)  ./io/../sysdeps/unix/sysv/linux/write.c:write [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      640 ( 0.02%)  ./elf/./elf/dl-minimal.c:strsep'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      640 ( 0.02%)  ./libio/./libio/putc.c:putc [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      630 ( 0.02%)  ???:0x000000000001facc'2 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      613 ( 0.02%)  ./libio/./libio/iofclose.c:fclose@@GLIBC_2.17'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      589 ( 0.02%)  ???:0x000000000000c450 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      568 ( 0.01%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      561 ( 0.01%)  ./libio/./libio/strops.c:_IO_str_init_static_internal'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      560 ( 0.01%)  ./libio/./libio/fileops.c:_IO_file_sync@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      558 ( 0.01%)  ./string/../sysdeps/aarch64/memcmp.S:bcmp'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      550 ( 0.01%)  ???:std::__num_base::_S_format_float(std::ios_base const&, char*, char) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      533 ( 0.01%)  ./libio/./libio/genops.c:_IO_default_xsputn [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      525 ( 0.01%)  ???:0x000000000001e490 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      524 ( 0.01%)  ./elf/./elf/dl-load.c:open_path [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      523 ( 0.01%)  ./malloc/./malloc/malloc.c:ptmalloc_init.part.0
+      522 ( 0.01%)  ./stdlib/./stdlib/divrem.c:__mpn_divrem'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      519 ( 0.01%)  ./stdlib/./stdlib/divrem.c:__mpn_divrem [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      519 ( 0.01%)  ???:std::chrono::_V2::system_clock::now()'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      518 ( 0.01%)  ./elf/../sysdeps/nptl/dl-tls_init_tp.c:rtld_mutex_dummy [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      513 ( 0.01%)  ./elf/./elf/dl-load.c:fillin_rpath.isra.0'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      513 ( 0.01%)  ./stdlib/./stdlib/cxa_atexit.c:__internal_atexit [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      512 ( 0.01%)  ./iconv/./iconv/gconv_simple.c:btowc
+      512 ( 0.01%)  ./libio/./libio/fileops.c:_IO_do_write@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      500 ( 0.01%)  ./elf/./elf/do-rel.h:_dl_start [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      495 ( 0.01%)  ./libio/./libio/fileops.c:_IO_file_underflow@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      495 ( 0.01%)  ???:std::numpunct<char>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      493 ( 0.01%)  ???:0x0000000000127c90 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      491 ( 0.01%)  ./elf/./elf/get-dynamic-info.h:_dl_new_object'2
+      485 ( 0.01%)  ./io/../sysdeps/unix/sysv/linux/open64.c:open [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      485 ( 0.01%)  ???:0x000000000000c4f4 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      480 ( 0.01%)  ./elf/./elf/dl-init.c:call_init'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      473 ( 0.01%)  ./malloc/./malloc/malloc.c:free'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      473 ( 0.01%)  ???:std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      470 ( 0.01%)  ./elf/./elf/dl-hwcaps.c:_dl_important_hwcaps'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      465 ( 0.01%)  ./stdlib/./stdlib/cxa_atexit.c:__new_exitfn [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      460 ( 0.01%)  ./debug/./debug/sprintf_chk.c:__sprintf_chk'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      456 ( 0.01%)  ./libio/./libio/libioP.h:fflush
+      454 ( 0.01%)  ???:std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(char const*) const'2 [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      449 ( 0.01%)  ./elf/./elf/dl-deps.c:_dl_catch_exception'2
+      445 ( 0.01%)  ???:getdelim'2
+      440 ( 0.01%)  ???:std::ios_base::ios_base() [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      440 ( 0.01%)  ???:std::locale::locale() [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      428 ( 0.01%)  ???:std::ios_base::_M_init() [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      426 ( 0.01%)  ./elf/./elf/dl-load.c:_dl_map_object_from_fd [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      418 ( 0.01%)  ./elf/./elf/dl-find_object.c:_dlfo_sort_mappings [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      418 ( 0.01%)  ./elf/./elf/dl-load.c:_dl_init_paths'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      418 ( 0.01%)  ./io/../sysdeps/unix/sysv/linux/fstatat64.c:fstatat [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      414 ( 0.01%)  ./elf/./elf/dl-error-skeleton.c:_dl_catch_exception'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      407 ( 0.01%)  ./libio/./libio/iovsprintf.c:__vsprintf_internal [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      404 ( 0.01%)  ./libio/./libio/iofopen.c:__fopen_internal'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      403 ( 0.01%)  ./elf/./elf/get-dynamic-info.h:_dl_map_object_from_fd [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      402 ( 0.01%)  ./libio/./libio/filedoalloc.c:_IO_file_doallocate [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      400 ( 0.01%)  ???:std::ctype<char>::_M_widen_init() const [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      399 ( 0.01%)  ./string/../sysdeps/aarch64/multiarch/strlen_asimd.S:__strlen_asimd [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      396 ( 0.01%)  ./elf/./elf/dl-load.c:_dl_new_object'2
+      396 ( 0.01%)  ./libio/./libio/strops.c:_IO_str_init_static_internal [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      396 ( 0.01%)  ./libio/./libio/vsnprintf.c:__vfprintf_internal
+      396 ( 0.01%)  ./setjmp/../sysdeps/aarch64/setjmp.S:__sigsetjmp [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      387 ( 0.01%)  ./libio/./libio/libioP.h:fclose@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      384 ( 0.01%)  ./libio/./libio/libioP.h:_IO_file_sync@@GLIBC_2.17
+      374 ( 0.01%)  ./elf/./elf/dl-tunables.c:__tunable_get_val [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      374 ( 0.01%)  ./libio/./libio/fileops.c:_IO_file_fopen@@GLIBC_2.17'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      372 ( 0.01%)  ???:__aarch64_cas8_acq [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      368 ( 0.01%)  ???:____strtol_l_internal'2 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      366 ( 0.01%)  ???:std::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      364 ( 0.01%)  ./elf/./elf/dl-find_object.c:_dlfo_process_initial'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      363 ( 0.01%)  ./string/./string/strstr.c:strstr [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      352 ( 0.01%)  ./libio/./libio/fileops.c:_IO_file_close_it@@GLIBC_2.17 [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      352 ( 0.01%)  ./libio/./libio/fileops.c:_IO_file_open [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      352 ( 0.01%)  ???:vsnprintf
+      351 ( 0.01%)  ./elf/./dl-find_object.h:_dl_find_object_from_map'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      348 ( 0.01%)  ./elf/./elf/dl-object.c:_dl_add_to_namespace_list [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      346 ( 0.01%)  ???:std::__cxx11::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      329 ( 0.01%)  ???:main'2 [/app/build/heat_diffusion_openmp_benchmark]
+      325 ( 0.01%)  ???:__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::overflow(int) [/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30]
+      323 ( 0.01%)  ???:void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)'2 [/app/build/heat_diffusion_openmp_benchmark]
+      308 ( 0.01%)  ./stdlib/../sysdeps/ieee754/dbl-64/dbl2mpn.c:__mpn_extract_double [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      296 ( 0.01%)  ???:0x0000000000013840 [/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0]
+      288 ( 0.01%)  ./stdlib/./stdlib/mul.c:__mpn_mul [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      286 ( 0.01%)  ./libio/./libio/genops.c:__underflow [/usr/lib/aarch64-linux-gnu/libc.so.6]
+      286 ( 0.01%)  ./misc/../sysdeps/unix/sysv/linux/getsysstats.c:readdir'2
+      286 ( 0.01%)  ./stdio-common/./stdio-common/vfprintf-internal.c:_IO_default_xsputn
+      285 ( 0.01%)  ???:std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&) [clone .isra.0]'2 [/app/build/heat_diffusion_openmp_benchmark]
+      284 ( 0.01%)  ./elf/../elf/dl-sysdep.c:_dl_sysdep_start'2 [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      280 ( 0.01%)  ./elf/./elf/dl-cache.c:search_cache [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
+      272 ( 0.01%)  ./elf/./elf/dl-deps.c:openaux [/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1]
 
 --------------------------------------------------------------------------------
 The following files chosen for auto-annotation could not be found:
 --------------------------------------------------------------------------------
+  ./debug/./debug/sprintf_chk.c
+  ./dirent/../sysdeps/unix/sysv/linux/readdir64.c
+  ./elf/../elf/dl-sysdep.c
   ./elf/../sysdeps/aarch64/dl-machine.h
+  ./elf/../sysdeps/aarch64/dl-trampoline.S
+  ./elf/../sysdeps/generic/dl-protected.h
+  ./elf/../sysdeps/generic/ldsodefs.h
+  ./elf/../sysdeps/nptl/dl-tls_init_tp.c
+  ./elf/./dl-find_object.h
+  ./elf/./dl-map-segments.h
+  ./elf/./elf/dl-cache.c
+  ./elf/./elf/dl-deps.c
+  ./elf/./elf/dl-error-skeleton.c
+  ./elf/./elf/dl-find_object.c
+  ./elf/./elf/dl-hwcaps.c
+  ./elf/./elf/dl-init.c
+  ./elf/./elf/dl-load.c
   ./elf/./elf/dl-lookup.c
+  ./elf/./elf/dl-minimal-malloc.c
+  ./elf/./elf/dl-minimal.c
+  ./elf/./elf/dl-misc.c
+  ./elf/./elf/dl-object.c
+  ./elf/./elf/dl-profstub.c
+  ./elf/./elf/dl-reloc.c
+  ./elf/./elf/dl-runtime.c
+  ./elf/./elf/dl-sort-maps.c
+  ./elf/./elf/dl-tunables.c
+  ./elf/./elf/dl-tunables.h
+  ./elf/./elf/dl-version.c
   ./elf/./elf/do-rel.h
+  ./elf/./elf/get-dynamic-info.h
+  ./elf/./elf/rtld.c
   ./gmon/../gmon/mcount.c
+  ./gmon/./gmon/gmon.c
+  ./iconv/./iconv/gconv_simple.c
+  ./io/../sysdeps/unix/sysv/linux/fstatat64.c
+  ./io/../sysdeps/unix/sysv/linux/open64.c
+  ./io/../sysdeps/unix/sysv/linux/open64_nocancel.c
+  ./io/../sysdeps/unix/sysv/linux/write.c
+  ./libio/./libio/filedoalloc.c
+  ./libio/./libio/fileops.c
+  ./libio/./libio/genops.c
+  ./libio/./libio/iofclose.c
+  ./libio/./libio/iofflush.c
+  ./libio/./libio/iofopen.c
+  ./libio/./libio/iofwrite.c
+  ./libio/./libio/iogetdelim.c
+  ./libio/./libio/iovsprintf.c
+  ./libio/./libio/libioP.h
+  ./libio/./libio/putc.c
+  ./libio/./libio/strops.c
+  ./libio/./libio/vsnprintf.c
+  ./locale/./locale/uselocale.c
   ./malloc/./malloc/malloc.c
+  ./misc/../sysdeps/unix/sysv/linux/getsysstats.c
+  ./setjmp/../sysdeps/aarch64/setjmp.S
   ./stdio-common/./stdio-common/printf_fp.c
+  ./stdio-common/./stdio-common/vfprintf-internal.c
+  ./stdlib/../stdlib/strtol_l.c
+  ./stdlib/../sysdeps/ieee754/dbl-64/dbl2mpn.c
+  ./stdlib/./stdlib/cxa_atexit.c
+  ./stdlib/./stdlib/divrem.c
+  ./stdlib/./stdlib/getenv.c
+  ./stdlib/./stdlib/mul.c
+  ./stdlib/./stdlib/mul_1.c
+  ./string/../sysdeps/aarch64/memcmp.S
+  ./string/../sysdeps/aarch64/memset.S
+  ./string/../sysdeps/aarch64/multiarch/../memchr.S
   ./string/../sysdeps/aarch64/multiarch/../memcpy.S
+  ./string/../sysdeps/aarch64/multiarch/../strlen.S
+  ./string/../sysdeps/aarch64/multiarch/strlen_asimd.S
+  ./string/../sysdeps/aarch64/strchr.S
+  ./string/../sysdeps/aarch64/strchrnul.S
   ./string/../sysdeps/aarch64/strcmp.S
+  ./string/../sysdeps/aarch64/strncmp.S
+  ./string/./string/strstr.c
+  ./wcsmbs/./wcsmbs/btowc.c
+  ./wcsmbs/./wcsmbs/wctob.c
+  ./wcsmbs/./wcsmbsload.h
+  ./wctype/./wctype/wctype_l.c
 

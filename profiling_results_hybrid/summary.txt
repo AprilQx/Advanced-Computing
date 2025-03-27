@@ -1,5 +1,5 @@
 # Heat Diffusion Simulation Profiling Summary
-Date: Wed Mar 26 20:16:41 UTC 2025
+Date: Thu Mar 27 15:04:21 UTC 2025
 
 ## System Information
 - CPU Cores: 10
@@ -7,37 +7,37 @@ Date: Wed Mar 26 20:16:41 UTC 2025
 
 ## Thread-Process Balance Tests
 Tested configurations (processes:threads):
-- 1 processes × 10 threads:   Performance: 8.09797e+08 cell updates per second
-- 10 processes × 1 threads:   Performance: 2.32433e+07 cell updates per second
-- 2 processes × 5 threads:   Performance: 1.62166e+09 cell updates per second
-- 5 processes × 2 threads:   Performance: 4.93494e+07 cell updates per second
-- 4 processes × 2 threads:   Performance: 5.00923e+07 cell updates per second
+- 1 processes × 10 threads:   Performance: 8.43736e+08 cell updates per second
+- 10 processes × 1 threads:   Performance: 2.18893e+07 cell updates per second
+- 2 processes × 5 threads:   Performance: 1.50515e+09 cell updates per second
+- 5 processes × 2 threads:   Performance: 5.1591e+07 cell updates per second
+- 4 processes × 2 threads:   Performance: 5.75259e+07 cell updates per second
 
 ## Strong Scaling Tests
 Fixed problem size (1000×1000), varying process and thread counts:
-- 1 processes × 1 threads:   Total Simulation Time: 60.1303 ms,   Performance: 8.31527e+08 cell updates per second
-- 1 processes × 2 threads:   Total Simulation Time: 59.7185 ms,   Performance: 8.37261e+08 cell updates per second
-- 1 processes × 4 threads:   Total Simulation Time: 61.4351 ms,   Performance: 8.13867e+08 cell updates per second
-- 2 processes × 1 threads:   Total Simulation Time: 32.2337 ms,   Performance: 1.55117e+09 cell updates per second
-- 2 processes × 2 threads:   Total Simulation Time: 31.3162 ms,   Performance: 1.59662e+09 cell updates per second
-- 4 processes × 1 threads:   Total Simulation Time: 822.287 ms,   Performance: 6.0806e+07 cell updates per second
-- 4 processes × 2 threads:   Total Simulation Time: 1007.15 ms,   Performance: 4.96449e+07 cell updates per second
+- 1 processes × 1 threads:   Total Simulation Time: 62.6319 ms,   Performance: 7.98316e+08 cell updates per second
+- 1 processes × 2 threads:   Total Simulation Time: 62.039 ms,   Performance: 8.05945e+08 cell updates per second
+- 1 processes × 4 threads:   Total Simulation Time: 59.6358 ms,   Performance: 8.38422e+08 cell updates per second
+- 2 processes × 1 threads:   Total Simulation Time: 30.4925 ms,   Performance: 1.63975e+09 cell updates per second
+- 2 processes × 2 threads:   Total Simulation Time: 30.7924 ms,   Performance: 1.62378e+09 cell updates per second
+- 4 processes × 1 threads:   Total Simulation Time: 789.282 ms,   Performance: 6.33487e+07 cell updates per second
+- 4 processes × 2 threads:   Total Simulation Time: 827.183 ms,   Performance: 6.04461e+07 cell updates per second
 
 ## Weak Scaling Tests
 Scaled problem size, consistent work per process/thread:
-- 1 processes × 1 threads (500×500):   Total Simulation Time: 14.8291 ms
-- 1 processes × 2 threads (707×707):   Total Simulation Time: 29.7793 ms
-- 1 processes × 4 threads (1000×1000):   Total Simulation Time: 61.0736 ms
-- 2 processes × 1 threads (707×707):   Total Simulation Time: 15.1374 ms
-- 2 processes × 2 threads (1000×1000):   Total Simulation Time: 31.1086 ms
-- 4 processes × 1 threads (1000×1000):   Total Simulation Time: 824.279 ms
-- 4 processes × 2 threads (1414×1414):   Total Simulation Time: 1675.01 ms
+- 1 processes × 1 threads (500×500):   Total Simulation Time: 15.2805 ms
+- 1 processes × 2 threads (707×707):   Total Simulation Time: 30.5806 ms
+- 1 processes × 4 threads (1000×1000):   Total Simulation Time: 58.6394 ms
+- 2 processes × 1 threads (707×707):   Total Simulation Time: 15.2253 ms
+- 2 processes × 2 threads (1000×1000):   Total Simulation Time: 30.7636 ms
+- 4 processes × 1 threads (1000×1000):   Total Simulation Time: 884.269 ms
+- 4 processes × 2 threads (1414×1414):   Total Simulation Time: 1517.34 ms
 
 ## Thread Affinity Tests
 Testing thread binding strategies with 4 processes and 2 threads:
-- OMP_PROC_BIND=close:   Total Simulation Time: 31.094 ms
-- OMP_PROC_BIND=spread:   Total Simulation Time: 31.4742 ms
-- OMP_PROC_BIND=master:   Total Simulation Time: 31.5062 ms
+- OMP_PROC_BIND=close:   Total Simulation Time: 31.7328 ms
+- OMP_PROC_BIND=spread:   Total Simulation Time: 31.843 ms
+- OMP_PROC_BIND=master:   Total Simulation Time: 31.538 ms
 
 ## Communication Pattern Analysis
 Testing different grid sizes with fixed process/thread configuration:
