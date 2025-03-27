@@ -21,7 +21,7 @@ The project is organized as follows:
 * **tools**: Validation tools and utilities
 * **scripts**: Profiling and benchmarking scripts
 * **.gitignore**: Configuration file for Git to exclude build artifacts, temporary files, and IDE-specific files from version control
-* **doxyfile**: Doxygen configuration file for automatic code documentation generation from source comments
+* **Doxyfile**: Doxygen configuration file for automatic code documentation generation from source comments
 * **Dockerfile**: Container definition for consistent development and profiling environment across platforms
 * **CMakelists.txt**: Main build system configuration file defining compilation targets, dependencies, and platform-specific settings
 
@@ -39,7 +39,7 @@ The optimized versions improve on the baseline with:
 * Loop optimization techniques
 
 ### OpenMP Implementation
-The OpenMP implementation uses shared-memory parallelism to distribute the computation across multiple threads on a single node.
+The OpenMP implementation uses shared-memory parallelism to distribute the computation across multiple threads on a single node. Highly recommend to use non-mac systems for reproducibilities.
 
 ### MPI Implementation
 The MPI implementation uses distributed-memory parallelism with domain decomposition to distribute the computation across multiple processes, which can run on different nodes.
@@ -57,45 +57,6 @@ This approach is particularly well-suited for modern HPC architectures that feat
 - Use OpenMP for fine-grained parallelism within nodes
 
 
-
-## Documentation with Doxygen
-This project is configured with comprehensive Doxygen documentation support. Here's how to use it:
-### Generating Documentation
-```
-# Generate documentation using Doxygen
-doxygen Doxyfile
-
-# Or if you're using Docker
-docker run -it --rm -v $(pwd):/app hpc-benchmark-env bash -c "cd /app && doxygen Doxyfile"
-
-# Or generate documentation through CMake
-cd build
-make docs
-```
-
-### Viewing HTML Documentation
-
-```
-# Open HTML documentation (macOS)
-open docs/html/index.html
-
-# Open HTML documentation (Linux)
-xdg-open docs/html/index.html
-```
-### Viewing PDF Documentation
-```
-# Generate PDF from LaTeX files
-cd docs/latex
-make
-
-# Open the PDF (macOS)
-open refman.pdf
-
-# Open the PDF (Linux)
-xdg-open refman.pdf
-```
-
-If you encounter LaTeX compilation errors, you can still view the HTML documentation which contains the same information in a more accessible format.
 ## Building the Project
 
 ### Prerequisites
@@ -104,7 +65,7 @@ If you encounter LaTeX compilation errors, you can still view the HTML documenta
 * CMake 3.15 or higher
 * OpenMP support (included in most modern compilers)
 * MPI implementation (OpenMPI, Intel MPI, or MPICH)
-* LibOMP for mac system for implementation of openmp (Highly recommend to use the docker file/csd3 scripts provided to test and deploy)
+* LibOMP for Mac system for implementation of openmp (Highly recommend to use the docker file/csd3 scripts provided to test and deploy)
 
 ### Build Instructions
 ```bash
@@ -251,9 +212,125 @@ export OMP_NUM_THREADS=4
 mpirun -np 4 ./build/heat_diffusion_hybrid --width 2000 --height 2000
 ```
 
+## 📣 Using Validation and Optimization Tools
+In addition to the simulation implementations, the project includes specialized utilities for validation and performance optimization.
+### Validation Tool
+The validate utility compares the outputs of different implementations to ensure they produce consistent results within acceptable numerical precision
+
+**Validation Tool Actual Usage**
+```
+# Basic usage
+./build/validate --baseline DIR1 --optimized DIR2
+
+# Example: Compare outputs from two different runs
+./build/validate --baseline output/base --optimized output/optimized_v1
+```
+
+**Available Options**
+```
+--help                 Show help message
+--baseline DIR         Baseline output directory (required)
+--optimized DIR        Optimized output directory (required)
+--tolerance TOL        Tolerance for floating point comparisons (default: 1e-10)
+--max-frames N         Maximum number of frames to compare (default: all)
+--checksum-only        Only compare checksums, not full frames
+--frame FRAME          Compare specific frame (can be used multiple times)
+```
+
+**How the Validation Works**
+1. First, run two different implementations with output enabled:
+```
+   # Run baseline with output
+./build/heat_diffusion --width 500 --height 500 --frames 100 --output --output-dir output/base
+
+# Run optimized with same parameters
+./build/heat_diffusion_optimized_v1 --width 500 --height 500 --frames 100 --output --output-dir output/optimized_v1
+```
+
+2. Then compare the generated output files:
+```
+./build/validate --baseline output/base --optimized output/optimized_v1   
+```
+
+**Additional Usage Examples**
+```
+# Compare only checksums (faster)
+./build/validate --baseline output/base --optimized output/optimized_v2 --checksum-only
+
+# Compare with custom tolerance
+./build/validate --baseline output/openmp --optimized output/mpi --tolerance 1e-8
+
+# Compare only specific frames
+./build/validate --baseline output/base --optimized output/hybrid --frame frame_50.txt --frame frame_99.txt
+```
 
 
 
+### Block Size Optimizer
+
+The Block Size Optimizer is a specialized tool that helps determine the optimal cache block sizes for the cache-blocked implementation (optimized_v3) of the heat diffusion simulation. This tool can significantly improve performance by finding block sizes that best utilize your CPU's cache hierarchy.
+
+**Using the Block Size Optimizer**
+```
+# Basic usage
+./build/block_size_optimizer
+
+# With custom parameters
+./build/block_size_optimizer --width 2048 --height 2048 --min 8 --max 256 --step 8
+```
+
+**Available Options**
+```
+--help               Show help message
+--width WIDTH        Grid width to use for testing (default: 1000)
+--height HEIGHT      Grid height to use for testing (default: 1000)
+--iterations ITERS   Number of simulation steps to run per test (default: 1000)
+--runs RUNS          Number of times to repeat each test (default: 3)
+--min MIN            Minimum block size to test (default: 4)
+--max MAX            Maximum block size to test (default: 512)
+--step STEP          Step size between block sizes (default: varies)
+--output FILE        Output results to specified file (default: block_size_results.csv)
+```
+**How the Optimizer Works**
+
+
+The Block Size Optimizer:
+
+1. Creates a series of block sizes to test based on the min/max/step parameters
+2. Tests all combinations of block sizes in both X and Y dimensions
+3. For each combination, runs the simulation for a specified number of iterations
+4. Measures the execution time for each block size combination
+5. Ranks all combinations from fastest to slowest
+Outputs the top results and saves all data to a CSV file
+
+**Understanding the Results**
+
+The tool outputs:
+
+1. A table showing the top 10 best-performing block sizes
+2. The single optimal block size combination with its runtime
+3. Comparison with the current default block size (144x144)
+4. Potential performance improvement percentage
+5. A CSV file with all tested combinations for further analysis
+
+**Using on HPC Systems (CSD3)**
+
+The project includes a SLURM script for running the optimizer on HPC systems:
+```
+# Submit the optimizer job to SLURM
+sbatch scripts/block_size_optimizer.sh
+```
+
+The script is pre-configured for the CSD3 cluster with appropriate resource requests and module loading.
+
+**Guidelines for Choosing Block Sizes**
+
+Optimal block sizes typically depend on:
+
+1. **CPU Cache Sizes**: Best block sizes often relate to L1/L2/L3 cache sizes
+2. **Problem Size**: Different grid dimensions may benefit from different block sizes
+3. **Hardware Architecture**: Different CPU models have different optimal values
+4. **Memory Access Patterns**: The heat diffusion stencil pattern favors certain sizes
 
 ## 📣 Running Heat Diffusion Benchmarks
 The project includes comprehensive benchmark executables for all implementations. Benchmarks run multiple trials and report detailed performance statistics
@@ -355,6 +432,48 @@ mpirun -np 4 ./heat_diffusion_mpi --width 1000 --height 1000
 ## Using csd3 for Development and Profiling
 
 unfinished!!!!
+
+
+
+
+## Documentation with Doxygen
+This project is configured with comprehensive Doxygen documentation support. Here's how to use it:
+### Generating Documentation
+```
+# Generate documentation using Doxygen
+doxygen Doxyfile
+
+# Or if you're using Docker
+docker run -it --rm -v $(pwd):/app hpc-benchmark-env bash -c "cd /app && doxygen Doxyfile"
+
+# Or generate documentation through CMake
+cd build
+make docs
+```
+
+### Viewing HTML Documentation
+
+```
+# Open HTML documentation (macOS)
+open docs/html/index.html
+
+# Open HTML documentation (Linux)
+xdg-open docs/html/index.html
+```
+### Viewing PDF Documentation
+```
+# Generate PDF from LaTeX files
+cd docs/latex
+make
+
+# Open the PDF (macOS)
+open refman.pdf
+
+# Open the PDF (Linux)
+xdg-open refman.pdf
+```
+
+If you encounter LaTeX compilation errors, you can still view the HTML documentation which contains the same information in a more accessible format.
 
 ## Profiling Tools Used in the Heat Diffusion Project
 
