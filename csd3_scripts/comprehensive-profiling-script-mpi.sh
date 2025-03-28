@@ -50,7 +50,7 @@ if module load intel/oneapi/2022.1.0/itac &> /dev/null; then
     mkdir -p ${RESULTS_DIR}/itac
     
     # Run with ITAC tracing
-    mpirun -trace -n 16 ./heat_diffusion_mpi_benchmark --size 500 --iterations 50 --runs 1
+    mpirun -trace -n 16 ./heat_diffusion_mpi_benchmark --width 500 --height 500 --iterations 50 --runs 1
     
     # Generate trace summary
     if [ -f *.stf ]; then
@@ -65,30 +65,37 @@ fi
 #=====================
 echo -e "${BLUE}Running MPI-specific profiling...${NC}"
 
+# Use the same set of parallelism levels as OpenMP for better comparison
+RANK_COUNTS=(1 2 4 8 16 32 64 128)
+
 # MPI strong scaling test
 echo -e "${YELLOW}Running strong scaling test...${NC}"
-for RANKS in 1 2 4 8 16 32 64 128; do
+for RANKS in "${RANK_COUNTS[@]}"; do
     echo -e "Testing with ${RANKS} MPI ranks..."
     
     # Ensure we don't exceed available resources
-    if [ $RANKS -le 152 ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size 2000 --iterations 1000 --runs 1 > ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
+    if [ $RANKS -le 76 ]; then
+        # Use consistent 3 runs for better statistics
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --width 2000 --height 2000 --iterations 1000 --runs 3 > \
+            ${RESULTS_DIR}/scaling/strong_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds allocated processors)"
     fi
 done
 
-# Adjust the weak scaling base size (currently 100)
+# Weak scaling with the same BASE_SIZE as OpenMP tests
 echo -e "${YELLOW}Running weak scaling test...${NC}"
-for RANKS in 1 2 4 8 16 32 64 128; do
-    # Change BASE_SIZE from 100 to your desired value (e.g., 200)
-    BASE_SIZE=200
+BASE_SIZE=200
+
+for RANKS in "${RANK_COUNTS[@]}"; do
     SIZE=$(echo "scale=0; sqrt($BASE_SIZE * $BASE_SIZE * $RANKS)" | bc -l)
-    
+    SIZE=${SIZE%.*} # Remove decimal part
     echo -e "Testing with ${RANKS} MPI ranks, grid size ${SIZE}x${SIZE}..."
     
-    if [ $RANKS -le 152 ]; then
-        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --size $SIZE --iterations 100 --runs 1 > ${RESULTS_DIR}/scaling/weak_scaling_${RANKS}ranks.txt
+    if [ $RANKS -le 76 ]; then
+        # Use consistent 3 runs for better statistics
+        mpirun -n $RANKS ./heat_diffusion_mpi_benchmark --width $SIZE --height $SIZE --iterations 100 --runs 3 > \
+            ${RESULTS_DIR}/scaling/weak_scaling_${RANKS}ranks.txt
     else
         echo "Skipping ${RANKS} ranks test (exceeds allocated processors)"
     fi
@@ -109,13 +116,13 @@ done
 # Test across nodes (1 node vs 2 nodes with same total ranks)
 echo -e "${YELLOW}Testing single-node vs multi-node performance${NC}"
 # 8 ranks on 1 node
-mpirun -n 8 -ppn 8 -host $(hostname) ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/single_node_8ranks.txt
+mpirun -n 8 -ppn 8 -host $(hostname) ./heat_diffusion_mpi_benchmark --width 1000 --height 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/single_node_8ranks.txt
 
 # Get two node hostnames
 NODES=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 2 | paste -sd "," -)
 if [[ $(echo $NODES | tr -cd ',' | wc -c) -eq 1 ]]; then
     # 8 ranks across 2 nodes (4 per node)
-    mpirun -n 8 -ppn 4 -host $NODES ./heat_diffusion_mpi_benchmark --size 1000 --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/multi_node_8ranks.txt
+    mpirun -n 8 -ppn 4 -host $NODES ./heat_diffusion_mpi_benchmark --width 1000 --height 1000  --iterations 100 --runs 1 > ${RESULTS_DIR}/placement/multi_node_8ranks.txt
 fi
 
 #=====================
@@ -131,7 +138,7 @@ for GRID_SIZE in 200 800 2000 4000; do
         # Check if we have enough processors
         if [ $PROCS -le 152 ]; then
             echo -e "Running with ${PROCS} ranks on ${GRID_SIZE}x${GRID_SIZE} grid..."
-            mpirun -n $PROCS ./heat_diffusion_mpi_benchmark --size $GRID_SIZE --iterations 100 --runs 1 > \
+            mpirun -n $PROCS ./heat_diffusion_mpi_benchmark --width $GRID_SIZE --height $GRID_SIZE --iterations 100 --runs 1 > \
                 ${RESULTS_DIR}/communication/grid${GRID_SIZE}_ranks${PROCS}.txt
         fi
     done

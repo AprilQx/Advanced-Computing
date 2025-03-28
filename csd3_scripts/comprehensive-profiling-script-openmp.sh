@@ -92,38 +92,50 @@ fi
 #=====================
 echo -e "${BLUE}Running thread scaling tests...${NC}"
 
-# Build optimized version again
+# Build optimized version
 CC=icc CXX=icpc cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-march=icelake-server -O3 -qopenmp"
 make -j 76 heat_diffusion_openmp_benchmark
 
-# Test different thread counts
-THREAD_COUNTS=(1 2 4 8 16 32 64 76)
+# Test different thread counts - aligned with MPI tests for comparison
+THREAD_COUNTS=(1 2 4 8 16 32 64 128)
 
 # Fixed grid size test (strong scaling)
 echo -e "${YELLOW}Running strong scaling tests...${NC}"
 for THREADS in "${THREAD_COUNTS[@]}"; do
-    echo -e "Testing with ${THREADS} threads..."
-    export OMP_NUM_THREADS=$THREADS
-    ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 1000 --runs 1 --threads $THREADS > \
-        ${RESULTS_DIR}/thread_scaling/strong_scaling_${THREADS}threads.txt 2>&1
+    # Skip tests that exceed available resources
+    if [ $THREADS -le 76 ]; then
+        echo -e "Testing with ${THREADS} threads..."
+        export OMP_NUM_THREADS=$THREADS
+        # Use the same grid size (2000) and iterations (1000) as MPI tests
+        ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --frames 1000 --runs 3 --threads $THREADS > \
+            ${RESULTS_DIR}/thread_scaling/strong_scaling_${THREADS}threads.txt 2>&1
+    else
+        echo "Skipping ${THREADS} threads test (exceeds available threads)"
+    fi
 done
 
 # Increasing grid size with thread count (weak scaling)
 echo -e "${YELLOW}Running weak scaling tests...${NC}"
-for THREADS in "${THREAD_COUNTS[@]}"; do
-    # Scale problem size with thread count - keep work per thread constant
-    BASE_SIZE=500
-    SIZE=$(echo "sqrt($BASE_SIZE * $BASE_SIZE * $THREADS)" | bc)
-    SIZE=${SIZE%.*} # Remove decimal part
-    
-    echo -e "Testing with ${THREADS} threads, grid size ${SIZE}x${SIZE}..."
-    export OMP_NUM_THREADS=$THREADS
-    ./heat_diffusion_openmp_benchmark --width $SIZE --height $SIZE --frames 50 --runs 1 --threads $THREADS > \
-        ${RESULTS_DIR}/thread_scaling/weak_scaling_${THREADS}threads.txt 2>&1
-done
+# Use the same BASE_SIZE as MPI tests
+BASE_SIZE=200
 
+for THREADS in "${THREAD_COUNTS[@]}"; do
+    if [ $THREADS -le 76 ]; then
+        # Scale problem size with thread count - same formula as MPI
+        SIZE=$(echo "sqrt($BASE_SIZE * $BASE_SIZE * $THREADS)" | bc)
+        SIZE=${SIZE%.*} # Remove decimal part
+        
+        echo -e "Testing with ${THREADS} threads, grid size ${SIZE}x${SIZE}..."
+        export OMP_NUM_THREADS=$THREADS
+        # Use the same iteration count (100) as MPI weak scaling tests
+        ./heat_diffusion_openmp_benchmark --width $SIZE --height $SIZE --frames 100 --runs 3 --threads $THREADS > \
+            ${RESULTS_DIR}/thread_scaling/weak_scaling_${THREADS}threads.txt 2>&1
+    else
+        echo "Skipping ${THREADS} threads test (exceeds available threads)"
+    fi
+done
 #=====================
-# 4. Thread Affinity Tests
+# 3. Thread Affinity Tests
 #=====================
 echo -e "${BLUE}Running thread affinity tests...${NC}"
 
@@ -152,7 +164,7 @@ unset OMP_PLACES
 unset OMP_PROC_BIND
 
 #=====================
-# 5. Intel VTune Profiling (Alternative to Valgrind)
+# 4. Intel VTune Profiling (Alternative to Valgrind)
 #=====================
 echo -e "${BLUE}Running Intel VTune profiling...${NC}"
 
@@ -187,7 +199,7 @@ else
 fi
 
 #=====================
-# 6. Cache Size Impact Test
+# 5. Cache Size Impact Test
 #=====================
 echo -e "${BLUE}Running cache size impact tests...${NC}"
 
@@ -216,7 +228,7 @@ done
 
 
 #=====================
-# 8. Scheduling Policy Tests
+# 6. Scheduling Policy Tests
 #=====================
 echo -e "${BLUE}Running scheduling policy tests...${NC}"
 # Test different OpenMP scheduling strategies
@@ -243,7 +255,7 @@ done
 unset OMP_SCHEDULE
 
 #=====================
-# 9. Generate Summary
+# 7. Generate Summary
 #=====================
 echo -e "${GREEN}Generating summary...${NC}"
 
