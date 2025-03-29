@@ -46,9 +46,6 @@ else
     echo -e "${YELLOW}Intel VTune not available. Skipping VTune profiling.${NC}"
 fi
 
-#=====================
-# 4. Performance Scaling Tests
-#=====================
 echo -e "${BLUE}Running performance scaling tests...${NC}"
 
 # Test different grid sizes
@@ -56,12 +53,11 @@ for SIZE in 100 200 500 1000 2000; do
     echo -e "${YELLOW}Testing grid size ${SIZE}x${SIZE}${NC}"
     
     # Adjust iterations for larger grids
-    ITER 200
+    ITER=200
     
     # Measure time and output
-    ./heat_diffusion_benchmark --width $SIZE --height $SIZE --iterations $ITER > ${RESULTS_DIR}/benchmark_${SIZE}.txt 2>&1
+    ./heat_diffusion_benchmark --size $SIZE --iterations $ITER > ${RESULTS_DIR}/benchmark_${SIZE}.txt 2>&1
 done
-
 #=====================
 # 5. Generate Summary
 #=====================

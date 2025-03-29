@@ -1,1 +1,47 @@
-./comprehensive-profiling-script-openmp.sh: line 229: ./heat_diffusion_openmp_benchmark: No such file or directory
+OMP_NUM_THREADS environment variable: 76
+Running benchmark with grid size 2000x2000 for 1000 iterations across 1 runs (no output)
+System has 76 OpenMP threads available
+
+=== Run 1 of 1 ===
+OpenMP initialized with 76 threads
+Using 76 OpenMP threads for this run
+Iteration 0 completed in 294.721 ms
+Iteration 100 completed in 9.05045 ms
+Iteration 200 completed in 9.02766 ms
+Iteration 300 completed in 8.75458 ms
+Iteration 400 completed in 8.92272 ms
+Iteration 500 completed in 8.95736 ms
+Iteration 600 completed in 9.01313 ms
+Iteration 700 completed in 8.83409 ms
+Iteration 800 completed in 9.08158 ms
+Iteration 900 completed in 8.78003 ms
+Run 1 Results:
+  Setup Time: 630.448 ms
+  Total Simulation Time: 9282.43 ms
+  Average Iteration Time: 9.28243 ms
+  Min/Max Iteration Time: 8.18455/294.721 ms
+  Performance: -3.1777e+07 cell updates per second
+  Memory Usage Increase: 64260 KB
+  Checksum: 8.00039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 2000x2000 (4000000 cells)
+Iterations per Run: 1000
+
+Timing Statistics:
+  Average Setup Time: 630.448 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 9282.43 ms (StdDev: 0 ms)
+  Average Iteration Time: 9.28243 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 8.18455/294.721 ms
+
+Performance Statistics:
+  Average Performance: -3.1777e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (9282.43 ms)
+  Worst Run: Run 1 (9282.43 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 64260 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

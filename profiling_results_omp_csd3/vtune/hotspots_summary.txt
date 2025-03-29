@@ -1,63 +1,23 @@
-Elapsed Time: 7.765s
-    CPU Time: 10.130s
-        Effective Time: 7.280s
-        Spin Time: 2.830s
-         | A significant portion of CPU time is spent waiting. Use this metric
-         | to discover which synchronizations are spinning. Consider adjusting
-         | spin wait parameters, changing the lock implementation (for example,
-         | by backing off then descheduling), or adjusting the synchronization
-         | granularity.
-         |
-            Imbalance or Serial Spinning: 2.740s
-             | The threading runtime function related to time spent on imbalance
-             | or serial spinning consumed a significant amount of CPU time.
-             | This can be caused by a load imbalance, insufficient concurrency
-             | for all working threads, or busy waits of worker threads while
-             | serial code is executed. If there is an imbalance, apply dynamic
-             | work scheduling or reduce the size of work chunks or tasks. If
-             | there is insufficient concurrency, consider collapsing the outer
-             | and inner loops. If there is a wait for completion of serial
-             | code, explore options for parallelization with Intel Advisor,
-             | algorithm, or microarchitecture tuning of the application's
-             | serial code with VTune Profiler Basic Hotspots or
-             | Microarchitecture Exploration analysis respectively. For OpenMP*
-             | applications, use the Per-Barrier OpenMP Potential Gain metric
-             | set in the HPC Performance Characterization analysis to discover
-             | the reason for high imbalance or serial spin time.
-             |
-            Lock Contention: 0s
-            Other: 0.090s
-        Overhead Time: 0.020s
-            Creation: 0.010s
-            Scheduling: 0s
-            Reduction: 0s
-            Atomics: 0s
-            Other: 0.010s
-    Total Thread Count: 16
+Elapsed Time: 9.854s
+    CPU Time: 0.419s
+        Effective Time: 0.419s
+    Total Thread Count: 1
     Paused Time: 0s
-
-Top Hotspots
-Function                                      Module                           CPU Time  % of CPU Time(%)
---------------------------------------------  -------------------------------  --------  ----------------
-OpenMPHeatDiffusion2D::OpenMPHeatDiffusion2D  heat_diffusion_openmp_benchmark    7.280s             71.9%
-__kmp_fork_barrier                            libiomp5.so                        2.830s             27.9%
-__kmp_api_omp_get_max_threads                 libiomp5.so                        0.010s              0.1%
-pthread_create                                libpthread.so.0                    0.010s              0.1%
-Effective CPU Utilization: 0.9%
+Effective CPU Utilization: 0.1%
  | The metric value is low, which may signal a poor logical CPU cores
  | utilization caused by load imbalance, threading runtime overhead, contended
  | synchronization, or thread/process underutilization. Explore sub-metrics to
  | estimate the efficiency of MPI and OpenMP parallelism or run the Locks and
  | Waits analysis to identify parallel bottlenecks for other parallel runtimes.
  |
-    Average Effective CPU Utilization: 0.699 out of 76
+    Average Effective CPU Utilization: 0.042 out of 76
 Collection and Platform Info
     Application Command Line: ./heat_diffusion_openmp_benchmark "--width" "100000" "--height" "100000" "--frames" "1000" "--runs" "1" 
     Operating System: 4.18.0-553.34.1.el8_10.x86_64 Unix/Linux
-    Computer Name: cpu-q-187
-    Result Size: 4.1 MB 
-    Collection start time: 20:09:55 23/03/2025 UTC
-    Collection stop time: 20:10:02 23/03/2025 UTC
+    Computer Name: cpu-q-162
+    Result Size: 3.5 MB 
+    Collection start time: 15:49:51 29/03/2025 UTC
+    Collection stop time: 15:50:01 29/03/2025 UTC
     Collector Type: Driverless Perf per-process counting,User-mode sampling and tracing
     CPU
         Name: Intel(R) Xeon(R) Processor code named Icelake

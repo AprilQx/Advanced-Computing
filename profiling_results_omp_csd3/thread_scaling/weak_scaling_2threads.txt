@@ -1,39 +1,65 @@
 OMP_NUM_THREADS environment variable: 2
 Thread count manually set to: 2
-Running benchmark with grid size 707x707 for 50 iterations across 1 runs (no output)
+Running benchmark with grid size 282x282 for 100 iterations across 3 runs (no output)
 System has 2 OpenMP threads available
 
-=== Run 1 of 1 ===
+=== Run 1 of 3 ===
 OpenMP initialized with 2 threads
 Using 2 OpenMP threads for this run
-Iteration 0 completed in 0.230072 ms
+Iteration 0 completed in 0.123907 ms
 Run 1 Results:
-  Setup Time: 1.86408 ms
-  Total Simulation Time: 8.2979 ms
-  Average Iteration Time: 0.165958 ms
-  Min/Max Iteration Time: 0.158927/0.230072 ms
-  Performance: 3.0119e+09 cell updates per second
-  Memory Usage Increase: 7844 KB
-  Checksum: 1.00009e+07
+  Setup Time: 0.626589 ms
+  Total Simulation Time: 10.4335 ms
+  Average Iteration Time: 0.104335 ms
+  Min/Max Iteration Time: 0.099086/0.236907 ms
+  Performance: 7.62198e+08 cell updates per second
+  Memory Usage Increase: 1172 KB
+  Checksum: 1.5944e+06
 
-=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
-Grid Size: 707x707 (499849 cells)
-Iterations per Run: 50
+=== Run 2 of 3 ===
+OpenMP initialized with 2 threads
+Using 2 OpenMP threads for this run
+Iteration 0 completed in 0.08987 ms
+Run 2 Results:
+  Setup Time: 0.380466 ms
+  Total Simulation Time: 8.8559 ms
+  Average Iteration Time: 0.088559 ms
+  Min/Max Iteration Time: 0.084337/0.119252 ms
+  Performance: 8.97977e+08 cell updates per second
+  Memory Usage Increase: 40 KB
+  Checksum: 1.5944e+06
+
+=== Run 3 of 3 ===
+OpenMP initialized with 2 threads
+Using 2 OpenMP threads for this run
+Iteration 0 completed in 0.088352 ms
+Run 3 Results:
+  Setup Time: 0.069227 ms
+  Total Simulation Time: 8.84616 ms
+  Average Iteration Time: 0.0884616 ms
+  Min/Max Iteration Time: 0.08441/0.216872 ms
+  Performance: 8.98966e+08 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 1.5944e+06
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 282x282 (79524 cells)
+Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 1.86408 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 8.2979 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.165958 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.158927/0.230072 ms
+  Average Setup Time: 0.358761 ms (StdDev: 0.228059 ms)
+  Average Total Simulation Time: 9.37853 ms (StdDev: 0.746 ms)
+  Average Iteration Time: 0.0937853 ms (StdDev: 0.00746 ms)
+  Average Min/Max Iteration Time: 0.0892777/0.19101 ms
 
 Performance Statistics:
-  Average Performance: 3.0119e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (8.2979 ms)
-  Worst Run: Run 1 (8.2979 ms)
-  Coefficient of Variation: 0%
+  Average Performance: 8.53047e+08 cell updates per second (StdDev: 6.42415e+07)
+  Best Run: Run 3 (8.84616 ms)
+  Worst Run: Run 1 (10.4335 ms)
+  Coefficient of Variation: 7.95434%
 
 Memory Usage:
-  Average Memory Increase: 7844 KB
+  Average Memory Increase: 404 KB
 
 Numerical Stability:
   Checksum consistency: Stable
