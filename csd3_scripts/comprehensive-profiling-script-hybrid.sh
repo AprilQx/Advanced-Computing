@@ -133,7 +133,7 @@ srun -N 2 lstopo-no-graphics --if png > /dev/null 2>&1
 # 2. Process Placement Tests (Focus on 2-node scenarios)
 #=====================
 echo -e "${BLUE}Running process placement tests focusing on 2-node communication...${NC}"
-mkdir -p $WORK_DIR/profiling_results_hybrid/placement
+mkdir -p ${RESULTS_DIR}/placement
 
 # Get node hostnames from SLURM
 NODE_LIST=$(scontrol show hostnames $SLURM_JOB_NODELIST)
