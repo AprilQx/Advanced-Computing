@@ -154,25 +154,25 @@ else
     echo -e "${YELLOW}Test 1: 76 processes on first node${NC}"
     $MPIRUN_CMD -n 76 -host $FIRST_NODE ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 1 > \
-        $WORK_DIR/profiling_results_hybrid/placement/single_node_76ranks.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/single_node_76ranks.txt 2>&1
     
     # Test 2: 76 processes on second node
     echo -e "${YELLOW}Test 2: 76 processes on second node${NC}"
     $MPIRUN_CMD -n 76 -host $SECOND_NODE ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 1 > \
-        $WORK_DIR/profiling_results_hybrid/placement/single_node_76ranks_second.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/single_node_76ranks_second.txt 2>&1
     
     # Test 3: 152 processes across 2 nodes (76 per node)
     echo -e "${YELLOW}Test 3: 152 processes across 2 nodes (76 per node)${NC}"
     $MPIRUN_CMD -n 152 -ppn 76 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 1 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_152ranks.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_152ranks.txt 2>&1
     
     # Test 4: 128 processes across 2 nodes (64 per node)
     echo -e "${YELLOW}Test 4: 128 processes across 2 nodes (64 per node)${NC}"
     $MPIRUN_CMD -n 128 -ppn 64 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 1 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_128ranks.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_128ranks.txt 2>&1
     
     # Hybrid mode tests
     
@@ -181,35 +181,35 @@ else
     export OMP_NUM_THREADS=2
     $MPIRUN_CMD -n 38 -ppn 19 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 2 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_38ranks_2threads.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_38ranks_2threads.txt 2>&1
     
     # Test 6: 19 processes with 4 threads each across 2 nodes (9-10 processes per node)
     echo -e "${YELLOW}Test 6: 19 processes with 4 threads each across 2 nodes${NC}"
     export OMP_NUM_THREADS=4
     $MPIRUN_CMD -n 19 -ppn 10 -host $FIRST_NODE -ppn 9 -host $SECOND_NODE ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_19ranks_4threads.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_19ranks_4threads.txt 2>&1
     
     # Test 7: 8 processes with 19 threads each across 2 nodes (4 processes per node)
     echo -e "${YELLOW}Test 7: 8 processes with 19 threads each across 2 nodes${NC}"
     export OMP_NUM_THREADS=19
     $MPIRUN_CMD -n 8 -ppn 4 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 19 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_8ranks_19threads.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_8ranks_19threads.txt 2>&1
     
     # Test 8: 4 processes with 38 threads each across 2 nodes (2 processes per node)
     echo -e "${YELLOW}Test 8: 4 processes with 38 threads each across 2 nodes${NC}"
     export OMP_NUM_THREADS=38
     $MPIRUN_CMD -n 4 -ppn 2 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 38 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_4ranks_38threads.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_4ranks_38threads.txt 2>&1
     
     # Test 9: 2 processes with 76 threads each across 2 nodes (1 process per node)
     echo -e "${YELLOW}Test 9: 2 processes with 76 threads each across 2 nodes${NC}"
     export OMP_NUM_THREADS=76
     $MPIRUN_CMD -n 2 -ppn 1 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
         --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 76 > \
-        $WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_2ranks_76threads.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_2ranks_76threads.txt 2>&1
     
     # Inter-node communication tests with different fabric settings
     echo -e "${YELLOW}Running inter-node communication fabric tests${NC}"
@@ -222,7 +222,7 @@ else
         
         $MPIRUN_CMD -n 16 -ppn 8 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
             --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 > \
-            $WORK_DIR/profiling_results_hybrid/placement/multi_node_fabric_${FABRIC// /_}.txt 2>&1
+            $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_fabric_${FABRIC// /_}.txt 2>&1
     done
     unset I_MPI_FABRICS
     
@@ -236,7 +236,7 @@ else
         echo -e "${YELLOW}Testing problem size ${SIZE}x${SIZE} across 2 nodes${NC}"
         $MPIRUN_CMD -n 16 -ppn 8 -host $TWO_NODES ./heat_diffusion_benchmark_hybrid \
             --height $SIZE --width $SIZE --iterations 100 --runs 1 --threads 8 > \
-            $WORK_DIR/profiling_results_hybrid/placement/multi_node_size_${SIZE}.txt 2>&1
+            $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_size_${SIZE}.txt 2>&1
     done
 fi
 
@@ -244,7 +244,7 @@ fi
 # 3. Thread Affinity Tests on Icelake
 #=====================
 echo -e "${BLUE}Running thread affinity tests optimized for Icelake...${NC}"
-mkdir -p $WORK_DIR/profiling_results_hybrid/affinity
+mkdir -p $PROJECT_DIR/profiling_results_hybrid/affinity
 
 # Use standard configuration for affinity tests
 PROCS=8
@@ -261,7 +261,7 @@ for BIND in "${OMP_BINDING_TYPES[@]}"; do
     export OMP_PROC_BIND=$BIND
     
     $MPIRUN_CMD -n $PROCS ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 100 --runs 1 --threads $THREADS > \
-        $WORK_DIR/profiling_results_hybrid/affinity/omp_bind_${BIND}.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/affinity/omp_bind_${BIND}.txt 2>&1
 done
 
 # Test Intel-specific KMP_AFFINITY variable
@@ -273,7 +273,7 @@ for BIND in "${KMP_AFFINITY_TYPES[@]}"; do
     export KMP_AFFINITY=$BIND
     
     $MPIRUN_CMD -n $PROCS ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 100 --runs 1 --threads $THREADS > \
-        $WORK_DIR/profiling_results_hybrid/affinity/kmp_affinity_${BIND}.txt 2>&1
+        $PROJECT_DIR/profiling_results_hybrid/affinity/kmp_affinity_${BIND}.txt 2>&1
 done
 
 # Test with explicit placement to specific cores on Icelake
@@ -282,7 +282,7 @@ export OMP_NUM_THREADS=$THREADS
 export KMP_AFFINITY=verbose
 export I_MPI_PIN_PROCESSOR_LIST=allcores
 $MPIRUN_CMD -n $PROCS ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 50 --runs 1 --threads $THREADS > \
-    $WORK_DIR/profiling_results_hybrid/affinity/explicit_binding.txt 2>&1
+    $PROJECT_DIR/profiling_results_hybrid/affinity/explicit_binding.txt 2>&1
 
 # Reset affinity settings
 unset OMP_PLACES
@@ -293,7 +293,7 @@ unset KMP_AFFINITY
 # 4. Strong Scaling Tests for Icelake
 #=====================
 echo -e "${BLUE}Running strong scaling tests optimized for Icelake...${NC}"
-mkdir -p $WORK_DIR/profiling_results_hybrid/scaling
+mkdir -p $PROJECT_DIR/profiling_results_hybrid/scaling
 
 # Define Icelake-specific configurations to test
 declare -a STRONG_CONFIGS=(
@@ -339,16 +339,16 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
         # For multi-node tests, distribute processes evenly
         if [ $PROCS -le $NUM_CORES/2 ]; then
             $MPIRUN_CMD -n $PROCS ./heat_diffusion_benchmark_hybrid --height $PROBLEM_SIZE --width $PROBLEM_SIZE --iterations 50 --runs 1 --threads $THREADS > \
-                $WORK_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
+                $PROJECT_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
         else
             # Distribute across nodes explicitly for larger process counts
             if [ $NODE_COUNT -ge 2 ]; then
                 PPN=$((PROCS / NODE_COUNT))
                 $MPIRUN_CMD -n $PROCS -ppn $PPN -host $TWO_NODES ./heat_diffusion_benchmark_hybrid --height $PROBLEM_SIZE --width $PROBLEM_SIZE --iterations 50 --runs 1 --threads $THREADS > \
-                    $WORK_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
+                    $PROJECT_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
             else
                 $MPIRUN_CMD -n $PROCS ./heat_diffusion_benchmark_hybrid --height $PROBLEM_SIZE --width $PROBLEM_SIZE --iterations 50 --runs 1 --threads $THREADS > \
-                    $WORK_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
+                    $PROJECT_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt 2>&1
             fi
         fi
         
@@ -367,7 +367,7 @@ done
 echo -e "${BLUE}Generating summary report...${NC}"
 
 # Create summary file
-SUMMARY_FILE="$WORK_DIR/profiling_results_hybrid/summary.txt"
+SUMMARY_FILE="$PROJECT_DIR/profiling_results_hybrid/summary.txt"
 echo "# Heat Diffusion Simulation Profiling Summary for CSD3 Icelake (2-Node)" > $SUMMARY_FILE
 echo "Date: $(date)" >> $SUMMARY_FILE
 echo "" >> $SUMMARY_FILE
@@ -391,7 +391,7 @@ echo "## Process Placement Tests (2-Node Focus)" >> $SUMMARY_FILE
 echo "Testing different process distributions on 2 Icelake nodes:" >> $SUMMARY_FILE
 
 # Pure MPI tests
-RESULT_FILE="$WORK_DIR/profiling_results_hybrid/placement/single_node_76ranks.txt"
+RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/placement/single_node_76ranks.txt"
 if [ -f "$RESULT_FILE" ]; then
     TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
     if [ -n "$TIME" ]; then
@@ -403,7 +403,7 @@ else
     echo "- 76 processes on single node: Failed or not run" >> $SUMMARY_FILE
 fi
 
-RESULT_FILE="$WORK_DIR/profiling_results_hybrid/placement/multi_node_152ranks.txt"
+RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/placement/multi_node_152ranks.txt"
 if [ -f "$RESULT_FILE" ]; then
     TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
     if [ -n "$TIME" ]; then
@@ -431,7 +431,7 @@ for TEST in "${HYBRID_TESTS[@]}"; do
     PROCS=$(echo $TEST | cut -d':' -f1)
     THREADS=$(echo $TEST | cut -d':' -f2)
     
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/placement/multi_node_hybrid_${PROCS}ranks_${THREADS}threads.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_${PROCS}ranks_${THREADS}threads.txt"
     if [ -f "$RESULT_FILE" ]; then
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
         if [ -n "$TIME" ]; then
@@ -449,7 +449,7 @@ echo "" >> $SUMMARY_FILE
 echo "Inter-node fabric performance tests:" >> $SUMMARY_FILE
 for FABRIC in "shm:ofi" "shm:dapl" "shm:tcp"; do
     SAFE_FABRIC="${FABRIC// /_}"
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/placement/multi_node_fabric_${SAFE_FABRIC}.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/placement/multi_node_fabric_${SAFE_FABRIC}.txt"
     if [ -f "$RESULT_FILE" ]; then
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
         if [ -n "$TIME" ]; then
@@ -466,7 +466,7 @@ done
 echo "" >> $SUMMARY_FILE
 echo "Communication patterns with different problem sizes:" >> $SUMMARY_FILE
 for SIZE in 1000 2000 4000 8000; do
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/placement/multi_node_size_${SIZE}.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/placement/multi_node_size_${SIZE}.txt"
     if [ -f "$RESULT_FILE" ]; then
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
         PERF=$(grep "Performance:" $RESULT_FILE | head -n 1)
@@ -486,7 +486,7 @@ echo "" >> $SUMMARY_FILE
 echo "## Thread Affinity Tests" >> $SUMMARY_FILE
 echo "Testing OpenMP thread binding strategies with $PROCS processes and $THREADS threads:" >> $SUMMARY_FILE
 for BIND in "${OMP_BINDING_TYPES[@]}"; do
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/affinity/omp_bind_${BIND}.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/affinity/omp_bind_${BIND}.txt"
     if [ -f "$RESULT_FILE" ]; then
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
         
@@ -502,7 +502,7 @@ done
 
 echo "Testing Intel KMP_AFFINITY settings with $PROCS processes and $THREADS threads:" >> $SUMMARY_FILE
 for BIND in "${KMP_AFFINITY_TYPES[@]}"; do
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/affinity/kmp_affinity_${BIND}.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/affinity/kmp_affinity_${BIND}.txt"
     if [ -f "$RESULT_FILE" ]; then
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)
         
@@ -524,7 +524,7 @@ for CONFIG in "${STRONG_CONFIGS[@]}"; do
     PROCS=$(echo $CONFIG | cut -d':' -f1)
     THREADS=$(echo $CONFIG | cut -d':' -f2)
     
-    RESULT_FILE="$WORK_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt"
+    RESULT_FILE="$PROJECT_DIR/profiling_results_hybrid/scaling/strong_p${PROCS}_t${THREADS}.txt"
     if [ -f "$RESULT_FILE" ]; then
         # Extract time and performance if available
         TIME=$(grep "Total Simulation Time:" $RESULT_FILE | head -n 1)

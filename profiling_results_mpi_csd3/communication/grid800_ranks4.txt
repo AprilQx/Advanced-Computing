@@ -1,0 +1,57 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 1 ===
+Running benchmark with grid size 800x800 for 100 iterations across 1 runs using 4 MPI ranks (no output)
+
+=== Run 1
+=== Run 1 of 1 ===
+ of 1 ===
+Creating a 2x2 process grid for 4 processes
+
+=== Run 1 of 1 ===
+Domain decomposition: Global size = 800x800, Process grid = 2x2
+Rank 0 has local domain size 400x400 starting at global position (0,0)
+Rank 0 neighbors: N=Rank 1 has local domain size 400x400 starting at global position (400,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 400x400 starting at global position (0,400)
+Rank 2 neighbors: N=0, E=3, S=-1, W=-1
+Rank 3 has local domain size 400x400 starting at global position (400,400)
+Rank 3 neighbors: N=1, E=-1, S=-1, W=2
+-1, E=1, S=2, W=-1
+Run 1 Results:
+  Setup Time: 3.54357 ms
+  Total Simulation Time: 20.5288 ms
+  Performance: 3.11757e+09 cell updates per second
+  Memory Usage Increase: 7496 KB
+  Checksum: 1.28039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 800x800 (640000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.54357 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 20.5288 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.205288 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.196657/0.2699 ms
+
+Performance Statistics:
+  Average Performance: 3.11757e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (20.5288 ms)
+  Worst Run: Run 1 (20.5288 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 7496 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 49247 RUNNING AT cpu-q-118
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

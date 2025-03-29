@@ -1,0 +1,47 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 200x200 for 100 iterations across 1 runs using 2 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 2x1 process grid for 2 processes
+
+=== Run 1 of 1 ===
+Domain decomposition: Global size = 200x200, Process grid = 2x1
+Rank 0 has local domain size 200x100 starting at global position (0,0)
+Rank 0Rank 1 has local domain size 200x100 starting at global position (0,100)
+Rank 1 neighbors: N=0, E=-1, S=-1, W=-1
+ neighbors: N=-1, E=-1, S=1, W=-1
+Run 1 Results:
+  Setup Time: 2.02775 ms
+  Total Simulation Time: 1.94816 ms
+  Performance: 2.05322e+09 cell updates per second
+  Memory Usage Increase: 2564 KB
+  Checksum: 803920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 200x200 (40000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 2.02775 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 1.94816 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0194816 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.01856/0.029821 ms
+
+Performance Statistics:
+  Average Performance: 2.05322e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (1.94816 ms)
+  Worst Run: Run 1 (1.94816 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 2564 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 48912 RUNNING AT cpu-q-118
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

@@ -1,0 +1,157 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+Running benchmark with grid size 2000x2000 for 1000 iterations across 3 runs using 8 MPI ranks (no output)
+
+=== Run 1 of 3 ===
+Creating a 4x2 process grid for 8 processes
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+Domain decomposition: Global size = 2000x2000, Process grid = 4x2
+Rank 0 has local domain size 1000x500 starting at global position (0,0)
+Rank 0 neighbors: N=-1Rank 1 has local domain size 1000x500 starting at global position (1000,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 1000x500 starting at global position (0,500)
+Rank 2 neighbors: N=0, E=3, S=4, W=-1
+, E=1, S=2, W=-1
+Rank 3 has local domain size 1000x500 starting at global position (1000,500)
+Rank 3 neighbors: N=1, E=-1, S=5, W=2
+Rank 4 has local domain size 1000x500 starting at global position (0,1000)
+Rank 4 neighbors: N=2, E=5, S=6, W=-1
+Rank 5 has local domain size 1000x500 starting at global position (1000,1000)
+Rank 5 neighbors: N=3, E=-1, S=7, W=4
+Rank 6 has local domain size 1000x500 starting at global position (0,1500)
+Rank 6 neighbors: N=4, E=7, S=-1, W=-1
+Rank 7 has local domain size 1000x500 starting at global position (1000,1500)
+Rank 7 neighbors: N=5, E=-1, S=-1, W=6
+Run 1 Results:
+  Setup Time: 5.06877 ms
+  Total Simulation Time: 2501.14 ms
+  Performance: -1.17933e+08 cell updates per second
+  Memory Usage Increase: 11420 KB
+  Checksum: 8.00039e+07
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+Creating a 4x2 process grid for 8 processes
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+Domain decomposition: Global size = 2000x2000, Process grid = 4x2
+Rank 0 has local domain size 1000x500 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+Rank 1 has local domain size 1000x500 starting at global position (1000,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 1000x500 starting at global position (0,500)
+Rank 2 neighbors: N=0, E=3, S=4, W=-1
+Rank 3 has local domain size 1000x500 starting at global position (1000,500)
+Rank 3 neighbors: N=1, E=-1, S=5, W=2
+Rank 4 has local domain size 1000x500 starting at global position (0,1000)
+Rank 4 neighbors: N=2, E=5, S=6, W=-1
+Rank 5 has local domain size 1000x500 starting at global position (1000,1000)
+Rank 5 neighbors: N=3, E=-1, S=7, W=4
+Rank 6 has local domain size 1000x500 starting at global position (0,1500)
+Rank 6 neighbors: N=4, E=7, S=-1, W=-1
+Rank 7 has local domain size 1000x500 starting at global position (1000,1500)
+Rank 7 neighbors: N=5, E=-1, S=-1, W=6
+Run 2 Results:
+  Setup Time: 2.0773 ms
+  Total Simulation Time: 487.072 ms
+  Performance: -6.05592e+08 cell updates per second
+  Memory Usage Increase: 2116 KB
+  Checksum: 8.00039e+07
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+Creating a 4x2 process grid for 8 processes
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+Domain decomposition: Global size = 2000x2000, Process grid = 4x2
+Rank 4 has local domain size 1000x500 starting at global position (0Rank 5 has local domain size 1000x500 starting at global position (1000,1000)
+Rank 5 neighbors: N=3, E=-1, S=7, W=4
+Rank 6 has local domain size 1000x500 starting at global position (0,1500)
+Rank 6 neighbors: N=4, E=7, S=-1, W=-1
+Rank 7 has local domain size 1000x500 starting at global position (1000,1500)
+Rank 7 neighbors: N=5, E=-1, S=-1, W=6
+Rank 0 has local domain size 1000x500 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+Rank 1 has local domain size 1000x500 starting at global position (1000,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 1000x500 starting at global position (0,500)
+Rank 2 neighbors: N=0, E=3, S=4, W=-1
+Rank 3 has local domain size 1000x500 starting at global position (1000,500)
+Rank 3 neighbors: N=1, E=-1, S=5, W=2
+,1000)
+Rank 4 neighbors: N=2, E=5, S=6, W=-1
+Run 3 Results:
+  Setup Time: 1.79479 ms
+  Total Simulation Time: 478.244 ms
+  Performance: -6.16771e+08 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 8.00039e+07
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 2000x2000 (4000000 cells)
+Iterations per Run: 1000
+
+Timing Statistics:
+  Average Setup Time: 2.98029 ms (StdDev: 1.48128 ms)
+  Average Total Simulation Time: 1155.48 ms (StdDev: 951.526 ms)
+  Average Iteration Time: 1.15548 ms (StdDev: 0.951526 ms)
+  Average Min/Max Iteration Time: 0.592889/1.26236 ms
+
+Performance Statistics:
+  Average Performance: -4.46766e+08 cell updates per second (StdDev: 2.32564e+08)
+  Best Run: Run 3 (478.244 ms)
+  Worst Run: Run 1 (2501.14 ms)
+  Coefficient of Variation: 82.3487%
+
+Memory Usage:
+  Average Memory Increase: 4512 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 47795 RUNNING AT cpu-q-118
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

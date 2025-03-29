@@ -1,0 +1,36 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 4000x4000 for 100 iterations across 1 runs using 1 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 1x1 process grid for 1 processes
+Domain decomposition: Global size = 4000x4000, Process grid = 1x1
+Rank 0 has local domain size 4000x4000 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=-1, W=-1
+Run 1 Results:
+  Setup Time: 49.14 ms
+  Total Simulation Time: 2365.05 ms
+  Performance: 6.76518e+08 cell updates per second
+  Memory Usage Increase: 251112 KB
+  Checksum: 3.20004e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 4000x4000 (16000000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 49.14 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 2365.05 ms (StdDev: 0 ms)
+  Average Iteration Time: 23.6505 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 23.58/23.79 ms
+
+Performance Statistics:
+  Average Performance: 6.76518e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (2365.05 ms)
+  Worst Run: Run 1 (2365.05 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 251112 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
