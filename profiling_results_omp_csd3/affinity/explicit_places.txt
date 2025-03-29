@@ -1,19 +1,18 @@
 OMP_NUM_THREADS environment variable: 32
 Running benchmark with grid size 2000x2000 for 50 iterations across 1 runs (no output)
-OMP: Warning #58: KMP_AFFINITY: parameter invalid, ignoring "master".
 System has 32 OpenMP threads available
 
 === Run 1 of 1 ===
 OpenMP initialized with 32 threads
 Using 32 OpenMP threads for this run
-Iteration 0 completed in 71.4087 ms
+Iteration 0 completed in 0.670434 ms
 Run 1 Results:
-  Setup Time: 456.416 ms
-  Total Simulation Time: 476.352 ms
-  Average Iteration Time: 9.52704 ms
-  Min/Max Iteration Time: 7.81055/71.4087 ms
-  Performance: 4.19858e+08 cell updates per second
-  Memory Usage Increase: 63160 KB
+  Setup Time: 13.2732 ms
+  Total Simulation Time: 15.088 ms
+  Average Iteration Time: 0.30176 ms
+  Min/Max Iteration Time: 0.263826/0.670434 ms
+  Performance: 1.32556e+10 cell updates per second
+  Memory Usage Increase: 61912 KB
   Checksum: 8.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -21,19 +20,19 @@ Grid Size: 2000x2000 (4000000 cells)
 Iterations per Run: 50
 
 Timing Statistics:
-  Average Setup Time: 456.416 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 476.352 ms (StdDev: 0 ms)
-  Average Iteration Time: 9.52704 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 7.81055/71.4087 ms
+  Average Setup Time: 13.2732 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 15.088 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.30176 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.263826/0.670434 ms
 
 Performance Statistics:
-  Average Performance: 4.19858e+08 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (476.352 ms)
-  Worst Run: Run 1 (476.352 ms)
+  Average Performance: 1.32556e+10 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (15.088 ms)
+  Worst Run: Run 1 (15.088 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 63160 KB
+  Average Memory Increase: 61912 KB
 
 Numerical Stability:
   Checksum consistency: Stable

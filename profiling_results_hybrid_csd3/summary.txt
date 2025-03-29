@@ -1,0 +1,72 @@
+# Heat Diffusion Simulation Profiling Summary for CSD3 Icelake (2-Node)
+Date: Sat Mar 29 22:25:16 GMT 2025
+
+## System Information
+- Job ID: 7525451
+- Nodes: 2
+- Node Names: cpu-q-177 cpu-q-303 
+- CPU Cores Total: 76
+- CPU Cores Per Node: 76 (Icelake)
+- MPI Implementation: Intel(R) MPI Library for Linux* OS, Version 2021.6 Build 20220227 (id: 28877f3f32)
+- Intel Compiler: icc (ICC) 2021.6.0 20220226
+
+## Process Placement Tests (2-Node Focus)
+Testing different process distributions on 2 Icelake nodes:
+- 76 processes on single node:   Total Simulation Time: 165126 ms
+- 152 processes across 2 nodes (76 per node):   Total Simulation Time: 165471 ms
+
+Hybrid mode performance across 2 nodes:
+- 38 processes with 2 threads each:   Total Simulation Time: 92784.9 ms
+- 19 processes with 4 threads each: Completed
+- 8 processes with 19 threads each:   Total Simulation Time: 210604 ms
+- 4 processes with 38 threads each:   Total Simulation Time: 162463 ms
+- 2 processes with 76 threads each:   Total Simulation Time: 13083.4 ms
+
+Inter-node fabric performance tests:
+- I_MPI_FABRICS=shm:ofi:   Total Simulation Time: 95116.1 ms
+- I_MPI_FABRICS=shm:dapl:   Total Simulation Time: 95023.2 ms
+- I_MPI_FABRICS=shm:tcp:   Total Simulation Time: 94828.1 ms
+
+Communication patterns with different problem sizes:
+- Size 1000x1000:   Total Simulation Time: 13796.1 ms,   Performance: 7.24841e+06 cell updates per second
+- Size 2000x2000:   Total Simulation Time: 9735.17 ms,   Performance: 4.10881e+07 cell updates per second
+- Size 4000x4000:   Total Simulation Time: 17490 ms,   Performance: 9.14808e+07 cell updates per second
+- Size 8000x8000:   Total Simulation Time: 20121.2 ms,   Performance: 1.04618e+08 cell updates per second
+
+## Thread Affinity Tests
+Testing OpenMP thread binding strategies with 2 processes and 76 threads:
+- OMP_PROC_BIND=scatter:   Total Simulation Time: 9559.97 ms
+- OMP_PROC_BIND=compact:   Total Simulation Time: 9270.09 ms
+- OMP_PROC_BIND=balanced:   Total Simulation Time: 8985.32 ms
+Testing Intel KMP_AFFINITY settings with 2 processes and 76 threads:
+- KMP_AFFINITY=compact:   Total Simulation Time: 9334.25 ms
+- KMP_AFFINITY=scatter:   Total Simulation Time: 9505.94 ms
+- KMP_AFFINITY=balanced:   Total Simulation Time: 9443.36 ms
+- KMP_AFFINITY=disabled:   Total Simulation Time: 9420.15 ms
+
+## Strong Scaling Tests
+Fixed problem size (5000×5000), varying process and thread counts:
+- 1 processes × 1 threads: Completed
+- 1 processes × 76 threads: Completed
+- 2 processes × 38 threads:   Total Simulation Time: 910.809 ms,   Performance: 1.37241e+09 cell updates per second
+- 4 processes × 19 threads:   Total Simulation Time: 3611.45 ms,   Performance: 3.46122e+08 cell updates per second
+- 8 processes × 9 threads:   Total Simulation Time: 4043.23 ms,   Performance: 3.09159e+08 cell updates per second
+- 19 processes × 4 threads:   Total Simulation Time: 4865.02 ms,   Performance: 2.56936e+08 cell updates per second
+- 38 processes × 2 threads:   Total Simulation Time: 5872.32 ms,   Performance: 2.12863e+08 cell updates per second
+- 76 processes × 1 threads:   Total Simulation Time: 8709.27 ms,   Performance: 1.43525e+08 cell updates per second
+- 2 processes × 76 threads: Not tested
+- 4 processes × 38 threads: Not tested
+- 8 processes × 19 threads: Not tested
+- 16 processes × 9 threads: Not tested
+- 38 processes × 4 threads: Not tested
+- 76 processes × 2 threads: Not tested
+- 152 processes × 1 threads: Not tested
+
+## Key Findings and Recommendations
+Please review the detailed results to identify:
+1. Optimal process-thread balance for CSD3 Icelake hardware
+2. Most efficient communication pattern between the 2 nodes
+3. Impact of Intel-specific thread affinity settings on performance
+4. Best fabric option for inter-node communication
+5. Scaling characteristics with different MPI/OpenMP combinations
+6. Performance impact of different problem sizes on communication patterns

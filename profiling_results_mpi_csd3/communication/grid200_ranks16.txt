@@ -24,6 +24,18 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 === Run 1 of 1 ===
 
 === Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
 Running benchmark with grid size 200x200 for 100 iterations across 1 runs using 16 MPI ranks (no output)
 
 === Run 1 of 1 ===
@@ -36,56 +48,36 @@ Creating a 4x4 process grid for 16 processes
 === Run 1 of 1 ===
 
 === Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-Domain decomposition: Global size = 200x200, Process grid = 4x4
-Rank 2 has local domain size 50x50 starting at global position (100,0)
-Rank 2 neighbors: N=-1, E=3, S=6Rank 6 has local domain size 50x50 starting at global position (100,50)
+Rank 5 has local domain size 50x50 starting at global position (50,50)
+Rank 5 neighbors: N=1, E=6, S=9, W=4
+Rank 6 has local domain size 50x50 starting at global position (100,50)
 Rank 6 neighbors: N=2, E=7, S=10, W=5
 Rank 7 has local domain size 50x50 starting at global position (150,50)
 Rank 7 neighbors: N=3, E=-1, S=11, W=6
 Rank 8 has local domain size 50x50 starting at global position (0,100)
 Rank 8 neighbors: N=4, E=9, S=12, W=-1
-Rank 12 has local domain size 50x50 starting at global position (0,150)
-Rank 12 neighbors: N=8, E=13, S=-1, W=-1
-Rank 0 has local domain size 50x50 starting at global position (0,0)
-Rank 0 neighbors: N=-1, E=1, S=4, W=-1
-Rank 1 has local domain size 50x50 starting at global position (50,0)
-Rank 1 neighbors: N=-1, E=2, S=5, W=0
-, W=1
-Rank 3 has local domain size 50x50 starting at global position (150,0)
-Rank 3 neighbors: N=-1, E=-1, S=7, W=2
-Rank 4 has local domain size 50x50 starting at global position (0,50)
-Rank 4 neighbors: N=0, E=5, S=8, W=-1
-Rank 5 has local domain size 50x50 starting at global position (50,50)
-Rank 5 neighbors: N=1, E=6, S=9, W=4
 Rank 9 has local domain size 50x50 starting at global position (50,100)
 Rank 9 neighbors: N=5, E=10, S=13, W=8
 Rank 10 has local domain size 50x50 starting at global position (100,100)
 Rank 10 neighbors: N=6, E=11, S=14, W=9
 Rank 11 has local domain size 50x50 starting at global position (150,100)
 Rank 11 neighbors: N=7, E=-1, S=15, W=10
+Rank 12 has local domain size 50x50 starting at global position (0,150)
+Rank 12 neighbors: N=8, E=13, S=-1, W=-1
 Rank 13 has local domain size 50x50 starting at global position (50,150)
 Rank 13 neighbors: N=9, E=14, S=-1, W=12
 Rank 14 has local domain size 50x50 starting at global position (100,150)
 Rank 14 neighbors: N=10, E=15, S=-1, W=13
 Rank 15 has local domain size 50x50 starting at global position (150,150)
 Rank 15 neighbors: N=11, E=-1, S=-1, W=14
+Domain decomposition: Global size = 200x200, Process grid = 4x4
+Rank 0 has local domain size 50x50 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=4, W=-1
 Run 1 Results:
-  Setup Time: 4.9493 ms
-  Total Simulation Time: 1.09024 ms
-  Performance: 3.66893e+09 cell updates per second
-  Memory Usage Increase: 7104 KB
+  Setup Time: 6.4752 ms
+  Total Simulation Time: 2.40336 ms
+  Performance: 1.66433e+09 cell updates per second
+  Memory Usage Increase: 4692 KB
   Checksum: 803920
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -93,25 +85,33 @@ Grid Size: 200x200 (40000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 4.9493 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 1.09024 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.0109023 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.004024/0.024966 ms
+  Average Setup Time: 6.4752 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 2.40336 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.0240336 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.004395/1.48289 ms
 
 Performance Statistics:
-  Average Performance: 3.66893e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (1.09024 ms)
-  Worst Run: Run 1 (1.09024 ms)
+  Average Performance: 1.66433e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (2.40336 ms)
+  Worst Run: Run 1 (2.40336 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 7104 KB
+  Average Memory Increase: 4692 KB
 
 Numerical Stability:
   Checksum consistency: Stable
+Rank 1 has local domain size 50x50 starting at global position (50,0)
+Rank 1 neighbors: N=-1, E=2, S=5, W=0
+Rank 2 has local domain size 50x50 starting at global position (100,0)
+Rank 2 neighbors: N=-1, E=3, S=6, W=1
+Rank 3 has local domain size 50x50 starting at global position (150,0)
+Rank 3 neighbors: N=-1, E=-1, S=7, W=2
+Rank 4 has local domain size 50x50 starting at global position (0,50)
+Rank 4 neighbors: N=0, E=5, S=8, W=-1
 
 ===================================================================================
 =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   RANK 0 PID 49028 RUNNING AT cpu-q-118
+=   RANK 0 PID 75412 RUNNING AT cpu-q-177
 =   KILLED BY SIGNAL: 9 (Killed)
 ===================================================================================

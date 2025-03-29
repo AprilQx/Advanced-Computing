@@ -1,6 +1,6 @@
-Elapsed Time: 6.913s
+Elapsed Time: 4.152s
     Paused Time: 0s
-Effective CPU Utilization: 1.5% (1.107 out of 76 logical CPUs)
+Effective CPU Utilization: 1.3% (1.012 out of 76 logical CPUs)
  | The metric value is low, which may signal a poor logical CPU cores
  | utilization caused by load imbalance, threading runtime overhead, contended
  | synchronization, or thread/process underutilization. Explore sub-metrics to
@@ -13,46 +13,23 @@ Effective CPU Utilization: 1.5% (1.107 out of 76 logical CPUs)
      | number hard coding that limits application scalability.
      |
         Thread Oversubscription: 0s (0.0% of CPU Time)
-    Wait Time with poor CPU Utilization: 98.126s (100.0% of Wait Time)
+    Wait Time with poor CPU Utilization
 
         Top Waiting Objects
-        Sync Object                                                    Wait Time with poor CPU Utilization  (% from Object Wait Time)(%)  Wait Count
-        -------------------------------------------------------------  -----------------------------------  ----------------------------  ----------
-        Condition Variable 0x4b5f7eac                                                              98.126s                        100.0%          21
-        Stream /proc/cpuinfo 0x5e38b8d1                                                             0.000s                        100.0%           1
-        Stream /proc/sys/vm/nr_hugepages 0x8d515dba                                                 0.000s                        100.0%           1
-        Stream /sys/kernel/mm/transparent_hugepage/enabled 0xc3cb45c7                               0.000s                        100.0%           1
-        Stream /proc/meminfo 0x81dc6612                                                             0.000s                        100.0%           1
-    Spin and Overhead Time: 2.970s (28.0% of CPU Time)
-     | The threading runtime function related to time spent on imbalance or
-     | serial spinning consumed a significant amount of CPU time. This can be
-     | caused by a load imbalance, insufficient concurrency for all working
-     | threads, or busy waits of worker threads while serial code is executed.
-     | If there is an imbalance, apply dynamic work scheduling or reduce the
-     | size of work chunks or tasks. If there is insufficient concurrency,
-     | consider collapsing the outer and inner loops. If there is a wait for
-     | completion of serial code, explore options for parallelization with Intel
-     | Advisor, algorithm, or microarchitecture tuning of the application's
-     | serial code with VTune Profiler Basic Hotspots or Microarchitecture
-     | Exploration analysis respectively. For OpenMP* applications, use the Per-
-     | Barrier OpenMP Potential Gain metric set in the HPC Performance
-     | Characterization analysis to discover the reason for high imbalance or
-     | serial spin time.
-     |
+        Sync Object  Wait Time with poor CPU Utilization  (% from Object Wait Time)(%)  Wait Count
+        -----------  -----------------------------------  ----------------------------  ----------
+    Spin and Overhead Time: 0s (0.0% of CPU Time)
 
         Top Functions with Spin or Overhead Time
-        Function                       Module           Spin and Overhead Time  (% from CPU Time)(%)
-        -----------------------------  ---------------  ----------------------  --------------------
-        __kmp_fork_barrier             libiomp5.so                      2.940s                 27.7%
-        __kmp_api_omp_get_max_threads  libiomp5.so                      0.020s                  0.2%
-        pthread_create                 libpthread.so.0                  0.010s                  0.1%
+        Function  Module  Spin and Overhead Time  (% from CPU Time)(%)
+        --------  ------  ----------------------  --------------------
 Collection and Platform Info
     Application Command Line: ./heat_diffusion_openmp_benchmark "--width" "100000" "--height" "100000" "--frames" "1000" "--runs" "1" 
     Operating System: 4.18.0-553.34.1.el8_10.x86_64 Unix/Linux
-    Computer Name: cpu-q-187
-    Result Size: 4.3 MB 
-    Collection start time: 20:09:41 23/03/2025 UTC
-    Collection stop time: 20:09:49 23/03/2025 UTC
+    Computer Name: cpu-q-120
+    Result Size: 3.6 MB 
+    Collection start time: 17:54:33 29/03/2025 UTC
+    Collection stop time: 17:54:38 29/03/2025 UTC
     Collector Type: User-mode sampling and tracing
     CPU
         Name: Intel(R) Xeon(R) Processor code named Icelake

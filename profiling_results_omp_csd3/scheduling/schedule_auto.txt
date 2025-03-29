@@ -5,23 +5,23 @@ System has 76 OpenMP threads available
 === Run 1 of 1 ===
 OpenMP initialized with 76 threads
 Using 76 OpenMP threads for this run
-Iteration 0 completed in 296.84 ms
-Iteration 100 completed in 8.37174 ms
-Iteration 200 completed in 8.35677 ms
-Iteration 300 completed in 8.7316 ms
-Iteration 400 completed in 8.51063 ms
-Iteration 500 completed in 8.69016 ms
-Iteration 600 completed in 8.16394 ms
-Iteration 700 completed in 8.21438 ms
-Iteration 800 completed in 8.69263 ms
-Iteration 900 completed in 8.62538 ms
+Iteration 0 completed in 0.585269 ms
+Iteration 100 completed in 0.614796 ms
+Iteration 200 completed in 0.674489 ms
+Iteration 300 completed in 0.676963 ms
+Iteration 400 completed in 0.506411 ms
+Iteration 500 completed in 0.552635 ms
+Iteration 600 completed in 0.56696 ms
+Iteration 700 completed in 0.745423 ms
+Iteration 800 completed in 0.611281 ms
+Iteration 900 completed in 0.569805 ms
 Run 1 Results:
-  Setup Time: 633.023 ms
-  Total Simulation Time: 8982.82 ms
-  Average Iteration Time: 8.98282 ms
-  Min/Max Iteration Time: 7.78866/296.84 ms
-  Performance: -3.28368e+07 cell updates per second
-  Memory Usage Increase: 64088 KB
+  Setup Time: 12.1214 ms
+  Total Simulation Time: 603.977 ms
+  Average Iteration Time: 0.603977 ms
+  Min/Max Iteration Time: 0.371081/0.994671 ms
+  Performance: -4.88375e+08 cell updates per second
+  Memory Usage Increase: 66368 KB
   Checksum: 8.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -29,19 +29,19 @@ Grid Size: 2000x2000 (4000000 cells)
 Iterations per Run: 1000
 
 Timing Statistics:
-  Average Setup Time: 633.023 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 8982.82 ms (StdDev: 0 ms)
-  Average Iteration Time: 8.98282 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 7.78866/296.84 ms
+  Average Setup Time: 12.1214 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 603.977 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.603977 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.371081/0.994671 ms
 
 Performance Statistics:
-  Average Performance: -3.28368e+07 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (8982.82 ms)
-  Worst Run: Run 1 (8982.82 ms)
+  Average Performance: -4.88375e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (603.977 ms)
+  Worst Run: Run 1 (603.977 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 64088 KB
+  Average Memory Increase: 66368 KB
 
 Numerical Stability:
   Checksum consistency: Stable

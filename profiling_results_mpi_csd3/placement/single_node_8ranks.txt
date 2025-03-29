@@ -6,46 +6,46 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
 MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+
+=== Run 
+=== Run 1 of 1 ===
+1 of 1 ===
 Running benchmark with grid size 1000x1000 for 100 iterations across 1 runs using 8 MPI ranks (no output)
 
 === Run 1 of 1 ===
 Creating a 4x2 process grid for 8 processes
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
-
-=== Run 1 of 1 ===
 Domain decomposition: Global size = 1000x1000, Process grid = 4x2
 Rank 0 has local domain size 500x250 starting at global position (0,0)
-Rank 0 neighbors: N=-1, E=Rank 3 has local domain size 500x250 starting at global position (500,250)
-Rank 3 neighbors: N=1, E=-1, S=5, W=2
-Rank 7 has local domain size 500x250 starting at global position (500,750)
-Rank 7 neighbors: N=5, E=-1, S=-1, W=6
-1, S=2, W=-1
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
 Rank 1 has local domain size 500x250 starting at global position (500,0)
 Rank 1 neighbors: N=-1, E=-1, S=3, W=0
-Rank 2 has local domain size 500x250 starting at global position (0,250)
-Rank 2 neighbors: N=0, E=3, S=4, W=-1
+Rank 3 has local domain size 500x250 starting at global position (500,250)
+Rank 3 neighbors: N=1, E=-1, S=5, W=2
 Rank 4 has local domain size 500x250 starting at global position (0,500)
 Rank 4 neighbors: N=2, E=5, S=6, W=-1
-Rank 5 has local domain size 500x250 starting at global position (500,500)
-Rank 5 neighbors: N=3, E=-1, S=7, W=4
+Rank 7 has local domain size 500x250 starting at global position (500,750)
+Rank 7 neighbors: N=5, E=-1, S=-1, W=6
+Rank 2 has local domain size 500x250 starting at global position (0,250)
+Rank 2 neighbors: N=0, E=3, S=4, W=-1
 Rank 6 has local domain size 500x250 starting at global position (0,750)
 Rank 6 neighbors: N=4, E=7, S=-1, W=-1
+Rank 5 has local domain size 500x250 starting at global position (500,500)
+Rank 5 neighbors: N=3, E=-1, S=7, W=4
 Run 1 Results:
-  Setup Time: 4.01908 ms
-  Total Simulation Time: 16.3238 ms
-  Performance: 6.12602e+09 cell updates per second
-  Memory Usage Increase: 4916 KB
+  Setup Time: 103.779 ms
+  Total Simulation Time: 561.068 ms
+  Performance: 1.78232e+08 cell updates per second
+  Memory Usage Increase: 9908 KB
   Checksum: 2.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -53,25 +53,31 @@ Grid Size: 1000x1000 (1000000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 4.01908 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 16.3238 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.163238 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.153028/0.280609 ms
+  Average Setup Time: 103.779 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 561.068 ms (StdDev: 0 ms)
+  Average Iteration Time: 5.61068 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.183618/25.7811 ms
 
 Performance Statistics:
-  Average Performance: 6.12602e+09 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (16.3238 ms)
-  Worst Run: Run 1 (16.3238 ms)
+  Average Performance: 1.78232e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (561.068 ms)
+  Worst Run: Run 1 (561.068 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 4916 KB
+  Average Memory Increase: 9908 KB
 
 Numerical Stability:
   Checksum consistency: Stable
 
 ===================================================================================
 =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   RANK 0 PID 48787 RUNNING AT cpu-q-118
+=   RANK 0 PID 75171 RUNNING AT cpu-q-177
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 5 PID 75176 RUNNING AT cpu-q-177
 =   KILLED BY SIGNAL: 9 (Killed)
 ===================================================================================

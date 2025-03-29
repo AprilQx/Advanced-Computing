@@ -7,10 +7,10 @@ Domain decomposition: Global size = 800x800, Process grid = 1x1
 Rank 0 has local domain size 800x800 starting at global position (0,0)
 Rank 0 neighbors: N=-1, E=-1, S=-1, W=-1
 Run 1 Results:
-  Setup Time: 2.42331 ms
-  Total Simulation Time: 75.3478 ms
-  Performance: 8.49395e+08 cell updates per second
-  Memory Usage Increase: 10804 KB
+  Setup Time: 2.90881 ms
+  Total Simulation Time: 521.93 ms
+  Performance: 1.22622e+08 cell updates per second
+  Memory Usage Increase: 10980 KB
   Checksum: 1.28039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -18,19 +18,19 @@ Grid Size: 800x800 (640000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 2.42331 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 75.3478 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.753478 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.747801/0.943052 ms
+  Average Setup Time: 2.90881 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 521.93 ms (StdDev: 0 ms)
+  Average Iteration Time: 5.2193 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 5.0474/5.73605 ms
 
 Performance Statistics:
-  Average Performance: 8.49395e+08 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (75.3478 ms)
-  Worst Run: Run 1 (75.3478 ms)
+  Average Performance: 1.22622e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (521.93 ms)
+  Worst Run: Run 1 (521.93 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 10804 KB
+  Average Memory Increase: 10980 KB
 
 Numerical Stability:
   Checksum consistency: Stable

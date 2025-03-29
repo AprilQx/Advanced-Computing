@@ -1,3 +1,4 @@
-Function   CPU Time  CPU Time:Effective Time  Module     Function (Full)  Source File  Start Address
----------  --------  -----------------------  ---------  ---------------  -----------  -------------
-[Unknown]    0.419s                   0.419s  [Unknown]  [Unknown]        [Unknown]    [Unknown]    
+Function                                      CPU Time  CPU Time:Effective Time  CPU Time:Spin Time  CPU Time:Overhead Time  Module                           Function (Full)                                                            Source File  Start Address
+--------------------------------------------  --------  -----------------------  ------------------  ----------------------  -------------------------------  -------------------------------------------------------------------------  -----------  -------------
+OpenMPHeatDiffusion2D::OpenMPHeatDiffusion2D    3.800s                   3.800s                  0s                      0s  heat_diffusion_openmp_benchmark  OpenMPHeatDiffusion2D::OpenMPHeatDiffusion2D(int, int, double, bool, int)  [Unknown]    0x405010     
+func@0x1de24                                    0.120s                   0.120s                  0s                      0s  libgomp.so.1                     func@0x1de24                                                               [Unknown]    0x1de24      

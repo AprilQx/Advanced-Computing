@@ -1,0 +1,45 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 5000x5000 for 1000 iterations across 1 runs using 2 MPI ranks and 76 OpenMP threads per rank (total 152 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=76, Max threads available=76, Using=76
+
+=== Run 1 of 1 ===
+Creating a 2x1 process grid for 2 processes
+Domain decomposition: Global size = 5000x5000, Process grid = 2x1
+Rank 0 has local domain size 5000x2500 starting at global position (0,0)
+Rank 1 has local domain size 5000x2500 starting at global position (0,2500)
+OpenMP initialized with 76 threads per MPI rank
+Run 1 Results:
+  Setup Time: 439.193 ms
+  Total Simulation Time: 13083.4 ms
+  Performance: -5.88384e+07 cell updates per second
+  Memory Usage Increase: 196412 KB
+  Checksum: 5.00004e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 5000x5000 (25000000 cells)
+Iterations per Run: 1000
+Parallel Configuration: 2 MPI ranks × 76 OpenMP threads = 152 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 439.193 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 13083.4 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: -58.84 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: -0.39 million
+  Best Run: Run 1 (13083.36 ms)
+  Worst Run: Run 1 (13083.36 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 196412.00 KB
+  Average Memory Per Rank: 98206.00 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 500003920.00
+
+CSV Format (for data collection):
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+5000,5000,1000,2,76,152,13083.36,0.00,-58.84,196412.00,500003920.00

@@ -66,110 +66,6 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 === Run 1 of 3 ===
 
 === Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
-
-=== Run 1 of 3 ===
 Running benchmark with grid size 2000x2000 for 1000 iterations across 3 runs using 64 MPI ranks (no output)
 
 === Run 1 of 3 ===
@@ -192,193 +88,245 @@ Creating a 8x8 process grid for 64 processes
 === Run 1 of 3 ===
 
 === Run 1 of 3 ===
-Domain decomposition: Global size = 2000x2000, Process grid = 8x8
-Rank 1 has local domain size 250x250 starting at global position (250,0)
-Rank 1 neighbors: N=-1, E=2, S=9, W=0
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
+
+=== Run 1 of 3 ===
 Rank 6 has local domain size 250x250 starting at global position (1500,0)
 Rank 6 neighbors: N=-1, E=7, S=14, W=5
+Rank 15 has local domain size 250x250 starting at global position (1750,250)
+Rank 15 neighbors: N=7, E=-1, S=23, W=14
+Rank 20 has local domain size 250x250 starting at global position (1000,500)
+Rank 20 neighbors: N=12, E=21, S=28, W=19
+Rank 27 has local domain size 250x250 starting at global position (750,750)
+Rank 27 neighbors: N=19, E=28, S=35, W=26
+Rank 31 has local domain size 250x250 starting at global position (1750,750)
+Rank 31 neighbors: N=23, E=-1, S=39, W=30
+Rank 32 has local domain size 250x250 starting at global position (0,1000)
+Rank 32 neighbors: N=24, E=33, S=40, W=-1
+Rank 33 has local domain size 250x250 starting at global position (250,1000)
+Rank 33 neighbors: N=25, E=34, S=41, W=32
+Rank 40 has local domain size 250x250 starting at global position (0,1250)
+Rank 40 neighbors: N=32, E=41, S=48, W=-1
+Rank 47 has local domain size 250x250 starting at global position (1750,1250)
+Rank 47 neighbors: N=39, E=-1, S=55, W=46
+Rank 50 has local domain size 250x250 starting at global position (500,1500)
+Rank 50 neighbors: N=42, E=51, S=58, W=49
+Rank 54 has local domain size 250x250 starting at global position (1500,1500)
+Rank 54 neighbors: N=46, E=55, S=62, W=53
+Rank 55 has local domain size 250x250 starting at global position (1750,1500)
+Rank 55 neighbors: N=47, E=-1, S=63, W=54
+Rank 56 has local domain size 250x250 starting at global position (0,1750)
+Rank 56 neighbors: N=48, E=57, S=-1, W=-1
+Rank 57 has local domain size 250x250 starting at global position (250,1750)
+Rank 57 neighbors: N=49, E=58, S=-1, W=56
+Rank 59 has local domain size 250x250 starting at global position (750,1750)
+Rank 59 neighbors: N=51, E=60, S=-1, W=58
+Rank 60 has local domain size 250x250 starting at global position (1000,1750)
+Rank 60 neighbors: N=52, E=61, S=-1, W=59
+Rank 61 has local domain size 250x250 starting at global position (1250,1750)
+Rank 61 neighbors: N=53, E=62, S=-1, W=60
+Rank 62 has local domain size 250x250 starting at global position (1500,1750)
+Rank 62 neighbors: N=54, E=63, S=-1, W=61
+Rank 5 has local domain size 250x250 starting at global position (1250,0)
+Rank 5 neighbors: N=-1, E=6, S=13, W=4
+Rank 7 has local domain size 250x250 starting at global position (1750,0)
+Rank 7 neighbors: N=-1, E=-1, S=15, W=6
+Rank 8 has local domain size 250x250 starting at global position (0,250)
+Rank 8 neighbors: N=0, E=9, S=16, W=-1
 Rank 9 has local domain size 250x250 starting at global position (250,250)
 Rank 9 neighbors: N=1, E=10, S=17, W=8
 Rank 10 has local domain size 250x250 starting at global position (500,250)
 Rank 10 neighbors: N=2, E=11, S=18, W=9
 Rank 11 has local domain size 250x250 starting at global position (750,250)
 Rank 11 neighbors: N=3, E=12, S=19, W=10
-Rank 16 has local domain size 250x250 starting at global position (0,500)
-Rank 16 neighbors: N=8, E=17, S=24, W=-1
-Rank 20 has local domain size 250x250 starting at global position (1000,500)
-Rank 20 neighbors: N=12, E=21, S=28, W=19
-Rank 23 has local domain size 250x250 starting at global position (1750,500)
-Rank 23 neighbors: N=15, E=-1, S=31, W=22
-Rank 30 has local domain size 250x250 starting at global position (1500,750)
-Rank 30 neighbors: N=22, E=31, S=38, W=29
-Rank 33 has local domain size 250x250 starting at global position (250,1000)
-Rank 33 neighbors: N=25, E=34, S=41, W=32
-Rank 37 has local domain size 250x250 starting at global position (1250,1000)
-Rank 37 neighbors: N=29, E=38, S=45, W=36
-Rank 55 has local domain size 250x250 starting at global position (1750,1500)
-Rank 55 neighbors: N=47, E=-1, S=63, W=54
-Rank 57 has local domain size 250x250 starting at global position (250,1750)
-Rank 57 neighbors: N=49, E=58, S=-1, W=56
-Rank 2 has local domain size 250x250 starting at global position (500,0)
-Rank 2 neighbors: N=-1, E=3, S=10, W=1
-Rank 3 has local domain size 250x250 starting at global position (750,0)
-Rank 3 neighbors: N=-1, E=4, S=11, W=2
-Rank 7 has local domain size 250x250 starting at global position (1750,0)
-Rank 7 neighbors: N=-1, E=-1, S=15, W=6
-Rank 18 has local domain size 250x250 starting at global position (500,500)
-Rank 18 neighbors: N=10, E=19, S=26, W=17
-Rank 21 has local domain size 250x250 starting at global position (1250,500)
-Rank 21 neighbors: N=13, E=22, S=29, W=20
-Rank 25 has local domain size 250x250 starting at global position (250,750)
-Rank 25 neighbors: N=17, E=26, S=33, W=24
-Rank 28 has local domain size 250x250 starting at global position (1000,750)
-Rank 28 neighbors: N=20, E=29, S=36, W=27
-Rank 32 has local domain size 250x250 starting at global position (0,1000)
-Rank 32 neighbors: N=24, E=33, S=40, W=-1
-Rank 39 has local domain size 250x250 starting at global position (1750,1000)
-Rank 39 neighbors: N=31, E=-1, S=47, W=38
-Rank 44 has local domain size 250x250 starting at global position (1000,1250)
-Rank 44 neighbors: N=36, E=45, S=52, W=43
-Rank 45 has local domain size 250x250 starting at global position (1250,1250)
-Rank 45 neighbors: N=37, E=46, S=53, W=44
-Rank 47 has local domain size 250x250 starting at global position (1750,1250)
-Rank 47 neighbors: N=39, E=-1, S=55, W=46
-Rank 48 has local domain size 250x250 starting at global position (0,1500)
-Rank 48 neighbors: N=40, E=49, S=56, W=-1
-Rank 58 has local domain size 250x250 starting at global position (500,1750)
-Rank 58 neighbors: N=50, E=59, S=-1, W=57
-Rank 60 has local domain size 250x250 starting at global position (1000,1750)
-Rank 60 neighbors: N=52, E=61, S=-1, W=59
-Rank 61 has local domain size 250x250 starting at global position (1250,1750)
-Rank 61 neighbors: N=53, E=62, S=-1, W=60
-Rank 0 has local domain size 250x250 starting at global position (0,0)
-Rank 0 neighbors: N=-1, E=1, S=8, W=-1
-Rank 4 has local domain size 250x250 starting at global position (1000,0)
-Rank 4 neighbors: N=-1, E=5, S=12, W=3
-Rank 5 has local domain size 250x250 starting at global position (1250,0)
-Rank 5 neighbors: N=-1, E=6, S=13, W=4
-Rank 8 has local domain size 250x250 starting at global position (0,250)
-Rank 8 neighbors: N=0, E=9, S=16, W=-1
 Rank 12 has local domain size 250x250 starting at global position (1000,250)
 Rank 12 neighbors: N=4, E=13, S=20, W=11
 Rank 13 has local domain size 250x250 starting at global position (1250,250)
 Rank 13 neighbors: N=5, E=14, S=21, W=12
 Rank 14 has local domain size 250x250 starting at global position (1500,250)
 Rank 14 neighbors: N=6, E=15, S=22, W=13
-Rank 15 has local domain size 250x250 starting at global position (1750,250)
-Rank 15 neighbors: N=7, E=-1, S=23, W=14
+Rank 16 has local domain size 250x250 starting at global position (0,500)
+Rank 16 neighbors: N=8, E=17, S=24, W=-1
 Rank 17 has local domain size 250x250 starting at global position (250,500)
 Rank 17 neighbors: N=9, E=18, S=25, W=16
+Rank 18 has local domain size 250x250 starting at global position (500,500)
+Rank 18 neighbors: N=10, E=19, S=26, W=17
 Rank 19 has local domain size 250x250 starting at global position (750,500)
 Rank 19 neighbors: N=11, E=20, S=27, W=18
 Rank 22 has local domain size 250x250 starting at global position (1500,500)
 Rank 22 neighbors: N=14, E=23, S=30, W=21
+Rank 23 has local domain size 250x250 starting at global position (1750,500)
+Rank 23 neighbors: N=15, E=-1, S=31, W=22
 Rank 24 has local domain size 250x250 starting at global position (0,750)
 Rank 24 neighbors: N=16, E=25, S=32, W=-1
+Rank 25 has local domain size 250x250 starting at global position (250,750)
+Rank 25 neighbors: N=17, E=26, S=33, W=24
 Rank 26 has local domain size 250x250 starting at global position (500,750)
 Rank 26 neighbors: N=18, E=27, S=34, W=25
-Rank 27 has local domain size 250x250 starting at global position (750,750)
-Rank 27 neighbors: N=19, E=28, S=35, W=26
+Rank 28 has local domain size 250x250 starting at global position (1000,750)
+Rank 28 neighbors: N=20, E=29, S=36, W=27
 Rank 29 has local domain size 250x250 starting at global position (1250,750)
 Rank 29 neighbors: N=21, E=30, S=37, W=28
-Rank 31 has local domain size 250x250 starting at global position (1750,750)
-Rank 31 neighbors: N=23, E=-1, S=39, W=30
 Rank 34 has local domain size 250x250 starting at global position (500,1000)
 Rank 34 neighbors: N=26, E=35, S=42, W=33
 Rank 35 has local domain size 250x250 starting at global position (750,1000)
 Rank 35 neighbors: N=27, E=36, S=43, W=34
 Rank 36 has local domain size 250x250 starting at global position (1000,1000)
 Rank 36 neighbors: N=28, E=37, S=44, W=35
+Rank 37 has local domain size 250x250 starting at global position (1250,1000)
+Rank 37 neighbors: N=29, E=38, S=45, W=36
 Rank 38 has local domain size 250x250 starting at global position (1500,1000)
 Rank 38 neighbors: N=30, E=39, S=46, W=37
-Rank 40 has local domain size 250x250 starting at global position (0,1250)
-Rank 40 neighbors: N=32, E=41, S=48, W=-1
+Rank 39 has local domain size 250x250 starting at global position (1750,1000)
+Rank 39 neighbors: N=31, E=-1, S=47, W=38
 Rank 41 has local domain size 250x250 starting at global position (250,1250)
 Rank 41 neighbors: N=33, E=42, S=49, W=40
 Rank 42 has local domain size 250x250 starting at global position (500,1250)
 Rank 42 neighbors: N=34, E=43, S=50, W=41
 Rank 43 has local domain size 250x250 starting at global position (750,1250)
 Rank 43 neighbors: N=35, E=44, S=51, W=42
+Rank 44 has local domain size 250x250 starting at global position (1000,1250)
+Rank 44 neighbors: N=36, E=45, S=52, W=43
+Rank 45 has local domain size 250x250 starting at global position (1250,1250)
+Rank 45 neighbors: N=37, E=46, S=53, W=44
 Rank 46 has local domain size 250x250 starting at global position (1500,1250)
 Rank 46 neighbors: N=38, E=47, S=54, W=45
+Rank 48 has local domain size 250x250 starting at global position (0,1500)
+Rank 48 neighbors: N=40, E=49, S=56, W=-1
 Rank 49 has local domain size 250x250 starting at global position (250,1500)
 Rank 49 neighbors: N=41, E=50, S=57, W=48
-Rank 50 has local domain size 250x250 starting at global position (500,1500)
-Rank 50 neighbors: N=42, E=51, S=58, W=49
 Rank 51 has local domain size 250x250 starting at global position (750,1500)
 Rank 51 neighbors: N=43, E=52, S=59, W=50
 Rank 52 has local domain size 250x250 starting at global position (1000,1500)
 Rank 52 neighbors: N=44, E=53, S=60, W=51
 Rank 53 has local domain size 250x250 starting at global position (1250,1500)
 Rank 53 neighbors: N=45, E=54, S=61, W=52
-Rank 54 has local domain size 250x250 starting at global position (1500,1500)
-Rank 54 neighbors: N=46, E=55, S=62, W=53
-Rank 56 has local domain size 250x250 starting at global position (0,1750)
-Rank 56 neighbors: N=48, E=57, S=-1, W=-1
-Rank 59 has local domain size 250x250 starting at global position (750,1750)
-Rank 59 neighbors: N=51, E=60, S=-1, W=58
-Rank 62 has local domain size 250x250 starting at global position (1500,1750)
-Rank 62 neighbors: N=54, E=63, S=-1, W=61
+Rank 58 has local domain size 250x250 starting at global position (500,1750)
+Rank 58 neighbors: N=50, E=59, S=-1, W=57
 Rank 63 has local domain size 250x250 starting at global position (1750,1750)
 Rank 63 neighbors: N=55, E=-1, S=-1, W=62
+Domain decomposition: Global size = 2000x2000, Process grid = 8x8
+Rank 0 has local domain size 250x250 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=8, W=-1
+Rank 21 has local domain size 250x250 starting at global position (1250,500)
+Rank 21 neighbors: N=13, E=22, S=29, W=20
+Rank 1 has local domain size 250x250 starting at global position (250,0)
+Rank 1 neighbors: N=-1, E=2, S=9, W=0
+Rank 30 has local domain size 250x250 starting at global position (1500,750)
+Rank 30 neighbors: N=22, E=31, S=38, W=29
+Rank 2 has local domain size 250x250 starting at global position (500,0)
+Rank 2 neighbors: N=-1, E=3, S=10, W=1
+Rank 3 has local domain size 250x250 starting at global position (750,0)
+Rank 3 neighbors: N=-1, E=4, S=11, W=2
+Rank 4 has local domain size 250x250 starting at global position (1000,0)
+Rank 4 neighbors: N=-1, E=5, S=12, W=3
 Run 1 Results:
-  Setup Time: 1426.39 ms
-  Total Simulation Time: 126.455 ms
-  Performance: -2.33259e+09 cell updates per second
-  Memory Usage Increase: 17104 KB
+  Setup Time: 1671.66 ms
+  Total Simulation Time: 113.984 ms
+  Performance: -2.5878e+09 cell updates per second
+  Memory Usage Increase: 8384 KB
   Checksum: 8.00039e+07
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
-
-=== Run 2 of 3 ===
 
 === Run 2 of 3 ===
 Creating a 8x8 process grid for 64 processes
@@ -456,25 +404,77 @@ Creating a 8x8 process grid for 64 processes
 === Run 2 of 3 ===
 
 === Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
+
+=== Run 2 of 3 ===
 Domain decomposition: Global size = 2000x2000, Process grid = 8x8
 Rank 0 has local domain size 250x250 starting at global position (0,0)
 Rank 0 neighbors: N=-1, E=1, S=8, W=-1
-Rank 1 has local domain size 250x250 starting at global position (250,0)
-Rank 1 neighbors: N=-1, E=2, S=9, W=0
-Rank 2 has local domain size 250x250 starting at global position (500,0)
-Rank 2 neighbors: N=-1, E=3, S=10, W=1
-Rank 3 has local domain size 250x250 starting at global position (750,0)
-Rank 3 neighbors: N=-1, E=4, S=11, W=2
-Rank 4 has local domain size 250x250 starting at global position (1000,0)
-Rank 4 neighbors: N=-1, E=5, S=12, W=3
 Rank 5 has local domain size 250x250 starting at global position (1250,0)
 Rank 5 neighbors: N=-1, E=6, S=13, W=4
+Rank 1 has local domain size 250x250 starting at global position (250,0)
+Rank 1 neighbors: N=-1, E=2, S=9, W=0
 Rank 6 has local domain size 250x250 starting at global position (1500,0)
 Rank 6 neighbors: N=-1, E=7, S=14, W=5
+Rank 2 has local domain size 250x250 starting at global position (500,0)
+Rank 2 neighbors: N=-1, E=3, S=10, W=1
 Rank 7 has local domain size 250x250 starting at global position (1750,0)
 Rank 7 neighbors: N=-1, E=-1, S=15, W=6
+Rank 3 has local domain size 250x250 starting at global position (750,0)
+Rank 3 neighbors: N=-1, E=4, S=11, W=2
 Rank 8 has local domain size 250x250 starting at global position (0,250)
 Rank 8 neighbors: N=0, E=9, S=16, W=-1
+Rank 4 has local domain size 250x250 starting at global position (1000,0)
+Rank 4 neighbors: N=-1, E=5, S=12, W=3
 Rank 9 has local domain size 250x250 starting at global position (250,250)
 Rank 9 neighbors: N=1, E=10, S=17, W=8
 Rank 10 has local domain size 250x250 starting at global position (500,250)
@@ -590,95 +590,11 @@ Rank 63 neighbors: N=55, E=-1, S=-1, W=62
 
 === Run 3 of 3 ===
 Run 2 Results:
-  Setup Time: 2.20364 ms
-  Total Simulation Time: 113.941 ms
-  Performance: -2.58878e+09 cell updates per second
-  Memory Usage Increase: 1048
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
- KB
+  Setup Time: 2.28479 ms
+  Total Simulation Time: 85.7689 ms
+  Performance: -3.43909e+09 cell updates per second
+  Memory Usage Increase: 200 KB
   Checksum: 8.00039e+07
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
-
-=== Run 3 of 3 ===
 
 === Run 3 of 3 ===
 Creating a 8x8 process grid for 64 processes
@@ -720,90 +636,172 @@ Creating a 8x8 process grid for 64 processes
 === Run 3 of 3 ===
 
 === Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+Rank 5 has local domain size 250x250 starting at global position (1250,0)
+Rank 5 neighbors: N=-1, E=6, S=13, W=4
 Domain decomposition: Global size = 2000x2000, Process grid = 8x8
 Rank 0 has local domain size 250x250 starting at global position (0,0)
 Rank 0 neighbors: N=-1, E=1, S=8, W=-1
-Rank 1 has local domain size 250x250 starting at global position (250,0)
-Rank 1 neighbors: N=-1, E=2, S=9, W=0
-Rank 2 has local domain size 250x250 starting at global position (500,0)
-Rank 2 neighbors: N=-1, E=3, S=10, W=1
-Rank 3 has local domain size 250x250 starting at global position (750,0)
-Rank 3 neighbors: N=-1, E=4, S=11, W=2
-Rank 4 has local domain size 250x250 starting at global position (1000,0)
-Rank 4 neighbors: N=-1, E=5, S=12, W=3
-Rank 5 has local domain size 250x250 starting at global position (1250,0)
-Rank 5 neighbors: N=-1, E=6, S=13, W=4
+
+=== Run 3 of 3 ===
 Rank 6 has local domain size 250x250 starting at global position (1500,0)
 Rank 6 neighbors: N=-1, E=7, S=14, W=5
+
+=== Run 3 of 3 ===
 Rank 7 has local domain size 250x250 starting at global position (1750,0)
 Rank 7 neighbors: N=-1, E=-1, S=15, W=6
 Rank 8 has local domain size 250x250 starting at global position (0,250)
 Rank 8 neighbors: N=0, E=9, S=16, W=-1
+Rank 1 has local domain size 250x250 starting at global position (250,0)
+Rank 1 neighbors: N=-1, E=2, S=9, W=0
+
+=== Run 3 of 3 ===
 Rank 9 has local domain size 250x250 starting at global position (250,250)
 Rank 9 neighbors: N=1, E=10, S=17, W=8
+Rank 2 has local domain size 250x250 starting at global position (500,0)
+Rank 2 neighbors: N=-1, E=3, S=10, W=1
+
+=== Run 3 of 3 ===
 Rank 10 has local domain size 250x250 starting at global position (500,250)
 Rank 10 neighbors: N=2, E=11, S=18, W=9
+Rank 3 has local domain size 250x250 starting at global position (750,0)
+Rank 3 neighbors: N=-1, E=4, S=11, W=2
+
+=== Run 3 of 3 ===
 Rank 11 has local domain size 250x250 starting at global position (750,250)
 Rank 11 neighbors: N=3, E=12, S=19, W=10
+Rank 4 has local domain size 250x250 starting at global position (1000,0)
+Rank 4 neighbors: N=-1, E=5, S=12, W=3
+
+=== Run 3 of 3 ===
 Rank 12 has local domain size 250x250 starting at global position (1000,250)
 Rank 12 neighbors: N=4, E=13, S=20, W=11
+
+=== Run 3 of 3 ===
 Rank 13 has local domain size 250x250 starting at global position (1250,250)
 Rank 13 neighbors: N=5, E=14, S=21, W=12
+
+=== Run 3 of 3 ===
 Rank 14 has local domain size 250x250 starting at global position (1500,250)
 Rank 14 neighbors: N=6, E=15, S=22, W=13
+
+=== Run 3 of 3 ===
 Rank 15 has local domain size 250x250 starting at global position (1750,250)
 Rank 15 neighbors: N=7, E=-1, S=23, W=14
+
+=== Run 3 of 3 ===
 Rank 16 has local domain size 250x250 starting at global position (0,500)
 Rank 16 neighbors: N=8, E=17, S=24, W=-1
+
+=== Run 3 of 3 ===
 Rank 17 has local domain size 250x250 starting at global position (250,500)
 Rank 17 neighbors: N=9, E=18, S=25, W=16
+
+=== Run 3 of 3 ===
 Rank 18 has local domain size 250x250 starting at global position (500,500)
 Rank 18 neighbors: N=10, E=19, S=26, W=17
+
+=== Run 3 of 3 ===
 Rank 19 has local domain size 250x250 starting at global position (750,500)
 Rank 19 neighbors: N=11, E=20, S=27, W=18
+
+=== Run 3 of 3 ===
 Rank 20 has local domain size 250x250 starting at global position (1000,500)
 Rank 20 neighbors: N=12, E=21, S=28, W=19
+
+=== Run 3 of 3 ===
 Rank 21 has local domain size 250x250 starting at global position (1250,500)
 Rank 21 neighbors: N=13, E=22, S=29, W=20
+
+=== Run 3 of 3 ===
 Rank 22 has local domain size 250x250 starting at global position (1500,500)
 Rank 22 neighbors: N=14, E=23, S=30, W=21
+
+=== Run 3 of 3 ===
 Rank 23 has local domain size 250x250 starting at global position (1750,500)
 Rank 23 neighbors: N=15, E=-1, S=31, W=22
+
+=== Run 3 of 3 ===
 Rank 24 has local domain size 250x250 starting at global position (0,750)
 Rank 24 neighbors: N=16, E=25, S=32, W=-1
+
+=== Run 3 of 3 ===
 Rank 25 has local domain size 250x250 starting at global position (250,750)
 Rank 25 neighbors: N=17, E=26, S=33, W=24
+
+=== Run 3 of 3 ===
 Rank 26 has local domain size 250x250 starting at global position (500,750)
 Rank 26 neighbors: N=18, E=27, S=34, W=25
+
+=== Run 3 of 3 ===
 Rank 27 has local domain size 250x250 starting at global position (750,750)
 Rank 27 neighbors: N=19, E=28, S=35, W=26
+
+=== Run 3 of 3 ===
 Rank 28 has local domain size 250x250 starting at global position (1000,750)
 Rank 28 neighbors: N=20, E=29, S=36, W=27
 Rank 29 has local domain size 250x250 starting at global position (1250,750)
 Rank 29 neighbors: N=21, E=30, S=37, W=28
+
+=== Run 3 of 3 ===
 Rank 30 has local domain size 250x250 starting at global position (1500,750)
 Rank 30 neighbors: N=22, E=31, S=38, W=29
+
+=== Run 3 of 3 ===
 Rank 31 has local domain size 250x250 starting at global position (1750,750)
 Rank 31 neighbors: N=23, E=-1, S=39, W=30
+
+=== Run 3 of 3 ===
 Rank 32 has local domain size 250x250 starting at global position (0,1000)
 Rank 32 neighbors: N=24, E=33, S=40, W=-1
+
+=== Run 3 of 3 ===
 Rank 33 has local domain size 250x250 starting at global position (250,1000)
 Rank 33 neighbors: N=25, E=34, S=41, W=32
+
+=== Run 3 of 3 ===
 Rank 34 has local domain size 250x250 starting at global position (500,1000)
 Rank 34 neighbors: N=26, E=35, S=42, W=33
+
+=== Run 3 of 3 ===
 Rank 35 has local domain size 250x250 starting at global position (750,1000)
 Rank 35 neighbors: N=27, E=36, S=43, W=34
+
+=== Run 3 of 3 ===
 Rank 36 has local domain size 250x250 starting at global position (1000,1000)
 Rank 36 neighbors: N=28, E=37, S=44, W=35
+
+=== Run 3 of 3 ===
 Rank 37 has local domain size 250x250 starting at global position (1250,1000)
 Rank 37 neighbors: N=29, E=38, S=45, W=36
+
+=== Run 3 of 3 ===
 Rank 38 has local domain size 250x250 starting at global position (1500,1000)
 Rank 38 neighbors: N=30, E=39, S=46, W=37
+
+=== Run 3 of 3 ===
 Rank 39 has local domain size 250x250 starting at global position (1750,1000)
 Rank 39 neighbors: N=31, E=-1, S=47, W=38
-Rank 40 has local domain size 250x250 starting at global position (0,1250)
-Rank 40 neighbors: N=32, E=41, S=48, W=-1
-Rank 41 has local domain size 250x250 starting at global position (250,1250)
+
+=== Run 3 of 3 ===
+Rank 40Rank 41 has local domain size 250x250 starting at global position (250,1250)
 Rank 41 neighbors: N=33, E=42, S=49, W=40
 Rank 42 has local domain size 250x250 starting at global position (500,1250)
 Rank 42 neighbors: N=34, E=43, S=50, W=41
@@ -849,11 +847,13 @@ Rank 62 has local domain size 250x250 starting at global position (1500,1750)
 Rank 62 neighbors: N=54, E=63, S=-1, W=61
 Rank 63 has local domain size 250x250 starting at global position (1750,1750)
 Rank 63 neighbors: N=55, E=-1, S=-1, W=62
+ has local domain size 250x250 starting at global position (0,1250)
+Rank 40 neighbors: N=32, E=41, S=48, W=-1
 Run 3 Results:
-  Setup Time: 3.55218 ms
-  Total Simulation Time: 137.111 ms
-  Performance: -2.15131e+09 cell updates per second
-  Memory Usage Increase: 560 KB
+  Setup Time: 2.30092 ms
+  Total Simulation Time: 84.2899 ms
+  Performance: -3.49944e+09 cell updates per second
+  Memory Usage Increase: 280 KB
   Checksum: 8.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
@@ -861,25 +861,25 @@ Grid Size: 2000x2000 (4000000 cells)
 Iterations per Run: 1000
 
 Timing Statistics:
-  Average Setup Time: 477.381 ms (StdDev: 671.048 ms)
-  Average Total Simulation Time: 125.835 ms (StdDev: 9.46929 ms)
-  Average Iteration Time: 0.125835 ms (StdDev: 0.00946929 ms)
-  Average Min/Max Iteration Time: 0.0940587/0.293879 ms
+  Average Setup Time: 558.75 ms (StdDev: 786.949 ms)
+  Average Total Simulation Time: 94.6808 ms (StdDev: 13.6625 ms)
+  Average Iteration Time: 0.0946808 ms (StdDev: 0.0136625 ms)
+  Average Min/Max Iteration Time: 0.078869/0.603238 ms
 
 Performance Statistics:
-  Average Performance: -2.35756e+09 cell updates per second (StdDev: 1.79468e+08)
-  Best Run: Run 2 (113.941 ms)
-  Worst Run: Run 3 (137.111 ms)
-  Coefficient of Variation: 7.52514%
+  Average Performance: -3.17544e+09 cell updates per second (StdDev: 4.16255e+08)
+  Best Run: Run 3 (84.2899 ms)
+  Worst Run: Run 1 (113.984 ms)
+  Coefficient of Variation: 14.4301%
 
 Memory Usage:
-  Average Memory Increase: 6237.33 KB
+  Average Memory Increase: 2954.67 KB
 
 Numerical Stability:
   Checksum consistency: Stable
 
 ===================================================================================
 =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   RANK 0 PID 47996 RUNNING AT cpu-q-118
+=   RANK 0 PID 74723 RUNNING AT cpu-q-177
 =   KILLED BY SIGNAL: 9 (Killed)
 ===================================================================================

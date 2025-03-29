@@ -6,26 +6,26 @@ MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra proces
 === Run 1 of 1 ===
 
 === Run 1 of 1 ===
-
-=== Run 1 of 1 ===
 Running benchmark with grid size 2000x2000 for 100 iterations across 1 runs using 4 MPI ranks (no output)
+=== Run 1 of 1 ===
 
 === Run 1 of 1 ===
+
 Creating a 2x2 process grid for 4 processes
 Domain decomposition: Global size = 2000x2000, Process grid = 2x2
 Rank 0 has local domain size 1000x1000 starting at global position (0,0)
-Rank 0 neighbors: N=-1, E=Rank 3 has local domain size 1000x1000 starting at global position (1000,1000)
-Rank 3 neighbors: N=1, E=-1, S=-1, W=2
-1, S=2, W=-1
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
 Rank 1 has local domain size 1000x1000 starting at global position (1000,0)
 Rank 1 neighbors: N=-1, E=-1, S=3, W=0
 Rank 2 has local domain size 1000x1000 starting at global position (0,1000)
 Rank 2 neighbors: N=0, E=3, S=-1, W=-1
+Rank 3 has local domain size 1000x1000 starting at global position (1000,1000)
+Rank 3 neighbors: N=1, E=-1, S=-1, W=2
 Run 1 Results:
-  Setup Time: 5.98169 ms
-  Total Simulation Time: 687.192 ms
-  Performance: 5.82079e+08 cell updates per second
-  Memory Usage Increase: 18588 KB
+  Setup Time: 80.596 ms
+  Total Simulation Time: 816.358 ms
+  Performance: 4.89981e+08 cell updates per second
+  Memory Usage Increase: 19864 KB
   Checksum: 8.00039e+07
 
 === AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
@@ -33,25 +33,25 @@ Grid Size: 2000x2000 (4000000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 5.98169 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 687.192 ms (StdDev: 0 ms)
-  Average Iteration Time: 6.87192 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 6.85907/6.98241 ms
+  Average Setup Time: 80.596 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 816.358 ms (StdDev: 0 ms)
+  Average Iteration Time: 8.16358 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 7.99681/8.52294 ms
 
 Performance Statistics:
-  Average Performance: 5.82079e+08 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (687.192 ms)
-  Worst Run: Run 1 (687.192 ms)
+  Average Performance: 4.89981e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (816.358 ms)
+  Worst Run: Run 1 (816.358 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:
-  Average Memory Increase: 18588 KB
+  Average Memory Increase: 19864 KB
 
 Numerical Stability:
   Checksum consistency: Stable
 
 ===================================================================================
 =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   RANK 0 PID 49555 RUNNING AT cpu-q-118
+=   RANK 0 PID 75778 RUNNING AT cpu-q-177
 =   KILLED BY SIGNAL: 9 (Killed)
 ===================================================================================
