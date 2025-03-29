@@ -177,7 +177,7 @@ echo "" >> ${RESULTS_DIR}/summary.txt
 echo "Weak Scaling Results:" >> ${RESULTS_DIR}/summary.txt
 for RANKS in 1 2 4 8 16 32 64 128; do
     if [ -f ${RESULTS_DIR}/scaling/weak_scaling_${RANKS}ranks.txt ]; then
-        BASE_SIZE=100
+        BASE_SIZE=200
         SIZE=$(echo "scale=0; sqrt($BASE_SIZE * $BASE_SIZE * $RANKS)" | bc -l)
         echo "  ${RANKS} ranks (${SIZE}x${SIZE} grid):" >> ${RESULTS_DIR}/summary.txt
         grep "Average Iteration Time:" ${RESULTS_DIR}/scaling/weak_scaling_${RANKS}ranks.txt >> ${RESULTS_DIR}/summary.txt 2>/dev/null
