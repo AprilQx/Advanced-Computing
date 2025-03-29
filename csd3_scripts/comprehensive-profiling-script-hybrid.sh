@@ -13,21 +13,35 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Create directories
-WORK_DIR=$PWD
-mkdir -p $WORK_DIR/profiling_results_hybrid/{vtune,scaling,communication,process_thread_balance,affinity,placement}
+# Set up directories correctly
+SCRIPT_DIR="$(pwd)"
+PROJECT_DIR="/home/xx823/Advanced-Computing"
+
+# Create results directory in a location where you have permissions
+RESULTS_DIR="${PROJECT_DIR}/profiling_results_hybrid"
+mkdir -p ${RESULTS_DIR}/{vtune,scaling,communication,process_thread_balance,affinity,placement}
 
 echo -e "${GREEN}Starting Hybrid MPI+OpenMP profiling on CSD3 Icelake nodes...${NC}"
 
-# Go to project root where CMakeLists.txt is located
-cd $WORK_DIR
-
-# Create build directory if it doesn't exist
-if [ ! -d "build" ]; then
-    mkdir -p build
+# First, check if the PROJECT_DIR exists
+if [ ! -d "${PROJECT_DIR}" ]; then
+    echo -e "${YELLOW}Error: Project directory ${PROJECT_DIR} does not exist!${NC}"
+    echo "Please create this directory or modify the script to point to your correct project location."
+    exit 1
 fi
 
-# Enter build directory
+# Go to project root where CMakeLists.txt is located
+cd ${PROJECT_DIR}
+
+# Check if CMakeLists.txt exists in the current directory
+if [ ! -f "CMakeLists.txt" ]; then
+    echo -e "${YELLOW}Error: CMakeLists.txt not found in ${PROJECT_DIR}${NC}"
+    echo "Please make sure you're in the correct project directory that contains CMakeLists.txt."
+    exit 1
+fi
+
+# Create build directory if it doesn't exist
+mkdir -p build
 cd build
 
 # Configure and build with Intel compilers
@@ -49,6 +63,7 @@ if [ ! -f "heat_diffusion_benchmark_hybrid" ]; then
     echo "Please check your build configuration and try again."
     exit 1
 fi
+
 
 #=====================
 # 1. Environment Check

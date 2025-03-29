@@ -83,7 +83,7 @@ valgrind --tool=callgrind ./heat_diffusion_benchmark --height 100 --width 100 --
 # Find the callgrind output file
 CALLGRIND_FILE=$(ls callgrind.out.*)
 callgrind_annotate $CALLGRIND_FILE > /app/profiling_results_base/valgrind/callgrind_report.txt
-
+ 
 # 2.3 Massif (heap profiling)
 echo -e "${YELLOW}Running massif...${NC}"
 valgrind --tool=massif ./heat_diffusion_benchmark --height 500 --width 500 --iterations 100 > /app/profiling_results_base/valgrind/massif_output.txt

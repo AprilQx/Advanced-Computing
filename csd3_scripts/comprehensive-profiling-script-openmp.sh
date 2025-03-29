@@ -1,12 +1,17 @@
-# Load required modules for CSD3
+#!/bin/bash
+# Comprehensive OpenMP profiling script for CSD3
 
+# Load required modules for CSD3
 module purge
 module load rhel8/default-icl
-module load  intel/oneapi/2022.1.0/vtune/2022.1.0
+module load intel/oneapi/2022.1.0/vtune/2022.1.0
 
-PROJECT_DIR="/home/xx823/Advanced-Computing" 
-# Create directories
-RESULTS_DIR="/home/xx823/Advanced-Computing/profiling_results_omp_csd3"
+# Set up directories (fix the paths)
+PROJECT_DIR="/home/xx823/Advanced-Computing"
+SCRIPT_DIR="$(pwd)"
+
+# Create results directory in your home directory (where you have permission)
+RESULTS_DIR="${PROJECT_DIR}/profiling_results_omp_csd3"
 mkdir -p ${RESULTS_DIR}/{vtune,thread_scaling,affinity,cache,scheduling}
 
 # Colors for output
@@ -21,7 +26,23 @@ echo -e "${GREEN}Starting OpenMP profiling on CSD3 Icelake...${NC}"
 NUM_CORES=76  # Hard-coded for icelake
 echo -e "${YELLOW}System has ${NUM_CORES} CPU cores available${NC}"
 
+# First, check if the PROJECT_DIR exists
+if [ ! -d "${PROJECT_DIR}" ]; then
+    echo -e "${YELLOW}Error: Project directory ${PROJECT_DIR} does not exist!${NC}"
+    echo "Please create this directory or modify the script to point to your correct project location."
+    exit 1
+fi
+
+# Navigate to project directory
 cd ${PROJECT_DIR}
+
+# Check if we're in the correct directory (should have a CMakeLists.txt)
+if [ ! -f "CMakeLists.txt" ]; then
+    echo -e "${YELLOW}Error: CMakeLists.txt not found in ${PROJECT_DIR}${NC}"
+    echo "Please make sure you're in the correct project directory that contains CMakeLists.txt."
+    exit 1
+fi
+
 # Create build directory
 mkdir -p build
 cd build
@@ -31,7 +52,7 @@ echo -e "${BLUE}Configuring and building with Intel compiler...${NC}"
 
 # First, build normal optimized version
 CC=icc CXX=icpc cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-march=icelake-server -O3 -qopenmp"
-make -j 76 heat_diffusion_openmp_benchmark
+make -j ${NUM_CORES} heat_diffusion_openmp_benchmark
 
 # Verify the executable exists
 if [ ! -f "heat_diffusion_openmp_benchmark" ]; then
@@ -39,6 +60,7 @@ if [ ! -f "heat_diffusion_openmp_benchmark" ]; then
     echo "Please check your build configuration and try again."
     exit 1
 fi
+
 
 #=====================
 # 1. OpenMP Environment Check

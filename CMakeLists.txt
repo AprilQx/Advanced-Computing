@@ -94,7 +94,7 @@ if(CSD3_PLATFORM)
 endif()
 
 # Define separate flag lists for different targets
-set(BASE_FLAGS_LIST)
+set(BASE_FLAGS_LIST "-O3")
 set(DEV_FLAGS_LIST "-g")
 set(BENCHMARK_FLAGS_LIST "")
 
