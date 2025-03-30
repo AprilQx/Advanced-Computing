@@ -443,7 +443,11 @@ ssh username@login.hpc.cam.ac.uk
 
 Basic SLURM Job Submission:
 ```
-sintr -A MPHIL-DIS-SL2-CPU  -t 01:00:00 -p icelake -N 1/2 #2 for hybrid case  
+#To run base/optimized_v[1/2/3]/openmp/mpi benchmark
+sintr -A MPHIL-DIS-SL2-CPU  -t 01:00:00 -p icelake -N 1 -n 38
+
+#To run hybrid on two nodes
+sintr -A MPHIL-DIS-SL2-CPU  -t 01:00:00 -p icelake -N 2 -n 76
 ```
 
 **Setting up the Environment**
@@ -473,8 +477,7 @@ The project includes pre-configured SLURM scripts for CSD3:
 # Submit MPI-specific profiling job
 ./scripts/comprehensive-profiling-script-mpi.sh
 
-#runall scripts
-./runall-scripts.sh
+#submit 
 ```
 
 
