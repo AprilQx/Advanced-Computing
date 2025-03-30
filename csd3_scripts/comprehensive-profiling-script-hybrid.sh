@@ -186,8 +186,7 @@ else
     # Test 6: 19 processes with 4 threads each across 2 nodes (9-10 processes per node)
     echo -e "${YELLOW}Test 6: 19 processes with 4 threads each across 2 nodes${NC}"
     export OMP_NUM_THREADS=4
-    $MPIRUN_CMD -n 19 -ppn 10 -host $FIRST_NODE -ppn 9 -host $SECOND_NODE ./heat_diffusion_benchmark_hybrid \
-        --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 > \
+    $MPIRUN_CMD -n 19 --nodes=2 --ntasks-per-node=10 --cpus-per-task=4 ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 > \
         $PROJECT_DIR/profiling_results_hybrid/placement/multi_node_hybrid_19ranks_4threads.txt 2>&1
     
     # Test 7: 8 processes with 19 threads each across 2 nodes (4 processes per node)
