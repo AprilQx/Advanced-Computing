@@ -1,0 +1,297 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 5000x5000 for 1000 iterations across 1 runs using 128 MPI ranks and 1 OpenMP threads per rank (total 128 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=1, Max threads available=1, Using=1
+
+=== Run 1 of 1 ===
+Creating a 16x8 process grid for 128 processes
+Domain decomposition: Global size = 5000x5000, Process grid = 16x8
+Rank 76 has local domain size 625x312 starting at global position (2500,2808)
+Rank 77 has local domain size 625x312 starting at global position (3125,2808)
+Rank 81 has local domain size 625x312 starting at global position (625,3120)
+Rank 82 has local domain size 625x312 starting at global position (1250,3120)
+Rank 93 has local domain size 625x312 starting at global position (3125,3432)
+Rank 95 has local domain size 625x312 starting at global position (4375,3432)
+Rank 97 has local domain size 625x312 starting at global position (625,3744)
+Rank 98 has local domain size 625x312 starting at global position (1250,3744)
+Rank 101 has local domain size 625x312 starting at global position (3125,3744)
+Rank 102 has local domain size 625x312 starting at global position (3750,3744)
+Rank 103 has local domain size 625x312 starting at global position (4375,3744)
+Rank 108 has local domain size 625x312 starting at global position (2500,4056)
+Rank 110 has local domain size 625x312 starting at global position (3750,4056)
+Rank 112 has local domain size 625x312 starting at global position (0,4368)
+Rank 115 has local domain size 625x312 starting at global position (1875,4368)
+Rank 116 has local domain size 625x312 starting at global position (2500,4368)
+Rank 118 has local domain size 625x312 starting at global position (3750,4368)
+Rank 119 has local domain size 625x312 starting at global position (4375,4368)
+Rank 121 has local domain size 625x320 starting at global position (625,4680)
+Rank 122 has local domain size 625x320 starting at global position (1250,4680)
+Rank 124 has local domain size 625x320 starting at global position (2500,4680)
+Rank 126 has local domain size 625x320 starting at global position (3750,4680)
+Rank 64 has local domain size 625x312 starting at global position (0,2496)
+Rank 65 has local domain size 625x312 starting at global position (625,2496)
+Rank 66 has local domain size 625x312 starting at global position (1250,2496)
+Rank 67 has local domain size 625x312 starting at global position (1875,2496)
+Rank 68 has local domain size 625x312 starting at global position (2500,2496)
+Rank 69 has local domain size 625x312 starting at global position (3125,2496)
+Rank 70 has local domain size 625x312 starting at global position (3750,2496)
+Rank 71 has local domain size 625x312 starting at global position (4375,2496)
+Rank 72 has local domain size 625x312 starting at global position (0,2808)
+Rank 73 has local domain size 625x312 starting at global position (625,2808)
+Rank 74 has local domain size 625x312 starting at global position (1250,2808)
+Rank 75 has local domain size 625x312 starting at global position (1875,2808)
+Rank 78 has local domain size 625x312 starting at global position (3750,2808)
+Rank 79 has local domain size 625x312 starting at global position (4375,2808)
+Rank 80 has local domain size 625x312 starting at global position (0,3120)
+Rank 83 has local domain size 625x312 starting at global position (1875,3120)
+Rank 84 has local domain size 625x312 starting at global position (2500,3120)
+Rank 85 has local domain size 625x312 starting at global position (3125,3120)
+Rank 86 has local domain size 625x312 starting at global position (3750,3120)
+Rank 87 has local domain size 625x312 starting at global position (4375,3120)
+Rank 88 has local domain size 625x312 starting at global position (0,3432)
+Rank 89 has local domain size 625x312 starting at global position (625,3432)
+Rank 90 has local domain size 625x312 starting at global position (1250,3432)
+Rank 91 has local domain size 625x312 starting at global position (1875,3432)
+Rank 92 has local domain size 625x312 starting at global position (2500,3432)
+Rank 94 has local domain size 625x312 starting at global position (3750,3432)
+Rank 96 has local domain size 625x312 starting at global position (0,3744)
+Rank 99 has local domain size 625x312 starting at global position (1875,3744)
+Rank 100 has local domain size 625x312 starting at global position (2500,3744)
+Rank 104 has local domain size 625x312 starting at global position (0,4056)
+Rank 105 has local domain size 625x312 starting at global position (625,4056)
+Rank 106 has local domain size 625x312 starting at global position (1250,4056)
+Rank 107 has local domain size 625x312 starting at global position (1875,4056)
+Rank 109 has local domain size 625x312 starting at global position (3125,4056)
+Rank 111 has local domain size 625x312 starting at global position (4375,4056)
+Rank 113 has local domain size 625x312 starting at global position (625,4368)
+Rank 114 has local domain size 625x312 starting at global position (1250,4368)
+Rank 117 has local domain size 625x312 starting at global position (3125,4368)
+Rank 120 has local domain size 625x320 starting at global position (0,4680)
+Rank 123 has local domain size 625x320 starting at global position (1875,4680)
+Rank 125 has local domain size 625x320 starting at global position (3125,4680)
+Rank 127 has local domain size 625x320 starting at global position (4375,4680)
+Rank 0 has local domain size 625x312 starting at global position (0,0)
+OpenMP initialized with 1 threads per MPI rank
+Rank 3 has local domain size 625x312 starting at global position (1875,0)
+Rank 1 has local domain size 625x312 starting at global position (625,0)
+Rank 12 has local domain size 625x312 starting at global position (2500,312)
+Rank 14 has local domain size 625x312 starting at global position (3750,312)
+Rank 8 has local domain size 625x312 starting at global position (0,312)
+Rank 16 has local domain size 625x312 starting at global position (0,624)
+Rank 17 has local domain size 625x312 starting at global position (625,624)
+Rank 19 has local domain size 625x312 starting at global position (1875,624)
+Rank 28 has local domain size 625x312 starting at global position (2500,936)
+Rank 30 has local domain size 625x312 starting at global position (3750,936)
+Rank 31 has local domain size 625x312 starting at global position (4375,936)
+Rank 11 has local domain size 625x312 starting at global position (1875,312)
+Rank 4 has local domain size 625x312 starting at global position (2500,0)
+Rank 13 has local domain size 625x312 starting at global position (3125,312)
+Rank 29 has local domain size 625x312 starting at global position (3125,936)
+Rank 48 has local domain size 625x312 starting at global position (0,1872)
+Rank 50 has local domain size 625x312 starting at global position (1250,1872)
+Rank 32 has local domain size 625x312 starting at global position (0,1248)
+Rank 56 has local domain size 625x312 starting at global position (0,2184)
+Rank 15 has local domain size 625x312 starting at global position (4375,312)
+Rank 51 has local domain size 625x312 starting at global position (1875,1872)
+Rank 9 has local domain size 625x312 starting at global position (625,312)
+Rank 40 has local domain size 625x312 starting at global position (0,1560)
+Rank 43 has local domain size 625x312 starting at global position (1875,1560)
+Rank 2 has local domain size 625x312 starting at global position (1250,0)
+Rank 34 has local domain size 625x312 starting at global position (1250,1248)
+Rank 35 has local domain size 625x312 starting at global position (1875,1248)
+Rank 42 has local domain size 625x312 starting at global position (1250,1560)
+Rank 7 has local domain size 625x312 starting at global position (4375,0)
+Rank 10 has local domain size 625x312 starting at global position (1250,312)
+Rank 33 has local domain size 625x312 starting at global position (625,1248)
+Rank 59 has local domain size 625x312 starting at global position (1875,2184)
+Rank 18 has local domain size 625x312 starting at global position (1250,624)
+Rank 24 has local domain size 625x312 starting at global position (0,936)
+Rank 27 has local domain size 625x312 starting at global position (1875,936)
+Rank 36 has local domain size 625x312 starting at global position (2500,1248)
+Rank 38 has local domain size 625x312 starting at global position (3750,1248)
+Rank 60 has local domain size 625x312 starting at global position (2500,2184)
+Rank 20 has local domain size 625x312 starting at global position (2500,624)
+Rank 41 has local domain size 625x312 starting at global position (625,1560)
+Rank 44 has local domain size 625x312 starting at global position (2500,1560)
+Rank 52 has local domain size 625x312 starting at global position (2500,1872)
+Rank 5 has local domain size 625x312 starting at global position (3125,0)
+Rank 49 has local domain size 625x312 starting at global position (625,1872)
+Rank 63 has local domain size 625x312 starting at global position (4375,2184)
+Rank 6 has local domain size 625x312 starting at global position (3750,0)
+Rank 22 has local domain size 625x312 starting at global position (3750,624)
+Rank 25 has local domain size 625x312 starting at global position (625,936)
+Rank 39 has local domain size 625x312 starting at global position (4375,1248)
+Rank 58 has local domain size 625x312 starting at global position (1250,2184)
+Rank 37 has local domain size 625x312 starting at global position (3125,1248)
+Rank 45 has local domain size 625x312 starting at global position (3125,1560)
+Rank 47 has local domain size 625x312 starting at global position (4375,1560)
+Rank 46 has local domain size 625x312 starting at global position (3750,1560)
+Rank 54 has local domain size 625x312 starting at global position (3750,1872)
+Rank 57 has local domain size 625x312 starting at global position (625,2184)
+Rank 53 has local domain size 625x312 starting at global position (3125,1872)
+Rank 62 has local domain size 625x312 starting at global position (3750,2184)
+Rank 23 has local domain size 625x312 starting at global position (4375,624)
+Rank 26 has local domain size 625x312 starting at global position (1250,936)
+Rank 21 has local domain size 625x312 starting at global position (3125,624)
+Rank 55 has local domain size 625x312 starting at global position (4375,1872)
+Rank 61 has local domain size 625x312 starting at global position (3125,2184)
+Run 1 Results:
+  Setup Time: 3715.35 ms
+  Total Simulation Time: 143074 ms
+  Performance: -5.38047e+06 cell updates per second
+  Memory Usage Increase: 16656 KB
+  Checksum: 5.00004e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 5000x5000 (25000000 cells)
+Iterations per Run: 1000
+Parallel Configuration: 128 MPI ranks × 1 OpenMP threads = 128 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 3715.35 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 143074 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: -5.38 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: -0.04 million
+  Best Run: Run 1 (143073.60 ms)
+  Worst Run: Run 1 (143073.60 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 16656.00 KB
+  Average Memory Per Rank: 130.12 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 500003920.00
+
+CSV Format (for data collection):
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+5000,5000,1000,128,1,128,143073.60,0.00,-5.38,16656.00,500003920.00

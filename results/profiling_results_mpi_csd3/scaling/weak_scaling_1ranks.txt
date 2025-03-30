@@ -1,0 +1,60 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 200x200 for 100 iterations across 3 runs using 1 MPI ranks (no output)
+
+=== Run 1 of 3 ===
+Creating a 1x1 process grid for 1 processes
+Domain decomposition: Global size = 200x200, Process grid = 1x1
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=-1, W=-1
+Run 1 Results:
+  Setup Time: 0.355555 ms
+  Total Simulation Time: 5.26187 ms
+  Performance: 7.60186e+08 cell updates per second
+  Memory Usage Increase: 1468 KB
+  Checksum: 803920
+
+=== Run 2 of 3 ===
+Creating a 1x1 process grid for 1 processes
+Domain decomposition: Global size = 200x200, Process grid = 1x1
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=-1, W=-1
+Run 2 Results:
+  Setup Time: 0.245071 ms
+  Total Simulation Time: 4.17181 ms
+  Performance: 9.58817e+08 cell updates per second
+  Memory Usage Increase: 204 KB
+  Checksum: 803920
+
+=== Run 3 of 3 ===
+Creating a 1x1 process grid for 1 processes
+Domain decomposition: Global size = 200x200, Process grid = 1x1
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=-1, W=-1
+Run 3 Results:
+  Setup Time: 0.159507 ms
+  Total Simulation Time: 4.18909 ms
+  Performance: 9.54862e+08 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 803920
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 200x200 (40000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 0.253378 ms (StdDev: 0.0802515 ms)
+  Average Total Simulation Time: 4.54092 ms (StdDev: 0.509838 ms)
+  Average Iteration Time: 0.0454092 ms (StdDev: 0.00509838 ms)
+  Average Min/Max Iteration Time: 0.0444993/0.0604833 ms
+
+Performance Statistics:
+  Average Performance: 8.91288e+08 cell updates per second (StdDev: 9.27177e+07)
+  Best Run: Run 2 (4.17181 ms)
+  Worst Run: Run 1 (5.26187 ms)
+  Coefficient of Variation: 11.2276%
+
+Memory Usage:
+  Average Memory Increase: 557.333 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

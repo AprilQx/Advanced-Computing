@@ -1,0 +1,73 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 8000x8000 for 100 iterations across 1 runs using 16 MPI ranks and 8 OpenMP threads per rank (total 128 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=8, Max threads available=8, Using=8
+
+=== Run 1 of 1 ===
+Creating a 4x4 process grid for 16 processes
+Domain decomposition: Global size = 8000x8000, Process grid = 4x4
+Rank 0 has local domain size 2000x2000 starting at global position (0,0)
+Rank 1 has local domain size 2000x2000 starting at global position (2000,0)
+Rank 3 has local domain size 2000x2000 starting at global position (6000,0)
+Rank 4 has local domain size 2000x2000 starting at global position (0,2000)
+Rank 7 has local domain size 2000x2000 starting at global position (6000,2000)
+Rank 8 has local domain size 2000x2000 starting at global position (0,4000)
+Rank 9 has local domain size 2000x2000 starting at global position (2000,4000)
+Rank 10 has local domain size 2000x2000 starting at global position (4000,4000)
+Rank 11 has local domain size 2000x2000 starting at global position (6000,4000)
+Rank 12 has local domain size 2000x2000 starting at global position (0,6000)
+Rank 13 has local domain size 2000x2000 starting at global position (2000,6000)
+Rank 14 has local domain size 2000x2000 starting at global position (4000,6000)
+Rank 15 has local domain size 2000x2000 starting at global position (6000,6000)
+OpenMP initialized with 8 threads per MPI rank
+Rank 2 has local domain size 2000x2000 starting at global position (4000,0)
+Rank 6 has local domain size 2000x2000 starting at global position (4000,2000)
+Rank 5 has local domain size 2000x2000 starting at global position (2000,2000)
+Run 1 Results:
+  Setup Time: 786.658 ms
+  Total Simulation Time: 20121.2 ms
+  Performance: 1.04618e+08 cell updates per second
+  Memory Usage Increase: 70040 KB
+  Checksum: 1.28e+09
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 8000x8000 (64000000 cells)
+Iterations per Run: 100
+Parallel Configuration: 16 MPI ranks × 8 OpenMP threads = 128 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 786.658 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 20121.2 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: 104.62 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 0.82 million
+  Best Run: Run 1 (20121.22 ms)
+  Worst Run: Run 1 (20121.22 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 70040.00 KB
+  Average Memory Per Rank: 4377.50 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 1280003920.00
+
+CSV Format (for data collection):
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+8000,8000,100,16,8,128,20121.22,0.00,104.62,70040.00,1280003920.00

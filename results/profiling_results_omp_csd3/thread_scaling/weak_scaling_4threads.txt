@@ -1,0 +1,65 @@
+OMP_NUM_THREADS environment variable: 4
+Thread count manually set to: 4
+Running benchmark with grid size 400x400 for 100 iterations across 3 runs (no output)
+System has 4 OpenMP threads available
+
+=== Run 1 of 3 ===
+OpenMP initialized with 4 threads
+Using 4 OpenMP threads for this run
+Iteration 0 completed in 7.94295 ms
+Run 1 Results:
+  Setup Time: 16.6061 ms
+  Total Simulation Time: 19.9373 ms
+  Average Iteration Time: 0.199373 ms
+  Min/Max Iteration Time: 0.038488/8.10804 ms
+  Performance: 8.02516e+08 cell updates per second
+  Memory Usage Increase: 1588 KB
+  Checksum: 3.20392e+06
+
+=== Run 2 of 3 ===
+OpenMP initialized with 4 threads
+Using 4 OpenMP threads for this run
+Iteration 0 completed in 0.070248 ms
+Run 2 Results:
+  Setup Time: 0.754664 ms
+  Total Simulation Time: 2.78571 ms
+  Average Iteration Time: 0.0278571 ms
+  Min/Max Iteration Time: 0.026419/0.070248 ms
+  Performance: 5.7436e+09 cell updates per second
+  Memory Usage Increase: 68 KB
+  Checksum: 3.20392e+06
+
+=== Run 3 of 3 ===
+OpenMP initialized with 4 threads
+Using 4 OpenMP threads for this run
+Iteration 0 completed in 0.067828 ms
+Run 3 Results:
+  Setup Time: 0.215342 ms
+  Total Simulation Time: 2.77124 ms
+  Average Iteration Time: 0.0277124 ms
+  Min/Max Iteration Time: 0.026396/0.067828 ms
+  Performance: 5.77358e+09 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 3.20392e+06
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 400x400 (160000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 5.85869 ms (StdDev: 7.60273 ms)
+  Average Total Simulation Time: 8.49808 ms (StdDev: 8.08875 ms)
+  Average Iteration Time: 0.0849808 ms (StdDev: 0.0808875 ms)
+  Average Min/Max Iteration Time: 0.0304343/2.74871 ms
+
+Performance Statistics:
+  Average Performance: 4.10657e+09 cell updates per second (StdDev: 2.33635e+09)
+  Best Run: Run 3 (2.77124 ms)
+  Worst Run: Run 1 (19.9373 ms)
+  Coefficient of Variation: 95.1832%
+
+Memory Usage:
+  Average Memory Increase: 552 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

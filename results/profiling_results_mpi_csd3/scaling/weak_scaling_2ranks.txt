@@ -1,0 +1,79 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 3 ===
+Running benchmark with grid size 282x282 for 100 iterations across 3 runs using 2 MPI ranks (no output)
+
+=== Run 1 of 3 ===
+Creating a 2x1 process grid for 2 processes
+Domain decomposition: Global size = 282x282, Process grid = 2x1
+Rank 0 has local domain size 282x141 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=1, W=-1
+Run 1 Results:
+  Setup Time: 3.24811 ms
+  Total Simulation Time: 5.51588 ms
+  Performance: 1.44173e+09 cell updates per second
+  Memory Usage Increase: 4928 KB
+  Checksum: 1.5944e+06
+
+=== Run 2 of 3 ===
+Creating a 2x1 process grid for 2 processes
+Domain decomposition: Global size = 282x282, Process grid = 2x1
+Rank 0 has local domain size 282x141 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=1, W=-1
+Rank 1 has local domain size 282x141 starting at global position (0,141)
+Rank 1 neighbors: N=0, E=-1, S=-1, W=-1
+
+=== Run 2 of 3 ===
+Rank 1 has local domain size 282x141 starting at global position (0,141)
+Rank 1 neighbors: N=0, E=-1, S=-1, W=-1
+Run 2 Results:
+  Setup Time: 0.25746 ms
+  Total Simulation Time: 4.40818 ms
+  Performance: 1.80401e+09 cell updates per second
+  Memory Usage Increase: 204 KB
+  Checksum: 1.5944e+06
+
+=== Run 3 of 3 ===
+Creating a 2x1 process grid for 2 processes
+Domain decomposition: Global size = 282x282, Process grid = 2x1
+Rank 0 has local domain size 282x141 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=-1, S=1, W=-1
+
+=== Run 3 of 3 ===
+Rank 1 has local domain size 282x141 starting at global position (0,141)
+Rank 1 neighbors: N=0, E=-1, S=-1, W=-1
+Run 3 Results:
+  Setup Time: 0.184618 ms
+  Total Simulation Time: 4.23427 ms
+  Performance: 1.8781e+09 cell updates per second
+  Memory Usage Increase: 204 KB
+  Checksum: 1.5944e+06
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 282x282 (79524 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 1.23006 ms (StdDev: 1.42728 ms)
+  Average Total Simulation Time: 4.71944 ms (StdDev: 0.567624 ms)
+  Average Iteration Time: 0.0471944 ms (StdDev: 0.00567624 ms)
+  Average Min/Max Iteration Time: 0.0440973/0.0710803 ms
+
+Performance Statistics:
+  Average Performance: 1.70795e+09 cell updates per second (StdDev: 1.9066e+08)
+  Best Run: Run 3 (4.23427 ms)
+  Worst Run: Run 1 (5.51588 ms)
+  Coefficient of Variation: 12.0274%
+
+Memory Usage:
+  Average Memory Increase: 1778.67 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 74802 RUNNING AT cpu-q-177
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

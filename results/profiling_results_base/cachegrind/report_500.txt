@@ -1,0 +1,36 @@
+--------------------------------------------------------------------------------
+I1 cache:         16384 B, 64 B, 4-way associative
+D1 cache:         16384 B, 64 B, 4-way associative
+LL cache:         262144 B, 64 B, 8-way associative
+Command:          ./heat_diffusion_benchmark --height 500 --width 500 --iterations 100 --runs 1
+Data file:        cachegrind.out.3985
+Events recorded:  Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Events shown:     Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Event sort order: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw
+Thresholds:       0.1 100 100 100 100 100 100 100 100
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                   I1mr           ILmr           Dr                  D1mr               DLmr               Dw                  D1mw               DLmw               
+--------------------------------------------------------------------------------
+179,313,618 (100.0%) 4,928 (100.0%) 2,340 (100.0%) 63,683,877 (100.0%) 3,404,397 (100.0%) 3,251,009 (100.0%) 13,210,883 (100.0%) 3,192,362 (100.0%) 3,191,077 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                   I1mr         ILmr         Dr                  D1mr               DLmr               Dw                  D1mw               DLmw                file:function
+--------------------------------------------------------------------------------
+175,202,600 (97.71%)   8 ( 0.16%)   8 ( 0.34%) 62,251,700 (97.75%) 3,319,872 (97.52%) 3,175,300 (97.67%) 12,401,600 (93.87%) 3,124,999 (97.89%) 3,124,999 (97.93%)  ???:HeatDiffusion::update()
+  1,004,015 ( 0.56%)   2 ( 0.04%)   2 ( 0.09%)    251,005 ( 0.39%)    31,565 ( 0.93%)    31,565 ( 0.97%)          3 ( 0.00%)         0                  0           ???:HeatDiffusion::getChecksum() const
+    640,222 ( 0.36%)  12 ( 0.24%)   8 ( 0.34%)    506,501 ( 0.80%)    31,473 ( 0.92%)    31,401 ( 0.97%)    506,501 ( 3.83%)    61,702 ( 1.93%)    61,699 ( 1.93%)  ./string/../sysdeps/aarch64/multiarch/../memcpy.S:__GI_memcpy
+    593,865 ( 0.33%)  23 ( 0.47%)  18 ( 0.77%)    158,564 ( 0.25%)     2,255 ( 0.07%)     1,792 ( 0.06%)     58,449 ( 0.44%)        37 ( 0.00%)        14 ( 0.00%)  ./elf/./elf/dl-lookup.c:_dl_lookup_symbol_x
+    560,594 ( 0.31%)  73 ( 1.48%)  58 ( 2.48%)    188,043 ( 0.30%)     5,709 ( 0.17%)     1,214 ( 0.04%)     88,311 ( 0.67%)       108 ( 0.00%)        72 ( 0.00%)  ./elf/./elf/dl-lookup.c:do_lookup_x
+    251,857 ( 0.14%)  33 ( 0.67%)  33 ( 1.41%)     52,730 ( 0.08%)     3,747 ( 0.11%)     3,280 ( 0.10%)     17,995 ( 0.14%)     1,899 ( 0.06%)       961 ( 0.03%)  ./elf/../sysdeps/aarch64/dl-machine.h:_dl_relocate_object
+
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./elf/../sysdeps/aarch64/dl-machine.h
+  ./elf/./elf/dl-lookup.c
+  ./string/../sysdeps/aarch64/multiarch/../memcpy.S
+

@@ -1,0 +1,66 @@
+==3975== Cachegrind, a cache and branch-prediction profiler
+==3975== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==3975== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3975== Command: ./heat_diffusion_benchmark --height 100 --width 100 --iterations 100 --runs 1
+==3975== 
+--3975-- Warning: Cannot auto-detect cache config, using defaults.
+--3975--          Run with -v to see.
+
+=== Run 1 of 1 ===
+Run 1 Results:
+  Setup Time: 3.88767 ms
+  Total Simulation Time: 41.4339 ms
+  Average Iteration Time: 0.414339 ms
+  Min/Max Iteration Time: 0.36825/1.32596 ms
+  Performance: 2.41348e+07 cell updates per second
+  Memory Usage Increase: 0 KB
+  Checksum: 203920
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 100x100 (10000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 3.88767 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 41.4339 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.414339 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.36825/1.32596 ms
+
+Performance Statistics:
+  Average Performance: 2.41348e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (41.4339 ms)
+  Worst Run: Run 1 (41.4339 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 0 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+==3975== 
+==3975== Process terminating with default action of signal 27 (SIGPROF)
+==3975==    at 0x4C3CDBC: __open_nocancel (open64_nocancel.c:39)
+==3975==    by 0x4C48E7F: write_gmon (gmon.c:370)
+==3975==    by 0x4C494FB: _mcleanup (gmon.c:444)
+==3975==    by 0x4B9D387: __cxa_finalize (cxa_finalize.c:83)
+==3975==    by 0x10BA8F: ??? (in /app/build/heat_diffusion_benchmark)
+==3975==    by 0x4005397: _dl_fini (dl-fini.c:142)
+==3975==    by 0x4B9CDE7: __run_exit_handlers (exit.c:113)
+==3975==    by 0x4B9CF0B: exit (exit.c:143)
+==3975==    by 0x4B873FF: (below main) (libc_start_call_main.h:74)
+==3975== 
+==3975== I   refs:      9,188,123
+==3975== I1  misses:        4,496
+==3975== LLi misses:        2,041
+==3975== I1  miss rate:      0.05%
+==3975== LLi miss rate:      0.02%
+==3975== 
+==3975== D   refs:      3,804,121  (3,060,582 rd   + 743,539 wr)
+==3975== D1  misses:      288,825  (  157,152 rd   + 131,673 wr)
+==3975== LLd misses:       13,752  (    8,782 rd   +   4,970 wr)
+==3975== D1  miss rate:       7.6% (      5.1%     +    17.7%  )
+==3975== LLd miss rate:       0.4% (      0.3%     +     0.7%  )
+==3975== 
+==3975== LL refs:         293,321  (  161,648 rd   + 131,673 wr)
+==3975== LL misses:        15,793  (   10,823 rd   +   4,970 wr)
+==3975== LL miss rate:        0.1% (      0.1%     +     0.7%  )

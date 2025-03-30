@@ -1,0 +1,209 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 0
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 0 maps to socket 0 core 0 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507869 thread 0 bound to OS proc set 0
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 2
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 2 maps to socket 0 core 19 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507870 thread 0 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507878 thread 2 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507877 thread 2 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507879 thread 3 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507880 thread 3 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507881 thread 4 bound to OS proc set 2
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 4
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 4 maps to socket 0 core 1 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507882 thread 4 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507871 thread 0 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507883 thread 5 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507890 thread 2 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507884 thread 5 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507891 thread 3 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507885 thread 6 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507892 thread 4 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507893 thread 5 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507887 thread 6 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507886 thread 7 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507894 thread 6 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507888 thread 7 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507895 thread 7 bound to OS proc set 4
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 62
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 62 maps to socket 0 core 34 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72076 thread 0 bound to OS proc set 62
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 64
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 64 maps to socket 0 core 16 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72077 thread 0 bound to OS proc set 64
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 70
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 70 maps to socket 0 core 36 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72080 thread 0 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72088 thread 2 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72089 thread 3 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72090 thread 4 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72091 thread 5 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72098 thread 2 bound to OS proc set 64
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72094 thread 1 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72092 thread 6 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72095 thread 2 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72096 thread 3 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72097 thread 4 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72099 thread 5 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72100 thread 6 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72076 tid 72102 thread 7 bound to OS proc set 62
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72101 thread 3 bound to OS proc set 64
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72093 thread 7 bound to OS proc set 70
+Running benchmark with grid size 5000x5000 for 50 iterations across 1 runs using 8 MPI ranks and 8 OpenMP threads per rank (total 64 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=8, Max threads available=8, Using=8
+
+=== Run 1 of 1 ===
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72103 thread 4 bound to OS proc set 64
+Creating a 4x2 process grid for 8 processes
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72104 thread 5 bound to OS proc set 64
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72105 thread 6 bound to OS proc set 64
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72106 thread 7 bound to OS proc set 64
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 66
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #155: KMP_AFFINITY: Initial OS proc set respected: 68
+OMP: Info #217: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #157: KMP_AFFINITY: 1 available OS procs
+OMP: Info #158: KMP_AFFINITY: Uniform topology
+OMP: Info #288: KMP_AFFINITY: topology layer "LL cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L3 cache" is equivalent to "socket".
+OMP: Info #288: KMP_AFFINITY: topology layer "L2 cache" is equivalent to "core".
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 66 maps to socket 0 core 35 thread 0 
+OMP: Info #288: KMP_AFFINITY: topology layer "L1 cache" is equivalent to "core".
+OMP: Info #192: KMP_AFFINITY: 1 socket x 1 core/socket x 1 thread/core (1 total cores)
+OMP: Info #219: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #172: KMP_AFFINITY: OS proc 68 maps to socket 0 core 17 thread 0 
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72079 thread 0 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72078 thread 0 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72109 thread 2 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72108 thread 1 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72112 thread 3 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72110 thread 2 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72111 thread 3 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72114 thread 4 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72113 thread 4 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72116 thread 5 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72115 thread 5 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72118 thread 6 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72117 thread 6 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72120 thread 7 bound to OS proc set 66
+OMP: Info #255: KMP_AFFINITY: pid 507869 tid 507875 thread 1 bound to OS proc set 0
+OMP: Info #255: KMP_AFFINITY: pid 72079 tid 72119 thread 7 bound to OS proc set 68
+OMP: Info #255: KMP_AFFINITY: pid 507870 tid 507876 thread 1 bound to OS proc set 2
+OMP: Info #255: KMP_AFFINITY: pid 507871 tid 507889 thread 1 bound to OS proc set 4
+OMP: Info #255: KMP_AFFINITY: pid 72077 tid 72086 thread 1 bound to OS proc set 64
+OMP: Info #255: KMP_AFFINITY: pid 72080 tid 72087 thread 1 bound to OS proc set 70
+OMP: Info #255: KMP_AFFINITY: pid 72078 tid 72107 thread 1 bound to OS proc set 66
+Domain decomposition: Global size = 5000x5000, Process grid = 4x2
+Rank 0 has local domain size 2500x1250 starting at global position (0,0)
+Rank 1 has local domain size 2500x1250 starting at global position (2500,0)
+Rank 2 has local domain size 2500x1250 starting at global position (0,1250)
+Rank 3 has local domain size 2500x1250 starting at global position (2500,1250)
+Rank 4 has local domain size 2500x1250 starting at global position (0,2500)
+Rank 5 has local domain size 2500x1250 starting at global position (2500,2500)
+Rank 6 has local domain size 2500x1250 starting at global position (0,3750)
+Rank 7 has local domain size 2500x1250 starting at global position (2500,3750)
+OpenMP initialized with 8 threads per MPI rank
+Run 1 Results:
+  Setup Time: 378.853 ms
+  Total Simulation Time: 4661.59 ms
+  Performance: 2.68149e+08 cell updates per second
+  Memory Usage Increase: 55704 KB
+  Checksum: 5.00004e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 5000x5000 (25000000 cells)
+Iterations per Run: 50
+Parallel Configuration: 8 MPI ranks × 8 OpenMP threads = 64 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 378.853 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 4661.59 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: 268.15 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 4.19 million
+  Best Run: Run 1 (4661.59 ms)
+  Worst Run: Run 1 (4661.59 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 55704.00 KB
+  Average Memory Per Rank: 6963.00 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 500003920.00
+
+CSV Format (for data collection):
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+5000,5000,50,8,8,64,4661.59,0.00,268.15,55704.00,500003920.00

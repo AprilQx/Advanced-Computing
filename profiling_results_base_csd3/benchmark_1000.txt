@@ -1,1 +1,0 @@
-./heat_diffusion_benchmark: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./heat_diffusion_benchmark)

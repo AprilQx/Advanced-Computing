@@ -1,0 +1,47 @@
+
+=== Run 1 of 1 ===
+Running benchmark with grid size 400x400 for 100 iterations across 1 runs using 4 MPI ranks (no output)
+
+=== Run 1 of 1 ===
+Creating a 2x2 process grid for 4 processes
+
+=== Run 1 of 1 ===
+
+=== Run 1 of 1 ===
+Rank 2 has local domain size 200x200 starting at global position (0,200)
+Rank 2 neighbors: N=0, E=3, S=-2, W=-2
+Rank 3 has local domain size 200x200 starting at global position (200,200)
+Rank 3 neighbors: N=1, E=-2, S=-2, W=2
+Domain decomposition: Global size = 400x400, Process grid = 2x2
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-2, E=1, S=2, W=-2
+Rank 1 has local domain size 200x200 starting at global position (200,0)
+Rank 1 neighbors: N=-2, E=-2, S=3, W=0
+Run 1 Results:
+  Setup Time: 0.544542 ms
+  Total Simulation Time: 2.2515 ms
+  Performance: 7.10637e+09 cell updates per second
+  Memory Usage Increase: 1064 KB
+  Checksum: 3.20392e+06
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 400x400 (160000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 0.544542 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 2.2515 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.022515 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.02/0.051625 ms
+
+Performance Statistics:
+  Average Performance: 7.10637e+09 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (2.2515 ms)
+  Worst Run: Run 1 (2.2515 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 1064 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

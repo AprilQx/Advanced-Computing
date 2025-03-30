@@ -1,0 +1,38 @@
+OMP_NUM_THREADS environment variable: 1
+Running benchmark with grid size 4096x4096 for 5 iterations across 1 runs (no output)
+System has 1 OpenMP threads available
+
+=== Run 1 of 1 ===
+OpenMP initialized with 1 threads
+Using 1 OpenMP threads for this run
+Iteration 0 completed in 24.2557 ms
+Run 1 Results:
+  Setup Time: 47.3356 ms
+  Total Simulation Time: 121.278 ms
+  Average Iteration Time: 24.2556 ms
+  Min/Max Iteration Time: 24.2397/24.2585 ms
+  Performance: 6.91683e+08 cell updates per second
+  Memory Usage Increase: 261320 KB
+  Checksum: 3.35548e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 4096x4096 (16777216 cells)
+Iterations per Run: 5
+
+Timing Statistics:
+  Average Setup Time: 47.3356 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 121.278 ms (StdDev: 0 ms)
+  Average Iteration Time: 24.2556 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 24.2397/24.2585 ms
+
+Performance Statistics:
+  Average Performance: 6.91683e+08 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (121.278 ms)
+  Worst Run: Run 1 (121.278 ms)
+  Coefficient of Variation: 0%
+
+Memory Usage:
+  Average Memory Increase: 261320 KB
+
+Numerical Stability:
+  Checksum consistency: Stable

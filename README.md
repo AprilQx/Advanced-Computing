@@ -24,6 +24,7 @@ The project is organized as follows:
 * **Doxyfile**: Doxygen configuration file for automatic code documentation generation from source comments
 * **Dockerfile**: Container definition for consistent development and profiling environment across platforms
 * **CMakelists.txt**: Main build system configuration file defining compilation targets, dependencies, and platform-specific settings
+* **Results** Obtained experimental results.
 
 ## Implementation Approaches
 
@@ -477,7 +478,18 @@ The project includes pre-configured SLURM scripts for CSD3:
 # Submit MPI-specific profiling job
 ./scripts/comprehensive-profiling-script-mpi.sh
 
-#submit 
+# Then run executable, for example:
+./heat_diffusion_benchmark --width 2000 --height 2000 --iterations 1000
+./heat_diffusion_optimized_benchmark_v3 --width 2000 --height 2000 --iterations 1000
+export OMP_NUM_THREADS=76 && ./heat_diffusion_openmp_benchmark --width 2000 --height 2000 --iterations 1000
+mpirun -n 76 ./heat_diffusion_mpi_benchmark --width 2000 --height 2000 --iterations 1000
+
+# Run with 2 MPI processes (1 per node) and 76 threads each 
+export OMP_NUM_THREADS=76
+mpirun -n 2 -ppn 1 ./heat_diffusion_benchmark_hybrid --width 5000 --height 5000 --iterations 1000
+
+#optimal configuration
+$mpirun -n 19 --nodes=2 --ntasks-per-node=10 --cpus-per-task=4 ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 
 ```
 
 

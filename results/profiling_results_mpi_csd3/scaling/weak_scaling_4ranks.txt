@@ -1,0 +1,105 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+
+=== Run 1 of 3
+=== Run 1 of 3 ===
+ ===
+
+=== Run 1 of 3 ===
+Running benchmark with grid size 400x400 for 100 iterations across 3 runs using 4 MPI ranks (no output)
+
+=== Run 1 of 3 ===
+Creating a 2x2 process grid for 4 processes
+Domain decomposition: Global size = 400x400, Process grid = 2x2
+Rank 0 has local domain size 200x200 starting at global position (0,0Rank 1 has local domain size 200x200 starting at global position (200,0)
+Rank 1 neighbors: N=-1, E=-1Rank 2 has local domain size 200x200 starting at global position (0,200)
+Rank 2 neighbors: N=0, E=3, S=-1, W=-1
+)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+, S=3, W=0
+Rank 3 has local domain size 200x200 starting at global position (200,200)
+Rank 3 neighbors: N=1, E=-1, S=-1, W=2
+Run 1 Results:
+  Setup Time: 33.6974 ms
+  Total Simulation Time: 8.04745 ms
+  Performance: 1.98821e+09 cell updates per second
+  Memory Usage Increase: 6544 KB
+  Checksum: 3.20392e+06
+
+=== Run 2 of 3 ===
+Creating a 2x2 process grid for 4 processes
+Domain decomposition: Global size = 400x400, Process grid = 2x2
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+
+=== Run 2 of 3 ===
+Rank 1 has local domain size 200x200 starting at global position (200,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+
+=== Run 2 of 3 ===
+Rank 2 has local domain size 200x200 starting at global position (0,200)
+Rank 2 neighbors: N=0, E=3, S=-1, W=-1
+
+=== Run 2 of 3 ===
+Rank 3 has local domain size 200x200 starting at global position (200,200)
+Rank 3 neighbors: N=1, E=-1, S=-1, W=2
+Run 2 Results:
+  Setup Time: 0.373198 ms
+  Total Simulation Time: 4.84587 ms
+  Performance: 3.30178e+09 cell updates per second
+  Memory Usage Increase: 940 KB
+  Checksum: 3.20392e+06
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+
+=== Run 3 of 3 ===
+Creating a 2x2 process grid for 4 processes
+Domain decomposition: Global size = 400x400, Process grid = 2x2
+Rank 0 has local domain size 200x200 starting at global position (0,0)
+Rank 0 neighbors: N=-1, E=1, S=2, W=-1
+Rank 1 has local domain size 200x200 starting at global position (200,0)
+Rank 1 neighbors: N=-1, E=-1, S=3, W=0
+Rank 2 has local domain size 200x200 starting at global position (0,200)
+Rank 2 neighbors: N=0, E=3, S=-1, W=-1
+Rank 3 has local domain size 200x200 starting at global position (200,200)
+Rank 3 neighbors: N=1, E=-1, S=-1, W=2
+Run 3 Results:
+  Setup Time: 0.231947 ms
+  Total Simulation Time: 4.73486 ms
+  Performance: 3.37919e+09 cell updates per second
+  Memory Usage Increase: 152 KB
+  Checksum: 3.20392e+06
+
+=== AGGREGATE BENCHMARK RESULTS (3 RUNS) ===
+Grid Size: 400x400 (160000 cells)
+Iterations per Run: 100
+
+Timing Statistics:
+  Average Setup Time: 11.4342 ms (StdDev: 15.7426 ms)
+  Average Total Simulation Time: 5.87606 ms (StdDev: 1.53607 ms)
+  Average Iteration Time: 0.0587606 ms (StdDev: 0.0153607 ms)
+  Average Min/Max Iteration Time: 0.054937/0.128649 ms
+
+Performance Statistics:
+  Average Performance: 2.88973e+09 cell updates per second (StdDev: 6.38253e+08)
+  Best Run: Run 3 (4.73486 ms)
+  Worst Run: Run 1 (8.04745 ms)
+  Coefficient of Variation: 26.1412%
+
+Memory Usage:
+  Average Memory Increase: 2545.33 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 74838 RUNNING AT cpu-q-177
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================

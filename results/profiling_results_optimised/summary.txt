@@ -1,0 +1,28 @@
+COMPREHENSIVE PROFILING SUMMARY
+===============================
+
+Top functions from gprof:
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusion::update()
+  0.00      0.00     0.00      100     0.00     0.00  OptimizedHeatDiffusion::saveFrame(int)
+  0.00      0.00     0.00       19     0.00     0.00  frame_dummy
+  0.00      0.00     0.00        7     0.00     0.00  void std::vector<double, std::allocator<double> >::_M_realloc_insert<double const&>(__gnu_cxx::__normal_iterator<double*, std::vector<double, std::allocator<double> > >, double const&)
+  0.00      0.00     0.00        4     0.00     0.00  calculateStdDev(std::vector<double, std::allocator<double> > const&, double)
+  0.00      0.00     0.00        2     0.00     0.00  int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::OptimizedHeatDiffusion(int, int, double, bool)
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::~OptimizedHeatDiffusion()
+  0.00      0.00     0.00        1     0.00     0.00  OptimizedHeatDiffusion::getChecksum() const
+  0.00      0.00     0.00        1     0.00     0.00  void std::vector<long, std::allocator<long> >::_M_realloc_insert<long const&>(__gnu_cxx::__normal_iterator<long*, std::vector<long, std::allocator<long> > >, long const&)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+Memory usage (massif):
+
+Performance by grid size can be found in the cachegrind and valgrind directories.

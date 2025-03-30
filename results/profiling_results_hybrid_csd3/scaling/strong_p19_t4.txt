@@ -1,0 +1,79 @@
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+MPI startup(): Warning: I_MPI_PMI_LIBRARY will be ignored since the hydra process manager was found
+Running benchmark with grid size 5000x5000 for 50 iterations across 1 runs using 19 MPI ranks and 4 OpenMP threads per rank (total 76 parallel units) (no output)
+OpenMP environment: OMP_NUM_THREADS=4, Max threads available=4, Using=4
+
+=== Run 1 of 1 ===
+Creating a 19x1 process grid for 19 processes
+Domain decomposition: Global size = 5000x5000, Process grid = 19x1
+Rank 0 has local domain size 5000x263 starting at global position (0,0)
+Rank 1 has local domain size 5000x263 starting at global position (0,263)
+Rank 2 has local domain size 5000x263 starting at global position (0,526)
+Rank 4 has local domain size 5000x263 starting at global position (0,1052)
+Rank 8 has local domain size 5000x263 starting at global position (0,2104)
+Rank 9 has local domain size 5000x263 starting at global position (0,2367)
+Rank 10 has local domain size 5000x263 starting at global position (0,2630)
+Rank 11 has local domain size 5000x263 starting at global position (0,2893)
+Rank 12 has local domain size 5000x263 starting at global position (0,3156)
+Rank 13 has local domain size 5000x263 starting at global position (0,3419)
+Rank 14 has local domain size 5000x263 starting at global position (0,3682)
+Rank 15 has local domain size 5000x263 starting at global position (0,3945)
+Rank 16 has local domain size 5000x263 starting at global position (0,4208)
+Rank 17 has local domain size 5000x263 starting at global position (0,4471)
+OpenMP initialized with 4 threads per MPI rank
+Rank 18 has local domain size 5000x266 starting at global position (0,4734)
+Rank 5 has local domain size 5000x263 starting at global position (0,1315)
+Rank 6 has local domain size 5000x263 starting at global position (0,1578)
+Rank 7 has local domain size 5000x263 starting at global position (0,1841)
+Rank 3 has local domain size 5000x263 starting at global position (0,789)
+Run 1 Results:
+  Setup Time: 482.03 ms
+  Total Simulation Time: 4865.02 ms
+  Performance: 2.56936e+08 cell updates per second
+  Memory Usage Increase: 25920 KB
+  Checksum: 5.00004e+08
+
+=== AGGREGATE BENCHMARK RESULTS (1 RUNS) ===
+Grid Size: 5000x5000 (25000000 cells)
+Iterations per Run: 50
+Parallel Configuration: 19 MPI ranks × 4 OpenMP threads = 76 total parallel units
+
+Timing Statistics:
+  Average Setup Time: 482.03 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 4865.02 ms (StdDev: 0 ms)
+
+Performance Statistics:
+  Average Performance: 256.94 million cell updates per second (StdDev: 0.00)
+  Cell updates per second per parallel unit: 3.38 million
+  Best Run: Run 1 (4865.02 ms)
+  Worst Run: Run 1 (4865.02 ms)
+  Coefficient of Variation: 0.00%
+
+Memory Usage:
+  Average Memory Increase: 25920.00 KB
+  Average Memory Per Rank: 1364.21 KB
+
+Numerical Stability:
+  Checksum consistency: Stable
+  Final checksum: 500003920.00
+
+CSV Format (for data collection):
+width, height, iterations,mpi_ranks,omp_threads,total_units,avg_time_ms,stddev_ms,performance_mcups,memory_kb,checksum
+5000,5000,50,19,4,76,4865.02,0.00,256.94,25920.00,500003920.00

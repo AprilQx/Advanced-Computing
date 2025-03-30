@@ -1,0 +1,5 @@
+[mpiexec@cpu-q-177] ppn_fn (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:583): please specify ppn > 0
+[mpiexec@cpu-q-177] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:83): match handler returned error
+[mpiexec@cpu-q-177] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@cpu-q-177] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1359): error parsing input array
+[mpiexec@cpu-q-177] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1783): error parsing parameters
