@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
  <rdmgr>
-  <timestamp type="u64_t">1742757932</timestamp>
-  <hostname type="string">cpu-q-132</hostname>
+  <timestamp type="u64_t">1744023692</timestamp>
+  <hostname type="string">cpu-q-219</hostname>
   <os type="string">linux</os>
   <product type="string">Intel® VTune™ Profiler 2022.1.0</product>
   <buildNumber type="s32_t">621966</buildNumber>
@@ -15,8 +15,8 @@
   <CPUStepping type="s32_t">6</CPUStepping>
   <CPUBrandName type="string">Intel(R) Xeon(R) Platinum 8368Q CPU @ 2.60GHz</CPUBrandName>
   <isa type="string">avx512</isa>
-  <collectionTimeBegin type="u64_t">1742757932</collectionTimeBegin>
-  <collectionTimeEnd type="u64_t">1742757938</collectionTimeEnd>
+  <collectionTimeBegin type="u64_t">1744023693</collectionTimeBegin>
+  <collectionTimeEnd type="u64_t">1744023705</collectionTimeEnd>
   <variables>
    <at type="string">hs</at>
   </variables>

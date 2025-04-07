@@ -5,163 +5,163 @@ System Information:
   Architecture: Icelake (Intel Xeon 8360Y)
   Cores: 76 per node
   Memory: 256GB/512GB per node
-  Date: Sun Mar 23 19:25:44 GMT 2025
+  Date: Mon Apr  7 12:02:36 BST 2025
 
 Intel VTune Hotspots Summary:
-Elapsed Time: 5.008s
-    CPU Time: 4.880s
-        Effective Time: 4.880s
+Elapsed Time: 7.794s
+    CPU Time: 5.470s
+        Effective Time: 5.470s
         Spin Time: 0s
         Overhead Time: 0s
     Total Thread Count: 1
     Paused Time: 0s
 
 Top Hotspots
-Function                        Module                                 CPU Time  % of CPU Time(%)
-------------------------------  -------------------------------------  --------  ----------------
-OptimizedHeatDiffusion::update  heat_diffusion_optimized_benchmark_v2    4.880s            100.0%
-Effective CPU Utilization: 1.3%
+Function                             Module                                 CPU Time  % of CPU Time(%)
+-----------------------------------  -------------------------------------  --------  ----------------
+OptimizedHeatDiffusion::update       heat_diffusion_optimized_benchmark_v1    5.460s             99.8%
+OptimizedHeatDiffusion::getChecksum  heat_diffusion_optimized_benchmark_v1    0.010s              0.2%
+Effective CPU Utilization: 0.9%
  | The metric value is low, which may signal a poor logical CPU cores
  | utilization caused by load imbalance, threading runtime overhead, contended
  | synchronization, or thread/process underutilization. Explore sub-metrics to
  | estimate the efficiency of MPI and OpenMP parallelism or run the Locks and
  | Waits analysis to identify parallel bottlenecks for other parallel runtimes.
  |
-    Average Effective CPU Utilization: 0.985 out of 76
+    Average Effective CPU Utilization: 0.709 out of 76
 Collection and Platform Info
-    Application Command Line: ./heat_diffusion_optimized_benchmark_v2 "--size" "1000" "--iterations" "1000" 
+    Application Command Line: ./heat_diffusion_optimized_benchmark_v1 "--width" "1000" "--height" "1000" "--iterations" "1000" 
     Operating System: 4.18.0-553.34.1.el8_10.x86_64 Unix/Linux
-    Computer Name: cpu-q-132
+    Computer Name: cpu-q-219
     Result Size: 3.7 MB 
-    Collection start time: 19:25:32 23/03/2025 UTC
-    Collection stop time: 19:25:37 23/03/2025 UTC
+    Collection start time: 11:01:36 07/04/2025 UTC
+    Collection stop time: 11:01:44 07/04/2025 UTC
     Collector Type: Driverless Perf per-process counting,User-mode sampling and tracing
     CPU
-        Name: Intel(R) Xeon(R) Processor code named Icelake
 
 Performance by grid size:
 Grid size 100x100:
-  Average Iteration Time: 0.00315518 ms
-  Average Iteration Time: 0.00316362 ms
-  Average Iteration Time: 0.00314975 ms
-  Average Iteration Time: 0.00317519 ms
-  Average Iteration Time: 0.00314906 ms
-  Average Iteration Time: 0.00315019 ms
-  Average Iteration Time: 0.00315798 ms
-  Average Iteration Time: 0.00314983 ms
-  Average Iteration Time: 0.00315949 ms
-  Average Iteration Time: 0.00315613 ms
-  Average Iteration Time: 0.00315664 ms (StdDev: 7.73126e-06 ms)
-  Performance: 3.1694e+09 cell updates per second
-  Performance: 3.16094e+09 cell updates per second
-  Performance: 3.17485e+09 cell updates per second
-  Performance: 3.14942e+09 cell updates per second
-  Performance: 3.17555e+09 cell updates per second
-  Performance: 3.17441e+09 cell updates per second
-  Performance: 3.16658e+09 cell updates per second
-  Performance: 3.17477e+09 cell updates per second
-  Performance: 3.16507e+09 cell updates per second
-  Performance: 3.16844e+09 cell updates per second
-  Average Performance: 3.16794e+09 cell updates per second (StdDev: 7.73692e+06)
+  Average Iteration Time: 0.668533 ms
+  Average Iteration Time: 0.650167 ms
+  Average Iteration Time: 0.641725 ms
+  Average Iteration Time: 0.696352 ms
+  Average Iteration Time: 0.67615 ms
+  Average Iteration Time: 0.669748 ms
+  Average Iteration Time: 0.633663 ms
+  Average Iteration Time: 0.669823 ms
+  Average Iteration Time: 0.646736 ms
+  Average Iteration Time: 0.626733 ms
+  Average Iteration Time: 0.657963 ms (StdDev: 0.0205232 ms)
+  Performance: 1.49581e+09 cell updates per second
+  Performance: 1.53807e+09 cell updates per second
+  Performance: 1.5583e+09 cell updates per second
+  Performance: 1.43606e+09 cell updates per second
+  Performance: 1.47896e+09 cell updates per second
+  Performance: 1.4931e+09 cell updates per second
+  Performance: 1.57813e+09 cell updates per second
+  Performance: 1.49293e+09 cell updates per second
+  Performance: 1.54623e+09 cell updates per second
+  Performance: 1.59558e+09 cell updates per second
+  Average Performance: 1.52132e+09 cell updates per second (StdDev: 4.72505e+07)
 Memory Usage:
 
 Grid size 200x200:
-  Average Iteration Time: 0.0148516 ms
-  Average Iteration Time: 0.0122012 ms
-  Average Iteration Time: 0.0122251 ms
-  Average Iteration Time: 0.0122305 ms
-  Average Iteration Time: 0.0122291 ms
-  Average Iteration Time: 0.0122338 ms
-  Average Iteration Time: 0.0123491 ms
-  Average Iteration Time: 0.0122279 ms
-  Average Iteration Time: 0.0122298 ms
-  Average Iteration Time: 0.0122237 ms
-  Average Iteration Time: 0.0125002 ms (StdDev: 0.000784717 ms)
-  Performance: 2.69332e+09 cell updates per second
-  Performance: 3.27837e+09 cell updates per second
-  Performance: 3.27196e+09 cell updates per second
-  Performance: 3.27052e+09 cell updates per second
-  Performance: 3.27089e+09 cell updates per second
-  Performance: 3.26963e+09 cell updates per second
-  Performance: 3.2391e+09 cell updates per second
-  Performance: 3.2712e+09 cell updates per second
-  Performance: 3.27069e+09 cell updates per second
-  Performance: 3.27232e+09 cell updates per second
-  Average Performance: 3.2108e+09 cell updates per second (StdDev: 1.72787e+08)
+  Average Iteration Time: 0.687589 ms
+  Average Iteration Time: 0.669517 ms
+  Average Iteration Time: 0.625985 ms
+  Average Iteration Time: 0.681546 ms
+  Average Iteration Time: 0.852746 ms
+  Average Iteration Time: 0.627814 ms
+  Average Iteration Time: 0.615231 ms
+  Average Iteration Time: 0.534407 ms
+  Average Iteration Time: 0.536699 ms
+  Average Iteration Time: 0.52903 ms
+  Average Iteration Time: 0.636056 ms (StdDev: 0.0922286 ms)
+  Performance: 1.45436e+09 cell updates per second
+  Performance: 1.49362e+09 cell updates per second
+  Performance: 1.59748e+09 cell updates per second
+  Performance: 1.46725e+09 cell updates per second
+  Performance: 1.17268e+09 cell updates per second
+  Performance: 1.59283e+09 cell updates per second
+  Performance: 1.62541e+09 cell updates per second
+  Performance: 1.87123e+09 cell updates per second
+  Performance: 1.86324e+09 cell updates per second
+  Performance: 1.89025e+09 cell updates per second
+  Average Performance: 1.60284e+09 cell updates per second (StdDev: 2.14589e+08)
 Memory Usage:
 
 Grid size 500x500:
-  Average Iteration Time: 0.121793 ms
-  Average Iteration Time: 0.113104 ms
-  Average Iteration Time: 0.112974 ms
-  Average Iteration Time: 0.112995 ms
-  Average Iteration Time: 0.113011 ms
-  Average Iteration Time: 0.112996 ms
-  Average Iteration Time: 0.113003 ms
-  Average Iteration Time: 0.112939 ms
-  Average Iteration Time: 0.112984 ms
-  Average Iteration Time: 0.112981 ms
-  Average Iteration Time: 0.113878 ms (StdDev: 0.00263872 ms)
-  Performance: 2.05266e+09 cell updates per second
-  Performance: 2.21036e+09 cell updates per second
-  Performance: 2.2129e+09 cell updates per second
-  Performance: 2.21249e+09 cell updates per second
-  Performance: 2.21217e+09 cell updates per second
-  Performance: 2.21246e+09 cell updates per second
-  Performance: 2.21233e+09 cell updates per second
-  Performance: 2.21358e+09 cell updates per second
-  Performance: 2.2127e+09 cell updates per second
-  Performance: 2.21277e+09 cell updates per second
-  Average Performance: 2.19644e+09 cell updates per second (StdDev: 4.79343e+07)
+  Average Iteration Time: 0.55606 ms
+  Average Iteration Time: 0.528769 ms
+  Average Iteration Time: 0.529483 ms
+  Average Iteration Time: 0.528463 ms
+  Average Iteration Time: 0.529802 ms
+  Average Iteration Time: 0.533914 ms
+  Average Iteration Time: 0.532342 ms
+  Average Iteration Time: 0.545536 ms
+  Average Iteration Time: 0.52915 ms
+  Average Iteration Time: 0.527114 ms
+  Average Iteration Time: 0.534063 ms (StdDev: 0.00888499 ms)
+  Performance: 1.79837e+09 cell updates per second
+  Performance: 1.89118e+09 cell updates per second
+  Performance: 1.88864e+09 cell updates per second
+  Performance: 1.89228e+09 cell updates per second
+  Performance: 1.8875e+09 cell updates per second
+  Performance: 1.87296e+09 cell updates per second
+  Performance: 1.87849e+09 cell updates per second
+  Performance: 1.83306e+09 cell updates per second
+  Performance: 1.88982e+09 cell updates per second
+  Performance: 1.89712e+09 cell updates per second
+  Average Performance: 1.87294e+09 cell updates per second (StdDev: 3.03603e+07)
 Memory Usage:
 
 Grid size 1000x1000:
-  Average Iteration Time: 0.51374 ms
-  Average Iteration Time: 0.498834 ms
-  Average Iteration Time: 0.498563 ms
-  Average Iteration Time: 0.498429 ms
-  Average Iteration Time: 0.498502 ms
-  Average Iteration Time: 0.49858 ms
-  Average Iteration Time: 0.498492 ms
-  Average Iteration Time: 0.498322 ms
-  Average Iteration Time: 0.498325 ms
-  Average Iteration Time: 0.498545 ms
-  Average Iteration Time: 0.500033 ms (StdDev: 0.00457113 ms)
-  Performance: 1.94651e+09 cell updates per second
-  Performance: 2.00467e+09 cell updates per second
-  Performance: 2.00577e+09 cell updates per second
-  Performance: 2.00631e+09 cell updates per second
-  Performance: 2.00601e+09 cell updates per second
-  Performance: 2.0057e+09 cell updates per second
-  Performance: 2.00605e+09 cell updates per second
-  Performance: 2.00673e+09 cell updates per second
-  Performance: 2.00672e+09 cell updates per second
-  Performance: 2.00584e+09 cell updates per second
-  Average Performance: 2.00003e+09 cell updates per second (StdDev: 1.78492e+07)
+  Average Iteration Time: 0.557395 ms
+  Average Iteration Time: 0.527388 ms
+  Average Iteration Time: 0.570033 ms
+  Average Iteration Time: 0.527928 ms
+  Average Iteration Time: 0.527515 ms
+  Average Iteration Time: 0.527094 ms
+  Average Iteration Time: 0.52928 ms
+  Average Iteration Time: 0.528744 ms
+  Average Iteration Time: 0.526986 ms
+  Average Iteration Time: 0.527324 ms
+  Average Iteration Time: 0.534969 ms (StdDev: 0.0146641 ms)
+  Performance: 1.79406e+09 cell updates per second
+  Performance: 1.89614e+09 cell updates per second
+  Performance: 1.75428e+09 cell updates per second
+  Performance: 1.8942e+09 cell updates per second
+  Performance: 1.89568e+09 cell updates per second
+  Performance: 1.89719e+09 cell updates per second
+  Performance: 1.88936e+09 cell updates per second
+  Performance: 1.89127e+09 cell updates per second
+  Performance: 1.89758e+09 cell updates per second
+  Performance: 1.89637e+09 cell updates per second
+  Average Performance: 1.87061e+09 cell updates per second (StdDev: 4.90965e+07)
 Memory Usage:
 
 Grid size 2000x2000:
-  Average Iteration Time: 2.98847 ms
-  Average Iteration Time: 2.74348 ms
-  Average Iteration Time: 2.7232 ms
-  Average Iteration Time: 2.71305 ms
-  Average Iteration Time: 2.70704 ms
-  Average Iteration Time: 2.7008 ms
-  Average Iteration Time: 2.69513 ms
-  Average Iteration Time: 2.6943 ms
-  Average Iteration Time: 2.68955 ms
-  Average Iteration Time: 2.68971 ms
-  Average Iteration Time: 2.73447 ms (StdDev: 0.0861686 ms)
-  Performance: 1.33848e+09 cell updates per second
-  Performance: 1.458e+09 cell updates per second
-  Performance: 1.46886e+09 cell updates per second
-  Performance: 1.47435e+09 cell updates per second
-  Performance: 1.47763e+09 cell updates per second
-  Performance: 1.48104e+09 cell updates per second
-  Performance: 1.48416e+09 cell updates per second
-  Performance: 1.48461e+09 cell updates per second
-  Performance: 1.48724e+09 cell updates per second
-  Performance: 1.48715e+09 cell updates per second
-  Average Performance: 1.46415e+09 cell updates per second (StdDev: 4.27851e+07)
+  Average Iteration Time: 0.550654 ms
+  Average Iteration Time: 0.530775 ms
+  Average Iteration Time: 0.537041 ms
+  Average Iteration Time: 0.53286 ms
+  Average Iteration Time: 0.529594 ms
+  Average Iteration Time: 0.530195 ms
+  Average Iteration Time: 0.532226 ms
+  Average Iteration Time: 0.585143 ms
+  Average Iteration Time: 0.556145 ms
+  Average Iteration Time: 0.52735 ms
+  Average Iteration Time: 0.541198 ms (StdDev: 0.0172261 ms)
+  Performance: 1.81602e+09 cell updates per second
+  Performance: 1.88404e+09 cell updates per second
+  Performance: 1.86205e+09 cell updates per second
+  Performance: 1.87666e+09 cell updates per second
+  Performance: 1.88824e+09 cell updates per second
+  Performance: 1.8861e+09 cell updates per second
+  Performance: 1.8789e+09 cell updates per second
+  Performance: 1.70898e+09 cell updates per second
+  Performance: 1.79809e+09 cell updates per second
+  Performance: 1.89627e+09 cell updates per second
+  Average Performance: 1.84954e+09 cell updates per second (StdDev: 5.61147e+07)
 Memory Usage:
 

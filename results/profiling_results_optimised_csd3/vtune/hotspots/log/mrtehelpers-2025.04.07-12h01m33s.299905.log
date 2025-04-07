@@ -1,0 +1,10 @@
+547 [140069079803648] INFO mrtehelpers.mrteenv <> - Product libs directory: /usr/local/software/intel/oneapi/2022.1/vtune/2022.1.0/lib64
+547 [140069079803648] INFO mrtehelpers.mrteenv <> - File mask: amplxe_tpssmrte_clrprof*
+1292 [140069079803648] INFO mrtehelpers.mrteenv <> - File name: lib
+1292 [140069079803648] INFO mrtehelpers.mrteenv <> - File mask: amplxe_tpssmrte_clrprof*
+1329 [140069079803648] INFO mrtehelpers.mrteenv <> - File name: lib
+1334 [140069079803648] ERROR mrtehelpers.mrteenv <> - Failed to init shared librarylib located at /usr/local/software/intel/oneapi/2022.1/vtune/2022.1.0/lib64, at file: vcs/mrtehelpers3/src/mrteenv/mrte_profiling_initializer.cpp:496
+1334 [140069079803648] INFO mrtehelpers.mrteenv <> - File mask: amplxe_samplingmrte_clrprof*
+1373 [140069079803648] INFO mrtehelpers.mrteenv <> - File name: libamplxe_samplingmrte_clrprof_1.0.so
+1373 [140069079803648] INFO mrtehelpers.mrteenv <> - File mask: amplxe_samplingmrte_clrprof*
+1412 [140069079803648] INFO mrtehelpers.mrteenv <> - File name: libamplxe_samplingmrte_clrprof_1.0.so

@@ -1,11 +1,11 @@
 
 === Run 1 of 1 ===
 Run 1 Results:
-  Setup Time: 1.29363 ms
-  Total Simulation Time: 11.312 ms
-  Average Iteration Time: 0.11312 ms
-  Min/Max Iteration Time: 0.100333/0.814167 ms
-  Performance: 8.84014e+07 cell updates per second
+  Setup Time: 1.04479 ms
+  Total Simulation Time: 11.0382 ms
+  Average Iteration Time: 0.110382 ms
+  Min/Max Iteration Time: 0.100333/0.739833 ms
+  Performance: 9.05941e+07 cell updates per second
   Memory Usage Increase: 0 KB
   Checksum: 203920
 
@@ -14,15 +14,15 @@ Grid Size: 100x100 (10000 cells)
 Iterations per Run: 100
 
 Timing Statistics:
-  Average Setup Time: 1.29363 ms (StdDev: 0 ms)
-  Average Total Simulation Time: 11.312 ms (StdDev: 0 ms)
-  Average Iteration Time: 0.11312 ms (StdDev: 0 ms)
-  Average Min/Max Iteration Time: 0.100333/0.814167 ms
+  Average Setup Time: 1.04479 ms (StdDev: 0 ms)
+  Average Total Simulation Time: 11.0382 ms (StdDev: 0 ms)
+  Average Iteration Time: 0.110382 ms (StdDev: 0 ms)
+  Average Min/Max Iteration Time: 0.100333/0.739833 ms
 
 Performance Statistics:
-  Average Performance: 8.84014e+07 cell updates per second (StdDev: 0)
-  Best Run: Run 1 (11.312 ms)
-  Worst Run: Run 1 (11.312 ms)
+  Average Performance: 9.05941e+07 cell updates per second (StdDev: 0)
+  Best Run: Run 1 (11.0382 ms)
+  Worst Run: Run 1 (11.0382 ms)
   Coefficient of Variation: 0%
 
 Memory Usage:

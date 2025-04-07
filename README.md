@@ -458,6 +458,10 @@ sintr -A MPHIL-DIS-SL2-CPU  -t 01:00:00 -p icelake -N 2 -n 76
 git clone <repository-url>
 cd Coursework
 
+#set the correct module to run
+module purge
+module load rhel8/default-icl
+
 # Build the project
 mkdir -p build && cd build
 cmake ..
@@ -489,7 +493,7 @@ export OMP_NUM_THREADS=76
 mpirun -n 2 -ppn 1 ./heat_diffusion_benchmark_hybrid --width 5000 --height 5000 --iterations 1000
 
 #optimal configuration
-$mpirun -n 19 --nodes=2 --ntasks-per-node=10 --cpus-per-task=4 ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 
+$srun -n 19 --nodes=2 --ntasks-per-node=10 --cpus-per-task=4 ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 
 ```
 
 
