@@ -105,4 +105,4 @@ Thumbs.db
 
 #docs
 docs/*
-!docs/mainpage.md
+!docs/mainpage.md.DS_Store
