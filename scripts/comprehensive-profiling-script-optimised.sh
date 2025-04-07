@@ -36,10 +36,10 @@ make -j4
 echo -e "${BLUE}Running gprof profiling...${NC}"
 
 # Run with small grid for quick profiling
-./heat_diffusion_optimized_benchmark_v2 --height 100 --width 100 --iterations 100 --runs 1
+./heat_diffusion_optimized_benchmark_v1 --height 100 --width 100 --iterations 100 --runs 1
 
 # Generate gprof report
-gprof ./heat_diffusion_optimized_benchmark_v2 gmon.out > /app/profiling_results_optimised/gprof/gprof_report.txt
+gprof ./heat_diffusion_optimized_benchmark_v1 gmon.out > /app/profiling_results_optimised/gprof/gprof_report.txt
 
 #=====================
 # 2. VALGRIND Tools
@@ -59,7 +59,7 @@ for SIZE in 100 200 500 1000 2000; do
     ITER=100
     
     # Run cachegrind
-    valgrind --tool=cachegrind ./heat_diffusion_optimized_benchmark_v2 \
+    valgrind --tool=cachegrind ./heat_diffusion_optimized_benchmark_v1 \
         --height $SIZE --width $SIZE --iterations $ITER --runs 1 \
         > ../profiling_results_optimised/cachegrind/benchmark_${SIZE}.txt 2>&1
     
@@ -72,7 +72,7 @@ for SIZE in 100 200 500 1000 2000; do
 done
 # 2.2 Callgrind (call graph generation)
 echo -e "${YELLOW}Running callgrind...${NC}"
-valgrind --tool=callgrind ./heat_diffusion_optimized_benchmark_v2 --height 100 --width 100 --iterations 100 --runs 1 > /app/profiling_results_optimised/valgrind/callgrind_output.txt
+valgrind --tool=callgrind ./heat_diffusion_optimized_benchmark_v1 --height 100 --width 100 --iterations 100 --runs 1 > /app/profiling_results_optimised/valgrind/callgrind_output.txt
 
 # Find the callgrind output file
 CALLGRIND_FILE=$(ls callgrind.out.*)
@@ -80,7 +80,7 @@ callgrind_annotate $CALLGRIND_FILE > /app/profiling_results_optimised/valgrind/c
 
 # 2.3 Massif (heap profiling)
 echo -e "${YELLOW}Running massif...${NC}"
-valgrind --tool=massif ./heat_diffusion_optimized_benchmark_v2 --height 500 --width 500 --iterations 100 --runs 1 > /app/profiling_results_optimised/valgrind/massif_output.txt
+valgrind --tool=massif ./heat_diffusion_optimized_benchmark_v1 --height 500 --width 500 --iterations 100 --runs 1 > /app/profiling_results_optimised/valgrind/massif_output.txt
 
 # Find the massif output file
 MASSIF_FILE=$(ls massif.out.*)
@@ -104,7 +104,7 @@ for SIZE in 100 200 500 1000; do
     fi
     
     # Measure time and output
-    valgrind --tool=cachegrind ./heat_diffusion_optimized_benchmark_v2 --height $SIZE --width $SIZE --iterations $ITER --runs 1 > \
+    valgrind --tool=cachegrind ./heat_diffusion_optimized_benchmark_v1 --height $SIZE --width $SIZE --iterations $ITER --runs 1 > \
         /app/profiling_results_optimised/valgrind/benchmark_${SIZE}.txt 2>&1
 done
 
