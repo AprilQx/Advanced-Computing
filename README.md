@@ -496,6 +496,24 @@ mpirun -n 2 -ppn 1 ./heat_diffusion_benchmark_hybrid --width 5000 --height 5000 
 $srun -n 19 --nodes=2 --ntasks-per-node=10 --cpus-per-task=4 ./heat_diffusion_benchmark_hybrid --height 5000 --width 5000 --iterations 1000 --runs 1 --threads 4 
 ```
 
+### Common Question on Running Code on CSD3
+Q❓: The most common question is about the compatibility between different platforms. E.g.
+```
+./heat_diffusion: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./heat_diffusion)
+```
+This mainly due to the version of gcc compiler. In order to solve it, try to 
+```
+#set the correct module to run
+module purge
+module load rhel8/default-icl
+```
+Q❓: Another question is about the build system. 
+
+Remember to remove the build folder before running any profiling scripts.
+
+Q❓: The final one is about the testing result.
+
+During experimentation, I found out that it's better to test everything in one go as everytime if you get a new node, then there might be quite nocitable effects on the code performance. If you try to reproduce, try to test it in one go.
 
 ## Documentation with Doxygen
 This project is configured with comprehensive Doxygen documentation support. Here's how to use it:
