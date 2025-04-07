@@ -8,6 +8,11 @@ This project implements and optimizes a 2D heat diffusion simulation using the f
    4. MPI parallelized implementation
    5. Hybrid MPI+OpenMP implementation
 
+### AI Declaration
+GitHub Copilot was used during development to assist with code completion, function documentation, and debugging. All AI-generated code underwent thorough review to ensure correctness, adherence to project requirements, and proper error handling. The core algorithms and methodological decisions remain my intellectual contribution, with Copilot serving only as a productivity tool for implementing standard techniques and reducing time spent on repetitive coding tasks.
+
+
+
 ## Project Structure
 The project is organized as follows:
 
