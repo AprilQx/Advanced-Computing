@@ -138,9 +138,6 @@
              double iterTime = std::chrono::duration<double, std::milli>(iterEnd - iterStart).count();
              iterationTimes.push_back(iterTime);
              
-             if (i % 100 == 0) {
-                 std::cout << "Iteration " << i << " completed in " << iterTime << " ms" << std::endl;
-             }
          }
          
          auto totalEnd = std::chrono::high_resolution_clock::now();
